@@ -46,5 +46,12 @@ class RegisterController extends CI_Controller {
 		$process = $this->RegisterModel->insertUser($data);
 		echo $process ? "001" : "0";
 
+
+	public function topic()
+	{
+		$data['title'] = "Topic";
+		$this->load->view('template/header', $data);
+		$this->load->view('user/topic');
+		$this->load->view('template/footer');
 	}
 }
