@@ -242,7 +242,7 @@ function checkValue() {
     }
 
     // lead 
-    if ($('#userLead').val() == 'others') {
+    if ($('#userLead').val() == 'Others') {
         $('#userLeadNew').show();
         $('#userLeadNew').focus();
 
