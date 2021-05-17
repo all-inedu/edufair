@@ -36,6 +36,7 @@ input[type="checkbox"]:checked+label {
 
 .form-check label:hover {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+    cursor: pointer;
 }
 
 p {
