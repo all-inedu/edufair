@@ -1,6 +1,7 @@
 	<div class="container-fluid">
 	    <div class="container">
-	        <div class="col-xl-6 offset-xl-3 allin-registration" style="margin-top:7vh;background:#efefef">
+	        <div class="col-xl-6 offset-xl-3 allin-registration shadow"
+	            style="margin-top:7vh;background:#efefef; border:1px solid #dedede">
 	            <h3 class="text-center">Registration</h3>
 	            <hr>
 	            <div class="row">
@@ -64,7 +65,8 @@
 	                        </div>
 	                        <hr>
 	                        <div class="form-group text-right">
-	                            <button type="button" class="btn btn-primary navigate navigate-page-2">Next</button>
+	                            <button type="button" class="btn btn-primary navigate navigate-page-2">Next <i
+	                                    class="fas fa-arrow-right pl-2"></i></button>
 	                        </div>
 	                    </form>
 	                </div>
@@ -87,7 +89,7 @@
 	                        <div class="form-group">
 	                            <label>Where's your country destination to study
 	                                abroad?</label>
-	                            <select name="user_destination" id="userDestination">
+	                            <select name="user_destination" id="userDestination" multiple>
 	                                <option data-placeholder="true"></option>
 	                            </select>
 	                        </div>
@@ -104,7 +106,6 @@
 	                            <label>I know this Edufair from</label>
 	                            <select name="user_lead" id="userLead" onchange="checkValue()">
 	                                <option data-placeholder="true"></option>
-	                                <option value="other">Other</option>
 	                            </select>
 	                            <input type="text" class="form-control form-control-sm mt-1" name="user_lead"
 	                                id="userLeadNew">
@@ -113,9 +114,11 @@
 	                        <div class="form-group">
 	                            <div class="row">
 	                                <div class="col-xl-6 text-left"><button type="button"
-	                                        class="btn btn-primary navigate-page-1">Back</button></div>
+	                                        class="btn btn-primary navigate-page-1"><i class="fas fa-arrow-left pr-2"></i>
+	                                        Back</button></div>
 	                                <div class="col-xl-6 text-right"><button type="button"
-	                                        class="btn btn-primary navigate-page-3">Next</button></div>
+	                                        class="btn btn-success navigate-page-3">Submit <i
+	                                            class="fas fa-paper-plane pl-2"></i></button></div>
 	                            </div>
 	                        </div>
 	                    </form>
@@ -157,6 +160,68 @@ $(document).ready(function() {
     $('#userSchoolNew').hide();
     $('#userMajorNew').hide();
     $('#userLeadNew').hide();
+
+    // school 
+    $.ajax({
+        type: 'post',
+        dataType: "json",
+        url: "https://www.bigdata.crm-allinedu.com/api/school",
+        success: function(datas) {
+            $.each(datas, function(index, data) {
+                $('#userSchool').append(
+                    '<option value="' +
+                    data.sch_name +
+                    '">' +
+                    data.sch_name +
+                    '</option>'
+                )
+            });
+        }
+    });
+
+    // country 
+    $.ajax({
+        type: 'post',
+        dataType: "json",
+        url: "https://www.bigdata.crm-allinedu.com/api/countries",
+        success: function(datas) {
+            $.each(datas, function(index, data) {
+                $('#userDestination').append(
+                    '<option value="' + data + '">' + data + '</option>'
+                )
+            });
+        }
+    });
+
+    // major 
+    $.ajax({
+        type: 'post',
+        dataType: "json",
+        url: "https://www.bigdata.crm-allinedu.com/api/major",
+        success: function(datas) {
+            $.each(datas, function(index, data) {
+                $('#userMajor').append(
+                    '<option value="' + data + '">' + data + '</option>'
+                )
+            });
+        }
+    });
+
+    // lead 
+    $.ajax({
+        type: 'post',
+        dataType: "json",
+        url: "https://www.bigdata.crm-allinedu.com/api/lead",
+        success: function(datas) {
+            $.each(datas, function(index, data) {
+                $('#userLead').append(
+                    '<option value="' + data.lead_name + '">' + data.lead_name +
+                    '</option>'
+                )
+            });
+        }
+    });
+
 });
 
 function checkValue() {
@@ -177,7 +242,7 @@ function checkValue() {
     }
 
     // lead 
-    if ($('#userLead').val() == 'other') {
+    if ($('#userLead').val() == 'others') {
         $('#userLeadNew').show();
         $('#userLeadNew').focus();
 
