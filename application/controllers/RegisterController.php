@@ -31,7 +31,7 @@ class RegisterController extends CI_Controller {
 			"user_first_name" => $this->input->get('user_first_name'),
 			"user_last_name"  => $this->input->get('user_last_name'),
 			"user_email"      => $this->input->get('user_email'),
-			"user_password"   => "12345",
+			"user_password"   => password_hash($this->input->get('user_password'), PASSWORD_DEFAULT),
 			"user_phone"      => $this->input->get('user_phone'),
 			"user_status"     => $this->input->get('user_status'),
 			"user_gender"     => $this->input->get('user_gender'),
