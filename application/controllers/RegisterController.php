@@ -45,7 +45,7 @@ class RegisterController extends CI_Controller {
 
 		$process = $this->RegisterModel->insertUser($data);
 		echo $process ? "001" : "0";
-
+	}
 
 	public function topic()
 	{

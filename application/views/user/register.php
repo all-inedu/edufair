@@ -107,7 +107,7 @@
 	                            <select id="userDestination" multiple>
 	                                <option data-placeholder="true"></option>
 	                            </select>
-	                            <input type="text" value="" name="user_destination" id="user_destination">
+	                            <input type="hidden" value="" name="user_destination" id="user_destination">
 	                        </div>
 	                        <div class="form-group">
 	                            <label>What's your intended major in university?</label>
