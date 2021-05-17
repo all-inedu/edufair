@@ -1,9 +1,16 @@
 <style>
 .topic-card {
-    height: 70vh;
+    height: 50vh;
     overflow-x: hidden;
     overflow-y: scroll;
     padding: 0 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .topic-card {
+        height: auto;
+        margin-bottom: 20px;
+    }
 }
 
 input[type="checkbox"] {
@@ -46,7 +53,14 @@ p {
 
 <div class="container mt-5 p-3 shadow" style="background:#efefef; border:1px solid #dedede; border-radius:10px;">
     <div class="row">
-        <div class="col-md-6 text-center">
+        <div class="col-md-12 text-center mt-3 px-5">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe incidunt animi ab ipsa placeat! Cum,
+                omnis assumenda. Sequi at rem quod eligendi dolorum eum! Quam ipsa beatae aspernatur eligendi dicta!
+            </p>
+            <hr>
+        </div>
+        <div class="col-sm text-center">
             <h4>Day 1</h4>
             <div class="topic-card">
                 <div class="form-check">
@@ -91,7 +105,7 @@ p {
                 </div>
             </div>
         </div>
-        <div class="col-md-6 text-center">
+        <div class="col-sm text-center">
             <h4>Day 2</h4>
             <div class="topic-card">
                 <div class="form-check">
@@ -147,20 +161,28 @@ p {
             </div>
         </div>
     </div>
-    <br>
     <div class="form-group mt-3">
         <div class="row">
             <div class="col-12">
-                <div class="text-center"><button type="button" class="btn btn-primary navigate-page-3">Join Now <i
-                            class="fas fa-paper-plane pl-2"></i></button></div>
+                <hr>
+                <div class="text-center">
+                    <div class="row">
+                        <div class="col text-left ml-3">
+                            <button type="button" class="btn btn-warning navigate-page-3">Skip <i
+                                    class="fas fa-arrow-right pl-2"></i></button>
+                        </div>
+                        <div class="col text-right mr-3">
+                            <button type="button" class="btn btn-primary navigate-page-3">Join Now <i
+                                    class="fas fa-paper-plane pl-2"></i></button>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
-</div>
 
 
-<!-- <div class="container mt-5 p-3 shadow" style="background:#efefef; border:1px solid #dedede; border-radius:10px;">
+    <!-- <div class="container mt-5 p-3 shadow" style="background:#efefef; border:1px solid #dedede; border-radius:10px;">
     <div class="row">
         <div class="col-md-6">
             <div class="card topic-card">
