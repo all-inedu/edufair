@@ -25,4 +25,12 @@ class RegisterController extends CI_Controller {
 		$this->load->view('user/register');
 		$this->load->view('template/footer');
 	}
+
+	public function topic()
+	{
+		$data['title'] = "Topic";
+		$this->load->view('template/header', $data);
+		$this->load->view('user/topic');
+		$this->load->view('template/footer');
+	}
 }
