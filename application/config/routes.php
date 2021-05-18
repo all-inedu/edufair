@@ -55,3 +55,4 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['registration'] = 'RegisterController/view';
 $route['registration/topic'] = 'RegisterController/topic';
+$route['registration/book'] = 'RegisterController/book';
