@@ -251,7 +251,7 @@
 
 		function checkValue() {
 		    // school 
-		    if ($('#userSchool').val() == 'ther') {
+		    if ($('#userSchool').val() == 'other') {
 		        $('#userSchoolNew').show();
 		        $("#userSchoolNew").focus();
 		    } else {
