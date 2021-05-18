@@ -56,5 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['registration'] = 'RegisterController/view';
 $route['registration/topic'] = 'RegisterController/topic';
 $route['registration/submit'] = 'RegisterController/register';
+$route['registration/book'] = 'RegisterController/book';
 
 $route['dashboard/admin'] = 'AdminController/index';
+
