@@ -1,5 +1,5 @@
 <style>
-.card-header img {
+.card-headers img {
     padding: 0 20%;
 }
 
@@ -18,106 +18,106 @@
 }
 </style>
 
-<div class="container-fluid" style="margin-top:12vh;">
+<div class="container-fluid" style="margin-top:12vh;" id="home">
     <div class="row">
         <div class="col-md-7 p-5 bg-dark">
             <div class="row">
                 <div class="col-md-4 p-1 img1">
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar1.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar5.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar3.png');?>">
                     </div>
                 </div>
                 <div class="col-md-4 p-1 img2">
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar4.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar2.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar3.png');?>">
                     </div>
                 </div>
                 <div class="col-md-4 p-1 img3">
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar4.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar6.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar5.png');?>">
                     </div>
                 </div>
                 <div class="col-md-4 p-1 img4">
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar8.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar7.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar9.png');?>">
                     </div>
                 </div>
                 <div class="col-md-4 p-1 img5">
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar8.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar10.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar5.png');?>">
                     </div>
                 </div>
                 <div class="col-md-4 p-1 img6">
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar10.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar7.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar5.png');?>">
                     </div>
                 </div>
                 <div class="col-md-4 p-1 img7">
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar7.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar5.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar6.png');?>">
                     </div>
                 </div>
                 <div class="col-md-4 p-1 img8">
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar6.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar4.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar3.png');?>">
                     </div>
                 </div>
                 <div class="col-md-4 p-1 img9">
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar9.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar10.png');?>">
                     </div>
-                    <div class="card bg-light shadow card-header">
+                    <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar8.png');?>">
                     </div>
                 </div>
@@ -126,7 +126,7 @@
 
         <div class="col-md-5 p-5 my-auto text-center">
 
-            <h3>ALL-in Edufair</h3>
+            <h1>ALL-in Edufair</h1>
             <h5 class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet laboriosam eius doloremque
                 fugiat nam
                 saepe deleniti sunt voluptates animi eveniet officiis, doloribus nobis beatae illo cum maxime, optio
@@ -168,55 +168,55 @@
 
     <script>
     $('.img1').each(function() {
-        var random = Math.floor(Math.random() * $('.card-header', this).length);
-        $('.card-header', this).hide().eq(random).show();
+        var random = Math.floor(Math.random() * $('.card-headers', this).length);
+        $('.card-headers', this).hide().eq(random).show();
     });
 
     $('.img2').each(function() {
-        var random = Math.floor(Math.random() * $('.card-header', this).length);
-        $('.card-header', this).hide().eq(random).show();
+        var random = Math.floor(Math.random() * $('.card-headers', this).length);
+        $('.card-headers', this).hide().eq(random).show();
     });
 
     $('.img3').each(function() {
-        var random = Math.floor(Math.random() * $('.card-header', this).length);
-        $('.card-header', this).hide().eq(random).show();
+        var random = Math.floor(Math.random() * $('.card-headers', this).length);
+        $('.card-headers', this).hide().eq(random).show();
     });
 
     $('.img4').each(function() {
-        var random = Math.floor(Math.random() * $('.card-header', this).length);
-        $('.card-header', this).hide().eq(random).show();
+        var random = Math.floor(Math.random() * $('.card-headers', this).length);
+        $('.card-headers', this).hide().eq(random).show();
     });
 
     $('.img5').each(function() {
-        var random = Math.floor(Math.random() * $('.card-header', this).length);
-        $('.card-header', this).hide().eq(random).show();
+        var random = Math.floor(Math.random() * $('.card-headers', this).length);
+        $('.card-headers', this).hide().eq(random).show();
     });
 
     $('.img6').each(function() {
-        var random = Math.floor(Math.random() * $('.card-header', this).length);
-        $('.card-header', this).hide().eq(random).show();
+        var random = Math.floor(Math.random() * $('.card-headers', this).length);
+        $('.card-headers', this).hide().eq(random).show();
     });
 
     $('.img7').each(function() {
-        var random = Math.floor(Math.random() * $('.card-header', this).length);
-        $('.card-header', this).hide().eq(random).show();
+        var random = Math.floor(Math.random() * $('.card-headers', this).length);
+        $('.card-headers', this).hide().eq(random).show();
     });
 
     $('.img8').each(function() {
-        var random = Math.floor(Math.random() * $('.card-header', this).length);
-        $('.card-header', this).hide().eq(random).show();
+        var random = Math.floor(Math.random() * $('.card-headers', this).length);
+        $('.card-headers', this).hide().eq(random).show();
     });
 
     $('.img9').each(function() {
-        var random = Math.floor(Math.random() * $('.card-header', this).length);
-        $('.card-header', this).hide().eq(random).show();
+        var random = Math.floor(Math.random() * $('.card-headers', this).length);
+        $('.card-headers', this).hide().eq(random).show();
     });
 
     setInterval(function() {
         let index = Math.floor(Math.random() * 9) + 1;
         $('.img' + index).each(function() {
-            var random = Math.floor(Math.random() * $('.card-header', this).length);
-            $('.card-header', this).hide().eq(random).show().addClass(
+            var random = Math.floor(Math.random() * $('.card-headers', this).length);
+            $('.card-headers', this).hide().eq(random).show().addClass(
                 "animate__animated animate__flipInY");
         });
     }, 5000);
