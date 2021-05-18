@@ -168,7 +168,8 @@
 
     <script>
     $('.img1').each(function() {
-        $('.card-header', this).hide().eq(0).show();
+        var random = Math.floor(Math.random() * $('.card-header', this).length);
+        $('.card-header', this).hide().eq(random).show();
     });
 
     $('.img2').each(function() {
