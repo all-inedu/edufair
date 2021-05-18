@@ -11,6 +11,34 @@ class RegisterController extends CI_Controller {
 
 	public function view()
 	{
+		// echo "mulai tanggal : ";
+		// echo $assigned_time = "2021-05-08 10:00:00";
+		// echo "<br>";
+		// echo "selesai tanggal : ";
+		// echo $completed_time = "2021-05-08 12:00:00";
+		// echo "<br>";
+
+		// $d1 = new DateTime($assigned_time);
+		// $d2 = new DateTime($completed_time);
+
+		// $interval = $d2->diff($d1);
+
+		// echo "selisih : ";
+		// echo $time = $interval->format('%H');
+		// echo " jam <br>";
+
+
+		// $duration = 15;
+		// $count = 0;
+		// for($i = 1; $i <= ($time*60)/$duration; $i++){
+		// 	$startTime = strtotime("+".$duration*$count." minutes", strtotime($assigned_time));
+		//    $endTime = strtotime("+".$duration*$i." minutes", strtotime($assigned_time));
+		//    echo date('h:i:s', $startTime)." - ".date('h:i:s', $endTime);
+		//    echo "<br>";
+		//    $count++;
+		// }
+
+		// exit;
 		$data['title'] = "Registration";
 		$this->load->view('template/header', $data);
 		$this->load->view('user/register');
@@ -18,8 +46,7 @@ class RegisterController extends CI_Controller {
 	}
 
 	public function register()
-	{
-
+	{	
 		$user_major = $this->input->get('user_major');
 		$user_major_other = $this->input->get('user_major_other');
 		if(strpos($user_major, "other") !== false) { //word found
