@@ -54,5 +54,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['registration'] = 'RegisterController/view';
+$route['registration/submit'] = 'RegisterController/register';
 $route['registration/topic'] = 'RegisterController/topic';
 $route['registration/book'] = 'RegisterController/book';
+
+$route['dashboard/admin'] = 'AdminController/index';

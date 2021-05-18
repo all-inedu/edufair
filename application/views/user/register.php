@@ -23,15 +23,40 @@
 	                                </div>
 	                            </div>
 	                        </div>
-	                        <div class="form-group">
-	                            <label>Email address</label>
-	                            <input type="email" class="form-control form-control-sm" name="user_email"
-	                                placeholder="xxxxx@xxxx.com">
+	                        <div class="row">
+	                            <div class="col-6">
+	                                <div class="form-group">
+	                                    <label>Email address</label>
+	                                    <input type="email" class="form-control form-control-sm" name="user_email"
+	                                        placeholder="xxxxx@xxxx.com">
+	                                </div>
+	                            </div>
+	                            <div class="col-6">
+	                                <div class="form-group">
+	                                    <label>Password</label>
+	                                    <input type="password" class="form-control form-control-sm" name="user_password">
+	                                </div>
+	                            </div>
 	                        </div>
 	                        <div class="form-group">
 	                            <label>Phone Number</label>
 	                            <input type="text" class="form-control form-control-sm" placeholder="08xx xxxx"
 	                                name="user_phone">
+	                        </div>
+	                        <div class="form-group">
+	                            <label>You are a:</label>
+	                            <div class="form-control border-0">
+	                                <div class="form-check form-check-inline">
+	                                    <input class="form-check-input input-status" type="radio" name="user_gender"
+	                                        value="male" checked>
+	                                    <label class="form-check-label">Male</label>
+	                                </div>
+	                                <div class="form-check form-check-inline">
+	                                    <input class="form-check-input input-status" type="radio" name="user_gender"
+	                                        value="female">
+	                                    <label class="form-check-label">Female</label>
+	                                </div>
+	                            </div>
 	                        </div>
 	                        <div class="form-group">
 	                            <label>You came here as:</label>
@@ -42,8 +67,8 @@
 	                                    <label class="form-check-label">Parent</label>
 	                                </div>
 	                                <div class="form-check form-check-inline">
-	                                    <input class="form-check-input input-status" type="radio"
-	                                        name="user_status"" value=" student" checked>
+	                                    <input class="form-check-input input-status" type="radio" name="user_status"
+	                                        value="student" checked>
 	                                    <label class="form-check-label">Student</label>
 	                                </div>
 	                            </div>
@@ -52,13 +77,12 @@
 	                            <label>Is this your first time attending ALL-in event?</label>
 	                            <div class="form-control border-0">
 	                                <div class="form-check form-check-inline">
-	                                    <input class="form-check-input" type="radio" name="user_first_time" value="option1"
+	                                    <input class="form-check-input" type="radio" name="user_first_time" value="yes"
 	                                        checked>
 	                                    <label class="form-check-label">Yes</label>
 	                                </div>
 	                                <div class="form-check form-check-inline">
-	                                    <input class="form-check-input" type="radio" name="user_first_time"
-	                                        value="option1">
+	                                    <input class="form-check-input" type="radio" name="user_first_time" value="no">
 	                                    <label class="form-check-label">No</label>
 	                                </div>
 	                            </div>
@@ -79,36 +103,38 @@
 	                        </div>
 	                        <div class="form-group">
 	                            <label>What school are you going to graduate from?</label>
-	                            <select name="user_school" id="userSchool" onchange="checkValue()">
+	                            <select id="userSchool" onchange="checkValue()">
 	                                <option data-placeholder="true"></option>
 	                                <option value="other">Other</option>
 	                            </select>
-	                            <input type="text" class="form-control form-control-sm mt-1" name="user_school"
-	                                id="userSchoolNew">
+	                            <input type="text" class="form-control form-control-sm mt-1" id="userSchoolNew">
+	                            <input type="hidden" value="" name="user_school" id="user_school">
 	                        </div>
 	                        <div class="form-group">
 	                            <label>Where's your country destination to study
 	                                abroad?</label>
-	                            <select name="user_destination" id="userDestination" multiple>
+	                            <select id="userDestination" multiple>
 	                                <option data-placeholder="true"></option>
 	                            </select>
+	                            <input type="hidden" value="" name="user_destination" id="user_destination">
 	                        </div>
 	                        <div class="form-group">
 	                            <label>What's your intended major in university?</label>
-	                            <select name="user_major" id="userMajor" onchange="checkValue()" multiple>
+	                            <select id="userMajor" onchange="checkValue()" multiple>
 	                                <option data-placeholder="true"></option>
 	                                <option value="other">Other</option>
 	                            </select>
-	                            <input type="text" class="form-control form-control-sm mt-1" name="user_major"
+	                            <input type="text" class="form-control form-control-sm mt-1" name="user_major_other"
 	                                id="userMajorNew">
+	                            <input type="hidden" value="" name="user_major" id="user_major">
 	                        </div>
 	                        <div class="form-group">
 	                            <label>I know this Edufair from</label>
-	                            <select name="user_lead" id="userLead" onchange="checkValue()">
+	                            <select id="userLead" onchange="checkValue()">
 	                                <option data-placeholder="true"></option>
 	                            </select>
-	                            <input type="text" class="form-control form-control-sm mt-1" name="user_lead"
-	                                id="userLeadNew">
+	                            <input type="text" class="form-control form-control-sm mt-1" id="userLeadNew">
+	                            <input type="hidden" value="" name="user_lead" id="user_lead">
 	                        </div>
 	                        <hr>
 	                        <div class="form-group">
@@ -117,7 +143,7 @@
 	                                        class="btn btn-primary navigate-page-1"><i class="fas fa-arrow-left pr-2"></i>
 	                                        Back</button></div>
 	                                <div class="col-xl-6 text-right"><button type="button"
-	                                        class="btn btn-success navigate-page-3">Submit <i
+	                                        class="btn btn-success navigate-page-3 btn-register">Submit <i
 	                                            class="fas fa-paper-plane pl-2"></i></button></div>
 	                            </div>
 	                        </div>
@@ -226,7 +252,7 @@ $(document).ready(function() {
 
 function checkValue() {
     // school 
-    if ($('#userSchool').val() == 'other') {
+    if ($('#userSchool').val() == 'ther') {
         $('#userSchoolNew').show();
         $("#userSchoolNew").focus();
     } else {
@@ -234,12 +260,12 @@ function checkValue() {
     }
 
     // major 
-    if ($('#userMajor').val() == 'other') {
-        $('#userMajorNew').show();
-        $('#userMajorNew').focus();
-    } else {
-        $('#userMajorNew').hide();
-    }
+    // if ($('#userMajor').val() == 'other') {
+    //     $('#userMajorNew').show();
+    //     $('#userMajorNew').focus();
+    // } else {
+    //     $('#userMajorNew').hide();
+    // }
 
     // lead 
     if ($('#userLead').val() == 'Others') {
@@ -250,4 +276,62 @@ function checkValue() {
         $('#userLeadNew').hide();
     }
 }
+
+//****** set user_school to hidden input start ********//
+$("#userSchoolNew").keyup(function() {
+    $("#user_school").val($(this).val());
+});
+
+$("#userSchool").change(function() {
+    var val = $(this).val();
+    $("#user_school").val(val);
+});
+//****** set user_school to hidden input end ********//
+//****** set user_major to hidden input start ********//
+$("#userMajor").change(function() {
+    var val = $(this).val();
+    if (val.includes("other")) {
+        $('#userMajorNew').show();
+        $('#userMajorNew').focus();
+    } else {
+        $("#userMajorNew").hide();
+    }
+    $("#user_major").val(val);
+});
+//****** set user_major to hidden input end ********//
+//****** set user_lead to hidden input start ********//
+$("#userLeadNew").keyup(function() {
+    $("#user_lead").val($(this).val());
+});
+
+$("#userLead").change(function() {
+    var val = $(this).val();
+    $("#user_lead").val(val);
+});
+//****** set user_lead to hidden input end ********//
+$("#userDestination").change(function() {
+    var val = $(this).val();
+    $("#user_destination").val(val);
+});
+
+function limit() {
+
+}
+
+$(document).ready(function() {
+    $(".btn-register").on('click', function() {
+
+        $.ajax({
+            url: "<?php echo base_url(); ?>registration/submit",
+            data: $("form").serialize(),
+            success: function(msg) {
+                if (msg == "001") {
+                    alert("sukses");
+                } else {
+                    alert("failed");
+                }
+            }
+        });
+    });
+});
 	</script>
