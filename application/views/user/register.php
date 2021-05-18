@@ -4,151 +4,144 @@
 	            style="margin-top:7vh;background:#efefef; border:1px solid #dedede">
 	            <h3 class="text-center">Registration</h3>
 	            <hr>
+	            <form method="post" id="registerForm" novalidate class="needs-validation" action="<?php echo base_url(); ?>registration/submit">
 	            <div class="row">
 	                <div class="col" data-page="1">
-	                    <form method="post">
-	                        <div class="row">
-	                            <div class="col-6">
-	                                <div class="form-group">
-	                                    <label>First Name</label>
-	                                    <input name="user_first_name" type="text" class="form-control form-control-sm"
-	                                        placeholder="Mikhael">
-	                                </div>
-	                            </div>
-	                            <div class="col-6">
-	                                <div class="form-group">
-	                                    <label>Last Name</label>
-	                                    <input name="user_last_name" type="text" class="form-control form-control-sm"
-	                                        placeholder="Jackdad">
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="row">
-	                        	<div class="col-6">
-	                        		<div class="form-group">
-			                            <label>Email address</label>
-			                            <input type="email" class="form-control form-control-sm" name="user_email" placeholder="xxxxx@xxxx.com">
-			                        </div>
-	                        	</div>
-	                        	<div class="col-6">
-	                        		<div class="form-group">
-			                            <label>Password</label>
-			                            <input type="password" class="form-control form-control-sm" name="user_password">
-			                        </div>
-	                        	</div>
-	                        </div>
-	                        <div class="form-group">
-	                            <label>Phone Number</label>
-	                            <input type="text" class="form-control form-control-sm" placeholder="08xx xxxx"
-	                                name="user_phone">
-	                        </div>
-	                        <div class="form-group">
-	                            <label>You are a:</label>
-	                            <div class="form-control border-0">
-	                                <div class="form-check form-check-inline">
-	                                    <input class="form-check-input input-status" type="radio" name="user_gender"
-	                                        value="male" checked>
-	                                    <label class="form-check-label">Male</label>
-	                                </div>
-	                                <div class="form-check form-check-inline">
-	                                    <input class="form-check-input input-status" type="radio"
-	                                        name="user_gender" value="female">
-	                                    <label class="form-check-label">Female</label>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="form-group">
-	                            <label>You came here as:</label>
-	                            <div class="form-control border-0">
-	                                <div class="form-check form-check-inline">
-	                                    <input class="form-check-input input-status" type="radio" name="user_status"
-	                                        value="parent">
-	                                    <label class="form-check-label">Parent</label>
-	                                </div>
-	                                <div class="form-check form-check-inline">
-	                                    <input class="form-check-input input-status" type="radio"
-	                                        name="user_status" value="student" checked>
-	                                    <label class="form-check-label">Student</label>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="form-group">
-	                            <label>Is this your first time attending ALL-in event?</label>
-	                            <div class="form-control border-0">
-	                                <div class="form-check form-check-inline">
-	                                    <input class="form-check-input" type="radio" name="user_first_time" value="yes"
-	                                        checked>
-	                                    <label class="form-check-label">Yes</label>
-	                                </div>
-	                                <div class="form-check form-check-inline">
-	                                    <input class="form-check-input" type="radio" name="user_first_time"
-	                                        value="no">
-	                                    <label class="form-check-label">No</label>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <hr>
-	                        <div class="form-group text-right">
-	                            <button type="button" class="btn btn-primary navigate navigate-page-2">Next <i
-	                                    class="fas fa-arrow-right pl-2"></i></button>
-	                        </div>
-	                    </form>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input name="user_first_name" type="text" class="form-control form-control-sm" placeholder="Mikhael" required>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input name="user_last_name" type="text" class="form-control form-control-sm" placeholder="Jackdad" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        	<div class="col-6">
+                        		<div class="form-group">
+		                            <label>Email address</label>
+		                            <input type="email" class="form-control form-control-sm" name="user_email" placeholder="xxxxx@xxxx.com" required>
+		                        </div>
+                        	</div>
+                        	<div class="col-6">
+                        		<div class="form-group">
+		                            <label>Password</label>
+		                            <input type="password" class="form-control form-control-sm" name="user_password" required>
+		                        </div>
+                        	</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="08xx xxxx" name="user_phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>You are a:</label>
+                            <div class="form-control border-0">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input input-status" type="radio" name="user_gender"
+                                        value="male" checked>
+                                    <label class="form-check-label">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input input-status" type="radio"
+                                        name="user_gender" value="female">
+                                    <label class="form-check-label">Female</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>You came here as:</label>
+                            <div class="form-control border-0">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input input-status" type="radio" name="user_status"
+                                        value="parent">
+                                    <label class="form-check-label">Parent</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input input-status" type="radio"
+                                        name="user_status" value="student" checked>
+                                    <label class="form-check-label">Student</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Is this your first time attending ALL-in event?</label>
+                            <div class="form-control border-0">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="user_first_time" value="yes"
+                                        checked>
+                                    <label class="form-check-label">Yes</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="user_first_time"
+                                        value="no">
+                                    <label class="form-check-label">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group text-right">
+                            <button type="button" class="btn btn-primary navigate navigate-page-2">Next <i
+                                    class="fas fa-arrow-right pl-2"></i></button>
+                        </div>
 	                </div>
 	                <div class="col" data-page="2" style="display: none">
-	                    <form method="post">
-	                        <div class="form-group">
-	                            <label>What grade are you in?</label>
-	                            <input type="number" class="form-control form-control-sm" name="user_grade" placeholder=""
-	                                onchange="limit(this)" />
-	                        </div>
-	                        <div class="form-group">
-	                            <label>What school are you going to graduate from?</label>
-	                            <select id="userSchool" onchange="checkValue()">
-	                                <option data-placeholder="true"></option>
-	                                <option value="other">Other</option>
-	                            </select>
-	                            <input type="text" class="form-control form-control-sm mt-1" id="userSchoolNew">
-	                            <input type="hidden" value="" name="user_school" id="user_school">
-	                        </div>
-	                        <div class="form-group">
-	                            <label>Where's your country destination to study
-	                                abroad?</label>
-	                            <select id="userDestination" multiple>
-	                                <option data-placeholder="true"></option>
-	                            </select>
-	                            <input type="hidden" value="" name="user_destination" id="user_destination">
-	                        </div>
-	                        <div class="form-group">
-	                            <label>What's your intended major in university?</label>
-	                            <select id="userMajor" onchange="checkValue()" multiple>
-	                                <option data-placeholder="true"></option>
-	                                <option value="other">Other</option>
-	                            </select>
-	                            <input type="text" class="form-control form-control-sm mt-1" name="user_major_other" id="userMajorNew">
-	                            <input type="hidden" value="" name="user_major" id="user_major">
-	                        </div>
-	                        <div class="form-group">
-	                            <label>I know this Edufair from</label>
-	                            <select id="userLead" onchange="checkValue()">
-	                                <option data-placeholder="true"></option>
-	                            </select>
-	                            <input type="text" class="form-control form-control-sm mt-1" id="userLeadNew">
-	                            <input type="hidden" value="" name="user_lead" id="user_lead">
-	                        </div>
-	                        <hr>
-	                        <div class="form-group">
-	                            <div class="row">
-	                                <div class="col-xl-6 text-left"><button type="button"
-	                                        class="btn btn-primary navigate-page-1"><i class="fas fa-arrow-left pr-2"></i>
-	                                        Back</button></div>
-	                                <div class="col-xl-6 text-right"><button type="button"
-	                                        class="btn btn-success navigate-page-3 btn-register">Submit <i
-	                                            class="fas fa-paper-plane pl-2"></i></button></div>
-	                            </div>
-	                        </div>
-	                    </form>
+                        <div class="form-group">
+                            <label>What grade are you in?</label>
+                            <input type="number" class="form-control form-control-sm" name="user_grade" placeholder="" onchange="limit(this)" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>What school are you going to graduate from?</label>
+                            <select id="userSchool" onchange="checkValue('userSchool')" required oninvalid="validation('userSchool')">
+                                <option data-placeholder="true"></option>
+                                <option value="other">Other</option>
+                            </select>
+                            <input type="text" class="form-control form-control-sm mt-1" id="userSchoolNew" required>
+                            <input type="hidden" value="" name="user_school" id="user_school">
+                        </div>
+                        <div class="form-group">
+                            <label>Where's your country destination to study abroad?</label>
+                            <select id="userDestination" onchange="checkValue('userDestination')" multiple required oninvalid="validation('userDestination')">
+                                <option data-placeholder="true"></option>
+                            </select>
+                            <input type="hidden" value="" name="user_destination" id="user_destination">
+                        </div>
+                        <div class="form-group">
+                            <label>What's your intended major in university?</label>
+                            <select id="userMajor" onchange="checkValue('userMajor')" multiple required oninvalid="validation('userMajor')">
+                                <option data-placeholder="true"></option>
+                                <option value="other">Other</option>
+                            </select>
+                            <input type="text" class="form-control form-control-sm mt-1" name="user_major_other" id="userMajorNew" required>
+                            <input type="hidden" value="" name="user_major" id="user_major">
+                        </div>
+                        <div class="form-group">
+                            <label>I know this Edufair from</label>
+                            <select id="userLead" onchange="checkValue('userLead')" required oninvalid="validation('userLead')">
+                                <option data-placeholder="true"></option>
+                            </select>
+                            <input type="text" class="form-control form-control-sm mt-1" id="userLeadNew" required>
+                            <input type="hidden" value="" name="user_lead" id="user_lead">
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xl-6 text-left"><button type="button"
+                                        class="btn btn-primary navigate-page-1"><i class="fas fa-arrow-left pr-2"></i>
+                                        Back</button></div>
+                                <div class="col-xl-6 text-right"><button type="submit"
+                                        class="btn btn-success navigate-page-3 btn-register">Submit <i
+                                            class="fas fa-paper-plane pl-2"></i></button></div>
+                            </div>
+                        </div>
 	                </div>
 	            </div>
+	           	</form>
 	        </div>
 	    </div>
 	</div>
@@ -249,14 +242,56 @@
 
 		});
 
-		function checkValue() {
-		    // school 
-		    if ($('#userSchool').val() == 'other') {
-		        $('#userSchoolNew').show();
-		        $("#userSchoolNew").focus();
-		    } else {
-		        $('#userSchoolNew').hide();
-		    }
+		function checkValue(param) {
+			switch (param) {
+				case "userSchool":
+					// school 
+					if ($('#userSchool').val() == 'other') {
+				        $('#userSchoolNew').show();
+				        $("#userSchoolNew").focus();
+				    } else {
+				        $('#userSchoolNew').hide();
+				    }
+
+				    var is_filled = $("#userSchool").siblings(".ss-main").has('.ss-single-selected').has('.placeholder').html();
+				    if(is_filled) {
+				    	$("#userSchool").siblings(".ss-main").has(".ss-single-selected").css({"border": "1px solid #28a745", "border-radius":".2rem"}); //filled
+				    }
+					break;
+				case "userDestination":
+					var is_filled = $("#userDestination").siblings(".ss-main").has('.ss-multi-selected').has('.ss-values').has('.ss-value');
+				    if(is_filled) {
+				    	$("#userDestination").siblings(".ss-main").has(".ss-multi-selected").css({"border": "1px solid #28a745", "border-radius":".2rem"});
+				    }
+					break;
+				case "userMajor":
+					var is_filled = $("#userMajor").siblings(".ss-main").has('.ss-multi-selected').has('.ss-values').has('.ss-value');
+				    if(is_filled) {
+				    	$("#userMajor").siblings(".ss-main").has(".ss-multi-selected").css({"border": "1px solid #28a745", "border-radius":".2rem"});
+				    }
+					break;
+				case "userLead":
+					// lead 
+				    if ($('#userLead').val() == 'Others') {
+				        $('#userLeadNew').show();
+				        $('#userLeadNew').focus();
+
+				    } else {
+				        $('#userLeadNew').hide();
+				    }
+				    var is_filled = $("#userLead").siblings(".ss-main").has('.ss-single-selected').has('.placeholder').html();
+				    if(is_filled) {
+				    	$("#userLead").siblings(".ss-main").has(".ss-single-selected").css({"border": "1px solid #28a745", "border-radius":".2rem"});
+				    }
+					break;
+
+
+			}
+				
+
+
+		    
+		    
 
 		    // major 
 		    // if ($('#userMajor').val() == 'other') {
@@ -266,14 +301,7 @@
 		    //     $('#userMajorNew').hide();
 		    // }
 
-		    // lead 
-		    if ($('#userLead').val() == 'Others') {
-		        $('#userLeadNew').show();
-		        $('#userLeadNew').focus();
-
-		    } else {
-		        $('#userLeadNew').hide();
-		    }
+		    
 		}
 
 		//****** set user_school to hidden input start ********//
@@ -318,19 +346,71 @@
 		}
 
 		$(document).ready(function() {
-			$(".btn-register").on('click', function() {
-
-				$.ajax({
-					url: "<?php echo base_url(); ?>registration/submit",
-					data: $("form").serialize(),
-					success: function(msg){
-						if(msg == "001") {
-							alert("sukses");
-						} else {
-							alert("failed");
-						}
+			$("#registerForm").ajaxSubmit({
+				url: "<?php echo base_url(); ?>registration/submit",
+				data: $("form").serialize(),
+				success: function(msg){
+					if(msg == "001") {
+						alert("sukses");
+					} else {
+						alert("failed");
 					}
-				});
-			});
+				}
+			})
+
+			// $(".btn-register").on('click', function() {
+
+			// 	$.ajax({
+			// 		url: "<?php echo base_url(); ?>registration/submit",
+			// 		data: $("form").serialize(),
+			// 		success: function(msg){
+			// 			if(msg == "001") {
+			// 				alert("sukses");
+			// 			} else {
+			// 				alert("failed");
+			// 			}
+			// 		}
+			// 	});
+			// });
 		});
+
+		function validation(param) {
+			switch(param) {
+				case "userSchool":
+					$("#userSchool").siblings(".ss-main").has(".ss-single-selected").css({"border": "1px solid #dc3545", "border-radius":".2rem"});
+					break;
+				case "userDestination":
+					$("#userDestination").siblings(".ss-main").has(".ss-multi-selected").css({"border": "1px solid #dc3545", "border-radius":".2rem"});
+					break;
+				case "userMajor":
+					$("#userMajor").siblings(".ss-main").has(".ss-multi-selected").css({"border": "1px solid #dc3545", "border-radius":".2rem"});
+					break;
+				case "userLead":
+					$("#userLead").siblings(".ss-main").has(".ss-single-selected").css({"border": "1px solid #dc3545", "border-radius":".2rem"});
+					break;
+			}
+			
+			
+		}
+
+		// Example starter JavaScript for disabling form submissions if there are invalid fields
+		(function () {
+		  'use strict'
+
+		  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+		  var forms = document.querySelectorAll('.needs-validation')
+
+		  // Loop over them and prevent submission
+		  Array.prototype.slice.call(forms)
+		    .forEach(function (form) {
+		      form.addEventListener('submit', function (event) {
+		        if (!form.checkValidity()) {
+		          event.preventDefault()
+		          event.stopPropagation()
+		        }
+
+		        form.classList.add('was-validated')
+		      }, false)
+		    })
+		})()
 	</script>
