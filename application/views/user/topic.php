@@ -168,8 +168,8 @@ p {
                 <div class="text-center">
                     <div class="row">
                         <div class="col text-left ml-3">
-                            <button type="button" class="btn btn-warning navigate-page-3">Skip <i
-                                    class="fas fa-arrow-right pl-2"></i></button>
+                            <a href="<?=base_url('registration/booking/');?>" type="button"
+                                class="btn btn-warning navigate-page-3">Skip <i class="fas fa-arrow-right pl-2"></i></a>
                         </div>
                         <div class="col text-right mr-3">
                             <button type="button" class="btn btn-primary navigate-page-3">Join Now <i
@@ -180,117 +180,4 @@ p {
             </div>
         </div>
     </div>
-
-
-    <!-- <div class="container mt-5 p-3 shadow" style="background:#efefef; border:1px solid #dedede; border-radius:10px;">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card topic-card">
-                <div class="card-header">
-                    <h4>Day 1</h4>
-                </div>
-                <div class="card-body">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="day1-check-1">
-                        <label class="form-check-label" for="day1-check-1">
-                            <h5 class="m-0">Topic Title</h5>
-                            <small>Time : 09.00 - 10.00 WIB</small>
-                            <p>Uni A, Uni B, Uni C</p>
-                        </label>
-                    </div>
-                    <hr class="my-1 mb-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="day1-check-2">
-                        <label class="form-check-label" for="day1-check-2">
-                            <h5 class="m-0">Topic Title</h5>
-                            <small>Time : 10.30 - 11.30 WIB</small>
-                            <p>Uni A, Uni B, Uni C</p>
-                        </label>
-                    </div>
-                    <hr class="my-1 mb-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="day1-check-3">
-                        <label class="form-check-label" for="day1-check-3">
-                            <h5 class="m-0">Topic Title</h5>
-                            <small>Time : 10.30 - 11.30 WIB</small>
-                            <p>Uni A, Uni B, Uni C</p>
-                        </label>
-                    </div>
-                    <hr class="my-1 mb-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="day1-check-4">
-                        <label class="form-check-label" for="day1-check-4">
-                            <h5 class="m-0">Topic Title</h5>
-                            <small>Time : 10.30 - 11.30 WIB</small>
-                            <p>Uni A, Uni B, Uni C</p>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card topic-card">
-                <div class="card-header">
-                    <h4>Day 2</h4>
-                </div>
-                <div class="card-body">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="day2-check-1">
-                        <label class="form-check-label" for="day2-check-1">
-                            <h5 class="m-0">Topic Title</h5>
-                            <small>Time : 09.00 - 10.00 WIB</small>
-                            <p>Uni A, Uni B, Uni C</p>
-                        </label>
-                    </div>
-                    <hr class="my-1 mb-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="day2-check-2">
-                        <label class="form-check-label" for="day2-check-2">
-                            <h5 class="m-0">Topic Title</h5>
-                            <small>Time : 10.30 - 11.30 WIB</small>
-                            <p>Uni A, Uni B, Uni C</p>
-                        </label>
-                    </div>
-                    <hr class="my-1 mb-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="day2-check-3">
-                        <label class="form-check-label" for="day2-check-3">
-                            <h5 class="m-0">Topic Title</h5>
-                            <small>Time : 10.30 - 11.30 WIB</small>
-                            <p>Uni A, Uni B, Uni C</p>
-                        </label>
-                    </div>
-                    <hr class="my-1 mb-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="day2-check-4">
-                        <label class="form-check-label" for="day2-check-4">
-                            <h5 class="m-0">Topic Title</h5>
-                            <small>Time : 10.30 - 11.30 WIB</small>
-                            <p>Uni A, Uni B, Uni C</p>
-                        </label>
-                    </div>
-                    <hr class="my-1 mb-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="day2-check-5">
-                        <label class="form-check-label" for="day2-check-5">
-                            <h5 class="m-0">Topic Title</h5>
-                            <small>Time : 10.30 - 11.30 WIB</small>
-                            <p>Uni A, Uni B, Uni C</p>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="form-group mt-3">
-        <div class="row">
-            <div class="col-12">
-                <div class="text-center"><button type="button" class="btn btn-primary navigate-page-3">Join Now <i
-                            class="fas fa-paper-plane pl-2"></i></button></div>
-            </div>
-
-        </div>
-    </div>
-</div> -->
 </div>

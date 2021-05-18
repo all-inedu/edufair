@@ -2,6 +2,14 @@
 .btn-book {
     border-radius: 0 !important
 }
+
+.card {
+    border: 3px solid #fff;
+}
+
+.card:hover {
+    border: 3px solid #39A5DC;
+}
 </style>
 
 <div class="container mt-5 p-3 shadow" style="background:#efefef; border:1px solid #dedede; border-radius:10px;">
@@ -15,17 +23,108 @@
         </div>
         <div class="col-md-4">
             <div class="card">
-                <div class="card-body text-center">
-                    <h3 class="m-0">Uni A</h3>
+                <img src="<?=base_url('assets/img/default.jpeg');?>" alt="">
+                <div class="card-body text-center p-1">
+                    <h4 class="m-0">Uni A</h4>
                 </div>
                 <div class="row no-gutters">
                     <div class="col">
                         <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
-                            data-target="#exampleModal">Day 1</button>
+                            data-target="#exampleModal">#1</button>
                     </div>
                     <div class="col">
                         <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal"
-                            data-target="#exampleModal">Day 2</button>
+                            data-target="#exampleModal">#2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="<?=base_url('assets/img/default.jpeg');?>" alt="">
+                <div class="card-body text-center p-1">
+                    <h4 class="m-0">Uni A</h4>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col">
+                        <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
+                            data-target="#exampleModal">#1</button>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal"
+                            data-target="#exampleModal">#2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="<?=base_url('assets/img/default.jpeg');?>" alt="">
+                <div class="card-body text-center p-1">
+                    <h4 class="m-0">Uni A</h4>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col">
+                        <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
+                            data-target="#exampleModal">#1</button>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal"
+                            data-target="#exampleModal">#2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="<?=base_url('assets/img/default.jpeg');?>" alt="">
+                <div class="card-body text-center p-1">
+                    <h4 class="m-0">Uni A</h4>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col">
+                        <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
+                            data-target="#exampleModal">#1</button>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal"
+                            data-target="#exampleModal">#2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="<?=base_url('assets/img/default.jpeg');?>" alt="">
+                <div class="card-body text-center p-1">
+                    <h4 class="m-0">Uni A</h4>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col">
+                        <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
+                            data-target="#exampleModal">#1</button>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal"
+                            data-target="#exampleModal">#2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="<?=base_url('assets/img/default.jpeg');?>" alt="">
+                <div class="card-body text-center p-1">
+                    <h4 class="m-0">Uni A</h4>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col">
+                        <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
+                            data-target="#exampleModal">#1</button>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal"
+                            data-target="#exampleModal">#2</button>
                     </div>
                 </div>
             </div>

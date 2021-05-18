@@ -44,9 +44,9 @@ class RegisterController extends CI_Controller {
 		);
 
 		$process = $this->RegisterModel->insertUser($data);
-		echo $process ? "001" : "0";
+		// $this->session->set_flashdata('success', 'Your email has been registered<br>');
 	}
-
+	
 	public function topic()
 	{
 		$data['title'] = "Topic";
