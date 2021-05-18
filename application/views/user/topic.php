@@ -181,3 +181,11 @@ p {
         </div>
     </div>
 </div>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script>
+$('.grid').masonry({
+    // options
+    itemSelector: '.grid-item',
+    columnWidth: 200
+});
+</script>
