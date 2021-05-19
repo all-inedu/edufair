@@ -61,8 +61,9 @@ class RegisterController extends CI_Controller {
 		} else {
 			return "02"; //error login
 		}
+		// $this->session->set_flashdata('success', 'Your email has been registered<br>');
 	}
-
+	
 	public function topic()
 	{
 		$data['title'] = "Topic";

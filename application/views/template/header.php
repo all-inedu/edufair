@@ -8,6 +8,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.css" rel="stylesheet">
     </link>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="<?=base_url('assets/css/flipTimerss.css');?>" />
+
     <style type="text/css">
     body {
         @import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
@@ -30,3 +33,13 @@
 </head>
 
 <body>
+
+    <?php
+if ($this->session->flashdata('success')) {
+    echo '<div class="flash-data" data-success="' . $this->session->flashdata('success') . '"></div>';
+} else if ($this->session->flashdata('error')) {
+    echo '<div class="flash-data" data-error="' . $this->session->flashdata('error') . '"></div>';
+} else if ($this->session->flashdata('warning')) {
+    echo '<div class="flash-data" data-warning="' . $this->session->flashdata('warning') . '"></div>';
+}
+?>

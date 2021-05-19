@@ -7,6 +7,7 @@
 	            <form method="get" id="registerForm" novalidate class="needs-validation">
 	            <div class="row">
 	                <div class="col" data-page="1">
+<<<<<<< HEAD
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
@@ -368,6 +369,7 @@
 				})
 			});
 
+
 			// $("#registerForm").ajaxSubmit({
 			// 	url: "<?php echo base_url(); ?>registration/submit",
 			// 	type: 'GET',
@@ -420,7 +422,7 @@
 		          event.preventDefault()
 		          event.stopPropagation()
 		        }
-
+		        
 		        form.classList.add('was-validated')
 		      }, false)
 		    })

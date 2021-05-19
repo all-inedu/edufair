@@ -80,10 +80,26 @@ $query_builder = TRUE;
 // 	// 'password' => '',
 // 	// 'database' => 'edufair_db',
 
-// 	'hostname' => '156.67.213.151',
+// 	'hostname' => 'all-inedu.com',
 // 	'username' => 'u5332263_allin',
 // 	'password' => '8+~yq7XlNv9_',
 // 	'database' => 'u5332263_edufair',
+// 	'dbdriver' => 'mysqli',
+// 	'dbprefix' => '',
+// 	'pconnect' => FALSE,
+// 	'db_debug' => FALSE,
+// 	'cache_on' => FALSE,
+// 	'cachedir' => '',
+// 	'char_set' => 'utf8',
+// 	'dbcollat' => 'utf8_general_ci',
+// 	'swap_pre' => '',
+// 	'encrypt' => FALSE,
+// 	'compress' => FALSE,
+// 	'stricton' => FALSE,
+// 	'failover' => array(),
+// 	'save_queries' => TRUE,
+// 	'autoinit' => FALSE
+// );
 
 // 	'dbdriver' => 'mysqli',
 // 	'dbprefix' => '',
