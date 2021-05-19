@@ -7,7 +7,6 @@
 	            <form method="get" id="registerForm" novalidate class="needs-validation">
 	            <div class="row">
 	                <div class="col" data-page="1">
-<<<<<<< HEAD
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
@@ -32,7 +31,10 @@
                         	<div class="col-6">
                         		<div class="form-group">
 		                            <label>Password</label>
-		                            <input type="password" class="form-control form-control-sm" name="user_password" required>
+		                            <input type="password" class="form-control form-control-sm" name="user_password" minlength="8" required>
+		                            <div class="invalid-feedback">
+								      	Minimum 8 characters.
+								    </div>
 		                        </div>
                         	</div>
                         </div>
@@ -102,7 +104,7 @@
                                 <option data-placeholder="true"></option>
                                 <option value="other">Other</option>
                             </select>
-                            <input type="text" class="form-control form-control-sm mt-1" id="userSchoolNew" required>
+                            <input type="text" class="form-control form-control-sm mt-1" id="userSchoolNew">
                             <input type="hidden" value="" name="user_school" id="user_school">
                         </div>
                         <div class="form-group">
@@ -118,7 +120,7 @@
                                 <option data-placeholder="true"></option>
                                 <option value="other">Other</option>
                             </select>
-                            <input type="text" class="form-control form-control-sm mt-1" name="user_major_other" id="userMajorNew" required>
+                            <input type="text" class="form-control form-control-sm mt-1" name="user_major_other" id="userMajorNew">
                             <input type="hidden" value="" name="user_major" id="user_major">
                         </div>
                         <div class="form-group">
@@ -126,7 +128,7 @@
                             <select id="userLead" onchange="checkValue('userLead')" required oninvalid="validation('userLead')">
                                 <option data-placeholder="true"></option>
                             </select>
-                            <input type="text" class="form-control form-control-sm mt-1" id="userLeadNew" required>
+                            <input type="text" class="form-control form-control-sm mt-1" id="userLeadNew">
                             <input type="hidden" value="" name="user_lead" id="user_lead">
                         </div>
                         <hr>
@@ -251,8 +253,10 @@
 					if ($('#userSchool').val() == 'other') {
 				        $('#userSchoolNew').show();
 				        $("#userSchoolNew").focus();
+				        $("#userSchoolNew").prop('required', true);
 				    } else {
 				        $('#userSchoolNew').hide();
+				        $("#userSchoolNew").prop('required', false);
 				    }
 
 				    var is_filled = $("#userSchool").siblings(".ss-main").has('.ss-single-selected').has('.placeholder').html();
@@ -267,6 +271,7 @@
 				    }
 					break;
 				case "userMajor":
+					// major
 					var is_filled = $("#userMajor").siblings(".ss-main").has('.ss-multi-selected').has('.ss-values').has('.ss-value');
 				    if(is_filled) {
 				    	$("#userMajor").siblings(".ss-main").has(".ss-multi-selected").css({"border": "1px solid #28a745", "border-radius":".2rem"});
@@ -277,9 +282,10 @@
 				    if ($('#userLead').val() == 'Others') {
 				        $('#userLeadNew').show();
 				        $('#userLeadNew').focus();
-
+				        $('#userLeadNew').prop('required', true);
 				    } else {
 				        $('#userLeadNew').hide();
+				        $('#userLeadNew').prop('required', false);
 				    }
 				    var is_filled = $("#userLead").siblings(".ss-main").has('.ss-single-selected').has('.placeholder').html();
 				    if(is_filled) {
@@ -322,8 +328,10 @@
 			if(val.includes("other")) {
 				$('#userMajorNew').show();
 				$('#userMajorNew').focus();
+				$("#userMajorNew").prop('required', true);
 			} else {
 				$("#userMajorNew").hide();
+				$("#userMajorNew").prop('required', false);
 			}
 			$("#user_major").val(val);
 		});
@@ -348,35 +356,41 @@
 		}
 
 		$(document).ready(function() {
-			$("#registerForm").submit(function() {
-				// Swal.showLoading();
+			$("#registerForm").submit(function(event) {
+				event.preventDefault();
+				if ( $("#registerForm")[0].checkValidity() === false) {
+					event.stopPropagation();
+				} else {
+					Swal.showLoading();
 
-				$.ajax({
-					url: "<?php echo base_url(); ?>registration/submit",
-					type: "POST",
-					data: $("#registerForm").serialize(),
-					success: function(msg) {
-						if(msg == "001") {
-							window.location.href = "<?php echo base_url(); ?>registration/topic";
-						} else {
-							Swal.fire({
-								icon: 'error',
-								title: 'Oops...',
-								text: 'Something went wrong! Please try again.'
-							});
+					$.ajax({
+						url: "<?php echo base_url(); ?>registration/submit",
+						type: "POST",
+						data: $("#registerForm").serialize(),
+						success: function(msg) {
+							if(msg == "001") {
+								window.location.href = "<?php echo base_url(); ?>registration/topic";
+							} else {
+								Swal.fire({
+									icon: 'error',
+									title: 'Oops...',
+									text: 'Something went wrong! Please try again.'
+								});
+							}
 						}
-					}
-				})
+					});
+				}
 			});
 
 
 			// $("#registerForm").ajaxSubmit({
 			// 	url: "<?php echo base_url(); ?>registration/submit",
-			// 	type: 'GET',
-			// 	data: $("form").serialize(),
+			// 	type: 'POST',
+			// 	data: $("#registerForm").serialize(),
 			// 	success: function(msg){
+			// 		alert(msg);return;
 			// 		if(msg == "001") {
-			// 			window.location.href = "<?php echo base_url(); ?>registration/topic";
+			// 			// window.location.href = "<?php echo base_url(); ?>registration/topic";
 			// 		} else {
 			// 			Swal.fire({
 			// 				icon: 'error',
@@ -422,7 +436,7 @@
 		          event.preventDefault()
 		          event.stopPropagation()
 		        }
-		        
+
 		        form.classList.add('was-validated')
 		      }, false)
 		    })

@@ -1,7 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class RegisterModel extends CI_Model {
+class UserModel extends CI_Model {
 
   	function insertUser($data)
   	{
