@@ -6,7 +6,9 @@ class RegisterController extends CI_Controller {
 	public function __Construct()
     {
         parent ::__construct();
-        $this->load->model('RegisterModel');
+        $this->load->model('UserModel');
+        $this->load->model('UniModel');
+        $this->load->model('TopicModel');
     }
 
 	public function view()
@@ -20,12 +22,14 @@ class RegisterController extends CI_Controller {
 
 	public function register()
 	{	
+		// add other major into selected major start
 		$user_major = $this->input->post('user_major');
 		$user_major_other = $this->input->post('user_major_other');
 		if(strpos($user_major, "other") !== false) { //word found
 			$user_major = str_replace('other,', '', $user_major);
 			$user_major = $user_major.",".$user_major_other;
 		}
+		// add other major into selected major end
 
 		$data = array(
 			"user_first_name" => $this->input->post('user_first_name'),
@@ -43,7 +47,7 @@ class RegisterController extends CI_Controller {
 			"user_lead"       => $this->input->post('user_lead')
 		);
 
-		$process = $this->RegisterModel->insertUser($data);
+		$process = $this->UserModel->insertUser($data);
 		if($process) {
 			$inserted_id = $process;
 			echo $this->login($inserted_id);
@@ -54,7 +58,7 @@ class RegisterController extends CI_Controller {
 
 	public function login($inserted_id) 
 	{
-		$userData = $this->RegisterModel->getUserDataById($inserted_id);
+		$userData = $this->UserModel->getUserDataById($inserted_id);
 		if($userData) { //if there is user data with inserted id
 			$this->session->set_userdata($userData);
 			return "001"; //sukses
@@ -63,12 +67,39 @@ class RegisterController extends CI_Controller {
 		}
 		// $this->session->set_flashdata('success', 'Your email has been registered<br>');
 	}
+
+	public function bookingTopic()
+	{
+		$userId = $this->session->userdata('user_id'); //get user id from session login
+		$day1bookingTopicId = $this->input->post('day[1]');
+		$day2bookingTopicId = $this->input->post('day[2]');
+
+		$process = $this->TopicModel->bookingTopic($userId, $day1bookingTopicId, $day2bookingTopicId);
+		if($process) {
+			echo "001";
+		} else {
+			echo "03"; // error booking topic
+		}
+	}
 	
 	public function topic()
 	{
+		if(!$this->session->has_userdata('user_id')) { // if the session value is null or doesn't exist
+			redirect('/');
+		}
+
+		$topicData_day1 = $this->TopicModel->getTopicData('2021-05-20'); // change with edufair start date
+		$topicData_day2 = $this->TopicModel->getTopicData('2021-05-21'); // change iwth edufair start date
+        // print("<pre>".print_r($topicData_day1, true)."</pre>");exit;
+
+		$topicData = array(
+			"topicData_day1" => $topicData_day1,
+			"topicData_day2" => $topicData_day2
+		);
+
 		$data['title'] = "Topic";
 		$this->load->view('template/header', $data);
-		$this->load->view('user/topic');
+		$this->load->view('user/topic', $topicData);
 		$this->load->view('template/footer');
 	}
 
