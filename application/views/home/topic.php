@@ -24,7 +24,7 @@
 </style>
 
 
-<div class="container-fluid p-4" style="height:100vh;" id="talks">
+<div class="container p-4 mb-4" id="talks">
     <div class="row justify-content-md-center">
         <div class="col-md-7 text-center mt-5 p-5">
             <h2>Talks</h2>
@@ -33,164 +33,69 @@
                 Asperiores, fuga.</h5>
         </div>
     </div>
-    <h4 class="mb-3">Day 1 (July, 24th 2021)</h4>
     <div class="card-columns">
+        <?php
+            for ($i=0; $i < 5; $i++) { 
+        ?>
         <div class="card card-topic">
-            <img src="<?=base_url('assets/img/default.jpeg');?>" class="img-topic">
-            <div class="row px-2 pt-2 no-gutters talk-button">
-                <div class="col-11">
-                    <h6 class="font-weight-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit</h6>
+            <div class="card-body">
+                <img src="<?=base_url('assets/img/default.jpeg');?>" class="img-topic">
+                <div class="row px-2 pt-2 no-gutters talk-button">
+                    <div class="col-11">
+                        <small>July, 24th 2021 - 09.00 WIB</small>
+                        <h6 class="font-weight-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit</h6>
+                    </div>
+                    <div class="col-1 pl-3 my-auto">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </div>
-                <div class="col-1 pl-3">
-                    <i class="fas fa-arrow-right"></i>
+                <div class="hidden px-2">
+                    <hr class="m-0 my-2">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste eum at quibusdam ex consequatur
+                        voluptas cumque tenetur numquam quae, perferendis excepturi illo nam est eius ipsum laboriosam
+                        architecto quia? Porro?</p>
+                    <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1" href="#">Join Now</a>
                 </div>
-            </div>
-            <div class="hidden px-2">
-                <hr class="m-0 my-2">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste eum at quibusdam ex consequatur
-                    voluptas cumque tenetur numquam quae, perferendis excepturi illo nam est eius ipsum laboriosam
-                    architecto quia? Porro?</p>
             </div>
         </div>
-        <div class="card card-topic">
-            <img src="<?=base_url('assets/img/default.jpeg');?>" class="img-topic">
-            <div class="row px-2 pt-2 no-gutters talk-button">
-                <div class="col-11">
-                    <h6 class="font-weight-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit</h6>
-                </div>
-                <div class="col-1 pl-3">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </div>
-            <div class="hidden px-2">
-                <hr class="m-0 my-2">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste eum at quibusdam ex consequatur
-                    voluptas cumque tenetur numquam quae, perferendis excepturi illo nam est eius ipsum laboriosam
-                    architecto quia? Porro?</p>
-            </div>
-        </div>
-        <div class="card card-topic">
-            <img src="<?=base_url('assets/img/default.jpeg');?>" class="img-topic">
-            <div class="row px-2 pt-2 no-gutters talk-button">
-                <div class="col-11">
-                    <h6 class="font-weight-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit</h6>
-                </div>
-                <div class="col-1 pl-3">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </div>
-            <div class="hidden px-2">
-                <hr class="m-0 my-2">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste eum at quibusdam ex consequatur
-                    voluptas cumque tenetur numquam quae, perferendis excepturi illo nam est eius ipsum laboriosam
-                    architecto quia? Porro?</p>
-            </div>
-        </div>
-        <div class="card card-topic">
-            <img src="<?=base_url('assets/img/default.jpeg');?>" class="img-topic">
-            <div class="row px-2 pt-2 no-gutters talk-button">
-                <div class="col-11">
-                    <h6 class="font-weight-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit</h6>
-                </div>
-                <div class="col-1 pl-3">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </div>
-            <div class="hidden px-2">
-                <hr class="m-0 my-2">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste eum at quibusdam ex consequatur
-                    voluptas cumque tenetur numquam quae, perferendis excepturi illo nam est eius ipsum laboriosam
-                    architecto quia? Porro?</p>
-            </div>
-        </div>
-        <div class="card card-topic">
-            <img src="<?=base_url('assets/img/default.jpeg');?>" class="img-topic">
-            <div class="row px-2 pt-2 no-gutters talk-button">
-                <div class="col-11">
-                    <h6 class="font-weight-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit</h6>
-                </div>
-                <div class="col-1 pl-3">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </div>
-            <div class="hidden px-2">
-                <hr class="m-0 my-2">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste eum at quibusdam ex consequatur
-                    voluptas cumque tenetur numquam quae, perferendis excepturi illo nam est eius ipsum laboriosam
-                    architecto quia? Porro?</p>
-            </div>
-        </div>
+        <?php 
+            }
+        ?>
     </div>
+    <hr>
     <br>
-    <h4 class="mb-3">Day 2 (July, 25th 2021)</h4>
     <div class="card-columns">
+        <?php
+            for ($i=0; $i < 5; $i++) { 
+        ?>
         <div class="card card-topic">
-            <img src="<?=base_url('assets/img/default.jpeg');?>" class="img-topic">
-            <div class="row px-2 pt-2 no-gutters talk-button">
-                <div class="col-11">
-                    <h6 class="font-weight-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit</h6>
+            <div class="card-body">
+                <img src="<?=base_url('assets/img/default.jpeg');?>" class="img-topic">
+                <div class="row px-2 pt-2 no-gutters talk-button">
+                    <div class="col-11">
+                        <small>July, 24th 2021 - 09.00 WIB</small>
+                        <h6 class="font-weight-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit</h6>
+                    </div>
+                    <div class="col-1 pl-3 my-auto">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </div>
-                <div class="col-1 pl-3">
-                    <i class="fas fa-arrow-right"></i>
+                <div class="hidden px-2">
+                    <hr class="m-0 my-2">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste eum at quibusdam ex consequatur
+                        voluptas cumque tenetur numquam quae, perferendis excepturi illo nam est eius ipsum laboriosam
+                        architecto quia? Porro?</p>
+                    <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1" href="#">Join Now</a>
                 </div>
-            </div>
-            <div class="hidden px-2">
-                <hr class="m-0 my-2">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste eum at quibusdam ex consequatur
-                    voluptas cumque tenetur numquam quae, perferendis excepturi illo nam est eius ipsum laboriosam
-                    architecto quia? Porro?</p>
             </div>
         </div>
-        <div class="card card-topic">
-            <img src="<?=base_url('assets/img/default.jpeg');?>" class="img-topic">
-            <div class="row px-2 pt-2 no-gutters talk-button">
-                <div class="col-11">
-                    <h6 class="font-weight-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit</h6>
-                </div>
-                <div class="col-1 pl-3">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </div>
-            <div class="hidden px-2">
-                <hr class="m-0 my-2">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste eum at quibusdam ex consequatur
-                    voluptas cumque tenetur numquam quae, perferendis excepturi illo nam est eius ipsum laboriosam
-                    architecto quia? Porro?</p>
-            </div>
-        </div>
-        <div class="card card-topic">
-            <img src="<?=base_url('assets/img/default.jpeg');?>" class="img-topic">
-            <div class="row px-2 pt-2 no-gutters talk-button">
-                <div class="col-11">
-                    <h6 class="font-weight-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit</h6>
-                </div>
-                <div class="col-1 pl-3">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </div>
-            <div class="hidden px-2">
-                <hr class="m-0 my-2">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste eum at quibusdam ex consequatur
-                    voluptas cumque tenetur numquam quae, perferendis excepturi illo nam est eius ipsum laboriosam
-                    architecto quia? Porro?</p>
-            </div>
-        </div>
-        <div class="card card-topic">
-            <img src="<?=base_url('assets/img/default.jpeg');?>" class="img-topic">
-            <div class="row px-2 pt-2 no-gutters talk-button">
-                <div class="col-11">
-                    <h6 class="font-weight-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit</h6>
-                </div>
-                <div class="col-1 pl-3">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </div>
-            <div class="hidden px-2">
-                <hr class="m-0 my-2">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste eum at quibusdam ex consequatur
-                    voluptas cumque tenetur numquam quae, perferendis excepturi illo nam est eius ipsum laboriosam
-                    architecto quia? Porro?</p>
-            </div>
+        <?php 
+            }
+        ?>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12 text-center">
+            <button class="btn btn-circle btn-outline-primary px-5">Join Now</button>
         </div>
     </div>
 </div>
