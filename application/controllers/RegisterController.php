@@ -103,11 +103,18 @@ class RegisterController extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	public function book()
+	public function book() // route: registration/consult
 	{
+		if(!$this->session->has_userdata('user_id')) { // if the session value is null or doesn't exist
+			redirect('/');
+		}
+
+		$data['uniData'] = $this->UniModel->getUniData();
+		// print("<pre>".print_r($data['uniData'], true)."</pre>");
+
 		$data['title'] = "Book Consultation";
 		$this->load->view('template/header', $data);
-		$this->load->view('user/book');
+		$this->load->view('user/book', $data);
 		$this->load->view('template/footer');
 	}
 }

@@ -21,114 +21,120 @@
             </p>
             <hr>
         </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="<?=base_url('assets/img/default.jpeg');?>" alt="">
-                <div class="card-body text-center p-1">
-                    <h4 class="m-0">Uni A</h4>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col">
-                        <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
-                            data-target="#exampleModal">#1</button>
+        <?php
+        foreach($uniData as $uniInfo) {
+        ?>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="<?php echo base_url().$uniInfo['uni_photo_banner']; ?>" alt="" height="200">
+                    <div class="card-body text-center p-1">
+                        <h5 class="m-0 p-2"><?php echo $uniInfo['uni_name']; ?></h5>
                     </div>
-                    <div class="col">
-                        <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal"
-                            data-target="#exampleModal">#2</button>
+                    <div class="row no-gutters">
+                        <?php
+                        foreach($uniInfo['uni_detail'] as $row) {
+                            $assigned_time  = $row['uni_dtl_start_date'];
+                            $start = explode(" ", $assigned_time);
+                            $start_time = substr($start[1], 0, 5);
+
+                            $completed_time  = $row['uni_dtl_end_date'];
+                            $end = explode(" ", $completed_time );
+                            $end_time = substr($end[1], 0, 5);
+
+                            $d1 = new DateTime($assigned_time);
+                            $d2 = new DateTime($completed_time);
+
+                            $interval = $d2->diff($d1);
+                            $time = $interval->format('%H');
+
+                            $duration = 15;
+                            $count = 0;
+                            ?>
+                            <div class="col">
+                                <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
+                                    data-target="#modal<?php echo $row['uni_dtl_id']; ?>"><?php echo $start[0]; ?></button>
+                            </div>
+
+                            <?php
+                            $disabled = "";
+                            if(count($uniInfo['uni_detail']) < 2) {
+                                $disabled = "style='background:#c6c6c6 !important;border: 1px solid #c6c6c6 !important'";
+                                ?>
+                                <div class="col">
+                                    <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal" <?php echo $disabled; ?>
+                                        data-target="#day2">Day 2</button>
+                                </div>
+                                <?php
+                            }
+                            ?>
+
+
+
+
+                            <div class="modal" tabindex="-1" role="dialog" id="modal<?php echo $row['uni_dtl_id']; ?>">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Time</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body"><?php echo $assigned_time; ?>
+                                            <?php
+                                            for($i = 1; $i <= ($time*60)/$duration; $i++){
+                                                $startTime = strtotime("+".$duration*$count." minutes", strtotime($assigned_time));
+                                                $endTime = strtotime("+".$duration*$i." minutes", strtotime($assigned_time));
+                                            ?>
+                            
+                                                <div class="row mb-2">
+                                                    <div class="col-9 pr-0">
+                                                        <button class="btn btn-outline-info btn-disabled btn-block" disabled><?php echo date('h:i', $startTime); ?> - <?php echo date('h:i', $endTime); ?> WIB</button>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <button class="btn btn-primary btn-block">Book</button>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="row mb-2">
+                                                    <div class="col-9 pr-0">
+                                                        <button class="btn btn-dark btn-disabled btn-block" disabled>10:15 - 10:30 WIB</button>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <button class="btn btn-outline-success btn-block" disabled>Booked</button>
+                                                    </div>
+                                                </div> -->
+
+                                            <?php
+                                            $count++;
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                        <!-- <div class="col">
+                            <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
+                                data-target="#day1">Day 1</button>
+                        </div>
+                        <?php
+                        $disabled = "";
+                        if(count($uniInfo['uni_detail']) < 2) {
+                            $disabled = "style='background:#c6c6c6 !important;border: 1px solid #c6c6c6 !important'";
+                        }
+                        ?> 
+                        <div class="col">
+                            <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal" <?php echo $disabled; ?>
+                                data-target="#day2">Day 2</button>
+                        </div> -->
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="<?=base_url('assets/img/default.jpeg');?>" alt="">
-                <div class="card-body text-center p-1">
-                    <h4 class="m-0">Uni A</h4>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col">
-                        <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
-                            data-target="#exampleModal">#1</button>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal"
-                            data-target="#exampleModal">#2</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="<?=base_url('assets/img/default.jpeg');?>" alt="">
-                <div class="card-body text-center p-1">
-                    <h4 class="m-0">Uni A</h4>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col">
-                        <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
-                            data-target="#exampleModal">#1</button>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal"
-                            data-target="#exampleModal">#2</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="<?=base_url('assets/img/default.jpeg');?>" alt="">
-                <div class="card-body text-center p-1">
-                    <h4 class="m-0">Uni A</h4>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col">
-                        <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
-                            data-target="#exampleModal">#1</button>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal"
-                            data-target="#exampleModal">#2</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="<?=base_url('assets/img/default.jpeg');?>" alt="">
-                <div class="card-body text-center p-1">
-                    <h4 class="m-0">Uni A</h4>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col">
-                        <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
-                            data-target="#exampleModal">#1</button>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal"
-                            data-target="#exampleModal">#2</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="<?=base_url('assets/img/default.jpeg');?>" alt="">
-                <div class="card-body text-center p-1">
-                    <h4 class="m-0">Uni A</h4>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col">
-                        <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
-                            data-target="#exampleModal">#1</button>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal"
-                            data-target="#exampleModal">#2</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <?php
+        }
+        ?>
     </div>
     <div class="form-group mt-3">
         <div class="row">
@@ -150,52 +156,7 @@
     </div>
 </div>
 
-<div class="modal" tabindex="-1" role="dialog" id="exampleModal">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Time</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row mb-2">
-                    <div class="col-9 pr-0">
-                        <button class="btn btn-outline-info btn-disabled btn-block" disabled>10:00 - 10:15 WIB</button>
-                    </div>
-                    <div class="col-3">
-                        <button class="btn btn-primary btn-block">Book</button>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-9 pr-0">
-                        <button class="btn btn-dark btn-disabled btn-block" disabled>10:15 - 10:30 WIB</button>
-                    </div>
-                    <div class="col-3">
-                        <button class="btn btn-outline-success btn-block" disabled>Booked</button>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-9 pr-0">
-                        <button class="btn btn-outline-info btn-disabled btn-block" disabled>10:30 - 10:45 WIB</button>
-                    </div>
-                    <div class="col-3">
-                        <button class="btn btn-primary btn-block">Book</button>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-9 pr-0">
-                        <button class="btn btn-outline-info btn-disabled btn-block" disabled>10:45 - 11:00 WIB</button>
-                    </div>
-                    <div class="col-3">
-                        <button class="btn btn-primary btn-block">Book</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <!-- <?php
 $start_time = strtotime("09:00");
