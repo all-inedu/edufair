@@ -1,4 +1,8 @@
 <style>
+body {
+    padding: 0;
+}
+
 .card-headers img {
     padding: 0 20%;
 }
@@ -20,7 +24,7 @@
 
 <div class="container-fluid" style="margin-top:12vh;" id="home">
     <div class="row">
-        <div class="col-md-7 p-5 bg-dark">
+        <div class="col-md-5 p-5 bg-dark">
             <div class="row">
                 <div class="col-md-4 p-1 img1">
                     <div class="card bg-light shadow card-headers">
@@ -121,10 +125,43 @@
                         <img src="<?=base_url('assets/img/avatar8.png');?>">
                     </div>
                 </div>
+                <div class="col-md-4 p-1 img10">
+                    <div class="card bg-light shadow card-headers">
+                        <img src="<?=base_url('assets/img/avatar7.png');?>">
+                    </div>
+                    <div class="card bg-light shadow card-headers">
+                        <img src="<?=base_url('assets/img/avatar5.png');?>">
+                    </div>
+                    <div class="card bg-light shadow card-headers">
+                        <img src="<?=base_url('assets/img/avatar6.png');?>">
+                    </div>
+                </div>
+                <div class="col-md-4 p-1 img11">
+                    <div class="card bg-light shadow card-headers">
+                        <img src="<?=base_url('assets/img/avatar6.png');?>">
+                    </div>
+                    <div class="card bg-light shadow card-headers">
+                        <img src="<?=base_url('assets/img/avatar4.png');?>">
+                    </div>
+                    <div class="card bg-light shadow card-headers">
+                        <img src="<?=base_url('assets/img/avatar3.png');?>">
+                    </div>
+                </div>
+                <div class="col-md-4 p-1 img12">
+                    <div class="card bg-light shadow card-headers">
+                        <img src="<?=base_url('assets/img/avatar9.png');?>">
+                    </div>
+                    <div class="card bg-light shadow card-headers">
+                        <img src="<?=base_url('assets/img/avatar10.png');?>">
+                    </div>
+                    <div class="card bg-light shadow card-headers">
+                        <img src="<?=base_url('assets/img/avatar8.png');?>">
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="col-md-5 p-5 my-auto text-center">
+        <div class="col-md-7 p-5 my-auto text-center">
 
             <h1>ALL-in Edufair</h1>
             <h5 class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet laboriosam eius doloremque
@@ -211,9 +248,32 @@
         var random = Math.floor(Math.random() * $('.card-headers', this).length);
         $('.card-headers', this).hide().eq(random).show();
     });
+    $('.img10').each(function() {
+        var random = Math.floor(Math.random() * $('.card-headers', this).length);
+        $('.card-headers', this).hide().eq(random).show();
+    });
+
+    $('.img11').each(function() {
+        var random = Math.floor(Math.random() * $('.card-headers', this).length);
+        $('.card-headers', this).hide().eq(random).show();
+    });
+
+    $('.img12').each(function() {
+        var random = Math.floor(Math.random() * $('.card-headers', this).length);
+        $('.card-headers', this).hide().eq(random).show();
+    });
 
     setInterval(function() {
-        let index = Math.floor(Math.random() * 9) + 1;
+        let index = Math.floor(Math.random() * 12) + 1;
+        $('.img' + index).each(function() {
+            var random = Math.floor(Math.random() * $('.card-headers', this).length);
+            $('.card-headers', this).hide().eq(random).show().addClass(
+                "animate__animated animate__flipInY");
+        });
+    }, 5000);
+
+    setInterval(function() {
+        let index = Math.floor(Math.random() * 12) + 1;
         $('.img' + index).each(function() {
             var random = Math.floor(Math.random() * $('.card-headers', this).length);
             $('.card-headers', this).hide().eq(random).show().addClass(

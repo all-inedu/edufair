@@ -19,7 +19,7 @@
                     <a class="nav-link" href="#talks">Talks</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#booking">Book Consultation</a>
+                    <a class="nav-link" href="#booking">Uni List</a>
                 </li>
 
                 <li class="nav-item ml-5">
