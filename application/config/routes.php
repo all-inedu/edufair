@@ -66,3 +66,9 @@ $route['registration/consult/booking'] = 'RegisterController/bookingConsult';
 /* PROCESS END HERE */
 
 $route['dashboard/admin'] = 'AdminController/index';
+
+$route['dashboard/admin/topic'] = 'AdminController/indexTopic';
+$route['dashboard/admin/topic/add'] = 'AdminController/addTopic';
+$route['dashboard/admin/topic/edit/:any'] = 'AdminController/editTopic/$id';
+
+$route['dashboard/admin/uni'] = 'AdminController/indexUni';
