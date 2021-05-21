@@ -9,6 +9,7 @@ class RegisterController extends CI_Controller {
         $this->load->model('UserModel');
         $this->load->model('UniModel');
         $this->load->model('TopicModel');
+        $this->load->model('ConsultModel');
     }
 
 	public function view()
@@ -67,25 +68,11 @@ class RegisterController extends CI_Controller {
 		}
 		// $this->session->set_flashdata('success', 'Your email has been registered<br>');
 	}
-
-	public function bookingTopic()
-	{
-		$userId = $this->session->userdata('user_id'); //get user id from session login
-		$day1bookingTopicId = $this->input->post('day[1]');
-		$day2bookingTopicId = $this->input->post('day[2]');
-
-		$process = $this->TopicModel->bookingTopic($userId, $day1bookingTopicId, $day2bookingTopicId);
-		if($process) {
-			echo "001";
-		} else {
-			echo "03"; // error booking topic
-		}
-	}
 	
 	public function topic()
 	{
 		if(!$this->session->has_userdata('user_id')) { // if the session value is null or doesn't exist
-			redirect('/');
+			//redirect('/');
 		}
 
 		$topicData_day1 = $this->TopicModel->getTopicData('2021-05-20'); // change with edufair start date
@@ -106,7 +93,7 @@ class RegisterController extends CI_Controller {
 	public function book() // route: registration/consult
 	{
 		if(!$this->session->has_userdata('user_id')) { // if the session value is null or doesn't exist
-			redirect('/');
+			//redirect('/');
 		}
 
 		$data['uniData'] = $this->UniModel->getUniData();
@@ -117,4 +104,41 @@ class RegisterController extends CI_Controller {
 		$this->load->view('user/book', $data);
 		$this->load->view('template/footer');
 	}
+
+	/* PROCESS FUNCTION START HERE */
+	public function bookingTopic()
+	{
+		$userId = $this->session->userdata('user_id'); //get user id from session login
+		$day1bookingTopicId = $this->input->post('day[1]');
+		$day2bookingTopicId = $this->input->post('day[2]');
+
+		$process = $this->TopicModel->bookingTopic($userId, $day1bookingTopicId, $day2bookingTopicId);
+		if($process) {
+			echo "001";
+		} else {
+			echo "03"; // error booking topic
+		}
+	}
+
+	public function bookingConsult()
+	{
+		$userId = $this->session->userdata('user_id'); //get user id from session login
+		$startTime = $this->input->post('startTime');
+		$endTime = $this->input->post('endTime');
+		$uniId = $this->input->post('uniId');
+		$data = array(
+			'user_id'              => $userId,
+			'uni_id'               => $uniId,
+			'booking_c_start_date' => $startTime,
+			'booking_c_end_date'   => $endTime
+			);
+
+		$process = $this->ConsultModel->bookingConsult($data);
+		if($process) {
+			echo "001";
+		} else {
+			echo "04"; // error booking consult
+		}
+	}
+	/* PROCESS FUNCTION END HERE */
 }

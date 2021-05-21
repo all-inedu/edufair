@@ -32,6 +32,7 @@
                     </div>
                     <div class="row no-gutters">
                         <?php
+                            $day = 1;
                         foreach($uniInfo['uni_detail'] as $row) {
                             $assigned_time  = $row['uni_dtl_start_date'];
                             $start = explode(" ", $assigned_time);
@@ -46,13 +47,10 @@
 
                             $interval = $d2->diff($d1);
                             $time = $interval->format('%H');
-
-                            $duration = 15;
-                            $count = 0;
                             ?>
                             <div class="col">
                                 <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
-                                    data-target="#modal<?php echo $row['uni_dtl_id']; ?>"><?php echo $start[0]; ?></button>
+                                    data-target="#modal<?php echo $row['uni_dtl_id']; ?>">Day <?php echo $day; //echo $start[0]; ?></button>
                             </div>
 
                             <?php
@@ -68,9 +66,6 @@
                             }
                             ?>
 
-
-
-
                             <div class="modal" tabindex="-1" role="dialog" id="modal<?php echo $row['uni_dtl_id']; ?>">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -80,8 +75,10 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <div class="modal-body"><?php echo $assigned_time; ?>
+                                        <div class="modal-body">
                                             <?php
+                                            $duration = 15;
+                                            $count = 0;
                                             for($i = 1; $i <= ($time*60)/$duration; $i++){
                                                 $startTime = strtotime("+".$duration*$count." minutes", strtotime($assigned_time));
                                                 $endTime = strtotime("+".$duration*$i." minutes", strtotime($assigned_time));
@@ -92,7 +89,7 @@
                                                         <button class="btn btn-outline-info btn-disabled btn-block" disabled><?php echo date('h:i', $startTime); ?> - <?php echo date('h:i', $endTime); ?> WIB</button>
                                                     </div>
                                                     <div class="col-3">
-                                                        <button class="btn btn-primary btn-block">Book</button>
+                                                        <button class="btn btn-primary btn-block btn-book-consul" data-uniid="<?php echo $uniInfo['uni_id']; ?>" data-starttime="<?php echo $start[0]." ".date('h:i:s', $startTime); ?>" data-endtime="<?php echo $start[0]." ".date('h:i:s', $endTime); ?>">Book</button>
                                                     </div>
                                                 </div>
                                                 <!-- <div class="row mb-2">
@@ -113,22 +110,10 @@
                                 </div>
                             </div>
                             <?php
+                            $day++;
+
                         }
                         ?>
-                        <!-- <div class="col">
-                            <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
-                                data-target="#day1">Day 1</button>
-                        </div>
-                        <?php
-                        $disabled = "";
-                        if(count($uniInfo['uni_detail']) < 2) {
-                            $disabled = "style='background:#c6c6c6 !important;border: 1px solid #c6c6c6 !important'";
-                        }
-                        ?> 
-                        <div class="col">
-                            <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal" <?php echo $disabled; ?>
-                                data-target="#day2">Day 2</button>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -155,7 +140,62 @@
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"></script>
+<script>
+    $(".btn-book-consul").each(function() {
+        $(this).click(function() {
+            var startTime = $(this).data('starttime'); 
+            var endTime = $(this).data('endtime');
+            var uniId = $(this).data('uniid');
 
+            var splitTime = startTime.split(" ");
+            var show_startDate = splitTime[0];
+            var show_startTime = splitTime[1];
+
+            var showDate = new Date(show_startDate);
+            var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][showDate.getMonth()];
+            var str_showDate = showDate.getDate() + " " + month + " " + showDate.getFullYear();
+
+            swal.fire({
+                icon: 'question',
+                title: 'Are you sure to book a consultation on <br><b>'+str_showDate+'</b> at <b> '+show_startTime.substr(0, 5)+' </b> ?',
+                showCancelButton: true,
+                focusConfirm: false,
+                confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
+                cancelButtonText: 'Wait!'
+            }).then((result) => {
+                if(result.isConfirmed) {
+                    $.ajax({
+                        url: '<?php echo base_url(); ?>registration/consult/booking',
+                        type: 'post',
+                        data: {
+                            startTime : startTime,
+                            endTime : endTime,
+                            uniId : uniId
+                        },
+                        success: function(msg) {
+                            if(msg == "001") {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'You have successfully booked the schedule',
+                                    text: 'We\'ll remind you before the event'
+                                });
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Something went wrong! Please try again.'
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>
 
 
 <!-- <?php

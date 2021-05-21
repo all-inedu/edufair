@@ -53,10 +53,16 @@ $route['default_controller'] = 'HomeController/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+/* VIEW START HERE */
 $route['registration'] = 'RegisterController/view';
 $route['registration/topic'] = 'RegisterController/topic';
 $route['registration/submit'] = 'RegisterController/register';
 $route['registration/consult'] = 'RegisterController/book';
+/* VIEW END HERE */
+
+/* PROCESS START HERE */
 $route['registration/topic/booking'] = 'RegisterController/bookingTopic';
+$route['registration/consult/booking'] = 'RegisterController/bookingConsult';
+/* PROCESS END HERE */
 
 $route['dashboard/admin'] = 'AdminController/index';

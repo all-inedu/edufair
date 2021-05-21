@@ -23,7 +23,7 @@
                 </li>
 
                 <li class="nav-item ml-5">
-                    <a class="nav-link btn btn-sm btn-outline-primary" href="#">Sign In</a>
+                    <a class="nav-link btn btn-sm btn-outline-primary" href="#signInModal" data-toggle="modal">Sign In</a>
                 </li>
             </ul>
         </div>
