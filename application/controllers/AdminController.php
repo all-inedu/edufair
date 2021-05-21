@@ -22,4 +22,72 @@ class AdminController extends CI_Controller {
 	{
 		$this->load->view('admin/dashboard');
 	}
+
+
+	// Topic Page 
+
+	public function indexTopic() 
+	{
+		$this->load->view('admin/page/topic/index');
+	}
+
+	public function addTopic() 
+	{
+		$this->load->view('admin/page/topic/add');
+	}
+
+	public function saveTopic() 
+	{
+		
+	}
+
+	public function editTopic($id) 
+	{
+		$this->load->view('admin/page/topic/edit');
+	}
+
+	public function updateTopic() 
+	{
+		
+	}
+
+	public function deleteTopic() 
+	{
+		
+	}
+
+
+
+	// University 
+	
+	public function indexUni() 
+	{
+		$this->load->view('admin/page/uni/index');
+	}
+
+	public function addUni() 
+	{
+		$this->load->view('admin/page/uni/add');
+	}
+
+	public function saveUni() 
+	{
+		
+	}
+
+	public function editUni() 
+	{
+		$this->load->view('admin/page/uni/edit');
+	}
+
+	public function updateUni() 
+	{
+		
+	}
+
+	public function deleteUni() 
+	{
+		
+	}
+	
 }
