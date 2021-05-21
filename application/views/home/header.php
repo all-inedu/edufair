@@ -20,8 +20,72 @@ body {
     margin: 0 -10px;
     position: relative;
 }
-</style>
 
+.modal-login .avatar {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -70px;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    z-index: 9;
+    background: #60c7c1;
+    padding: 15px;
+    box-shadow: 0px 2px 2px rgb(0 0 0 / 10%);
+}
+
+.modal-login .avatar i {
+    font-size: 38px;
+    padding: 10px;;
+    color: #FFF;
+}
+
+.modal-login .modal-title {
+    width: 100%;
+    text-align: center; 
+    padding-top: 1rem;
+}
+
+.modal-login .avatar img {
+    width: 100%;
+}
+
+.modal-login .modal-body {
+    padding: 1em 3em;
+}
+</style>
+<div id="signInModal" class="modal fade">
+    <div class="modal-dialog modal-login modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="avatar">
+                    <!-- <img src="<?php echo base_url(); ?>assets/home/login/avatar.png" alt="Avatar"> -->
+                    <i class="fas fa-user-lock"></i>
+                </div>
+                <h5 class="modal-title">Member Login</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="email" placeholder="Email" required="required">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="#">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container-fluid" style="margin-top:12vh;" id="home">
     <div class="row">
         <div class="col-md-5 p-5 bg-dark">

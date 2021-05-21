@@ -158,12 +158,12 @@
 	        </div>
 	    </div>
 	</div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-	    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-	    crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.js"></script>
-	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
 new SlimSelect({
     select: '#userSchool',
     allowDeselect: true,
@@ -319,21 +319,6 @@ function checkValue(param) {
 
 
     }
-
-
-
-
-
-
-    // major 
-    // if ($('#userMajor').val() == 'other') {
-    //     $('#userMajorNew').show();
-    //     $('#userMajorNew').focus();
-    // } else {
-    //     $('#userMajorNew').hide();
-    // }
-
-
 }
 
 //****** set user_school to hidden input start ********//
@@ -406,25 +391,6 @@ $(document).ready(function() {
             });
         }
     });
-
-
-    // $("#registerForm").ajaxSubmit({
-    // 	url: "<?php echo base_url(); ?>registration/submit",
-    // 	type: 'POST',
-    // 	data: $("#registerForm").serialize(),
-    // 	success: function(msg){
-    // 		alert(msg);return;
-    // 		if(msg == "001") {
-    // 			// window.location.href = "<?php echo base_url(); ?>registration/topic";
-    // 		} else {
-    // 			Swal.fire({
-    // 				icon: 'error',
-    // 				title: 'Oops...',
-    // 				text: 'Something went wrong! Please try again.'
-    // 			});
-    // 		}
-    // 	}
-    // })
 });
 
 function validation(param) {
@@ -478,4 +444,4 @@ function validation(param) {
             }, false)
         })
 })()
-	</script>
+</script>
