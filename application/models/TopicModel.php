@@ -19,6 +19,7 @@ class TopicModel extends CI_Model {
             $data[$queryData->topic_id] = array(
                   "topic_id"         => $queryData->topic_id,
                   "topic_name"       => $queryData->topic_name,
+                  "topic_desc"       => $queryData->topic_desc,
                   "topic_start_date" => $queryData->topic_start_date,
                   "topic_end_date"   => $queryData->topic_end_date,
                   "uni_detail"       => array()

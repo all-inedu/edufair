@@ -32,7 +32,7 @@
                     </div>
                     <div class="row no-gutters">
                         <?php
-                            $day = 1;
+                        $day = 1;
                         foreach($uniInfo['uni_detail'] as $row) {
                             $assigned_time  = $row['uni_dtl_start_date'];
                             $start = explode(" ", $assigned_time);

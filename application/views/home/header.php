@@ -55,8 +55,11 @@ body {
 .modal-login .modal-body {
     padding: 1em 3em;
 }
+.modal-footer {
+    justify-content: center !important;
+}
 </style>
-<div id="signInModal" class="modal fade">
+<div id="signUpModal" class="modal fade">
     <div class="modal-dialog modal-login modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -75,13 +78,16 @@ body {
                     <div class="form-group">
                         <input type="password" class="form-control" name="password" placeholder="Password" required="required">
                     </div>
+                    <div class="form-group text-right">
+                        <a href="#">Forgot Password?</a>
+                    </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <a href="#">Forgot Password?</a>
+                New here ?<a href="<?php echo base_url(); ?>registration">Join Us</a>
             </div>
         </div>
     </div>

@@ -49,6 +49,25 @@ class UniModel extends CI_Model {
 		} else {
 			return false;
 		}
-		
+	}
+
+	function getUniCountry()
+	{
+		$sql = "SELECT uni_country, uni_detail_country FROM tb_uni WHERE uni_status = 1";
+		$query = $this->db->query($sql);
+		if($query->num_rows() > 0) {
+			$data = array();
+			foreach($query->result() as $row) {
+				if(!isset($data[$row->uni_country])) {
+					$data[$row->uni_country] = array();
+				}
+
+				$data[$row->uni_country][] = $row->uni_detail_country;
+				
+			}
+			return $data;
+		} else {
+			return false;
+		}
 	}
 }
