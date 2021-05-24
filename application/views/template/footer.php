@@ -43,12 +43,13 @@ $(".navigate-page-2").on('click', function() {
 
 $(".btn-book-consul").each(function() {
     $(this).click(function() {
-        console.log($(this).closest(".modal").children(""));
+        
+
         var user_id = "<?php echo $this->session->userdata('user_id'); ?>";
         if( (user_id == "") ) {
-            $(this).closest(".modal").find("button.close").click(function() {
-                $("#btn-signup").click();
-            });
+            var parent = $(this).closest(".modal").attr('id');
+            $("#"+parent+" .close").click(); // close booking consult modal
+            $("#btn-signup").click(); // show login modal
             
             return;
         }
