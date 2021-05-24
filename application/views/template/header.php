@@ -22,12 +22,15 @@
         color: #646363 !important;
     }
 
+    .ss-main .ss-single-selected, .ss-main .ss-multi-selected{ border-top: none !important; border-left: none !important; border-right: none !important; }
+
     .allin-registration {
-        margin-top: 15vh;
-        background: #efefef;
+        margin-top: 7vh;
+        /*background: #efefef;*/
         padding: 2em;
-        border-radius: 10px;
+        /*border-radius: 10px;*/
         box-shadow: 5px 5px 5px 0px rgb(0, 0, 0, 0.1);
+        border:1px solid #dedede
     }
     </style>
 </head>

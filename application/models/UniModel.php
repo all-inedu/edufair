@@ -22,7 +22,7 @@ class UniModel extends CI_Model {
 						"uni_country"      => $row->uni_country,
 						"uni_description"  => $row->uni_description,
 						"uni_photo_banner" => $row->uni_photo_banner,
-						"uni_zoom_link"    => $row->uni_zoom_link,
+						// "uni_zoom_link"    => $row->uni_zoom_link,
 						"uni_detail"       => array()
 		              	);
 		          	}
@@ -35,14 +35,14 @@ class UniModel extends CI_Model {
 						"uni_dtl_id"         => $row->uni_dtl_id,
 						"uni_dtl_start_date" => $row->uni_dtl_start_date,
 						"uni_dtl_end_date"   => $row->uni_dtl_end_date,
-						"uni_dtl_time"       => array()
+						// "uni_dtl_time"       => array()
 					);
 		        }
 
-		        $data[$row->uni_id]['uni_detail'][$uni_dtl_start_date[0]]['uni_dtl_time'][] = array(
-					"start_time" => $uni_dtl_start_date[1],
-					"end_time"   => $uni_dtl_end_date[1],
-		        );
+		   //      $data[$row->uni_id]['uni_detail'][$uni_dtl_start_date[0]]['uni_dtl_time'][] = array(
+					// "start_time" => $uni_dtl_start_date[1],
+					// "end_time"   => $uni_dtl_end_date[1],
+		   //      );
 				
 			}
 			return $data;

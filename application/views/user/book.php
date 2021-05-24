@@ -131,8 +131,9 @@
 
                         </div>
                         <div class="col text-right mr-3">
-                            <button type="button" class="btn btn-primary navigate-page-3">Done <i
-                                    class="fas fa-paper-plane pl-2"></i></button>
+                            <a href="<?php echo base_url(); ?>">
+                            <button type="button" class="btn btn-primary navigate-page-3">See More <i
+                                    class="fas fa-paper-plane pl-2"></i></button></a>
                         </div>
                     </div>
                 </div>

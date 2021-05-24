@@ -29,8 +29,8 @@ class TopicModel extends CI_Model {
                   "uni_name"         => $queryData->uni_name,
                   "uni_country"      => $queryData->uni_country,
                   "uni_description"  => $queryData->uni_description,
-                  "uni_photo_banner" => $queryData->uni_photo_banner,
-                  "uni_zoom_link"    => $queryData->uni_zoom_link
+                  "uni_photo_banner" => $queryData->uni_photo_banner
+                  // "uni_zoom_link"    => $queryData->uni_zoom_link
                 );
         }
         return $data;
