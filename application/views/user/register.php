@@ -423,8 +423,10 @@ $(document).ready(function() {
     	var val = $(this).val();
     	if( (val == "teacher") || (val == "consellor") )
     		$(".form-group-major").hide();
+    		$("#userMajor").prop('required', false);
     	else
     		$(".form-group-major").show();
+    	$("#userMajor").prop('required', true);
     })
 });
 
