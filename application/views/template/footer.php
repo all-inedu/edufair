@@ -43,8 +43,6 @@ $(".navigate-page-2").on('click', function() {
 
 $(".btn-book-consul").each(function() {
     $(this).click(function() {
-        
-
         var user_id = "<?php echo $this->session->userdata('user_id'); ?>";
         if( (user_id == "") ) {
             var parent = $(this).closest(".modal").attr('id');
@@ -99,6 +97,32 @@ $(".btn-book-consul").each(function() {
                         }
                     }
                 });
+            }
+        });
+    });
+});
+
+$("#dropdown-country .dropdown-item").each(function() {
+    $(this).click(function() {
+        var countryName = $(this).data('country');
+
+
+        $.ajax({
+            url: "<?php echo base_url(); ?>home/findUniByCountry",
+            type: "post",
+            data : {
+                countryName : countryName
+            },
+            success: function(msg) {
+                if(msg != "05") {
+                    $(".box-book").html(msg);
+                } else {
+                     Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong! Please try again.'
+                    });
+                }
             }
         });
     });

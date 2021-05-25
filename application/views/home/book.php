@@ -51,21 +51,24 @@
                 <button class="btn bg-white text-muted btn-sm mx-1 px-3 dropdown-toggle" data-toggle="dropdown">
                     <?php echo $key; ?>
                 </button>
+                <!-- <div class="dropdown-menu" id="dropdown-country"> -->
+                    <!-- <a class="dropdown-item" data-country="<?php echo $key; ?>" href="#booking"><?php echo $key; ?></a> -->
                 <?php
                 if(count($val) > 1) {
                 ?>
-                <div class="dropdown-menu">
-                    <?php
-                    for($i = 0 ; $i < count($val) ; $i++){
-                    ?>
-                    <a class="dropdown-item" href="#"><?php echo $val[$i]; ?></a>
-                    <?php
-                    }
-                    ?>
+                <div class="dropdown-menu" id="dropdown-country">
+                        <?php
+                        for($i = 0 ; $i < count($val) ; $i++){
+                        ?>
+                        <a class="dropdown-item" data-country="<?php echo $val[$i]; ?>" href="#booking"><?php echo $val[$i]; ?></a>
+                        <?php
+                        }
+                        ?>
                 </div>
                 <?php
-                }  
+                }
                 ?>
+                <!-- </div> -->
             </div>
             <?php
             }

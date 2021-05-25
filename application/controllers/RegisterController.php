@@ -97,7 +97,7 @@ class RegisterController extends CI_Controller {
 		}
 
 		// echo $this->session->userdata('user_id');
-		$data['uniData'] = $this->UniModel->getUniData();
+		$data['uniData'] = $this->UniModel->getUniData("");
 		// print("<pre>".print_r($data['uniData'], true)."</pre>");
 
 		$data['title'] = "Book Consultation";

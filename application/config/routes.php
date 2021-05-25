@@ -63,6 +63,7 @@ $route['registration/consult'] = 'RegisterController/book';
 /* PROCESS START HERE */
 $route['registration/topic/booking'] = 'RegisterController/bookingTopic';
 $route['registration/consult/booking'] = 'RegisterController/bookingConsult';
+$route['home/findUniByCountry'] = 'HomeController/findUniByCountry';
 /* PROCESS END HERE */
 
 $route['dashboard/admin'] = 'AdminController/index';

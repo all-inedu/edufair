@@ -3,14 +3,27 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class UniModel extends CI_Model {
 
-	function getUniData ()
+	function getUniData ($countryName)
 	{
-		$sql = "SELECT u.*, ud.uni_dtl_id, ud.uni_dtl_start_date, ud.uni_dtl_end_date, bc.booking_c_id, 
+		if($countryName != "") { // if user does search by country name
+			$sql = "SELECT u.*, ud.uni_dtl_id, ud.uni_dtl_start_date, ud.uni_dtl_end_date, bc.booking_c_id, 
+				(CASE WHEN bc.uni_id is NULL THEN 'available' ELSE 'booked' END) AS status
+				FROM `tb_uni` u 
+				JOIN tb_uni_detail ud ON ud.uni_id = u.uni_id 
+				LEFT JOIN tb_booking_consult bc ON bc.uni_id = u.uni_id
+				WHERE 
+				u.uni_country LIKE '%".$countryName."%' 
+				OR u.uni_detail_country like '%".$countryName."%'
+				AND u.uni_status = 1 ORDER BY ud.uni_dtl_start_date ASC";
+		} else { // if user doesn't search by country name
+			$sql = "SELECT u.*, ud.uni_dtl_id, ud.uni_dtl_start_date, ud.uni_dtl_end_date, bc.booking_c_id, 
 				(CASE WHEN bc.uni_id is NULL THEN 'available' ELSE 'booked' END) AS status
 				FROM `tb_uni` u 
 				JOIN tb_uni_detail ud ON ud.uni_id = u.uni_id 
 				LEFT JOIN tb_booking_consult bc ON bc.uni_id = u.uni_id
 				WHERE u.uni_status = 1 ORDER BY ud.uni_dtl_start_date ASC";
+		}
+		
 		$query = $this->db->query($sql);
 		if($query->num_rows() > 0) {
 			$data = array();
@@ -54,6 +67,27 @@ class UniModel extends CI_Model {
 	function getUniCountry()
 	{
 		$sql = "SELECT uni_country, uni_detail_country FROM tb_uni WHERE uni_status = 1";
+		$query = $this->db->query($sql);
+		if($query->num_rows() > 0) {
+			$data = array();
+			foreach($query->result() as $row) {
+				if(!isset($data[$row->uni_country])) {
+					$data[$row->uni_country] = array();
+				}
+
+				$data[$row->uni_country][] = $row->uni_detail_country;
+				
+			}
+			return $data;
+		} else {
+			return false;
+		}
+	}
+
+	function getUniDataByCountry($countryName)
+	{
+		$sql = "SELECT uni_country, uni_detail_country FROM tb_uni WHERE uni_country LIKE '%".$countryName."%' 
+				OR uni_detail_country like '%".$countryName."%' AND uni_status = 1";
 		$query = $this->db->query($sql);
 		if($query->num_rows() > 0) {
 			$data = array();
