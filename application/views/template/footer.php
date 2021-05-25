@@ -127,6 +127,35 @@ $("#dropdown-country .dropdown-item").each(function() {
     });
 });
 
+
+$("#forgot-password").click(function(e) {
+    e.preventDefault();
+    $("#signUpModal .modal-title").html("Forgot Password");
+    $("#signUpModal .modal-body").html('<form action="" method="post">'+
+                    '<div class="form-group">'+
+                        '<input type="email" id="fp_email" class="form-control" name="fp_email" placeholder="Enter Your Email Address" required="required">'+
+                    '</div>'+
+                    '<div class="form-group">'+
+                        '<button type="button" class="btn btn-primary btn-lg btn-block fp-btn" onclick="forgotPassword()">Send</button>'+
+                    '</div>'+
+                '</form>');
+    $("#signUpModal .modal-footer").html("");
+});
+
+function forgotPassword() {
+    var fpEmail = $("#fp_email").val();
+    $.ajax({
+        url: "<?php echo base_url(); ?>forgot-password",
+        type: "post",
+        data: {
+            fpEmail : fpEmail
+        },
+        success: function(msg) {
+            console.log(msg);
+        }
+    }) 
+}
+
 function highlight(uni_id) {
     $(".card").css({"border-color" : "#FFF"})
 

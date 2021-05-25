@@ -79,7 +79,7 @@ body {
                         <input type="password" class="form-control" name="password" placeholder="Password" required="required">
                     </div>
                     <div class="form-group text-right">
-                        <a href="#">Forgot Password?</a>
+                        <a href="javascript:void(0)" id="forgot-password">Forgot Password?</a>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>

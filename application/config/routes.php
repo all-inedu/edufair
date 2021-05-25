@@ -66,6 +66,9 @@ $route['registration/consult'] = 'RegisterController/book';
 /* PROCESS START HERE */
 $route['registration/topic/booking'] = 'RegisterController/bookingTopic';
 $route['registration/consult/booking'] = 'RegisterController/bookingConsult';
+$route['forgot-password'] = 'HomeController/forgotPassword';
+$route['reset-password/token/(:any)'] = 'HomeController/resetPassword';
+$route['reset-password'] = 'HomeController/updatePassword';
 /* PROCESS END HERE */
 
 $route['dashboard/admin'] = 'AdminController/index';
