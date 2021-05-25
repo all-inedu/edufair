@@ -40,7 +40,6 @@ $(".navigate-page-2").on('click', function() {
     });
 });
 
-
 $(".btn-book-consul").each(function() {
     $(this).click(function() {
         var user_id = "<?php echo $this->session->userdata('user_id'); ?>";
