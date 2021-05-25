@@ -3,6 +3,14 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class TopicModel extends CI_Model {
 
+    function getId() 
+    {
+        $this->db->select('topic_id');
+        $this->db->order_by('topic_id','DESC');
+        $this->db->from('tb_topic');
+        return $this->db->get()->row_array();
+    }
+
   	function getTopicData($requestedDate) 
     {
       $sql = "SELECT t.*, u.* FROM `tb_topic` t 
@@ -66,6 +74,26 @@ class TopicModel extends CI_Model {
       } else {
         return false;
       }
+    }
+
+    function insertTopic($data) 
+    {
+        $query = $this->db->insert('tb_topic', $data);
+        if($query) {
+          return true;
+        } else {
+          return false;
+        }
+    }
+
+    function insertTopicDetail($data) 
+    {
+        $query = $this->db->insert('tb_topic_detail', $data);
+        if($query) {
+          return true;
+        } else {
+          return false;
+        }
     }
 
 }
