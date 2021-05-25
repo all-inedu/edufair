@@ -11,6 +11,38 @@ class TopicModel extends CI_Model {
         return $this->db->get()->row_array();
     }
 
+    function getTopicDataAll() 
+    {
+      $sql = "SELECT t.*, u.* FROM `tb_topic` t 
+              JOIN tb_topic_detail td ON t.topic_id = td.topic_id
+              JOIN tb_uni u ON u.uni_id = td.uni_id";
+      $query = $this->db->query($sql);
+      if($query->num_rows() > 0) {
+        $data = array();
+        foreach($query->result() as $queryData) {
+          if(!isset($data[$queryData->topic_id])) {
+            $data[$queryData->topic_id] = array(
+                  "topic_id"         => $queryData->topic_id,
+                  "topic_name"       => $queryData->topic_name,
+                  "topic_start_date" => $queryData->topic_start_date,
+                  "topic_end_date"   => $queryData->topic_end_date,
+                  "uni_detail"       => array()
+              );
+          }
+          $data[$queryData->topic_id]['uni_detail'][] = array(
+                  "uni_id"           => $queryData->uni_id,
+                  "uni_name"         => $queryData->uni_name,
+                  "uni_country"      => $queryData->uni_country,
+                  "uni_description"  => $queryData->uni_description,
+                  "uni_photo_banner" => $queryData->uni_photo_banner
+                );
+        }
+        return $data;
+      } else {
+        return false;
+      }
+    }
+
   	function getTopicData($requestedDate) 
     {
       $sql = "SELECT t.*, u.* FROM `tb_topic` t 

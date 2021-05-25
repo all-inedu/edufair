@@ -18,7 +18,9 @@ class AdminController extends CI_Controller {
 	// Topic Page 
 	public function indexTopic() 
 	{
-		$this->load->view('admin/page/topic/index');
+		$data['topic'] = $this->topic->getTopicDataAll();
+		echo json_encode($data);
+		// $this->load->view('admin/page/topic/index');
 	}
 
 	public function addTopic() 
