@@ -53,6 +53,9 @@ $route['default_controller'] = 'HomeController/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+
+$route['api/country/(:any)'] = 'AdminController/showCountry/$1';
+
 /* VIEW START HERE */
 $route['registration'] = 'RegisterController/view';
 $route['registration/topic'] = 'RegisterController/topic';
@@ -69,6 +72,10 @@ $route['dashboard/admin'] = 'AdminController/index';
 
 $route['dashboard/admin/topic'] = 'AdminController/indexTopic';
 $route['dashboard/admin/topic/add'] = 'AdminController/addTopic';
-$route['dashboard/admin/topic/edit/:any'] = 'AdminController/editTopic/$id';
+$route['dashboard/admin/topic/submit'] = 'AdminController/saveTopic';
+$route['dashboard/admin/topic/edit/(:num)'] = 'AdminController/editTopic/$1';
+
 
 $route['dashboard/admin/uni'] = 'AdminController/indexUni';
+$route['dashboard/admin/uni/add'] = 'AdminController/addUni';
+$route['dashboard/admin/uni/edit/(:any)'] = 'AdminController/editUni/$1';

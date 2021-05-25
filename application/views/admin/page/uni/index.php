@@ -18,8 +18,16 @@
                     </ol>
                     <div class="card mb-4">
                         <div class="card-header">
-                            <i class="fas fa-table mr-1"></i>
-                            University List
+                            <div class="float-left mt-1 ">
+                                <i class="fas fa-table mr-1 "></i>
+                                University List
+                            </div>
+
+                            <div class="float-right">
+                                <a href="<?=base_url('dashboard/admin/uni/add');?>"
+                                    class="btn btn-sm btn-outline-primary"><i class="fas fa-plus"></i> Add
+                                    University</a>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
