@@ -21,7 +21,7 @@ class HomeController extends CI_Controller {
 		$data['talk_day2'] = $topicData_day2;
 		$data['uniData'] = $this->UniModel->getUniData();
 		$data['uniCountry'] = $this->UniModel->getUniCountry();
-
+		// print("<pre>".print_r($data['uniCountry'], true)."</pre>");exit;
         $this->load->view('template/header', $data);
         $this->load->view('home/navbar');
         $this->load->view('home/header');

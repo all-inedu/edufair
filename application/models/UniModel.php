@@ -55,16 +55,21 @@ class UniModel extends CI_Model {
 
 	function getUniCountry()
 	{
-		$sql = "SELECT uni_country, uni_detail_country FROM tb_uni WHERE uni_status = 1";
+		$sql = "SELECT uni_id, uni_name, uni_country FROM tb_uni WHERE uni_status = 1";
 		$query = $this->db->query($sql);
 		if($query->num_rows() > 0) {
 			$data = array();
 			foreach($query->result() as $row) {
 				if(!isset($data[$row->uni_country])) {
-					$data[$row->uni_country] = array();
+					$data[$row->uni_country] = array(
+							"uni_detail" => array()
+					);
 				}
 
-				$data[$row->uni_country][] = $row->uni_detail_country;
+				$data[$row->uni_country]['uni_detail'][] = array(
+							"uni_id" => $row->uni_id,
+							"uni_name" => $row->uni_name
+					);	
 				
 			}
 			return $data;

@@ -54,13 +54,13 @@
                 <!-- <div class="dropdown-menu" id="dropdown-country"> -->
                     <!-- <a class="dropdown-item" data-country="<?php echo $key; ?>" href="#booking"><?php echo $key; ?></a> -->
                 <?php
-                if(count($val) > 1) {
+                if(count($val['uni_detail']) > 1) {
                 ?>
                 <div class="dropdown-menu" id="dropdown-country">
                         <?php
-                        for($i = 0 ; $i < count($val) ; $i++){
+                        foreach($val['uni_detail'] as $row){
                         ?>
-                        <a class="dropdown-item" data-country="<?php echo $val[$i]; ?>" href="#booking"><?php echo $val[$i]; ?></a>
+                        <a class="dropdown-item" onclick="highlight('<?php echo $row['uni_id']; ?>')" href="javascript:void(0);"><?php echo $row['uni_name']; ?></a>
                         <?php
                         }
                         ?>
@@ -80,7 +80,7 @@
                 $i = 0;
                 foreach($uniData as $uniInfo) {
                 ?>
-                    <div class="col-md-6 mb-2" id="col<?=$i;?>">
+                    <div class="col-md-6 mb-2" id="uni-<?php echo $uniInfo['uni_id']; ?>">
                         <div class="card">
                             <img src="<?php echo base_url().$uniInfo['uni_photo_banner']; ?>" alt="" height="200">
                             <div class="card-body text-center p-1">

@@ -18,7 +18,7 @@
 $(document).ready(function() {
     $(function() {
         $('[data-toggle="tooltip"]').tooltip()
-    })
+    });
 });
 $(".navigate-page-1").on('click', function() {
     $("div[data-page='2']").hide("slide", {
@@ -126,6 +126,15 @@ $("#dropdown-country .dropdown-item").each(function() {
         });
     });
 });
+
+function highlight(uni_id) {
+    $(".card").css({"border-color" : "#FFF"})
+
+    $("#uni-"+uni_id+" .card").css({
+            "border-color" : "yellow"
+
+    });
+}
 </script>
 
 </html>
