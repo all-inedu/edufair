@@ -54,7 +54,7 @@
                 <!-- <div class="dropdown-menu" id="dropdown-country"> -->
                     <!-- <a class="dropdown-item" data-country="<?php echo $key; ?>" href="#booking"><?php echo $key; ?></a> -->
                 <?php
-                if(count($val['uni_detail']) > 1) {
+                if(count($val['uni_detail']) > 0) {
                 ?>
                 <div class="dropdown-menu" id="dropdown-country">
                         <?php

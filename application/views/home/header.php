@@ -92,6 +92,30 @@ body {
         </div>
     </div>
 </div>
+<div id="forgotPassModal" class="modal fade">
+    <div class="modal-dialog modal-login modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="avatar">
+                    <!-- <img src="<?php echo base_url(); ?>assets/home/login/avatar.png" alt="Avatar"> -->
+                    <i class="fas fa-user-lock"></i>
+                </div>
+                <h5 class="modal-title">Forgot Password</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post">
+                    <div class="form-group">
+                        <input type="email" id="fp_email" class="form-control" name="fp_email" placeholder="Enter Your Email Address" required="required">
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary btn-lg btn-block fp-btn" onclick="forgotPassword()">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container-fluid" style="margin-top:12vh;" id="home">
     <div class="row">
         <div class="col-md-5 p-5 bg-dark">

@@ -32,7 +32,7 @@ class HomeController extends CI_Controller {
         $this->load->view('template/footer');
 	}
 
-	public function forgotPassword()
+	public function forgotPassword() // when user send forgot password email on landing page
 	{
 		$email = $this->input->post("fpEmail");
 
@@ -42,27 +42,28 @@ class HomeController extends CI_Controller {
 			//build token
 			$token = $this->UserModel->insertToken($userInfo['user_id']);
 			$qstring = $this->base64url_encode($token);
-			$url = base_url() . '/reset-password/token/' . $qstring;
-
-			$data['url'] = $url;
+			$data = array( "url" => base_url() . '/reset-password/token/' . $qstring );
 
 			echo $this->sendingEmail($data, $email);
 		}
 	}
 
-	public function resetPassword()
+	public function resetPassword() // when user click reset password on her/his mail
 	{
 		$token = $this->base64url_decode($this->uri->segment(3));
 		$cleanToken = $this->security->xss_clean($token);
 
 		$user_info = $this->UserModel->isTokenValid($cleanToken); // either false or array();
 		if (!$user_info) {
-			$this->session->set_flashdata('sukses', 'Token tidak valid atau kadaluarsa');
+			$this->session->set_flashdata('sukses', 'Token not valid or expired');
             redirect(site_url('/'), 'refresh');
 		}
 
+		$hashed_userId = $this->opensslencrypt($user_info['user_id']);
+
 		$data = array(
 			'title' => 'Reset Password',
+			'id' 	=> $hashed_userId,
 			'nama'  => $user_info['user_first_name']." ".$user_info['user_last_name'],
 			'email' => $user_info['user_email'],
 			'token' => $this->base64url_encode($token)
@@ -71,11 +72,23 @@ class HomeController extends CI_Controller {
 		$this->load->view('user/forgot-password', $data);
 	}
 
-	public function updatePassword()
+	public function updatePassword() // process update password on database
 	{
 		$post = $this->input->post(NULL, TRUE);
         $cleanPost = $this->security->xss_clean($post);
         $hashed = password_hash($cleanPost['password'], PASSWORD_DEFAULT);
+        $userId = $cleanPost['userId'];
+        $data = array(
+        		"user_id" => $userId,
+        		"password" => $hashed
+        	);
+        $process = $this->UserModel->updatePassword($data);
+        if( $process ) {
+        	echo "001";
+        } else {
+        	echo "06"; // error update password 
+        }
+    }
 
 	public function sendingEmail($data, $email)
 	{
@@ -103,5 +116,43 @@ class HomeController extends CI_Controller {
     public function base64url_decode($data)
     {
         return base64_decode(str_pad(strtr($data, '-_', '+/'), strlen($data) % 4, '=', STR_PAD_RIGHT));
+    }
+
+    public function opensslencrypt($string)
+    {
+    	//generate key
+	    $bytes = openssl_random_pseudo_bytes(4, $cstrong);
+	    $key = $cstrong;
+
+	    $plaintext = $string;
+		$ivlen = openssl_cipher_iv_length($cipher="AES-128-CBC");
+		$iv = openssl_random_pseudo_bytes($ivlen);
+		$ciphertext_raw = openssl_encrypt($plaintext, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
+		$hmac = hash_hmac('sha256', $ciphertext_raw, $key, $as_binary=true);
+		return $ciphertext = base64_encode( $iv.$hmac.$ciphertext_raw );
+    }
+
+    public function openssldecrypt($string)
+    {
+    	$c = base64_decode($ciphertext);
+		$ivlen = openssl_cipher_iv_length($cipher="AES-128-CBC");
+		$iv = substr($c, 0, $ivlen);
+		$hmac = substr($c, $ivlen, $sha2len=32);
+		$ciphertext_raw = substr($c, $ivlen+$sha2len);
+		$original_plaintext = openssl_decrypt($ciphertext_raw, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
+		$calcmac = hash_hmac('sha256', $ciphertext_raw, $key, $as_binary=true);
+		if (hash_equals($hmac, $calcmac))//PHP 5.6+ timing attack safe comparison
+		{
+		    return $original_plaintext;
+		}
+    }
+
+    public function lihatBodyEmail()
+    {
+    	$token = $this->UserModel->insertToken(1);
+		$qstring = $this->base64url_encode($token);
+		$data = array( "url" => base_url() . '/reset-password/token/' . $qstring );
+
+    	$this->load->view('mail/body', $data);
     }
 }

@@ -15,11 +15,13 @@
 <script src="<?=base_url('assets/js/alert.js');?>"></script>
 <script src="<?=base_url('assets/js/jquery.flipTimer.js');?>"></script>
 <script type="text/javascript">
-$(document).ready(function() {
+
+$(document).ready(function(e) {
     $(function() {
         $('[data-toggle="tooltip"]').tooltip()
     });
 });
+
 $(".navigate-page-1").on('click', function() {
     $("div[data-page='2']").hide("slide", {
         direction: "right"
@@ -116,7 +118,7 @@ $("#dropdown-country .dropdown-item").each(function() {
                 if(msg != "05") {
                     $(".box-book").html(msg);
                 } else {
-                     Swal.fire({
+                    Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
                         text: 'Something went wrong! Please try again.'
@@ -130,16 +132,19 @@ $("#dropdown-country .dropdown-item").each(function() {
 
 $("#forgot-password").click(function(e) {
     e.preventDefault();
-    $("#signUpModal .modal-title").html("Forgot Password");
-    $("#signUpModal .modal-body").html('<form action="" method="post">'+
-                    '<div class="form-group">'+
-                        '<input type="email" id="fp_email" class="form-control" name="fp_email" placeholder="Enter Your Email Address" required="required">'+
-                    '</div>'+
-                    '<div class="form-group">'+
-                        '<button type="button" class="btn btn-primary btn-lg btn-block fp-btn" onclick="forgotPassword()">Send</button>'+
-                    '</div>'+
-                '</form>');
-    $("#signUpModal .modal-footer").html("");
+    $("#signUpModal .close").click();
+    $("#forgotPassModal").modal('toggle');
+
+    // $("#signUpModal .modal-title").html("Forgot Password");
+    // $("#signUpModal .modal-body").html('<form action="" method="post">'+
+    //                 '<div class="form-group">'+
+    //                     '<input type="email" id="fp_email" class="form-control" name="fp_email" placeholder="Enter Your Email Address" required="required">'+
+    //                 '</div>'+
+    //                 '<div class="form-group">'+
+    //                     '<button type="button" class="btn btn-primary btn-lg btn-block fp-btn" onclick="forgotPassword()">Send</button>'+
+    //                 '</div>'+
+    //             '</form>');
+    // $("#signUpModal .modal-footer").html("");
 });
 
 function forgotPassword() {
@@ -151,7 +156,19 @@ function forgotPassword() {
             fpEmail : fpEmail
         },
         success: function(msg) {
-            console.log(msg);
+            if(msg) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Please Check Your Email',
+                    text: 'We already sent you an Email'
+                });
+            } else {
+                Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong! Please try again.'
+                    });
+            }
         }
     }) 
 }

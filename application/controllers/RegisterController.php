@@ -72,7 +72,7 @@ class RegisterController extends CI_Controller {
 	public function topic()
 	{
 		if(!$this->session->has_userdata('user_id')) { // if the session value is null or doesn't exist
-			redirect('/');
+			//redirect('/');
 		}
 
 		$topicData_day1 = $this->TopicModel->getTopicData('2021-05-20'); // change with edufair start date
@@ -93,7 +93,7 @@ class RegisterController extends CI_Controller {
 	public function book() // route: registration/consult
 	{
 		if(!$this->session->has_userdata('user_id')) { // if the session value is null or doesn't exist
-			redirect('/');
+			//redirect('/');
 		}
 
 		// echo $this->session->userdata('user_id');

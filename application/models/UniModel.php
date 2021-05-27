@@ -55,7 +55,9 @@ class UniModel extends CI_Model {
 
 	function getUniCountry()
 	{
-		$sql = "SELECT uni_id, uni_name, uni_country FROM tb_uni WHERE uni_status = 1";
+		$sql = "SELECT DISTINCT(u.uni_id), u.uni_name, u.uni_country FROM tb_uni u
+				RIGHT JOIN tb_uni_detail ud ON ud.uni_id = u.uni_id
+				WHERE u.uni_status = 1";
 		$query = $this->db->query($sql);
 		if($query->num_rows() > 0) {
 			$data = array();
