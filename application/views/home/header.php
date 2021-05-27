@@ -71,7 +71,7 @@ body {
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <form action="" method="post">
+                <form id="loginForm" method="post">
                     <div class="form-group">
                         <input type="text" class="form-control" name="email" placeholder="Email" required="required">
                     </div>

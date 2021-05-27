@@ -32,6 +32,35 @@ class HomeController extends CI_Controller {
         $this->load->view('template/footer');
 	}
 
+	public function login()
+	{
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
+
+		$userInfo = $this->UserModel->getUserInfoByEmail($email);
+		$hashed = $userInfo['user_password'];
+		if (password_verify($password, $hashed)) {
+			$this->session->set_userdata($userInfo);
+			echo "001";
+		} else {
+			echo "02"; // error login
+		}
+	}
+
+	public function logout()
+	{
+		$userId = $this->session->userdata('user_id');
+		$lastLoginUpdate = $this->UserModel->lastLoginUpdate($userId);
+		$this->session->sess_destroy();
+		redirect('/');
+	}
+
+	// **************************************************** //
+	// **************************************************** //
+	// ******** FORGOT PASSWORD FUNCTION START ************ //
+	// **************************************************** //
+	// **************************************************** //
+
 	public function forgotPassword() // when user send forgot password email on landing page
 	{
 		$email = $this->input->post("fpEmail");
@@ -155,4 +184,10 @@ class HomeController extends CI_Controller {
 
     	$this->load->view('mail/body', $data);
     }
+
+	// **************************************************** //
+	// **************************************************** //
+	// ******** FORGOT PASSWORD FUNCTION END ************** //
+	// **************************************************** //
+	// **************************************************** //
 }

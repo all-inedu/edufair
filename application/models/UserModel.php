@@ -37,22 +37,22 @@ class UserModel extends CI_Model {
   		$row = $query->row();
   		if(isset($row)) {
   			$data = array(
-  				"user_id" => $row->user_id,
-  				"user_first_name" => $row->user_first_name,
-  				"user_last_name" => $row->user_last_name,
-  				"user_email" => $row->user_email,
-  				"user_password" => $row->user_password,
-  				"user_phone" => $row->user_phone,
-  				"user_status" => $row->user_status,
-  				"user_gender" => $row->user_gender,
-  				"user_first_time" => $row->user_first_time,
-  				"user_grade" => $row->user_grade,
-  				"user_school" => $row->user_school,
-  				"user_country" => $row->user_country,
-  				"user_major" => $row->user_major,
-  				"user_know_from" => $row->user_know_from,
-  				"user_register_date" => $row->user_register_date,
-  				"user_last_login" => $row->user_last_login
+				"user_id"            => $row->user_id,
+				"user_first_name"    => $row->user_first_name,
+				"user_last_name"     => $row->user_last_name,
+				"user_email"         => $row->user_email,
+				"user_password"      => $row->user_password,
+				"user_phone"         => $row->user_phone,
+				"user_status"        => $row->user_status,
+				"user_gender"        => $row->user_gender,
+				"user_first_time"    => $row->user_first_time,
+				"user_grade"         => $row->user_grade,
+				"user_school"        => $row->user_school,
+				"user_country"       => $row->user_country,
+				"user_major"         => $row->user_major,
+				"user_know_from"     => $row->user_know_from,
+				"user_register_date" => $row->user_register_date,
+				"user_last_login"    => $row->user_last_login
   			);
   			return $data;
   		} else {
@@ -67,22 +67,22 @@ class UserModel extends CI_Model {
   		if($query->num_rows() > 0) {
   			foreach($query->result() as $row) {
 	  			$data = array(
-	  				"user_id" => $row->user_id,
-	  				"user_first_name" => $row->user_first_name,
-	  				"user_last_name" => $row->user_last_name,
-	  				"user_email" => $row->user_email,
-	  				"user_password" => $row->user_password,
-	  				"user_phone" => $row->user_phone,
-	  				"user_status" => $row->user_status,
-	  				"user_gender" => $row->user_gender,
-	  				"user_first_time" => $row->user_first_time,
-	  				"user_grade" => $row->user_grade,
-	  				"user_school" => $row->user_school,
-	  				"user_country" => $row->user_country,
-	  				"user_major" => $row->user_major,
-	  				"user_know_from" => $row->user_know_from,
-	  				"user_register_date" => $row->user_register_date,
-	  				"user_last_login" => $row->user_last_login
+					"user_id"            => $row->user_id,
+					"user_first_name"    => $row->user_first_name,
+					"user_last_name"     => $row->user_last_name,
+					"user_email"         => $row->user_email,
+					"user_password"      => $row->user_password,
+					"user_phone"         => $row->user_phone,
+					"user_status"        => $row->user_status,
+					"user_gender"        => $row->user_gender,
+					"user_first_time"    => $row->user_first_time,
+					"user_grade"         => $row->user_grade,
+					"user_school"        => $row->user_school,
+					"user_country"       => $row->user_country,
+					"user_major"         => $row->user_major,
+					"user_know_from"     => $row->user_know_from,
+					"user_register_date" => $row->user_register_date,
+					"user_last_login"    => $row->user_last_login
 	  			);
 	  		}
 			return $data; 
@@ -139,6 +139,13 @@ class UserModel extends CI_Model {
         $this->db->where('user_id', $post['user_id']);
         $this->db->update('tb_user', array('user_password' => $post['password']));
         return true;
+    }
+
+    public function lastLoginUpdate($userId)
+    {
+    	$this->db->where('user_id', $userId);
+    	$this->db->update('tb_user', array('user_last_login' => date('Y-m-d H:i:s')));
+    	return true;
     }
 
 }

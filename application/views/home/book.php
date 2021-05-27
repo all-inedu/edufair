@@ -82,7 +82,7 @@
                 ?>
                     <div class="col-md-6 mb-2" id="uni-<?php echo $uniInfo['uni_id']; ?>">
                         <div class="card">
-                            <img src="<?php echo base_url().$uniInfo['uni_photo_banner']; ?>" alt="" height="200">
+                            <img src="<?php echo base_url()."assets/uni/banner/".$uniInfo['uni_photo_banner']; ?>" alt="" height="200">
                             <div class="card-body text-center p-1">
                                 <h4 class="m-0 text-muted">Uni <?php echo $uniInfo['uni_name'] ?></h4>
                             </div>

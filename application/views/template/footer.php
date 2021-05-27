@@ -181,6 +181,30 @@ function highlight(uni_id) {
 
     });
 }
+
+$("#loginForm").submit(function(event) {
+    event.preventDefault();
+
+    Swal.showLoading();
+
+    $.ajax({
+        url: "<?php echo base_url(); ?>login",
+        type: "POST",
+        data: $("#loginForm").serialize(),
+        success: function(msg) {
+            
+            if (msg == "001") {
+                location.reload();
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong! Please try again.'
+                });
+            }
+        }
+    });
+});
 </script>
 
 </html>

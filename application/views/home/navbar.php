@@ -22,9 +22,23 @@
                     <a class="nav-link" href="#booking">Uni List</a>
                 </li>
 
+                
+                <?php if($this->session->userdata('user_id')) { ?>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="userMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Welcome, <?php echo $this->session->userdata('user_first_name'); ?>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="userMenuLink">
+                        <a class="dropdown-item" href="#"><i class="far fa-address-card"></i> Profile</a>
+                        <a class="dropdown-item" href="<?php echo base_url(); ?>logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </li>           
+                <?php } else { ?>
                 <li class="nav-item ml-5">
                     <a class="nav-link btn btn-sm btn-outline-primary" id="btn-signup" href="#signUpModal" data-toggle="modal">Sign Up</a>
                 </li>
+                <?php } ?>
+                    
             </ul>
         </div>
     </div>
