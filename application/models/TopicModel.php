@@ -76,24 +76,37 @@ class TopicModel extends CI_Model {
       }
     }
 
+    function bookingOneTopic($userId, $topicId)
+    {
+      $sql = "SELECT count(*) AS bookingCount FROM tb_booking_topic WHERE user_id = ".$userId." AND topic_id = ".$topicId;
+      $query = $this->db->query($sql);
+      foreach( $query->result() as $row ) {
+        $bookingCount = $row->bookingCount;
+      }
+
+      if($bookingCount > 0) {
+        return "07";
+      }
+
+      $data = array(
+        "topic_id" => $topicId,
+        "user_id" => $userId,
+        "booking_topic_date" => date('Y-m-d H:i:s')
+      );
+      $query = $this->db->insert('tb_booking_topic', $data);
+      return $query;
+    }
+
     function insertTopic($data) 
     {
         $query = $this->db->insert('tb_topic', $data);
-        if($query) {
-          return true;
-        } else {
-          return false;
-        }
+        return $query;
     }
 
     function insertTopicDetail($data) 
     {
         $query = $this->db->insert('tb_topic_detail', $data);
-        if($query) {
-          return true;
-        } else {
-          return false;
-        }
+        return $query;
     }
 
 }

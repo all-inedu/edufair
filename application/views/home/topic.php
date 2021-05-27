@@ -38,6 +38,13 @@
         foreach($talk_day1 as $row) {
             $topic_start_date = new DateTime($row['topic_start_date']);
             $topic_id = $row['topic_id'];
+            $topic_name = $row['topic_name'];
+            $arrTopic = array(
+                    "topic_id"   => $topic_id,
+                    "topic_name" => $topic_name,
+                    "topic_date" => $topic_start_date
+                );
+            $arrTopic = base64_encode(json_encode($arrTopic));
         ?>
         <div class="card card-topic">
             <div class="card-body">
@@ -45,7 +52,7 @@
                 <div class="row px-2 pt-2 no-gutters talk-button">
                     <div class="col-11">
                         <small><?php echo $topic_start_date->format('M, dS Y - H:i') ?></small>
-                        <h6 class="font-weight-bold"><?php echo $row['topic_name']; ?></h6>
+                        <h6 class="font-weight-bold"><?php echo $topic_name; ?></h6>
                         <?php
                         foreach($row['uni_detail'] as $uniDetail){
                         ?>
@@ -65,10 +72,10 @@
                     if(!$this->session->has_userdata('user_id')){
                         $props = "href='#signUpModal' data-toggle='modal'";
                     } else {
-                        $props = "";
+                        $props = "id='bookTopic'";
                     }
                     ?>
-                    <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1" data-topicid="<?php echo $topic_id; ?>" <?php echo $props; ?> >Join Now</a>
+                    <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book" data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>" <?php echo $props; ?> >Join Now</a>
                 </div>
             </div>
         </div>
@@ -81,6 +88,15 @@
     <div class="card-columns">
         <?php
         foreach($talk_day2 as $row) {
+            $topic_start_date = new DateTime($row['topic_start_date']);
+            $topic_id = $row['topic_id'];
+            $topic_name = $row['topic_name'];
+            $arrTopic = array(
+                    "topic_id"   => $topic_id,
+                    "topic_name" => $topic_name,
+                    "topic_date" => $topic_start_date
+                );
+            $arrTopic = base64_encode(json_encode($arrTopic));
         ?>
         <div class="card card-topic">
             <div class="card-body">
@@ -88,7 +104,7 @@
                 <div class="row px-2 pt-2 no-gutters talk-button">
                     <div class="col-11">
                        <small><?php echo $topic_start_date->format('M, dS Y - H:i') ?></small>
-                        <h6 class="font-weight-bold"><?php echo $row['topic_name']; ?></h6>
+                        <h6 class="font-weight-bold"><?php echo $topic_name; ?></h6>
                         <?php
                         foreach($row['uni_detail'] as $uniDetail){
                         ?>
@@ -108,10 +124,10 @@
                     if(!$this->session->has_userdata('user_id')){
                         $props = "href='#signUpModal' data-toggle='modal'";
                     } else {
-                        $props = "";
+                        $props = "id='bookTopic'";
                     }
                     ?>
-                    <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1" data-topicid="<?php echo $topic_id; ?>" <?php echo $props; ?> >Join Now</a>
+                    <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book" data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>" <?php echo $props; ?> >Join Now</a>
                 </div>
             </div>
         </div>
@@ -139,5 +155,38 @@ $(function() {
 
 $(".talk-button").click(function() {
     $(this).next(".hidden").toggle("slow");
+});
+
+$(".btn-book").each(function() {
+    $(this).click(function() {
+        var topicId = $(this).data('topicid');
+
+        $.ajax({
+            url: "<?php echo base_url(); ?>home/book/topic",
+            type: "POST",
+            data: {
+                topic_id : topicId
+            },
+            success: function(msg) {
+                if (msg == "001") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Thank You for your participation'
+                    });
+                }else if (msg == "07") {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'You already booked the topic'
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong! Please try again.'
+                    });
+                }
+            }
+        });
+    });
 });
 </script>

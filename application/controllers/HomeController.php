@@ -55,6 +55,23 @@ class HomeController extends CI_Controller {
 		redirect('/');
 	}
 
+	public function bookingTopic()
+	{
+		$userId = $this->session->userdata('user_id'); //get user id from session login
+		$topicId = $this->input->post('topic_id');
+
+		$process = $this->TopicModel->bookingOneTopic($userId, $topicId);
+		if($process) {
+			if($process == "07") {
+				echo "07"; // already booking with requested topic_id
+			} else {
+				echo "001";
+			}
+		} else {
+			echo "03"; // error booking topic
+		}
+	}
+
 	// **************************************************** //
 	// **************************************************** //
 	// ******** FORGOT PASSWORD FUNCTION START ************ //
