@@ -26,14 +26,14 @@
         ?>
             <div class="col-md-4">
                 <div class="card">
-                    <img src="<?php echo base_url().$uniInfo['uni_photo_banner']; ?>" alt="" height="200">
+                    <img src="<?php echo base_url()."assets/uni/banner/".$uniInfo['uni_photo_banner']; ?>" alt="" height="200">
                     <div class="card-body text-center p-1">
                         <h5 class="m-0 p-2"><?php echo $uniInfo['uni_name']; ?></h5>
                     </div>
                     <div class="row no-gutters">
                         <?php
                         $day = 1;
-                        foreach($uniInfo['uni_detail'] as $row) {
+                        foreach($uniInfo['uni_detail'] as $key => $row) {
                             $assigned_time  = $row['uni_dtl_start_date'];
                             $start = explode(" ", $assigned_time);
                             $start_time = substr($start[1], 0, 5);
@@ -47,20 +47,38 @@
 
                             $interval = $d2->diff($d1);
                             $time = $interval->format('%H');
-                            ?>
-                            <div class="col">
-                                <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
-                                    data-target="#modal<?php echo $row['uni_dtl_id']; ?>">Day <?php echo $day; //echo $start[0]; ?></button>
-                            </div>
-
-                            <?php
                             $disabled = "";
-                            if(count($uniInfo['uni_detail']) < 2) {
+                            if(count($uniInfo['uni_detail']) <= 2) {
                                 $disabled = "style='background:#c6c6c6 !important;border: 1px solid #c6c6c6 !important'";
+                                if($key == "2021-05-20") {
                                 ?>
+                                <div class="col">
+                                    <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
+                                        data-target="#modal<?php echo $row['uni_dtl_id']; ?>">Day 1</button>
+                                </div>
                                 <div class="col">
                                     <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal" <?php echo $disabled; ?>
                                         data-target="#day2">Day 2</button>
+                                </div>
+                                <?php
+                                } else if ($key == "2021-05-21") {
+                                ?>
+                                <div class="col">
+                                    <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal" <?php echo $disabled; ?>
+                                        data-target="#day2">Day 1</button>
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
+                                        data-target="#modal<?php echo $row['uni_dtl_id']; ?>">Day 2</button>
+                                </div>
+                                <?php
+                                }
+                            } else {
+
+                                ?>
+                                <div class="col">
+                                    <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
+                                        data-target="#modal<?php echo $row['uni_dtl_id']; ?>">Day $day;</button>
                                 </div>
                                 <?php
                             }
@@ -77,32 +95,37 @@
                                         </div>
                                         <div class="modal-body">
                                             <?php
-                                            $duration = 15;
-                                            $count = 0;
-                                            for($i = 1; $i <= ($time*60)/$duration; $i++){
-                                                $startTime = strtotime("+".$duration*$count." minutes", strtotime($assigned_time));
-                                                $endTime = strtotime("+".$duration*$i." minutes", strtotime($assigned_time));
+                                            foreach($row['uni_dtl_time'] as $detailTime){
+                                                $uni_dtl_time_id = $detailTime['uni_detail_time_id'];
+                                                $startTimeData = explode(" ", $detailTime['uni_dtl_t_start_time']);
+                                                $uni_dtl_t_start_time = substr($startTimeData[1], 0, 5);
+                                                $endTimeData = explode(" ", $detailTime['uni_dtl_t_end_time']);
+                                                $uni_dtl_t_end_time = substr($endTimeData[1], 0, 5);
+                                                $uni_dtl_t_status = $detailTime['uni_dtl_t_status'];
+                                                $disabled = "";
+                                                $booked = "Book";
+                                                if($uni_dtl_t_status != 1) {
+                                                    $disabled = "disabled";
+                                                    $booked = "Booked";
+                                                }
                                             ?>
                             
                                                 <div class="row mb-2">
                                                     <div class="col-9 pr-0">
-                                                        <button class="btn btn-outline-info btn-disabled btn-block" disabled><?php echo date('h:i', $startTime); ?> - <?php echo date('h:i', $endTime); ?> WIB</button>
+                                                        <button class="btn btn-outline-info btn-disabled btn-block" disabled><?php echo $uni_dtl_t_start_time; ?> - <?php echo $uni_dtl_t_end_time; ?> WIB</button>
                                                     </div>
                                                     <div class="col-3">
-                                                        <button class="btn btn-primary btn-block btn-book-consul" data-uniid="<?php echo $uniInfo['uni_id']; ?>" data-starttime="<?php echo $start[0]." ".date('h:i:s', $startTime); ?>" data-endtime="<?php echo $start[0]." ".date('h:i:s', $endTime); ?>">Book</button>
+                                                        <button class="btn btn-primary btn-block btn-book-consul" 
+                                                            data-starttime="<?php echo $detailTime['uni_dtl_t_start_time']?>"
+                                                            data-endtime="<?php echo $detailTime['uni_dtl_t_end_time']; ?>" 
+                                                            data-unidtltimeid="<?php echo $uni_dtl_time_id; ?>" 
+                                                            <?php echo $disabled; ?> >
+                                                            <?php echo $booked; ?>
+                                                        </button>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="row mb-2">
-                                                    <div class="col-9 pr-0">
-                                                        <button class="btn btn-dark btn-disabled btn-block" disabled>10:15 - 10:30 WIB</button>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <button class="btn btn-outline-success btn-block" disabled>Booked</button>
-                                                    </div>
-                                                </div> -->
 
                                             <?php
-                                            $count++;
                                             }
                                             ?>
                                         </div>
