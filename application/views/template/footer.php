@@ -38,7 +38,95 @@ $(".navigate-page-2").on('click', function() {
             direction: "right"
         }, 350);
     });
-})
+});
+
+
+$(".btn-book-consul").each(function() {
+    $(this).click(function() {
+        var user_id = "<?php echo $this->session->userdata('user_id'); ?>";
+        if( (user_id == "") ) {
+            var parent = $(this).closest(".modal").attr('id');
+            $("#"+parent+" .close").click(); // close booking consult modal
+            $("#btn-signup").click(); // show login modal
+            
+            return;
+        }
+
+        var startTime = $(this).data('starttime'); 
+        var endTime = $(this).data('endtime');
+        var uniId = $(this).data('uniid');
+
+        var splitTime = startTime.split(" ");
+        var show_startDate = splitTime[0];
+        var show_startTime = splitTime[1];
+
+        var showDate = new Date(show_startDate);
+        var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][showDate.getMonth()];
+        var str_showDate = showDate.getDate() + " " + month + " " + showDate.getFullYear();
+
+        swal.fire({
+            icon: 'question',
+            title: 'Are you sure to book a consultation on <br><b>'+str_showDate+'</b> at <b> '+show_startTime.substr(0, 5)+' </b> ?',
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
+            cancelButtonText: 'Wait!'
+        }).then((result) => {
+            if(result.isConfirmed) {
+                $.ajax({
+                    url: '<?php echo base_url(); ?>registration/consult/booking',
+                    type: 'post',
+                    data: {
+                        startTime : startTime,
+                        endTime : endTime,
+                        uniId : uniId
+                    },
+                    success: function(msg) {
+                        if(msg == "001") {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'You have successfully booked the schedule',
+                                text: 'We\'ll remind you before the event'
+                            });
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong! Please try again.'
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    });
+});
+
+$("#dropdown-country .dropdown-item").each(function() {
+    $(this).click(function() {
+        var countryName = $(this).data('country');
+
+
+        $.ajax({
+            url: "<?php echo base_url(); ?>home/findUniByCountry",
+            type: "post",
+            data : {
+                countryName : countryName
+            },
+            success: function(msg) {
+                if(msg != "05") {
+                    $(".box-book").html(msg);
+                } else {
+                     Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong! Please try again.'
+                    });
+                }
+            }
+        });
+    });
+});
 </script>
 
 </html>

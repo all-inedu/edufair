@@ -31,38 +31,67 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered table-hover" id="dataTable" width="100%"
+                                    cellspacing="0">
                                     <thead class="text-center">
                                         <tr>
                                             <th>No</th>
                                             <th>Topic</th>
                                             <th>Universities</th>
-                                            <th>Date</th>
-                                            <th>Time</th>
-                                            <th>Thumbnail</th>
-                                            <th>Status</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th width="10%">Banner</th>
+                                            <th width="10%">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                    for ($i=1; $i < 40 ; $i++) { 
+                                        $i=1;
+                                    foreach ($topic as $t) { 
                                     ?>
                                         <tr>
                                             <td class="text-center"><?=$i;?></td>
-                                            <td style="cursor:pointer;"
-                                                onclick='window.location.href ="<?=base_url("dashboard/admin/topic/edit/".$i);?>"'
-                                                http://www.w3schools.com"">System Architect</td>
-                                            <td class="text-center">Uni A, Uni B</td>
-                                            <td class="text-center">July, 24th 2021</td>
-                                            <td class="text-center">10:00 - 12:00</td>
-                                            <td class="text-center">Photo</td>
+                                            <td class="pointer" style="cursor:pointer;"
+                                                onclick='window.location.href ="<?=base_url("dashboard/admin/topic/edit/".$t["topic_id"]);?>"'>
+                                                <?=$t['topic_name'];?></td>
                                             <td class="text-center">
-                                                <span class="text-success">
+                                                <?php 
+                                                    foreach ($t['uni_detail'] as $uni) {
+                                                        $type = ['info','success','danger','warning','primary'];
+                                                        $random_key = array_rand($type);
+                                                        echo '<div class="mx-1 badge badge-'.$type[$random_key].' px-3">'.$uni['uni_name'].'</div>';
+                                                    }
+                                                ?>
+                                            </td>
+                                            <td class="text-center" data-sort="<?=$t['topic_start_date'];?>">
+                                                <?=date('d M Y H:i', strtotime($t['topic_start_date']));?>
+                                            </td>
+                                            <td class="text-center" data-sort="<?=$t['topic_end_date'];?>">
+                                                <?=date('d M Y H:i', strtotime($t['topic_end_date']));?>
+
+                                            </td>
+                                            <td class="text-center">
+                                                <img src="<?=base_url('assets/topic/'.$t['topic_banner']);?>"
+                                                    width="100%">
+                                            </td>
+                                            <td class="text-center">
+                                                <?php 
+                                                if($t['topic_status']==1) { ?>
+                                                <span href="#" class="text-success" style="cursor:pointer"
+                                                    onclick='inactiveButton(<?=$t["topic_id"];?>, "<?=$t["topic_name"];?>")'>
                                                     <i class="far fa-lightbulb fa-fw"></i> Active
                                                 </span>
+
+                                                <?php } else { ?>
+                                                <span class="text-danger" style="cursor:pointer"
+                                                    onclick='activeButton(<?=$t["topic_id"];?>, "<?=$t["topic_name"];?>")'>
+                                                    <i class="far fa-lightbulb fa-fw"></i> Inactive
+                                                </span>
+                                                <?php } ?>
                                             </td>
                                         </tr>
                                         <?php 
+                                        $i++;
                                     }
                                     ?>
                                     </tbody>
@@ -76,5 +105,63 @@
     </div>
     <?php $this->load->view('admin/template/footer'); ?>
 </body>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+function inactiveButton(id, topic) {
+    Swal.fire({
+        title: 'Are you sure?',
+        html: "Deactivate this topic<br><b>" + topic + "</b>",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: "<?=base_url('dashboard/admin/topic/inactive/');?>" + id,
+                type: "POST",
+                success: function() {
+                    Swal.fire(
+                        'Deactivate!',
+                        'This topic has been deactivated.',
+                        'success'
+                    )
+                    window.location.href =
+                        "<?php echo base_url('dashboard/admin/topic'); ?>";
+                }
+            });
+        }
+    })
+};
+
+function activeButton(id, topic) {
+    Swal.fire({
+        title: 'Are you sure?',
+        html: "Activate this topic<br><b>" + topic + "</b>",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: "<?=base_url('dashboard/admin/topic/active/');?>" + id,
+                type: "POST",
+                success: function() {
+                    Swal.fire(
+                        'Deactivate!',
+                        'This topic has been Activated.',
+                        'success'
+                    )
+                    window.location.href =
+                        "<?php echo base_url('dashboard/admin/topic'); ?>";
+                }
+            });
+        }
+    })
+};
+</script>
 
 </html>

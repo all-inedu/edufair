@@ -19,4 +19,14 @@ table.table-bordered.dataTable tbody td {
     border-bottom-width: 0;
     vertical-align: middle !important;
 }
+
+.table .pointer {
+    cursor: pointer;
+    transition: 1s;
+}
+
+.table .pointer:hover {
+    background: #fff;
+    color: #fc863c;
+}
 </style>

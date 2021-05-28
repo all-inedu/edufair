@@ -163,7 +163,7 @@ p {
                     <div class="text-center">
                         <div class="row">
                             <div class="col text-left ml-3">
-                                <a href="<?=base_url('registration/booking/');?>" type="button"
+                                <a href="<?=base_url('registration/consult/');?>" type="button"
                                     class="btn btn-warning navigate-page-3">Skip <i
                                         class="fas fa-arrow-right pl-2"></i></a>
                             </div>
