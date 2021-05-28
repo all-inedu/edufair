@@ -66,7 +66,12 @@ $route['registration/consult'] = 'RegisterController/book';
 /* PROCESS START HERE */
 $route['registration/topic/booking'] = 'RegisterController/bookingTopic';
 $route['registration/consult/booking'] = 'RegisterController/bookingConsult';
-$route['home/findUniByCountry'] = 'HomeController/findUniByCountry';
+$route['forgot-password'] = 'HomeController/forgotPassword';
+$route['reset-password/token/(:any)'] = 'HomeController/resetPassword';
+$route['reset-password'] = 'HomeController/updatePassword';
+$route['login'] = 'HomeController/login';
+$route['logout'] = 'HomeController/logout';
+$route['home/book/topic'] = 'HomeController/bookingTopic';
 /* PROCESS END HERE */
 
 $route['dashboard/admin'] = 'AdminController/index';

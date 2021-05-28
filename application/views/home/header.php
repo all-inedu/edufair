@@ -71,7 +71,7 @@ body {
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <form action="" method="post">
+                <form id="loginForm" method="post">
                     <div class="form-group">
                         <input type="text" class="form-control" name="email" placeholder="Email" required="required">
                     </div>
@@ -79,7 +79,7 @@ body {
                         <input type="password" class="form-control" name="password" placeholder="Password" required="required">
                     </div>
                     <div class="form-group text-right">
-                        <a href="#">Forgot Password?</a>
+                        <a href="javascript:void(0)" id="forgot-password">Forgot Password?</a>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
@@ -88,6 +88,30 @@ body {
             </div>
             <div class="modal-footer">
                 New here ?<a href="<?php echo base_url(); ?>registration">Join Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="forgotPassModal" class="modal fade">
+    <div class="modal-dialog modal-login modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="avatar">
+                    <!-- <img src="<?php echo base_url(); ?>assets/home/login/avatar.png" alt="Avatar"> -->
+                    <i class="fas fa-user-lock"></i>
+                </div>
+                <h5 class="modal-title">Forgot Password</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post">
+                    <div class="form-group">
+                        <input type="email" id="fp_email" class="form-control" name="fp_email" placeholder="Enter Your Email Address" required="required">
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary btn-lg btn-block fp-btn" onclick="forgotPassword()">Send</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

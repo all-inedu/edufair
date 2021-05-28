@@ -120,8 +120,18 @@
 	                    <div class="col" data-page="2" style="display: none">
 	                        <div class="form-group">
 	                            <label>What grade are you in?</label>
-	                            <input type="number" class="form-control form-control-sm custom-box" name="user_grade" placeholder=""
-	                                onchange="limit(this)" required />
+	                            <!-- <input type="number" class="form-control form-control-sm custom-box" name="user_grade" placeholder=""
+	                                onchange="limit(this)" required /> -->
+	                            <select class="form-control form-control-sm custom-box" name="user_grade" required style="font-size: 1rem">
+	                            	<option value="">Select your grade</option>
+	                            	<option value="7">7</option>
+	                            	<option value="8">8</option>
+	                            	<option value="9">9</option>
+	                            	<option value="10">10</option>
+	                            	<option value="11">11</option>
+	                            	<option value="12">12</option>
+	                            </select>
+
 	                        </div>
 	                        <div class="form-group">
 	                            <label>What school are you going to graduate from?</label>
@@ -421,12 +431,13 @@ $(document).ready(function() {
 
     $("input[name=user_status]").click(function() {
     	var val = $(this).val();
-    	if( (val == "teacher") || (val == "consellor") )
+    	if( (val == "teacher") || (val == "consellor") ) {
     		$(".form-group-major").hide();
     		$("#userMajor").prop('required', false);
-    	else
+    	} else {
     		$(".form-group-major").show();
-    	$("#userMajor").prop('required', true);
+    		$("#userMajor").prop('required', true);
+    	}
     })
 });
 

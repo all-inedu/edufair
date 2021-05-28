@@ -126,12 +126,11 @@ class RegisterController extends CI_Controller {
 		$userId = $this->session->userdata('user_id'); //get user id from session login
 		$startTime = $this->input->post('startTime');
 		$endTime = $this->input->post('endTime');
-		$uniId = $this->input->post('uniId');
+		$unidtltimeid = $this->input->post('unidtltimeid');
 		$data = array(
-			'user_id'              => $userId,
-			'uni_id'               => $uniId,
-			'booking_c_start_date' => $startTime,
-			'booking_c_end_date'   => $endTime
+			'user_id'            => $userId,
+			'uni_detail_time_id' => $unidtltimeid,
+			'booking_c_date'     => date('Y-m-d H:i:s')
 			);
 
 		$process = $this->ConsultModel->bookingConsult($data);
