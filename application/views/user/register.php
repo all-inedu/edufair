@@ -280,7 +280,7 @@ $(document).ready(function() {
     $.ajax({
         type: 'post',
         dataType: "json",
-        url: "https://www.bigdata.crm-allinedu.com/api/lead",
+        url: "<?php echo base_url(); ?>request/getAllDataLead",
         success: function(datas) {
             $.each(datas, function(index, data) {
                 $('#userLead').append(

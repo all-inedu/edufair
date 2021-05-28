@@ -74,6 +74,11 @@ class HomeController extends CI_Controller {
 		}
 	}
 
+	public function dashboard()
+	{
+		$this->load->view();
+	}
+
 	// **************************************************** //
 	// **************************************************** //
 	// ******** FORGOT PASSWORD FUNCTION START ************ //

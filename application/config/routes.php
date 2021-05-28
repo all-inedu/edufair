@@ -61,6 +61,8 @@ $route['registration'] = 'RegisterController/view';
 $route['registration/topic'] = 'RegisterController/topic';
 $route['registration/submit'] = 'RegisterController/register';
 $route['registration/consult'] = 'RegisterController/book';
+
+$route['home/dashboard'] = 'HomeController/dashboard';
 /* VIEW END HERE */
 
 /* PROCESS START HERE */
@@ -72,6 +74,7 @@ $route['reset-password'] = 'HomeController/updatePassword';
 $route['login'] = 'HomeController/login';
 $route['logout'] = 'HomeController/logout';
 $route['home/book/topic'] = 'HomeController/bookingTopic';
+$route['request/getAllDataLead'] = 'RegisterController/getAllDataLead';
 /* PROCESS END HERE */
 
 $route['dashboard/admin'] = 'AdminController/index';

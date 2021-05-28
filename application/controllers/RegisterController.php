@@ -10,12 +10,13 @@ class RegisterController extends CI_Controller {
         $this->load->model('UniModel');
         $this->load->model('TopicModel');
         $this->load->model('ConsultModel');
+        $this->load->model('LeadModel');
     }
 
 	public function view()
 	{
-		// session_destroy();
 		$data['title'] = "Registration";
+
 		$this->load->view('template/header', $data);
 		$this->load->view('user/register');
 		$this->load->view('template/footer');
@@ -139,6 +140,11 @@ class RegisterController extends CI_Controller {
 		} else {
 			echo "04"; // error booking consult
 		}
+	}
+
+	public function getAllDataLead()
+	{
+		echo json_encode($this->LeadModel->getAllDataLead());
 	}
 	/* PROCESS FUNCTION END HERE */
 }
