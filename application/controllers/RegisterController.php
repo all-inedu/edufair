@@ -24,6 +24,36 @@ class RegisterController extends CI_Controller {
 
 	public function register()
 	{	
+		$schoolOption = $this->input->post('school_option');
+		if(strtolower($schoolOption) == "other") {
+
+			$postRequest = array(
+			    'sch_name' => $this->input->post('user_school')
+			);
+
+			$url = 'bigdata.crm-allinedu.com/api/save/school'; 
+			$curl = curl_init();
+			curl_setopt_array($curl, array(
+				CURLOPT_URL => $url,
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_ENCODING => '',
+				CURLOPT_MAXREDIRS => 10,
+				CURLOPT_TIMEOUT => 0,
+				CURLOPT_SSL_VERIFYPEER => false,
+				CURLOPT_SSL_VERIFYHOST => false,
+				CURLOPT_FOLLOWLOCATION => true,
+				CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+				CURLOPT_CUSTOMREQUEST => 'POST',
+				CURLOPT_POSTFIELDS => $postRequest
+			));
+
+			$response = curl_exec($curl);
+
+			if ($response === false) 
+				$response = curl_error($curl);
+		
+		}
+		
 		// add other major into selected major start
 		$user_major = $this->input->post('user_major');
 		$user_major_other = $this->input->post('user_major_other');

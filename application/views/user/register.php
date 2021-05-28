@@ -135,13 +135,13 @@
 	                        </div>
 	                        <div class="form-group">
 	                            <label>What school are you going to graduate from?</label>
-	                            <select id="userSchool" onchange="checkValue('userSchool')" required
+	                            <select name="school_option" id="userSchool" onchange="checkValue('userSchool')" required
 	                                oninvalid="validation('userSchool')">
 	                                <option data-placeholder="true"></option>
 	                                <option value="other">Other</option>
 	                            </select>
 	                            <input type="text" class="form-control form-control-sm mt-1" id="userSchoolNew">
-	                            <input type="hidden" value="" name="user_school" id="user_school">
+	                            <input type="text" value="" name="user_school" id="user_school">
 	                            <small class="form-text text-muted">Choose other if there are not your schools</small>
 	                        </div>
 	                        <div class="form-group">
