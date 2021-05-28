@@ -55,8 +55,7 @@ $(".btn-book-consul").each(function() {
 
         var startTime = $(this).data('starttime'); 
         var endTime = $(this).data('endtime');
-        var uniId = $(this).data('uniid');
-
+        var unidtltimeid = $(this).data('unidtltimeid');
         var splitTime = startTime.split(" ");
         var show_startDate = splitTime[0];
         var show_startTime = splitTime[1];
@@ -80,9 +79,10 @@ $(".btn-book-consul").each(function() {
                     data: {
                         startTime : startTime,
                         endTime : endTime,
-                        uniId : uniId
+                        unidtltimeid : unidtltimeid
                     },
                     success: function(msg) {
+                        console.log(msg);
                         if(msg == "001") {
                             Swal.fire({
                                 icon: 'success',
