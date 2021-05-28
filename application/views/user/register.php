@@ -141,7 +141,7 @@
 	                                <option value="other">Other</option>
 	                            </select>
 	                            <input type="text" class="form-control form-control-sm mt-1" id="userSchoolNew">
-	                            <input type="text" value="" name="user_school" id="user_school">
+	                            <input type="hidden" value="" name="user_school" id="user_school">
 	                            <small class="form-text text-muted">Choose other if there are not your schools</small>
 	                        </div>
 	                        <div class="form-group">

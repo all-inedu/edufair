@@ -76,7 +76,13 @@ class HomeController extends CI_Controller {
 
 	public function dashboard()
 	{
-		$this->load->view();
+		$data['title'] = 'Dashboard';
+
+		$this->load->view('template/header', $data);
+        $this->load->view('home/navbar');
+		$this->load->view('dashboard/dashboard');
+		$this->load->view('home/footer');
+        $this->load->view('template/footer');
 	}
 
 	// **************************************************** //
