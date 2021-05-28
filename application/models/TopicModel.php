@@ -147,7 +147,11 @@ class TopicModel extends CI_Model {
         "booking_topic_date" => date('Y-m-d H:i:s')
       );
       $query = $this->db->insert('tb_booking_topic', $data);
-      return $query;
+      if($query) {
+        return "001";
+      } else {
+        return "03";
+      }
     }
 
     function insertTopic($data) 

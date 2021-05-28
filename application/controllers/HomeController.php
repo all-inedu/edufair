@@ -63,15 +63,7 @@ class HomeController extends CI_Controller {
 		$topicId = $this->input->post('topic_id');
 
 		$process = $this->TopicModel->bookingOneTopic($userId, $topicId);
-		if($process) {
-			if($process == "07") {
-				echo "07"; // already booking with requested topic_id
-			} else {
-				echo "001";
-			}
-		} else {
-			echo "03"; // error booking topic
-		}
+		echo $process;
 	}
 
 	public function dashboard()
