@@ -27,7 +27,8 @@
                     </ol>
                     <div class="card mb-4">
                         <div class="card-body">
-                            <form action="" method="post">
+                            <form method="post" id="addUni" class="needs-validation" novalidate
+                                enctype="multipart/form-data">
                                 <div class="row flex-wrap-reverse">
                                     <div class="col-md-5">
                                         <div class="border shadow">
@@ -39,24 +40,24 @@
                                         <div class="form-group">
                                             <label>University Name</label>
                                             <input type="text" class="form-control form-control-sm"
-                                                placeholder="University Name" name="uni_name">
+                                                placeholder="University Name" name="uni_name" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Country</label>
                                             <select class="form-control form-control-sm" name="uni_country"
-                                                id="uniCountry">
+                                                id="uniCountry" required>
                                                 <option value="">Select the country</option>
                                                 <option value="United States">United States</option>
                                                 <option value="United Kingdom">United Kingdom</option>
                                                 <option value="Canada">Canada</option>
-                                                <option value="europe">Europe</option>
-                                                <option value="asia">Asia</option>
+                                                <option value="Europe">Europe</option>
+                                                <option value="Asia">Asia</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group" id="uniCountryDtl">
                                             <label>Country Detail</label>
-                                            <select name="uni_country_dtl" id="countryDtl">
+                                            <select name="uni_detail_country" id="countryDtl">
                                                 <option data-placeholder="true"></option>
                                             </select>
                                         </div>
@@ -64,16 +65,16 @@
                                         <div class="form-group">
                                             <label>Description</label>
                                             <textarea class="form-control form-control-sm" name="uni_description"
-                                                rows="5"></textarea>
+                                                rows="5" required></textarea>
                                         </div>
 
 
                                         <div class="form-group">
                                             <label>Photo Banner</label>
-
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" id="imgUpload"
-                                                    name="topic_photo" onchange="readURL(this);">
+                                                    onchange="readURL(this);">
+                                                <input type="text" id="uniBanner" name="uni_photo_banner" hidden>
                                                 <label class="custom-file-label" for="imgUpload">Choose file</label>
                                             </div>
                                         </div>
@@ -81,7 +82,7 @@
                                 </div>
                                 <hr>
                                 <div class="float-right">
-                                    <input type="submit" value="Submit" class="btn btn-sm btn-success px-4">
+                                    <button class="btn btn-sm btn-success px-4">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -91,10 +92,8 @@
         </div>
     </div>
     <?php $this->load->view('admin/template/footer'); ?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
     $(document).ready(function() {
         $('#uniCountryDtl').hide();
@@ -102,7 +101,7 @@
 
     $('#uniCountry').change(function() {
         let country = $(this).val();
-        if ((country == "asia") || (country == "europe")) {
+        if ((country == "Asia") || (country == "Europe")) {
             $('#uniCountryDtl').show();
             $("#countryDtl").empty();
             $.ajax({
@@ -133,9 +132,8 @@
     });
 
 
-
-
     function readURL(input) {
+        $('#uniBanner').val(input.files[0].name);
         $(".custom-file-label").addClass("selected text-dark").html(input.files[0].name);
 
         if (input.files && input.files[0]) {
@@ -147,6 +145,68 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
+
+
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+
+    // Submit
+    $("#addUni").submit(function(event) {
+        event.preventDefault();
+        if ($("#addUni")[0].checkValidity() === false) {
+            event.stopPropagation();
+        } else {
+            // Swal.showLoading();
+
+            var file_data = $('#imgUpload').prop('files')[0];
+            var form_data = new FormData($('#addUni')[0]);
+            form_data.append('upload_banner', file_data); //menggunakan variable (nama form input 'file')
+
+            $.ajax({
+                url: "<?=base_url('dashboard/admin/uni/submit');?>",
+                type: "POST",
+                data: form_data,
+                processData: false,
+                contentType: false,
+                success: function(msg) {
+                    if (msg > 0) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Horee!',
+                            text: 'This university has been created.',
+                            showConfirmButton: false
+                        })
+                        setTimeout(function() {
+                            window.location.href =
+                                "<?php echo base_url('dashboard/admin/uni/edit/'); ?>" +
+                                msg;
+                        }, 2000)
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong! Please try again.'
+                        });
+                    }
+                }
+            });
+        }
+    });
     </script>
 </body>
 

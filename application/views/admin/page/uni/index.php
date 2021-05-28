@@ -31,39 +31,63 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered table-hover" id="dataTable" width="100%"
+                                    cellspacing="0">
                                     <thead class="text-center">
                                         <tr>
                                             <th>No</th>
                                             <th>University</th>
-                                            <th>Description</th>
+                                            <th width="25%">Description</th>
                                             <th>Country</th>
-                                            <th>Date & Time</th>
-                                            <th>Photo</th>
-                                            <th>Status</th>
+                                            <th>Consultation Date</th>
+                                            <th width="10%">Photo</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                    for ($i=0; $i < 40 ; $i++) { 
+                                        $i=1;
+                                    foreach ($uni as $u) {
                                     ?>
                                         <tr class="my-auto">
                                             <td class="text-center"><?=$i;?></td>
-                                            <td class="text-center">Uni A, Uni B</td>
-                                            <td>System Architect</td>
-                                            <td class="text-center">United States</td>
-                                            <td class="text-center">
-                                                July, 24th 2021 : 10:00 - 12:00 <br>
-                                                July, 24th 2021 : 10:00 - 12:00
+                                            <td class="pointer" style="cursor:pointer;"
+                                                onclick='window.location.href ="<?=base_url("dashboard/admin/uni/edit/".$u["uni_id"]);?>"'>
+                                                <?=$u['uni_name'];?>
                                             </td>
-                                            <td class="text-center">Photo</td>
+                                            <td><?=$u['uni_description'];?></td>
                                             <td class="text-center">
-                                                <span class="text-success">
-                                                    <i class="far fa-lightbulb fa-fw"></i> Active
-                                                </span>
+                                                <?=$u['uni_country'];?><br>
+                                                <?=$u['uni_detail_country'];?>
+                                            </td>
+                                            <td class="text-center">
+                                                <ul class="list-group">
+                                                    <?php 
+                                                    foreach ($u['uni_detail'] as $dtl) {
+                                                        $start = $dtl['uni_dtl_start_date'];
+                                                        $end = $dtl['uni_dtl_end_date'];
+                                                    ?>
+                                                    <li class="list-group-item">
+                                                        <?php
+                                                        if($start!="") {
+                                                        echo date('M, dS Y', strtotime($start))."<br>";
+                                                        echo date('H:i', strtotime($start)). " - ";
+                                                        echo date('H:i', strtotime($end));
+
+                                                        } else {
+                                                            echo 'Not Available';
+                                                        }
+                                                    ?>
+                                                    </li>
+                                                    <?php } ?>
+                                                </ul>
+                                            </td>
+                                            <td class="text-center">
+                                                <img src="<?=base_url('assets/uni/banner/'.$u['uni_photo_banner']);?>"
+                                                    width="100%">
                                             </td>
                                         </tr>
                                         <?php 
+                                        $i++;
                                     }
                                     ?>
                                     </tbody>

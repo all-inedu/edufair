@@ -3,7 +3,70 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class UniModel extends CI_Model {
 
-	function getUniData ()
+	function getId() 
+    {
+        $this->db->select('uni_id');
+        $this->db->order_by('uni_id','DESC');
+        $this->db->from('tb_uni');
+        return $this->db->get()->row_array();
+	}
+	
+	function getUniDtlId() 
+    {
+        $this->db->select('uni_dtl_id');
+        $this->db->order_by('uni_dtl_id','DESC');
+        $this->db->from('tb_uni_detail');
+        return $this->db->get()->row_array();
+    }
+
+	function showUniData() {
+		$this->db->select('*');
+		$this->db->order_by('uni_name', 'asc');
+		return $this->db->get('tb_uni')->result_array();
+	}
+
+	function showUniDataJoin($id="") {
+		$this->db->select('
+			tb_uni.*, 
+			tb_uni_detail.uni_dtl_id,
+			tb_uni_detail.uni_dtl_start_date,
+			tb_uni_detail.uni_dtl_end_date,
+			tb_uni_detail.uni_dtl_duration,
+			tb_uni_detail.uni_dtl_zoom_link,
+		');
+		if($id!=""){
+			$this->db->where('tb_uni.uni_id',$id);
+		}
+		$this->db->order_by('uni_name', 'asc');
+		$this->db->join('tb_uni_detail','tb_uni_detail.uni_id=tb_uni.uni_id','left');
+		$query = $this->db->get('tb_uni')->result();
+
+		$data = array();
+        foreach($query as $queryData) {
+          if(!isset($data[$queryData->uni_id])) {
+            $data[$queryData->uni_id] = array(
+                  "uni_id"         		=> $queryData->uni_id,
+                  "uni_name"       		=> $queryData->uni_name,
+                  "uni_country"       	=> $queryData->uni_country,
+                  "uni_detail_country" 	=> $queryData->uni_detail_country,
+                  "uni_description"   	=> $queryData->uni_description,
+                  "uni_photo_banner" 	=> $queryData->uni_photo_banner,
+                  "uni_status"    		=> $queryData->uni_status,
+                  "uni_detail"       	=> array()
+              );
+          }
+          $data[$queryData->uni_id]['uni_detail'][] = array(
+				  "uni_dtl_id"   			=> $queryData->uni_dtl_id,
+				  "uni_dtl_start_date" 		=> $queryData->uni_dtl_start_date,
+				  "uni_dtl_end_date" 		=> $queryData->uni_dtl_end_date,
+				  "uni_dtl_duration" 	=> $queryData->uni_dtl_duration,
+				  "uni_dtl_zoom_link"   	=> $queryData->uni_dtl_zoom_link,
+                );
+        }
+        return $data;
+	}
+	
+	function getUniData($countryName="")
 	{
 		// $sql = "SELECT u.*, ud.uni_dtl_id, ud.uni_dtl_start_date, ud.uni_dtl_end_date, bc.booking_c_id, 
 		// 		(CASE WHEN bc.uni_id is NULL THEN 'available' ELSE 'booked' END) AS status
@@ -88,5 +151,57 @@ class UniModel extends CI_Model {
 		} else {
 			return false;
 		}
+	}
+
+	function insertUni($data) 
+	{
+		$query = $this->db->insert('tb_uni', $data);
+        if($query) {
+          return true;
+        } else {
+          return false;
+        }
+	}
+
+	function updateUni($id, $data)
+	{
+		$this->db->where('uni_id', $id);
+		$query = $this->db->update('tb_uni', $data);
+		if($query) {
+          return true;
+        } else {
+          return false;
+        }
+	}
+
+	function insertUniDetail($data) 
+	{
+		$query = $this->db->insert('tb_uni_detail', $data);
+        if($query) {
+          return true;
+        } else {
+          return false;
+        }
+	}
+
+	function deleteUniDetail($id)
+	{
+		$this->db->where('uni_dtl_id', $id);
+		$query = $this->db->delete('tb_uni_detail');
+        if($query) {
+          return true;
+        } else {
+          return false;
+        }
+	}
+
+	function insertUniDetailTime($data) 
+	{
+		$query = $this->db->insert('tb_uni_detail_time', $data);
+        if($query) {
+          return true;
+        } else {
+          return false;
+        }
 	}
 }

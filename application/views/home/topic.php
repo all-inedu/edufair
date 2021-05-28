@@ -100,7 +100,7 @@
         ?>
         <div class="card card-topic">
             <div class="card-body">
-                <img src="<?=base_url('assets/img/default.jpeg');?>" class="img-topic">
+                <img src="<?=base_url('assets/img/'.$row['topic_banner']);?>" class="img-topic">
                 <div class="row px-2 pt-2 no-gutters talk-button">
                     <div class="col-11">
                        <small><?php echo $topic_start_date->format('M, dS Y - H:i') ?></small>

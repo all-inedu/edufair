@@ -50,6 +50,7 @@ class HomeController extends CI_Controller {
 
 	public function logout()
 	{
+
 		$userId = $this->session->userdata('user_id');
 		$lastLoginUpdate = $this->UserModel->lastLoginUpdate($userId);
 		$this->session->sess_destroy();

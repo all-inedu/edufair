@@ -74,12 +74,11 @@
                                             <select name="uni_id[]" id="uniList" onchange="checkValue('uniList')"
                                                 oninvalid="validation('uniList')" multiple required>
                                                 <option data-placeholder="true"></option>
-                                                <option value="1">Uni A</option>
-                                                <option value="2">Uni B</option>
-                                                <option value="3">Uni C</option>
+                                                <?php foreach ($uni as $u) {?>
+                                                <option value="<?=$u['uni_id'];?>"><?=$u['uni_name'];?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
-
                                         <div class="form-group">
                                             <label>Photo Banner</label>
                                             <div class="custom-file">
@@ -105,9 +104,6 @@
         </div>
     </div>
     <?php $this->load->view('admin/template/footer'); ?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
@@ -197,8 +193,16 @@
                 contentType: false,
                 success: function(msg) {
                     if (msg == "001") {
-                        window.location.href =
-                            "<?php echo base_url('dashboard/admin/topic'); ?>";
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Horee!',
+                            text: 'This topic has been created.',
+                            showConfirmButton: false
+                        })
+                        setTimeout(function() {
+                            window.location.href =
+                                "<?php echo base_url('dashboard/admin/topic'); ?>";
+                        }, 2000)
                     } else {
                         Swal.fire({
                             icon: 'error',
