@@ -104,6 +104,9 @@ class AdminController extends CI_Controller {
 			if ($this->upload->do_upload('upload_banner')) {
 				$filesname = htmlspecialchars($this->upload->data('file_name'));
 				$this->upload->data();
+
+				$path = FCPATH  . "assets/topic/".$banner_old;
+				unlink($path);
 			} else {
 				$error = array('error' => $this->upload->display_errors());
 				echo json_encode($error);
@@ -237,8 +240,12 @@ class AdminController extends CI_Controller {
 	public function editUni($id) 
 	{
 		$uni = $this->uni->showUniDataJoin($id);
-		$data['uni'] = $uni[$id];
-		$this->load->view('admin/page/uni/edit', $data);
+		if(!empty($uni)) {
+			$data['uni'] = $uni[$id];
+			$this->load->view('admin/page/uni/edit', $data);
+		} else {
+			redirect(base_url('dashboard/admin/uni')); 
+		}
 	}
 
 	public function updateUni() 
@@ -261,6 +268,9 @@ class AdminController extends CI_Controller {
 				$error = array('error' => $this->upload->display_errors());
 				echo json_encode($error);
 			}	
+
+			$path = FCPATH  . "assets/uni/banner/".$banner_old;
+			unlink($path);
 		} else {
 			$filesname = $banner_old;
 		}	
@@ -282,9 +292,21 @@ class AdminController extends CI_Controller {
 		}
 	}
 
-	public function deleteUni() 
+	public function deleteUni($id) 
 	{
+		$data = $this->uni->showUniDataJoin($id);
+		$photo = $data[$id]['uni_photo_banner'];
+		if($photo!="default.jpeg") {
+			$path = FCPATH  . "assets/uni/banner/".$photo;
+			unlink($path);
+		}
 		
+		$process = $this->uni->deleteUni($id);
+		if($process){
+			echo "001";
+		} else {
+			echo "02";
+		}
 	}
 
 	public function saveUniConsult() 

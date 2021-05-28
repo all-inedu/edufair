@@ -79,12 +79,12 @@ $route['dashboard/admin/topic/active/(:num)'] = 'AdminController/activeTopic/$1'
 $route['dashboard/admin/topic/edit/(:num)'] = 'AdminController/editTopic/$1';
 $route['dashboard/admin/topic/update'] = 'AdminController/updateTopic';
 
-
 $route['dashboard/admin/uni'] = 'AdminController/indexUni';
 $route['dashboard/admin/uni/add'] = 'AdminController/addUni';
 $route['dashboard/admin/uni/submit'] = 'AdminController/saveUni';
 $route['dashboard/admin/uni/edit/(:any)'] = 'AdminController/editUni/$1';
 $route['dashboard/admin/uni/update'] = 'AdminController/updateUni';
+$route['dashboard/admin/uni/delete/(:num)'] = 'AdminController/deleteUni/$1';
 
 $route['dashboard/admin/uni/consult/add'] = 'AdminController/saveUniConsult';
 $route['dashboard/admin/uni/consult/delete/(:num)'] = 'AdminController/deleteUniConsult/$1';

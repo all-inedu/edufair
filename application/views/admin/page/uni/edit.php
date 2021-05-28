@@ -30,8 +30,9 @@
                             <div class="row">
                                 <div class="col-md-12 float-right">
                                     <div class="float-right ml-2">
-                                        <button class="btn btn-sm btn-outline-danger text-dark" onclick="deleteData()"
-                                            id="deleteData">Delete</button>
+                                        <button class="btn btn-sm btn-outline-danger text-dark"
+                                            onclick='deleteData(<?=$uni["uni_id"];?>,"<?=$uni["uni_name"];?>")'
+                                            id='deleteData'>Delete</button>
                                     </div>
                                     <div class="float-right">
                                         <button class="btn btn-sm btn-outline-warning text-dark" onclick="editData()"
@@ -279,6 +280,45 @@
             $("#imgUpload").prop("disabled", true);
             $("#buttonSubmit").hide();
         }
+    }
+
+    function deleteData(id, data) {
+        Swal.fire({
+            title: 'Are you sure?',
+            html: "Delete this university<br><b>" + data + "</b>",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "<?=base_url('dashboard/admin/uni/delete/');?>" + id,
+                    type: "POST",
+                    success: function(msg) {
+                        if (msg == "001") {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Horee!',
+                                text: 'The univeristy has been deleted.',
+                                showConfirmButton: false
+                            })
+                            setTimeout(function() {
+                                window.location.href =
+                                    "<?=base_url('dashboard/admin/uni/');?>";
+                            }, 2000)
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong! Please try again.'
+                            });
+                        }
+                    }
+                });
+            }
+        })
     }
 
     $('#uniCountry').change(function() {

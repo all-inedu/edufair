@@ -189,6 +189,17 @@ class UniModel extends CI_Model {
         }
 	}
 
+	function deleteUni($id)
+	{
+		$this->db->where('uni_id', $id);
+		$query = $this->db->delete('tb_uni');
+        if($query) {
+          return true;
+        } else {
+          return false;
+        }
+	}
+
 	function insertUniDetail($data) 
 	{
 		$query = $this->db->insert('tb_uni_detail', $data);
