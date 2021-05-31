@@ -57,20 +57,30 @@
 	                            <input type="text" class="form-control form-control-sm custom-box" placeholder="08xx xxxx"
 	                                name="user_phone" required>
 	                        </div>
-	                        <div class="form-group">
-	                            <label>You are a:</label>
-	                            <div class="form-control custom-box radio border-0">
-	                                <div class="form-check form-check-inline">
-	                                    <input id="male" class="form-check-input input-status" type="radio" name="user_gender"
-	                                        value="male" checked >
-	                                    <label for="male" class="form-check-label">Male</label>
-	                                </div>
-	                                <div class="form-check form-check-inline">
-	                                    <input id="female" class="form-check-input input-status" type="radio" name="user_gender"
-	                                        value="female">
-	                                    <label for="female" class="form-check-label">Female</label>
-	                                </div>
-	                            </div>
+	                        <div class="row">
+	                        	<div class="col">
+	                        		<div class="form-group">
+			                            <label>You are a:</label>
+			                            <div class="form-control custom-box radio border-0">
+			                                <div class="form-check form-check-inline">
+			                                    <input id="male" class="form-check-input input-status" type="radio" name="user_gender"
+			                                        value="male" checked >
+			                                    <label for="male" class="form-check-label">Male</label>
+			                                </div>
+			                                <div class="form-check form-check-inline">
+			                                    <input id="female" class="form-check-input input-status" type="radio" name="user_gender"
+			                                        value="female">
+			                                    <label for="female" class="form-check-label">Female</label>
+			                                </div>
+			                            </div>
+			                        </div>
+	                        	</div>
+	                        	<div class="col">
+	                        		<div class="form-group">
+	                        			<label>Date of Birth:</label>
+	                        			<input type="date" name="user_dateofbirth" class="form-control custom-box" required>
+	                        		</div>
+	                        	</div>
 	                        </div>
 	                        <div class="form-group">
 	                            <label>You came here as:</label>
@@ -87,13 +97,8 @@
 	                                </div>
 	                                <div class="form-check form-check-inline">
 	                                    <input id="teacher" class="form-check-input input-status" type="radio" name="user_status"
-	                                        value="teacher">
-	                                    <label for="teacher" class="form-check-label">Teacher</label>
-	                                </div>
-	                                <div class="form-check form-check-inline">
-	                                    <input id="consellor" class="form-check-input input-status" type="radio" name="user_status"
-	                                        value="consellor">
-	                                    <label for="consellor" class="form-check-label">Consellor</label>
+	                                        value="teacher_consellor">
+	                                    <label for="teacher" class="form-check-label">Teacher/Consellor</label>
 	                                </div>
 	                            </div>
 	                        </div>
@@ -431,7 +436,7 @@ $(document).ready(function() {
 
     $("input[name=user_status]").click(function() {
     	var val = $(this).val();
-    	if( (val == "teacher") || (val == "consellor") ) {
+    	if( (val == "teacher_consellor") ) {
     		$(".form-group-major").hide();
     		$("#userMajor").prop('required', false);
     	} else {

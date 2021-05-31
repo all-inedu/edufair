@@ -42,6 +42,8 @@ class HomeController extends CI_Controller {
 		$hashed = $userInfo['user_password'];
 		if (password_verify($password, $hashed)) {
 			$this->session->set_userdata($userInfo);
+			$userId = $this->session->userdata('user_id');
+			$lastLoginUpdate = $this->UserModel->lastLoginUpdate($userId);
 			echo "001";
 		} else {
 			echo "02"; // error login
@@ -50,9 +52,6 @@ class HomeController extends CI_Controller {
 
 	public function logout()
 	{
-
-		$userId = $this->session->userdata('user_id');
-		$lastLoginUpdate = $this->UserModel->lastLoginUpdate($userId);
 		$this->session->sess_destroy();
 		redirect('/');
 	}
@@ -66,15 +65,33 @@ class HomeController extends CI_Controller {
 		echo $process;
 	}
 
-	public function dashboard()
+	public function dashboard() //user profile
 	{
+		if(!$this->session->has_userdata('user_id')) { // if the session value is null or doesn't exist
+			redirect('/');
+		}
+
+		$user_id = $this->session->userdata('user_id');
 		$data['title'] = 'Dashboard';
+		$data['dataTopic'] = $this->UserModel->getUserTopic($user_id);
+		$data['dataConsult'] = $this->UserModel->getUserConsult($user_id);
+		// print("<pre>".print_r($data['dataConsult'], true)."</pre>");exit;
 
 		$this->load->view('template/header', $data);
         $this->load->view('home/navbar');
-		$this->load->view('dashboard/dashboard');
+		$this->load->view('dashboard/dashboard', $data);
 		$this->load->view('home/footer');
         $this->load->view('template/footer');
+	}
+
+	public function cancelBooking()
+	{
+		$user_id = $this->session->userdata('user_id');
+		$type = $this->uri->segment(3);
+		if($type == "topic") {
+			$topicId = $this->base64url_decode($this->input->post('topicId'));
+			echo $this->UserModel->cancelBooking($user_id, $type, $topicId);
+		}
 	}
 
 	// **************************************************** //
@@ -152,7 +169,7 @@ class HomeController extends CI_Controller {
 
         $this->email->subject('Reset Your Password');
 
-        $bodyMail = $this->load->view('mail/body', $data, true);
+        $bodyMail = $this->load->view('mail/forgot_password', $data, true);
         $this->email->message($bodyMail);
 
         // Send Email
@@ -204,7 +221,7 @@ class HomeController extends CI_Controller {
 		$qstring = $this->base64url_encode($token);
 		$data = array( "url" => base_url() . '/reset-password/token/' . $qstring );
 
-    	$this->load->view('mail/body', $data);
+    	$this->load->view('mail/verify_email', $data);
     }
 
 	// **************************************************** //

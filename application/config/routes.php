@@ -74,6 +74,7 @@ $route['reset-password'] = 'HomeController/updatePassword';
 $route['login'] = 'HomeController/login';
 $route['logout'] = 'HomeController/logout';
 $route['home/book/topic'] = 'HomeController/bookingTopic';
+$route['home/cancel/(:any)'] = 'HomeController/cancelBooking';
 $route['request/getAllDataLead'] = 'RegisterController/getAllDataLead';
 /* PROCESS END HERE */
 
