@@ -206,17 +206,39 @@ $("#loginForm").submit(function(event) {
     });
 });
 </script>
-<?php
-if(isset($this->session->userdata('user_id'))) { 
-?>
 <script>
     $("#change-information").click(function() {
-        
+        $("#view-form").hide();
+        $("#edit-form").show();
+    });
+
+    $("#personal-information-form").submit(function(event) {
+        event.preventDefault();
+
+        if ($("#personal-information-form")[0].checkValidity() === false) {
+            event.stopPropagation();
+        } else {
+            Swal.showLoading();
+
+            $.ajax({
+                url: "<?php echo base_url(); ?>home/dashboard/update/information",
+                type: 'post',
+                data: $("#personal-information-form").serialize(),
+                success: function(msg) {
+                    if(msg == "001") {
+                        location.reload();
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong! Please try again.'
+                        });
+                    }
+                }
+            })
+        }
     });
 </script>
-<?php
-}
-?>
 <script>
 
     $(".join-link").each(function() {

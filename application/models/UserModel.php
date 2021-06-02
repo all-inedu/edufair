@@ -299,4 +299,9 @@ class UserModel extends CI_Model {
       }
     }
 
+    public function updateInformation($data, $userId)
+    {
+    	$this->db->where('user_id', $userId);
+    	return $this->db->update('tb_user', $data);
+    }
 }

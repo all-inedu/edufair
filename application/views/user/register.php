@@ -1,14 +1,3 @@
-<style type="text/css">
-.custom-box {
-	border-top: none !important;
-	border-left: none !important;
-	border-right: none !important;
-	background: none !important;
-}
-.custom-box.radio {
-	border-bottom: none !important;
-}
-</style>
 	<div class="container-fluid">
 	    <div class="container">
 	        <div class="col-xl-6 offset-xl-3 allin-registration shadow">

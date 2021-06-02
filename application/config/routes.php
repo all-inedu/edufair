@@ -76,6 +76,7 @@ $route['logout'] = 'HomeController/logout';
 $route['home/book/topic'] = 'HomeController/bookingTopic';
 $route['home/cancel/(:any)'] = 'HomeController/cancelBooking';
 $route['request/getAllDataLead'] = 'RegisterController/getAllDataLead';
+$route['home/dashboard/update/information'] = 'HomeController/updateInformation';
 /* PROCESS END HERE */
 
 $route['dashboard/admin'] = 'AdminController/index';
