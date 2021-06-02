@@ -206,10 +206,18 @@ $("#loginForm").submit(function(event) {
     });
 });
 </script>
+<?php
+if(isset($this->session->userdata('user_id'))) { 
+?>
 <script>
     $("#change-information").click(function() {
-
+        
     });
+</script>
+<?php
+}
+?>
+<script>
 
     $(".join-link").each(function() {
         $(this).click(function() {
