@@ -23,7 +23,7 @@
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="<?=base_url('dashboard/admin/topic');?>">Topic List</a>
                         </li>
-                        <li class="breadcrumb-item active">Add Topic</li>
+                        <li class="breadcrumb-item active">Edit Topic</li>
                     </ol>
                     <div class="card mb-4">
                         <div class="card-body">
@@ -74,6 +74,11 @@
                                                         required>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Zoom Link</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                value="<?=$topic['topic_zoom_link'];?>" name="topic_zoom_link" required>
                                         </div>
                                         <div class="form-group">
                                             <label>List of University</label>

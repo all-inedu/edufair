@@ -93,3 +93,10 @@ $route['dashboard/admin/uni/delete/(:num)'] = 'AdminController/deleteUni/$1';
 
 $route['dashboard/admin/uni/consult/add'] = 'AdminController/saveUniConsult';
 $route['dashboard/admin/uni/consult/delete/(:num)'] = 'AdminController/deleteUniConsult/$1';
+
+$route['dashboard/admin/user'] = 'AdminController/indexUser';
+// $route['dashboard/admin/user/view/(:any)'] = 'AdminController/editUser/$1';
+
+$route['dashboard/admin/book/topic'] = 'AdminController/indexBookTopic';
+
+$route['dashboard/admin/book/consult'] = 'AdminController/indexBookConsult';

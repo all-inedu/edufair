@@ -31,15 +31,15 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-hover" id="dataTable" width="100%"
+                                <table class="table table-bordered table-hover nowrap" id="dataTable" width="100%"
                                     cellspacing="0">
                                     <thead class="text-center">
                                         <tr>
                                             <th>No</th>
                                             <th>Topic</th>
                                             <th>Universities</th>
-                                            <th>Start Date</th>
-                                            <th>End Date</th>
+                                            <th>Date</th>
+                                            <th>Zoom Link</th>
                                             <th width="10%">Banner</th>
                                             <th width="10%">Status</th>
                                         </tr>
@@ -59,17 +59,15 @@
                                                     foreach ($t['uni_detail'] as $uni) {
                                                         $type = ['info','success','danger','warning','primary'];
                                                         $random_key = array_rand($type);
-                                                        echo '<div class="mx-1 badge badge-'.$type[$random_key].' px-3">'.$uni['uni_name'].'</div>';
+                                                        echo '<div class="mx-1 badge badge-'.$type[$random_key].' px-3">'.$uni['uni_name'].'</div><br>';
                                                     }
                                                 ?>
                                             </td>
                                             <td class="text-center" data-sort="<?=$t['topic_start_date'];?>">
-                                                <?=date('d M Y H:i', strtotime($t['topic_start_date']));?>
+                                                <?=date('M dS Y H:i', strtotime($t['topic_start_date']));?>
+                                                <?=date('- H:i A', strtotime($t['topic_end_date']));?>
                                             </td>
-                                            <td class="text-center" data-sort="<?=$t['topic_end_date'];?>">
-                                                <?=date('d M Y H:i', strtotime($t['topic_end_date']));?>
-
-                                            </td>
+                                            <td><?=$t['topic_zoom_link'];?></td>
                                             <td class="text-center">
                                                 <img src="<?=base_url('assets/topic/'.$t['topic_banner']);?>"
                                                     width="100%">

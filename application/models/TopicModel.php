@@ -11,6 +11,15 @@ class TopicModel extends CI_Model {
         return $this->db->get()->row_array();
     }
 
+    function getTopicStatusData($s)
+    {
+        $this->db->select('*');
+        $this->db->order_by('topic_name','ASC');
+        $this->db->from('tb_topic');
+        $this->db->where('topic_status',$s);
+        return $this->db->get()->result_array();
+    }
+
     function getTopicDataById($id) 
     {
       $sql = "SELECT t.*, u.* FROM `tb_topic` t 
@@ -30,7 +39,8 @@ class TopicModel extends CI_Model {
                   "topic_start_date" => $queryData->topic_start_date,
                   "topic_end_date"   => $queryData->topic_end_date,
                   "topic_banner"     => $queryData->topic_banner,
-                  "topic_status"    => $queryData->topic_status,
+                  "topic_status"     => $queryData->topic_status,
+                  "topic_zoom_link"  => $queryData->topic_zoom_link,
                   "uni_detail"       => array()
               );
           }
@@ -82,7 +92,8 @@ class TopicModel extends CI_Model {
                   "topic_start_date" => $queryData->topic_start_date,
                   "topic_end_date"   => $queryData->topic_end_date,
                   "topic_banner"     => $queryData->topic_banner,
-                  "topic_status"    => $queryData->topic_status,
+                  "topic_status"     => $queryData->topic_status,
+                  "topic_zoom_link"  => $queryData->topic_zoom_link,
                   "uni_detail"       => array()
               );
           }
@@ -148,6 +159,52 @@ class TopicModel extends CI_Model {
       );
       $query = $this->db->insert('tb_booking_topic', $data);
       return $query;
+    }
+
+    function getBookingTopic()
+    {
+      $this->db->select('
+          tb_topic.*,
+          tb_booking_topic.user_id,
+          tb_booking_topic.booking_topic_date,
+          tb_user.user_first_name,
+          tb_user.user_last_name,
+          tb_user.user_status,
+          tb_user.user_email,
+          tb_user.user_school,
+          tb_user.user_grade
+          
+      ');
+      $this->db->from('tb_topic');
+      $this->db->order_by('tb_topic.topic_start_date','ASC');
+      $this->db->order_by('tb_user.user_first_name','ASC');
+      $this->db->where('tb_topic.topic_status', 1);
+      $this->db->join('tb_booking_topic', 'tb_booking_topic.topic_id=tb_topic.topic_id','left');
+      $this->db->join('tb_user', 'tb_user.user_id=tb_booking_topic.user_id', 'left');
+      $query = $this->db->get()->result_array();
+
+      $data = [];
+		  foreach ($query as $row) {
+        if(!isset($data[$row['topic_id']])){
+            $data[$row['topic_id']]=[
+              "topic_id"              => $row['topic_id'],
+              "topic_name"            => $row['topic_name'],
+              "topic_start_date"      => $row['topic_start_date'],
+              "topic_end_date"        => $row['topic_end_date'],
+              "user"                  => []
+            ];
+        }
+        $data[$row['topic_id']]['user'][] = [
+            "user_id"           => $row['user_id'],
+            "user_first_name"   => $row['user_first_name'],
+            "user_last_name"    => $row['user_last_name'],
+            "user_status"       => $row['user_status'],
+            "user_email"        => $row['user_email'],
+            "user_school"       => $row['user_school'],
+            "user_grade"        => $row['user_grade'],
+        ];
+      }
+      return $data;
     }
 
     function insertTopic($data) 

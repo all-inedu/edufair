@@ -9,11 +9,14 @@ class AdminController extends CI_Controller {
 		$this->load->library('country');
 		$this->load->model('TopicModel','topic');
 		$this->load->model('UniModel','uni');
+		$this->load->model('UserModel', 'user');
     }
 
 	public function index()
 	{
-		$this->load->view('admin/dashboard');
+		$data['registran'] = $this->user->getUserDataPerDays();
+		$this->load->view('admin/dashboard', $data);
+		// echo json_encode($data);
 	}
 
 	// Topic Page 
@@ -59,6 +62,7 @@ class AdminController extends CI_Controller {
 			'topic_desc' => $this->input->post('topic_desc'),
 			'topic_start_date' => $this->input->post('topic_start_date'),
 			'topic_end_date' => $this->input->post('topic_end_date'),
+			'topic_zoom_link' => $this->input->post('topic_zoom_link'),
 			'topic_status' => 1,
 			'topic_banner' => $filesname
 		];
@@ -120,6 +124,7 @@ class AdminController extends CI_Controller {
 			'topic_desc' => $this->input->post('topic_desc'),
 			'topic_start_date' => $this->input->post('topic_start_date'),
 			'topic_end_date' => $this->input->post('topic_end_date'),
+			'topic_zoom_link' => $this->input->post('topic_zoom_link'),
 			'topic_banner' => $filesname
 		];
 		$process = $this->topic->updateTopic($topic_id, $data);
@@ -361,6 +366,27 @@ class AdminController extends CI_Controller {
 		} else {
 			echo "02";
 		}
+	}
+
+	function indexUser()
+	{
+		$data['user'] = $this->user->getUserData();
+		$this->load->view('admin/page/user/index', $data);
+	}
+
+	function indexBookTopic()
+	{
+		$data['top'] = $this->topic->getTopicStatusData(1);
+		$data['topic'] = $this->topic->getBookingTopic();
+		$this->load->view('admin/page/book-topic/index', $data);
+		// echo json_encode($data);
+	}
+
+	function indexBookConsult()
+	{
+		$data['uni'] = $this->uni->getBookConsult();
+		$this->load->view('admin/page/book-consult/index', $data);
+		// echo json_encode($data);
 	}
 
 }

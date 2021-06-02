@@ -23,7 +23,7 @@
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="<?=base_url('dashboard/admin/uni');?>">University List</a>
                         </li>
-                        <li class="breadcrumb-item active">Add University</li>
+                        <li class="breadcrumb-item active">Edit University</li>
                     </ol>
                     <div class="card mb-2">
                         <div class="card-body">

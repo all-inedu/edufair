@@ -59,7 +59,7 @@ class UniModel extends CI_Model {
 				  "uni_dtl_id"   			=> $queryData->uni_dtl_id,
 				  "uni_dtl_start_date" 		=> $queryData->uni_dtl_start_date,
 				  "uni_dtl_end_date" 		=> $queryData->uni_dtl_end_date,
-				  "uni_dtl_duration" 	=> $queryData->uni_dtl_duration,
+				  "uni_dtl_duration" 		=> $queryData->uni_dtl_duration,
 				  "uni_dtl_zoom_link"   	=> $queryData->uni_dtl_zoom_link,
                 );
         }
@@ -151,6 +151,46 @@ class UniModel extends CI_Model {
 		} else {
 			return false;
 		}
+	}
+
+	function getBookConsult()
+	{
+		$this->db->select('*');
+		$this->db->from('tb_booking_consult');
+		$this->db->order_by('tb_uni.uni_name','ASC');
+		$this->db->order_by('tb_uni_detail_time.uni_dtl_t_start_time','ASC');
+		$this->db->join('tb_user','tb_user.user_id=tb_booking_consult.user_id');
+		$this->db->join('tb_uni_detail_time','tb_uni_detail_time.uni_detail_time_id=tb_booking_consult.uni_detail_time_id');
+		$this->db->join('tb_uni_detail','tb_uni_detail.uni_dtl_id=tb_uni_detail_time.uni_dtl_id');
+		$this->db->join('tb_uni','tb_uni.uni_id=tb_uni_detail.uni_id');
+		$query = $this->db->get()->result_array();
+
+		$data = [];
+		foreach ($query as $c) {
+			if(!isset($data[$c['uni_id']])){
+				$data[$c['uni_id']] = [
+					"uni_id" => $c['uni_id'],
+					"uni_name" => $c['uni_name'],
+					"user" => [],
+				];
+			}
+
+			$data[$c['uni_id']]['user'][] = [
+				"user_id" => $c['user_id'],
+				"user_first_name" => $c['user_first_name'],
+				"user_last_name" => $c['user_last_name'],
+				"user_email" => $c['user_email'],
+				"user_status" => $c['user_status'],
+				"user_school" => $c['user_school'],
+				"user_grade" => $c['user_grade'],
+				"uni_detail_time_id" => $c['uni_detail_time_id'],
+				"uni_dtl_t_start_time" => $c['uni_dtl_t_start_time'],
+				"uni_dtl_t_end_time" => $c['uni_dtl_t_end_time'],
+				"booking_c_date" => $c['booking_c_date'],
+			];
+		}
+
+		return $data;
 	}
 
 	function insertUni($data) 
