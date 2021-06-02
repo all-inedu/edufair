@@ -182,19 +182,6 @@ class AdminController extends CI_Controller {
 		$this->load->view('admin/page/uni/index', $data);
 	}
 
-	public function showCountry($d) {		
-		if($d=="Asia") {
-			$data = $this->country->asian();
-		} else 
-		if ($d=="Europe"){
-			$data = $this->country->europe();
-		} else {
-			$data = $this->country->show();
-		}
-
-		echo json_encode($data);
-	}
-
 	public function addUni() 
 	{
 		$this->load->view('admin/page/uni/add');
@@ -368,9 +355,9 @@ class AdminController extends CI_Controller {
 		}
 	}
 
-	function indexUser()
+	function indexUser($id="")
 	{
-		$data['user'] = $this->user->getUserData();
+		$data['user'] = $this->user->getUserData($id);
 		$this->load->view('admin/page/user/index', $data);
 	}
 

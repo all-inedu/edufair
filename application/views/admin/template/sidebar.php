@@ -16,7 +16,7 @@
                     Uni List
                 </a>
                 <div class="sb-sidenav-menu-heading">Registrant</div>
-                <a class="nav-link" href="<?=base_url('dashboard/admin/user');?>">
+                <a class="nav-link" href="<?=base_url('dashboard/admin/user/all');?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-users fa-fw"></i></div>
                     User List
                 </a>

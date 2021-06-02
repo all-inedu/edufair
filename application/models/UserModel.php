@@ -3,7 +3,17 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class UserModel extends CI_Model {
 
-	function getUserData()
+	function showUserStatus($id)
+	{
+		$this->db->select('
+			count(user_id) as tot
+		');
+		$this->db->from('tb_user');
+		$this->db->where('user_status', $id);
+		return $this->db->get()->row_array();
+	}
+
+	function getUserData($id)
 	{
 		$this->db->select('
 			tb_user.*,
@@ -25,6 +35,9 @@ class UserModel extends CI_Model {
 			tb_uni.	uni_name,
 			');
 		$this->db->from('tb_user');
+		if(($id!="all")) {
+			$this->db->where('tb_user.user_status',$id);
+		}
 		$this->db->order_by('tb_user.user_register_date','DESC');
 		$this->db->order_by('tb_topic.topic_start_date','ASC');
 		$this->db->order_by('tb_uni_detail_time.uni_dtl_t_start_time','ASC');

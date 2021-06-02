@@ -22,11 +22,13 @@
                                 <div class="card-body">
                                     Student
                                     <div class="float-right badge badge-warning px-3 py-1">
-                                        740
+                                        <span id="stCount"></span>
+                                        <span id="stPercent"></span>
                                     </div>
                                 </div>
-                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
+                                <div class=" card-footer d-flex align-items-center justify-content-between">
+                                    <a class="small text-white stretched-link"
+                                        href="<?=base_url('dashboard/admin/user/student');?>">View Details</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                 </div>
                             </div>
@@ -36,7 +38,8 @@
                                 <div class="card-body">
                                     Parent
                                     <div class="float-right badge badge-warning px-3 py-1">
-                                        740
+                                        <span id="prCount"></span>
+                                        <span id="prPercent"></span>
                                     </div>
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
@@ -50,7 +53,8 @@
                                 <div class="card-body">
                                     Teacher/Counselor
                                     <div class="float-right badge badge-warning px-3 py-1">
-                                        740
+                                        <span id="tcCount"></span>
+                                        <span id="tcPercent"></span>
                                     </div>
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
@@ -67,7 +71,8 @@
                                     <i class="fas fa-chart-area mr-1"></i>
                                     Registrant
                                 </div>
-                                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas>
+                                </div>
                             </div>
                         </div>
                         <div class="col-xl-6">
@@ -76,7 +81,8 @@
                                     <i class="fas fa-chart-bar mr-1"></i>
                                     Bar Chart Example
                                 </div>
-                                <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                                <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -96,6 +102,45 @@
 ?>
 
 <script>
+// student 
+setInterval(function() {
+    $.ajax({
+        type: 'post',
+        dataType: "json",
+        url: "<?=base_url('api/participant/student');?>",
+        success: function(datas) {
+            $('#stCount').html(datas.status);
+            $('#stPercent').html("(" + datas.percentage + ")");
+        }
+    });
+}, 1000);
+
+// parent 
+setInterval(function() {
+    $.ajax({
+        type: 'post',
+        dataType: "json",
+        url: "<?=base_url('api/participant/parent');?>",
+        success: function(datas) {
+            $('#prCount').html(datas.status);
+            $('#prPercent').html("(" + datas.percentage + ")");
+        }
+    });
+}, 1000);
+
+// teacher 
+setInterval(function() {
+    $.ajax({
+        type: 'post',
+        dataType: "json",
+        url: "<?=base_url('api/participant/teacher');?>",
+        success: function(datas) {
+            $('#tcCount').html(datas.status);
+            $('#tcPercent').html("(" + datas.percentage + ")");
+        }
+    });
+}, 1000);
+
 // Set new default font family and font color to mimic Bootstrap's default styling
 Chart.defaults.global.defaultFontFamily =
     '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
@@ -108,6 +153,7 @@ var myLineChart = new Chart(ctx, {
     data: {
         labels: <?=json_encode($register_date);?>,
         datasets: [{
+            label: "Registrant",
             lineTension: 0.3,
             backgroundColor: "rgba(2,117,216,0.2)",
             borderColor: "rgba(2,117,216,1)",
