@@ -29,7 +29,7 @@
 	    	</div>
 	    	<div class="row pt-4">
 	    		<div class="col-xl-8 offset-xl-2 text-center">
-	    			<p>
+	    			<p style="font-size:18px">
 	    				Hi there!<br><br>
 	    				Thank you for registering your email at ALL-in.
 	    				<br>

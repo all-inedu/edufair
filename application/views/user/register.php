@@ -43,7 +43,7 @@
 	                        </div>
 	                        <div class="form-group">
 	                            <label>Phone Number</label>
-	                            <input type="text" class="form-control form-control-sm custom-box" placeholder="08xx xxxx"
+	                            <input type="number" class="form-control form-control-sm custom-box" placeholder="08xx xxxx"
 	                                name="user_phone" required>
 	                        </div>
 	                        <div class="row">
@@ -409,8 +409,17 @@ $(document).ready(function() {
                 data: $("#registerForm").serialize(),
                 success: function(msg) {
                     if (msg == "001") {
-                        window.location.href =
-                            "<?php echo base_url(); ?>registration/topic";
+                    	Swal.fire({
+						  title: 'Welcome to ALL-in Edufair',
+						  text: "Please verify your email to continue",
+						  icon: 'success',
+						  confirmButtonColor: '#3085d6',
+						  confirmButtonText: 'Dismiss'
+						}).then((result) => {
+						  if (result.isConfirmed) {
+						    window.location.href = "<?php echo base_url(); ?>registration/topic";
+						  }
+						})
                     } else {
                         Swal.fire({
                             icon: 'error',
