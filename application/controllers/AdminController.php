@@ -9,11 +9,14 @@ class AdminController extends CI_Controller {
 		$this->load->library('country');
 		$this->load->model('TopicModel','topic');
 		$this->load->model('UniModel','uni');
+		$this->load->model('UserModel', 'user');
     }
 
 	public function index()
 	{
-		$this->load->view('admin/dashboard');
+		$data['registran'] = $this->user->getUserDataPerDays();
+		$this->load->view('admin/dashboard', $data);
+		// echo json_encode($data);
 	}
 
 	// Topic Page 
@@ -59,6 +62,7 @@ class AdminController extends CI_Controller {
 			'topic_desc' => $this->input->post('topic_desc'),
 			'topic_start_date' => $this->input->post('topic_start_date'),
 			'topic_end_date' => $this->input->post('topic_end_date'),
+			'topic_zoom_link' => $this->input->post('topic_zoom_link'),
 			'topic_status' => 1,
 			'topic_banner' => $filesname
 		];
@@ -104,6 +108,9 @@ class AdminController extends CI_Controller {
 			if ($this->upload->do_upload('upload_banner')) {
 				$filesname = htmlspecialchars($this->upload->data('file_name'));
 				$this->upload->data();
+
+				$path = FCPATH  . "assets/topic/".$banner_old;
+				unlink($path);
 			} else {
 				$error = array('error' => $this->upload->display_errors());
 				echo json_encode($error);
@@ -117,6 +124,7 @@ class AdminController extends CI_Controller {
 			'topic_desc' => $this->input->post('topic_desc'),
 			'topic_start_date' => $this->input->post('topic_start_date'),
 			'topic_end_date' => $this->input->post('topic_end_date'),
+			'topic_zoom_link' => $this->input->post('topic_zoom_link'),
 			'topic_banner' => $filesname
 		];
 		$process = $this->topic->updateTopic($topic_id, $data);
@@ -237,8 +245,12 @@ class AdminController extends CI_Controller {
 	public function editUni($id) 
 	{
 		$uni = $this->uni->showUniDataJoin($id);
-		$data['uni'] = $uni[$id];
-		$this->load->view('admin/page/uni/edit', $data);
+		if(!empty($uni)) {
+			$data['uni'] = $uni[$id];
+			$this->load->view('admin/page/uni/edit', $data);
+		} else {
+			redirect(base_url('dashboard/admin/uni')); 
+		}
 	}
 
 	public function updateUni() 
@@ -261,6 +273,9 @@ class AdminController extends CI_Controller {
 				$error = array('error' => $this->upload->display_errors());
 				echo json_encode($error);
 			}	
+
+			$path = FCPATH  . "assets/uni/banner/".$banner_old;
+			unlink($path);
 		} else {
 			$filesname = $banner_old;
 		}	
@@ -282,9 +297,21 @@ class AdminController extends CI_Controller {
 		}
 	}
 
-	public function deleteUni() 
+	public function deleteUni($id) 
 	{
+		$data = $this->uni->showUniDataJoin($id);
+		$photo = $data[$id]['uni_photo_banner'];
+		if($photo!="default.jpeg") {
+			$path = FCPATH  . "assets/uni/banner/".$photo;
+			unlink($path);
+		}
 		
+		$process = $this->uni->deleteUni($id);
+		if($process){
+			echo "001";
+		} else {
+			echo "02";
+		}
 	}
 
 	public function saveUniConsult() 
@@ -339,6 +366,27 @@ class AdminController extends CI_Controller {
 		} else {
 			echo "02";
 		}
+	}
+
+	function indexUser()
+	{
+		$data['user'] = $this->user->getUserData();
+		$this->load->view('admin/page/user/index', $data);
+	}
+
+	function indexBookTopic()
+	{
+		$data['top'] = $this->topic->getTopicStatusData(1);
+		$data['topic'] = $this->topic->getBookingTopic();
+		$this->load->view('admin/page/book-topic/index', $data);
+		// echo json_encode($data);
+	}
+
+	function indexBookConsult()
+	{
+		$data['uni'] = $this->uni->getBookConsult();
+		$this->load->view('admin/page/book-consult/index', $data);
+		// echo json_encode($data);
 	}
 
 }
