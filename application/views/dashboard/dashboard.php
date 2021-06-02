@@ -123,7 +123,7 @@
 													<?php
 													if($diff->format("%a") > 1) {
 														?>	
-														<small class="cancel-booking-topic" data-topic="<?php echo rtrim(strtr(base64_encode($row->topic_id), '+/', '-_'), '='); ?>" style=" color: red">Cancel</small>
+														<small class="cancel-booking-topic" data-topic="<?php echo rtrim(strtr(base64_encode($row->topic_id), '+/', '-_'), '='); ?>" style=" color: red;cursor: pointer;">Cancel</small>
 														<?php
 													} else {
 														?>
@@ -162,7 +162,7 @@
 												<?php
 												if($diff->format("%a") > 1) {
 													?>	
-													<small class="cancel-booking-consult" data-consultation="<?php echo rtrim(strtr(base64_encode($row->uni_detail_time_id), '+/', '-_'), '='); ?>" style=" color: red">Cancel</small>
+													<small class="cancel-booking-consult" data-consultation="<?php echo rtrim(strtr(base64_encode($row->uni_detail_time_id), '+/', '-_'), '='); ?>" style=" color: red; cursor: pointer">Cancel</small>
 													<?php
 												} else {
 													?>
