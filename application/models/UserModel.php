@@ -319,9 +319,17 @@ class UserModel extends CI_Model {
         $this->db->where('topic_id', $id);
         return $this->db->update('tb_booking_topic', array("booking_topic_status" => 0));
       } else if ($type == "consult") {
+        /* change booking c status on tb_booking_consult to 0 */
         $this->db->where('user_id', $user_id);
         $this->db->where('uni_detail_time_id', $id);
-        return $this->db->update('tb_booking_consult', array("booking_c_status" => 0));
+        $process = $this->db->update('tb_booking_consult', array("booking_c_status" => 0));
+        if($process) {
+          /* change uni dtl t status on tb_uni_detail_time to 1 */
+          $this->db->where('uni_detail_time_id', $id);
+          return $this->db->update('tb_uni_detail_time', array("uni_dtl_t_status" => 1));
+        } else {
+          return false;
+        }
       }
     }
 
