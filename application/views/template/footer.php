@@ -206,5 +206,59 @@ $("#loginForm").submit(function(event) {
     });
 });
 </script>
+<script>
+    $("#change-information").click(function() {
+
+    });
+
+    $(".join-link").each(function() {
+        $(this).click(function() {
+            var link = $(this).data('link');
+            window.location = link; 
+        });
+    });
+
+    $(".cancel-booking-topic").each(function() {
+        $(this).click(function() {
+            //tambah konfirmasi
+            swal.fire({
+                icon: 'question',
+                title: 'Are you sure to cancel this talks ?',
+                showCancelButton: true,
+                focusConfirm: false,
+                confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
+                cancelButtonText: 'No!'
+            }).then((result) => {
+                if(result.isConfirmed) {
+
+                    var topicId = $(this).data('topic');
+                    
+                    $.ajax({
+                        url: "<?php echo base_url(); ?>/home/cancel/topic",
+                        type: "post",
+                        data: {
+                            topicId : topicId
+                        },
+                        success: function(msg) {
+                            if(msg == 1) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'The topic has been canceled'
+                                });
+                                location.reload();
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Something went wrong! Please try again.'
+                                });
+                            }
+                        }
+                    });
+                }
+            })  
+        });
+    });
+</script>
 
 </html>

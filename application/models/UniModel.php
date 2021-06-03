@@ -187,6 +187,7 @@ class UniModel extends CI_Model {
 				"uni_dtl_t_start_time" => $c['uni_dtl_t_start_time'],
 				"uni_dtl_t_end_time" => $c['uni_dtl_t_end_time'],
 				"booking_c_date" => $c['booking_c_date'],
+				"booking_c_status" => $c['booking_c_status'],
 			];
 		}
 

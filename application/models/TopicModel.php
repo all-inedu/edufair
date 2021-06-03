@@ -158,7 +158,11 @@ class TopicModel extends CI_Model {
         "booking_topic_date" => date('Y-m-d H:i:s')
       );
       $query = $this->db->insert('tb_booking_topic', $data);
-      return $query;
+      if($query) {
+        return "001";
+      } else {
+        return "03";
+      }
     }
 
     function getBookingTopic()
@@ -166,6 +170,7 @@ class TopicModel extends CI_Model {
       $this->db->select('
           tb_topic.*,
           tb_booking_topic.user_id,
+          tb_booking_topic.booking_topic_status,
           tb_booking_topic.booking_topic_date,
           tb_user.user_first_name,
           tb_user.user_last_name,
@@ -195,13 +200,14 @@ class TopicModel extends CI_Model {
             ];
         }
         $data[$row['topic_id']]['user'][] = [
-            "user_id"           => $row['user_id'],
-            "user_first_name"   => $row['user_first_name'],
-            "user_last_name"    => $row['user_last_name'],
-            "user_status"       => $row['user_status'],
-            "user_email"        => $row['user_email'],
-            "user_school"       => $row['user_school'],
-            "user_grade"        => $row['user_grade'],
+            "user_id"               => $row['user_id'],
+            "user_first_name"       => $row['user_first_name'],
+            "user_last_name"        => $row['user_last_name'],
+            "user_status"           => $row['user_status'],
+            "user_email"            => $row['user_email'],
+            "user_school"           => $row['user_school'],
+            "user_grade"            => $row['user_grade'],
+            "booking_topic_status"  => $row['booking_topic_status'],
         ];
       }
       return $data;

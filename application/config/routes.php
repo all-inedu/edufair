@@ -57,12 +57,18 @@ $route['translate_uri_dashes'] = FALSE;
 $route['api/country/(:any)'] = 'ApiController/showCountry/$1';
 $route['api/country/(:any)'] = 'ApiController/showCountry/$1';
 $route['api/participant/(:any)'] = 'ApiController/showParticipant/$1';
+$route['api/registrant'] = 'ApiController/showRegistrant';
+$route['api/user/lead'] = 'ApiController/showUserLead';
+$route['api/user/topic'] = 'ApiController/showUserTopic';
+$route['api/user/consult/(:num)'] = 'ApiController/showUserConsult/$1';
 
 /* VIEW START HERE */
 $route['registration'] = 'RegisterController/view';
 $route['registration/topic'] = 'RegisterController/topic';
 $route['registration/submit'] = 'RegisterController/register';
 $route['registration/consult'] = 'RegisterController/book';
+
+$route['home/dashboard'] = 'HomeController/dashboard';
 /* VIEW END HERE */
 
 /* PROCESS START HERE */
@@ -74,6 +80,8 @@ $route['reset-password'] = 'HomeController/updatePassword';
 $route['login'] = 'HomeController/login';
 $route['logout'] = 'HomeController/logout';
 $route['home/book/topic'] = 'HomeController/bookingTopic';
+$route['home/cancel/(:any)'] = 'HomeController/cancelBooking';
+$route['request/getAllDataLead'] = 'RegisterController/getAllDataLead';
 /* PROCESS END HERE */
 
 $route['dashboard/admin'] = 'AdminController/index';

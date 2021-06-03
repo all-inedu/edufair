@@ -10,12 +10,13 @@ class RegisterController extends CI_Controller {
         $this->load->model('UniModel');
         $this->load->model('TopicModel');
         $this->load->model('ConsultModel');
+        $this->load->model('LeadModel');
     }
 
 	public function view()
 	{
-		// session_destroy();
 		$data['title'] = "Registration";
+
 		$this->load->view('template/header', $data);
 		$this->load->view('user/register');
 		$this->load->view('template/footer');
@@ -23,6 +24,39 @@ class RegisterController extends CI_Controller {
 
 	public function register()
 	{	
+		// saving school name if user select other start
+		$schoolOption = $this->input->post('school_option');
+		if(strtolower($schoolOption) == "other") {
+
+			$postRequest = array(
+			    'sch_name' => $this->input->post('user_school')
+			);
+
+			$url = 'bigdata.crm-allinedu.com/api/save/school'; 
+			$curl = curl_init();
+			curl_setopt_array($curl, array(
+				CURLOPT_URL => $url,
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_ENCODING => '',
+				CURLOPT_MAXREDIRS => 10,
+				CURLOPT_TIMEOUT => 0,
+				CURLOPT_SSL_VERIFYPEER => false,
+				CURLOPT_SSL_VERIFYHOST => false,
+				CURLOPT_FOLLOWLOCATION => true,
+				CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+				CURLOPT_CUSTOMREQUEST => 'POST',
+				CURLOPT_POSTFIELDS => $postRequest
+			));
+
+			$response = curl_exec($curl);
+
+			if ($response === false) 
+				$response = curl_error($curl);
+		
+		}
+
+		// saving school name if user select other end
+		
 		// add other major into selected major start
 		$user_major = $this->input->post('user_major');
 		$user_major_other = $this->input->post('user_major_other');
@@ -40,6 +74,7 @@ class RegisterController extends CI_Controller {
 			"user_phone"      => $this->input->post('user_phone'),
 			"user_status"     => $this->input->post('user_status'),
 			"user_gender"     => $this->input->post('user_gender'),
+			"user_dob"	      => $this->input->post('user_dateofbirth'),
 			"user_first_time" => $this->input->post('user_first_time'),
 			"user_grade"      => $this->input->post('user_grade'),
 			"user_school"     => $this->input->post('user_school'),
@@ -51,7 +86,16 @@ class RegisterController extends CI_Controller {
 		$process = $this->UserModel->insertUser($data);
 		if($process) {
 			$inserted_id = $process;
-			echo $this->login($inserted_id);
+			// $this->login($inserted_id);
+
+			//build token
+			$token = $this->UserModel->insertToken($userInfo['user_id']);
+			$qstring = $this->base64url_encode($token);
+			$data = array( "url" => base_url() . '/reset-password/token/' . $qstring );
+
+			// send verification mail
+			echo $this->sendingEmail($data, $email);
+
 		} else {
 			echo "01"; //error register
 		}
@@ -139,6 +183,29 @@ class RegisterController extends CI_Controller {
 		} else {
 			echo "04"; // error booking consult
 		}
+	}
+
+	public function getAllDataLead()
+	{
+		echo json_encode($this->LeadModel->getAllDataLead());
+	}
+
+	public function sendingEmail($data, $email)
+	{
+		$config = $this->mail_smtp->smtp();
+        $this->load->library('mail_smtp', $config);
+        $this->email->initialize($config);
+        $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
+        $this->email->to($email);
+        // $this->email->cc('manuel.eric@all-inedu.com');
+
+        $this->email->subject('Please verify your email');
+
+        $bodyMail = $this->load->view('mail/verify_email', $data, true);
+        $this->email->message($bodyMail);
+
+        // Send Email
+        return $this->email->send();
 	}
 	/* PROCESS FUNCTION END HERE */
 }

@@ -14,7 +14,7 @@ class AdminController extends CI_Controller {
 
 	public function index()
 	{
-		$data['registran'] = $this->user->getUserDataPerDays();
+		$data['uni'] = $this->uni->showUniData();
 		$this->load->view('admin/dashboard', $data);
 		// echo json_encode($data);
 	}

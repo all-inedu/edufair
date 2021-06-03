@@ -21,19 +21,50 @@
 .talk-button {
     cursor: pointer;
 }
+
+.day1talks, .day2talks {
+    border: 1px solid #ffc107;border-radius: 0.5em;
+    position: relative;
+}
+
+.day1talks::before {
+    content: "Day 1";
+    border: 2px solid #FFc107;
+    border-radius: 1.5em;
+    padding: 0.8em 2em;
+    position: absolute;
+    top: 0;
+    margin-top: -1.8em;
+    z-index: 2;
+    background: #FFF;
+}
+
+.day2talks::before {
+    content: "Day 2";
+    border: 2px solid #FFc107;
+    border-radius: 1.5em;
+    padding: 0.8em 2em;
+    position: absolute;
+    top: 0;
+    margin-top: -1.8em;
+    z-index: 2;
+    background: #FFF;
+}
 </style>
 
-
-<div class="container p-4 mb-4" id="talks">
-    <div class="row justify-content-md-center">
-        <div class="col-md-7 text-center mt-5 p-5">
+<section style="margin-bottom: 10%;">
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 text-left mt-5 p-5">
             <h2>Talks</h2>
             <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sequi eligendi commodi voluptas sed!
                 Aliquid earum id atque possimus, eaque maiores aut esse, quam veniam neque delectus aspernatur.
                 Asperiores, fuga.</h5>
         </div>
     </div>
-    <div class="card-columns">
+</div>
+<div class="container p-4 mb-4 day1talks" id="talks">
+    <div class="card-columns" style="padding-top: 1em">
         <?php
         foreach($talk_day1 as $row) {
             $topic_start_date = new DateTime($row['topic_start_date']);
@@ -83,9 +114,9 @@
         }
         ?>
     </div>
-    <hr>
-    <br>
-    <div class="card-columns">
+</div>
+<div class="container p-4 mb-4 day2talks" style="margin-top: 5em">
+    <div class="card-columns" style="padding-top: 1em">
         <?php
         foreach($talk_day2 as $row) {
             $topic_start_date = new DateTime($row['topic_start_date']);
@@ -141,6 +172,7 @@
         </div>
     </div> -->
 </div>
+</section>
 
 <script>
 $(".hidden").hide()
