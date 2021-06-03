@@ -106,7 +106,14 @@
                         $props = "id='bookTopic'";
                     }
                     ?>
-                    <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book" data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>" <?php echo $props; ?> >Join Now</a>
+
+                    <?php
+                    if(!in_array($topic_id, $bookingTopic)) {
+                        ?>
+                        <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book" data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>" <?php echo $props; ?> >Join Now</a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>

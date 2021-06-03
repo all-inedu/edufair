@@ -15,15 +15,22 @@ class HomeController extends CI_Controller {
 
 	public function index()
 	{
-        $data['title'] = "Edufair";
-        $topicData_day1 = $this->TopicModel->getTopicData('2021-05-20'); // change with edufair start date
-		$topicData_day2 = $this->TopicModel->getTopicData('2021-05-21'); // change iwth edufair start date
-		$data['talk_day1'] = $topicData_day1;
-		$data['talk_day2'] = $topicData_day2;
-		$data['uniData'] = $this->UniModel->getUniData();
-		// print("<pre>".print_r($data['uniData'], true)."</pre>");exit;
+		$data['title']      = "Edufair";
+		$topicData_day1     = $this->TopicModel->getTopicData('2021-05-20'); // change with edufair start date
+		$topicData_day2     = $this->TopicModel->getTopicData('2021-05-21'); // change iwth edufair start date
+		$data['talk_day1']  = $topicData_day1;
+		$data['talk_day2']  = $topicData_day2;
+		$data['uniData']    = $this->UniModel->getUniData();
 		$data['uniCountry'] = $this->UniModel->getUniCountry();
-		// print("<pre>".print_r($data['uniCountry'], true)."</pre>");exit;
+
+		if ($this->session->has_userdata('user_id')) {
+			$data['bookingTopic'] = $this->TopicModel->getBookingTopicData($this->session->userdata('user_id')); 
+		} else {
+			$data['bookingTopic'] = array(); // set null if user id session doesn't exitst
+		}
+
+		// print_r($data['bookingTopic']);exit;
+
         $this->load->view('template/header', $data);
         $this->load->view('home/navbar');
         $this->load->view('home/header');

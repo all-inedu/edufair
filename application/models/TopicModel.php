@@ -63,6 +63,19 @@ class TopicModel extends CI_Model {
         return $this->db->get()->result_array();
     }
 
+    function getBookingTopicData($user_id)
+    {
+      $sql = "SELECT * FROM tb_booking_topic WHERE user_id = $user_id";
+      $query = $this->db->query($sql);
+      if($query->num_rows() > 0) {
+        $array = array();
+        foreach($query->result() as $row) {
+          array_push($array, $row->topic_id);
+        }
+        return $array;
+      }
+    }
+
   	function getTopicData($requestedDate="") 
     {
       if($requestedDate!="") {
@@ -73,6 +86,7 @@ class TopicModel extends CI_Model {
               t.topic_status = 1 AND u.uni_status = 1
               ORDER BY t.topic_start_date ASC
               ";
+      // echo $sql;exit;
       } else {
       $sql = "SELECT t.*, u.* FROM `tb_topic` t 
               JOIN tb_topic_detail td ON t.topic_id = td.topic_id
