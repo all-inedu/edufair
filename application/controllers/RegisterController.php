@@ -11,6 +11,7 @@ class RegisterController extends CI_Controller {
         $this->load->model('TopicModel');
         $this->load->model('ConsultModel');
         $this->load->model('LeadModel');
+        $this->load->library('mail_smtp');
     }
 
 	public function view()
@@ -54,7 +55,6 @@ class RegisterController extends CI_Controller {
 				$response = curl_error($curl);
 		
 		}
-
 		// saving school name if user select other end
 		
 		// add other major into selected major start
@@ -80,24 +80,59 @@ class RegisterController extends CI_Controller {
 			"user_school"     => $this->input->post('user_school'),
 			"user_country"    => $this->input->post('user_destination'),
 			"user_major"      => $user_major,
-			"user_lead"       => $this->input->post('user_lead')
+			"user_lead"       => str_replace("'", "\'", $this->input->post('user_lead'))
 		);
 
+
+		$email = $this->input->post('user_email');
 		$process = $this->UserModel->insertUser($data);
-		if($process) {
-			$inserted_id = $process;
-			// $this->login($inserted_id);
+		if($process['val']) {
+			$inserted_id = $process['val'];
 
 			//build token
-			$token = $this->UserModel->insertToken($userInfo['user_id']);
+			$token = $this->UserModel->insertToken($inserted_id);
 			$qstring = $this->base64url_encode($token);
-			$data = array( "url" => base_url() . '/reset-password/token/' . $qstring );
-
+			$data = array( "url" => base_url() . '/verify/token/' . $qstring );
 			// send verification mail
-			echo $this->sendingEmail($data, $email);
+			if($this->sendingEmail($data, $email)) {
+				// send mail success
+				$array = array(
+		          "code" => "001",
+		          "msg"  => "Email has been sent",
+		          "val"  => true
+		        );
+		        echo json_encode($array);
+			} else {
+				//error send email verify;
+				$array = array(
+		          "code" => "08",
+		          "msg"  => "Email verify failed to send",
+		          "val"  => false
+		        );
+		        echo json_encode($array);
+			}
 
 		} else {
-			echo "01"; //error register
+			echo json_encode($process);
+		}
+	}
+
+	public function getTokenVerifyEmail()
+	{
+		$token = $this->base64url_decode($this->uri->segment(3));
+		$cleanToken = $this->security->xss_clean($token);
+		$uid = substr($token, 30);
+		$user_info = $this->UserModel->isTokenValid($cleanToken); // either false or array();
+		if (!$user_info) {
+			$this->session->set_flashdata('sukses', 'Token not valid or expired');
+            redirect(site_url('/'), 'refresh');
+		}
+
+		$create_session = $this->login($uid);
+		if($create_session == "001") {
+			redirect('/registration/topic');
+		} else {
+			echo "Server Timeout";
 		}
 	}
 
@@ -174,7 +209,8 @@ class RegisterController extends CI_Controller {
 		$data = array(
 			'user_id'            => $userId,
 			'uni_detail_time_id' => $unidtltimeid,
-			'booking_c_date'     => date('Y-m-d H:i:s')
+			'booking_c_date'     => date('Y-m-d H:i:s'),
+			'booking_c_status'	 => 1
 			);
 
 		$process = $this->ConsultModel->bookingConsult($data);
@@ -207,5 +243,15 @@ class RegisterController extends CI_Controller {
         // Send Email
         return $this->email->send();
 	}
+
+	public function base64url_encode($data)
+    {
+        return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
+    }
+
+    public function base64url_decode($data)
+    {
+        return base64_decode(str_pad(strtr($data, '-_', '+/'), strlen($data) % 4, '=', STR_PAD_RIGHT));
+    }
 	/* PROCESS FUNCTION END HERE */
 }

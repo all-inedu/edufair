@@ -208,8 +208,38 @@ $("#loginForm").submit(function(event) {
 </script>
 <script>
     $("#change-information").click(function() {
-
+        $("#view-form").hide();
+        $("#edit-form").show();
     });
+
+    $("#personal-information-form").submit(function(event) {
+        event.preventDefault();
+
+        if ($("#personal-information-form")[0].checkValidity() === false) {
+            event.stopPropagation();
+        } else {
+            Swal.showLoading();
+
+            $.ajax({
+                url: "<?php echo base_url(); ?>home/dashboard/update/information",
+                type: 'post',
+                data: $("#personal-information-form").serialize(),
+                success: function(msg) {
+                    if(msg == "001") {
+                        location.reload();
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong! Please try again.'
+                        });
+                    }
+                }
+            })
+        }
+    });
+</script>
+<script>
 
     $(".join-link").each(function() {
         $(this).click(function() {
@@ -244,6 +274,47 @@ $("#loginForm").submit(function(event) {
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'The topic has been canceled'
+                                });
+                                location.reload();
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Something went wrong! Please try again.'
+                                });
+                            }
+                        }
+                    });
+                }
+            })  
+        });
+    });
+
+    $(".cancel-booking-consult").each(function() {
+        $(this).click(function() {
+            swal.fire({
+                icon: 'question',
+                title: 'Are you sure to cancel this consultation ?',
+                showCancelButton: true,
+                focusConfirm: false,
+                confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
+                cancelButtonText: 'No!'
+            }).then((result) => {
+                if(result.isConfirmed) {
+
+                    var consultationId = $(this).data('consultation');
+                    
+                    $.ajax({
+                        url: "<?php echo base_url(); ?>/home/cancel/consult",
+                        type: "post",
+                        data: {
+                            consultationId : consultationId
+                        },
+                        success: function(msg) {
+                            if(msg == 1) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'The Consultation has been canceled'
                                 });
                                 location.reload();
                             } else {

@@ -106,6 +106,7 @@
                                 </div>
                                 <div class="m-2">
                                     <select name="uni_id" id="uniConsult" class="form-control form-control-sm">
+                                        <option value="" selected disabled>Select University Name</option>
                                         <?php foreach ($uni as $u):?>
                                         <option value="<?=$u['uni_id'];?>"><?=$u['uni_name'];?></option>
                                         <?php endforeach;?>

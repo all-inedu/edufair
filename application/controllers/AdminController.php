@@ -10,10 +10,52 @@ class AdminController extends CI_Controller {
 		$this->load->model('TopicModel','topic');
 		$this->load->model('UniModel','uni');
 		$this->load->model('UserModel', 'user');
-    }
+		$this->load->library('session');
+	}
+
+	public function checkAuth()
+	{
+		$user = $this->session->userdata('auth');
+		if(!isset($user)){
+			redirect('admin');
+		} 
+	}
+	
+	public function login()
+	{
+		$user = $this->session->userdata('auth');
+		if(!isset($user)) {
+			$this->load->view('admin/auth/index');
+		} else {
+			redirect('dashboard/admin');
+		}
+	}
+
+	public function auth()
+	{
+		$username = $this->input->post('user_name');
+		$password = $this->input->post('user_password');
+		if(($username=="all-inedu") and ($password=="all-inedu")) 
+		{
+			$this->session->set_userdata('auth', $username);
+			echo "1"; //success
+		} else if(($username=="all-inedu") and ($password!="all-inedu")) {
+			echo "2"; //password wrong
+		} else {
+			echo "3"; //username wrong
+		}
+	}
+
+	public function logout()
+	{
+		$this->session->unset_userdata('auth');
+		redirect('admin');
+	}
+
 
 	public function index()
 	{
+		$this->checkAuth();
 		$data['uni'] = $this->uni->showUniData();
 		$this->load->view('admin/dashboard', $data);
 		// echo json_encode($data);
@@ -22,12 +64,14 @@ class AdminController extends CI_Controller {
 	// Topic Page 
 	public function indexTopic() 
 	{
+		$this->checkAuth();
 		$data['topic'] = $this->topic->getTopicData();
 		$this->load->view('admin/page/topic/index', $data);
 	}
 
 	public function addTopic() 
 	{
+		$this->checkAuth();
 		$data['uni'] = $this->uni->showUniData();
 		$this->load->view('admin/page/topic/add', $data);
 	}
@@ -85,6 +129,7 @@ class AdminController extends CI_Controller {
 
 	public function editTopic($id) 
 	{
+		$this->checkAuth();
 		$topic = $this->topic->getTopicDataById($id);
 		$data['topic'] = $topic[$id];
 		$data['uni'] = $this->uni->showUniData();
@@ -177,13 +222,14 @@ class AdminController extends CI_Controller {
 	// University 
 	public function indexUni() 
 	{
+		$this->checkAuth();
 		$data['uni'] = $this->uni->showUniDataJoin();
-		// echo json_encode($data);
 		$this->load->view('admin/page/uni/index', $data);
 	}
 
 	public function addUni() 
 	{
+		$this->checkAuth();
 		$this->load->view('admin/page/uni/add');
 	}
 
@@ -231,6 +277,7 @@ class AdminController extends CI_Controller {
 
 	public function editUni($id) 
 	{
+		$this->checkAuth();
 		$uni = $this->uni->showUniDataJoin($id);
 		if(!empty($uni)) {
 			$data['uni'] = $uni[$id];
@@ -357,12 +404,14 @@ class AdminController extends CI_Controller {
 
 	function indexUser($id="")
 	{
+		$this->checkAuth();
 		$data['user'] = $this->user->getUserData($id);
 		$this->load->view('admin/page/user/index', $data);
 	}
 
 	function indexBookTopic()
 	{
+		$this->checkAuth();
 		$data['top'] = $this->topic->getTopicStatusData(1);
 		$data['topic'] = $this->topic->getBookingTopic();
 		$this->load->view('admin/page/book-topic/index', $data);
@@ -371,6 +420,7 @@ class AdminController extends CI_Controller {
 
 	function indexBookConsult()
 	{
+		$this->checkAuth();
 		$data['uni'] = $this->uni->getBookConsult();
 		$this->load->view('admin/page/book-consult/index', $data);
 		// echo json_encode($data);

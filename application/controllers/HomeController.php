@@ -75,13 +75,65 @@ class HomeController extends CI_Controller {
 		$data['title'] = 'Dashboard';
 		$data['dataTopic'] = $this->UserModel->getUserTopic($user_id);
 		$data['dataConsult'] = $this->UserModel->getUserConsult($user_id);
-		// print("<pre>".print_r($data['dataConsult'], true)."</pre>");exit;
+		// print("<pre>".print_r($data['dataTopic'], true)."</pre>");exit;
+		$data['dataCountry'] = $this->getDataCountry();
+		$data['dataMajor'] = $this->getDataMajor();
 
 		$this->load->view('template/header', $data);
         $this->load->view('home/navbar');
 		$this->load->view('dashboard/dashboard', $data);
 		$this->load->view('home/footer');
         $this->load->view('template/footer');
+	}
+
+	public function getDataCountry()
+	{
+		$url = 'https://www.bigdata.crm-allinedu.com/api/countries'; 
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+			CURLOPT_URL => $url,
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => '',
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 0,
+			CURLOPT_SSL_VERIFYPEER => false,
+			CURLOPT_SSL_VERIFYHOST => false,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => 'POST'
+		));
+
+		$response = curl_exec($curl);
+
+		if ($response === false) 
+			$response = curl_error($curl);
+
+		return json_decode($response);
+	}
+
+	public function getDataMajor()
+	{
+		$url = 'https://www.bigdata.crm-allinedu.com/api/major';
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+			CURLOPT_URL => $url,
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => '',
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 0,
+			CURLOPT_SSL_VERIFYPEER => false,
+			CURLOPT_SSL_VERIFYHOST => false,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => 'POST'
+		));
+
+		$response = curl_exec($curl);
+
+		if ($response === false) 
+			$response = curl_error($curl);
+
+		return json_decode($response);
 	}
 
 	public function cancelBooking()
@@ -91,7 +143,46 @@ class HomeController extends CI_Controller {
 		if($type == "topic") {
 			$topicId = $this->base64url_decode($this->input->post('topicId'));
 			echo $this->UserModel->cancelBooking($user_id, $type, $topicId);
+		} else if ($type == "consult") {
+			$consultationId = $this->base64url_decode($this->input->post('consultationId'));
+			echo $this->UserModel->cancelBooking($user_id, $type, $consultationId);
 		}
+	}
+
+	public function updateInformation()
+	{
+		$userId = $this->session->userdata('user_id');
+
+		// add other major into selected major start
+		$user_major = $this->input->post('user_major');
+		$user_major_other = $this->input->post('user_major_other');
+		if(strpos($user_major, "other") !== false) { //word found
+			$user_major = str_replace('other,', '', $user_major);
+			$user_major = $user_major.",".$user_major_other;
+		}
+		// add other major into selected major end
+
+		$data = array(
+			"user_first_name" => $this->input->post('user_first_name'),
+			"user_last_name"  => $this->input->post('user_last_name'),
+			"user_email"      => $this->input->post('user_email'),
+			"user_phone"      => $this->input->post('user_phone'),
+			"user_dob"	      => $this->input->post('user_dob'),
+			"user_school"     => $this->input->post('user_school'),
+			"user_country"    => $this->input->post('user_destination'),
+			"user_major"      => $user_major
+		);
+
+		$process = $this->UserModel->updateInformation($data, $userId);
+	 	if($process) {
+	 		$userData = $this->UserModel->getUserDataById($userId);
+	 		if($userData) {
+	 			$this->session->set_userdata($userData);
+	 			echo "001";
+	 		}
+	 	} else {
+	 		echo "07"; //error update information
+	 	}
 	}
 
 	// **************************************************** //

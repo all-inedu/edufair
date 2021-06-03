@@ -117,7 +117,7 @@ class TopicModel extends CI_Model {
       $error_found = 0;
       // insert from day 1
       foreach($day1bookingTopicId as $key => $topicId) {
-        $sql = "INSERT INTO `tb_booking_topic`(`topic_id`, `user_id`, `booking_topic_date`) VALUES (".$topicId.",".$userId.",now())";
+        $sql = "INSERT INTO `tb_booking_topic`(`topic_id`, `user_id`, `booking_topic_date`, `booking_topic_status`) VALUES (".$topicId.",".$userId.",now(), 1)";
         $query = $this->db->query($sql);
         if(!$query) {
           $error_found++; // +1 error if insert can't be done
@@ -126,7 +126,7 @@ class TopicModel extends CI_Model {
 
       // insert from day 2
       foreach($day2bookingTopicId as $key => $topicId) {
-        $sql = "INSERT INTO `tb_booking_topic`(`topic_id`, `user_id`, `booking_topic_date`) VALUES (".$topicId.",".$userId.",now())";
+        $sql = "INSERT INTO `tb_booking_topic`(`topic_id`, `user_id`, `booking_topic_date`, `booking_topic_status`) VALUES (".$topicId.",".$userId.",now(), 1)";
         $query = $this->db->query($sql);
         if(!$query) {
           $error_found++; // +1 error if insert can't be done
@@ -155,7 +155,8 @@ class TopicModel extends CI_Model {
       $data = array(
         "topic_id" => $topicId,
         "user_id" => $userId,
-        "booking_topic_date" => date('Y-m-d H:i:s')
+        "booking_topic_date" => date('Y-m-d H:i:s'),
+        "booking_topic_status" => 1
       );
       $query = $this->db->insert('tb_booking_topic', $data);
       if($query) {

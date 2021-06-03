@@ -8,7 +8,7 @@
     <!-- Navbar-->
     <ul class="navbar-nav ml-auto ml-md-0">
         <li>
-            <a class="dropdown-item" href="login.html"><i class="fas fa-user fa-fw"></i> Logout</a>
+            <a class="dropdown-item" href="<?=base_url('admin/logout');?>"><i class="fas fa-user fa-fw"></i> Logout</a>
         </li>
     </ul>
 </nav>

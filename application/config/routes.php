@@ -82,7 +82,15 @@ $route['logout'] = 'HomeController/logout';
 $route['home/book/topic'] = 'HomeController/bookingTopic';
 $route['home/cancel/(:any)'] = 'HomeController/cancelBooking';
 $route['request/getAllDataLead'] = 'RegisterController/getAllDataLead';
+$route['home/dashboard/update/information'] = 'HomeController/updateInformation';
+$route['verify/token/(:any)'] = 'RegisterController/getTokenVerifyEmail';
 /* PROCESS END HERE */
+
+
+// ADMIN FUNCTION 
+$route['admin'] = 'AdminController/login';
+$route['admin/auth'] = 'AdminController/auth';
+$route['admin/logout'] = 'AdminController/logout';
 
 $route['dashboard/admin'] = 'AdminController/index';
 
@@ -110,3 +118,4 @@ $route['dashboard/admin/user/(:any)'] = 'AdminController/indexUser/$1';
 $route['dashboard/admin/book/topic'] = 'AdminController/indexBookTopic';
 
 $route['dashboard/admin/book/consult'] = 'AdminController/indexBookConsult';
+// END FUNCTION ADMIN 

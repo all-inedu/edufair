@@ -134,7 +134,19 @@ class UserModel extends CI_Model {
 
   	function insertUser($data)
   	{
-	    $sql    = "INSERT INTO `tb_user`(`user_first_name`, `user_last_name`, `user_email`, `user_password`, `user_phone`, `user_status`, `user_gender`, `user_first_time`, `user_grade`, `user_school`, `user_country`, `user_major`, `user_know_from`, `user_register_date`, `user_last_login`) 
+      $sql = "SELECT * FROM tb_user WHERE user_email = '".$data['user_email']."'";
+      $query = $this->db->query($sql);
+      if($query->num_rows() > 0 ) {
+        // error email already exist
+        $array = array(
+          "code" => "09",
+          "msg"  => "Email already exist",
+          "val"  => false
+        );
+        return $array;
+      }
+
+	    $sql    = "INSERT INTO `tb_user`(`user_first_name`, `user_last_name`, `user_email`, `user_password`, `user_phone`, `user_status`, `user_gender`, `user_dob`, `user_first_time`, `user_grade`, `user_school`, `user_country`, `user_major`, `user_know_from`, `user_register_date`, `user_last_login`) 
 	    		VALUES ('".$data['user_first_name']."',
 	    				'".$data['user_last_name']."',
 	    				'".$data['user_email']."',
@@ -142,6 +154,7 @@ class UserModel extends CI_Model {
 	    				'".$data['user_phone']."',
 	    				'".$data['user_status']."',
 	    				'".$data['user_gender']."',
+              '".$data['user_dob']."',
 	    				'".$data['user_first_time']."',
 	    				'".$data['user_grade']."',
 	    				'".$data['user_school']."',
@@ -150,12 +163,21 @@ class UserModel extends CI_Model {
 	    				'".$data['user_lead']."',
 	    				now(),
 	    				'')";
-	    				
 	    $query = $this->db->query($sql);
 	    if($query) {
-	    	return $this->db->insert_id();
+        $array = array(
+          "code" => "001",
+          "msg"  => "Registration Success",
+          "val"  => $this->db->insert_id()
+        );
+	    	return $array;
 	    } else {
-	    	return false;
+        $array = array(
+          "code" => "01",
+          "msg"  => "Registration Failed",
+          "val"  => false
+        );
+	    	return $array;
 	    }
   	}
 
@@ -298,7 +320,7 @@ class UserModel extends CI_Model {
     {
       $sql = "SELECT * FROM tb_booking_topic bt 
               LEFT JOIN tb_topic t ON t.topic_id = bt.topic_id 
-              WHERE bt.user_id = ".$user_id;
+              WHERE bt.user_id = $user_id AND bt.booking_topic_status = 1";
       $query = $this->db->query($sql);
       return $query->result();
     }
@@ -309,7 +331,7 @@ class UserModel extends CI_Model {
               JOIN tb_uni_detail_time udt ON udt.uni_detail_time_id = bc.uni_detail_time_id
               JOIN tb_uni_detail ud ON ud.uni_dtl_id = udt.uni_dtl_id
               JOIN tb_uni u ON u.uni_id = ud.uni_id
-              WHERE bc.user_id = ".$user_id;
+              WHERE bc.user_id = $user_id AND bc.booking_c_status = 1";
       $query = $this->db->query($sql);
       return $query->result(); 
       // if($query->num_rows() > 0) {
@@ -343,8 +365,17 @@ class UserModel extends CI_Model {
       if($type == "topic") {
         $this->db->where('user_id', $user_id);
         $this->db->where('topic_id', $id);
-        return $this->db->delete('tb_booking_topic');
+        return $this->db->update('tb_booking_topic', array("booking_topic_status" => 0));
+      } else if ($type == "consult") {
+        $this->db->where('user_id', $user_id);
+        $this->db->where('uni_detail_time_id', $id);
+        return $this->db->update('tb_booking_consult', array("booking_c_status" => 0));
       }
     }
 
+    public function updateInformation($data, $userId)
+    {
+    	$this->db->where('user_id', $userId);
+    	return $this->db->update('tb_user', $data);
+    }
 }
