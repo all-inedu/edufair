@@ -53,7 +53,7 @@
 </style>
 
 <section style="margin-bottom: 10%;">
-<div class="container">
+<div class="container" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000">
     <div class="row">
         <div class="col-md-7 text-left mt-5 p-5">
             <h2>Talks</h2>
@@ -63,7 +63,7 @@
         </div>
     </div>
 </div>
-<div class="container p-4 mb-4 day1talks" id="talks">
+<div class="container p-4 mb-4 day1talks" id="talks" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000">
     <div class="card-columns" style="padding-top: 1em">
         <?php
         foreach($talk_day1 as $row) {
@@ -122,7 +122,7 @@
         ?>
     </div>
 </div>
-<div class="container p-4 mb-4 day2talks" style="margin-top: 5em">
+<div class="container p-4 mb-4 day2talks" style="margin-top: 5em" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000" >
     <div class="card-columns" style="padding-top: 1em">
         <?php
         foreach($talk_day2 as $row) {

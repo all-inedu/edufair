@@ -33,8 +33,8 @@
     background: #eda436;
 }
 </style>
-<div class="container-fluid text-white p-0" id="booking">
-    <div class="row justify-content-center bg-primary pb-5">
+<div class="container-fluid text-white p-0" id="booking" >
+    <div class="row justify-content-center bg-primary pb-5" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000">
         <div class="col-md-7 text-center mt-5 p-5">
             <h2>Uni List</h2>
             <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sequi eligendi commodi voluptas

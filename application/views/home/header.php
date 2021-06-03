@@ -9,6 +9,11 @@ body {
 
 .card {
     border: 3px solid #fff;
+    /*height: 12.2em;*/
+}
+
+#photo-banner .card {
+    height: 12.2em;
 }
 
 .card:hover {
@@ -116,10 +121,10 @@ body {
         </div>
     </div>
 </div>
-<div class="container-fluid" style="margin-top:12vh;" id="home">
-    <div class="row">
+<div class="container-fluid" style="margin-top:8vh;" id="home">
+    <div class="row" style="height: 92vh">
         <div class="col-md-5 p-5 bg-dark">
-            <div class="row">
+            <div class="row" id="photo-banner">
                 <div class="col-md-4 p-1 img1">
                     <div class="card bg-light shadow card-headers">
                         <img src="<?=base_url('assets/img/avatar1.png');?>">

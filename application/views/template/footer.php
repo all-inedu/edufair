@@ -14,6 +14,10 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="<?=base_url('assets/js/alert.js');?>"></script>
 <script src="<?=base_url('assets/js/jquery.flipTimer.js');?>"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 <script type="text/javascript">
 
 $(document).ready(function(e) {
