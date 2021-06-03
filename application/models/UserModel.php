@@ -86,6 +86,18 @@ class UserModel extends CI_Model {
 
   	function insertUser($data)
   	{
+      $sql = "SELECT * FROM tb_user WHERE user_email = '".$data['user_email']."'";
+      $query = $this->db->query($sql);
+      if($query->num_rows() > 0 ) {
+        // error email already exist
+        $array = array(
+          "code" => "09",
+          "msg"  => "Email already exist",
+          "val"  => false
+        );
+        return $array;
+      }
+
 	    $sql    = "INSERT INTO `tb_user`(`user_first_name`, `user_last_name`, `user_email`, `user_password`, `user_phone`, `user_status`, `user_gender`, `user_dob`, `user_first_time`, `user_grade`, `user_school`, `user_country`, `user_major`, `user_know_from`, `user_register_date`, `user_last_login`) 
 	    		VALUES ('".$data['user_first_name']."',
 	    				'".$data['user_last_name']."',
@@ -105,9 +117,19 @@ class UserModel extends CI_Model {
 	    				'')";
 	    $query = $this->db->query($sql);
 	    if($query) {
-	    	return $this->db->insert_id();
+        $array = array(
+          "code" => "001",
+          "msg"  => "Registration Success",
+          "val"  => $this->db->insert_id()
+        );
+	    	return $array;
 	    } else {
-	    	return false;
+        $array = array(
+          "code" => "01",
+          "msg"  => "Registration Failed",
+          "val"  => false
+        );
+	    	return $array;
 	    }
   	}
 

@@ -408,7 +408,9 @@ $(document).ready(function() {
                 type: "POST",
                 data: $("#registerForm").serialize(),
                 success: function(msg) {
-                    if (msg == "001") {
+                	msg = JSON.parse(msg);
+
+                    if (msg.code == "001") {
                     	Swal.fire({
 						  title: 'Welcome to ALL-in Edufair',
 						  text: "Please verify your email to continue",
@@ -417,9 +419,15 @@ $(document).ready(function() {
 						  confirmButtonText: 'Dismiss'
 						}).then((result) => {
 						  if (result.isConfirmed) {
-						    window.location.href = "<?php echo base_url(); ?>registration/topic";
+						    window.location.href = "<?php echo base_url(); ?>";
 						  }
-						})
+						});
+					} else if (msg.code == "09") {
+						Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Your email address has been used'
+                        });
                     } else {
                         Swal.fire({
                             icon: 'error',

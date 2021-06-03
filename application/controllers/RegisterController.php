@@ -55,7 +55,6 @@ class RegisterController extends CI_Controller {
 				$response = curl_error($curl);
 		
 		}
-
 		// saving school name if user select other end
 		
 		// add other major into selected major start
@@ -87,8 +86,8 @@ class RegisterController extends CI_Controller {
 
 		$email = $this->input->post('user_email');
 		$process = $this->UserModel->insertUser($data);
-		if($process) {
-			$inserted_id = $process;
+		if($process['val']) {
+			$inserted_id = $process['val'];
 
 			//build token
 			$token = $this->UserModel->insertToken($inserted_id);
@@ -96,13 +95,25 @@ class RegisterController extends CI_Controller {
 			$data = array( "url" => base_url() . '/verify/token/' . $qstring );
 			// send verification mail
 			if($this->sendingEmail($data, $email)) {
-				echo "001";
+				// send mail success
+				$array = array(
+		          "code" => "001",
+		          "msg"  => "Email has been sent",
+		          "val"  => true
+		        );
+		        echo json_encode($array);
 			} else {
-				echo "08"; //error send email verify;
+				//error send email verify;
+				$array = array(
+		          "code" => "08",
+		          "msg"  => "Email verify failed to send",
+		          "val"  => false
+		        );
+		        echo json_encode($array);
 			}
 
 		} else {
-			echo "01"; //error register
+			echo json_encode($process);
 		}
 	}
 
@@ -119,7 +130,7 @@ class RegisterController extends CI_Controller {
 
 		$create_session = $this->login($uid);
 		if($create_session == "001") {
-			redirect('/');
+			redirect('/registration/topic');
 		} else {
 			echo "Server Timeout";
 		}
