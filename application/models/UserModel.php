@@ -272,7 +272,7 @@ class UserModel extends CI_Model {
     {
       $sql = "SELECT * FROM tb_booking_topic bt 
               LEFT JOIN tb_topic t ON t.topic_id = bt.topic_id 
-              WHERE bt.user_id = ".$user_id;
+              WHERE bt.user_id = $user_id AND bt.booking_topic_status = 1";
       $query = $this->db->query($sql);
       return $query->result();
     }
@@ -283,7 +283,7 @@ class UserModel extends CI_Model {
               JOIN tb_uni_detail_time udt ON udt.uni_detail_time_id = bc.uni_detail_time_id
               JOIN tb_uni_detail ud ON ud.uni_dtl_id = udt.uni_dtl_id
               JOIN tb_uni u ON u.uni_id = ud.uni_id
-              WHERE bc.user_id = ".$user_id;
+              WHERE bc.user_id = $user_id AND bc.booking_c_status = 1";
       $query = $this->db->query($sql);
       return $query->result(); 
       // if($query->num_rows() > 0) {
@@ -317,7 +317,11 @@ class UserModel extends CI_Model {
       if($type == "topic") {
         $this->db->where('user_id', $user_id);
         $this->db->where('topic_id', $id);
-        return $this->db->delete('tb_booking_topic');
+        return $this->db->update('tb_booking_topic', array("booking_topic_status" => 0));
+      } else if ($type == "consult") {
+        $this->db->where('user_id', $user_id);
+        $this->db->where('uni_detail_time_id', $id);
+        return $this->db->update('tb_booking_consult', array("booking_c_status" => 0));
       }
     }
 

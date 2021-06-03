@@ -209,7 +209,8 @@ class RegisterController extends CI_Controller {
 		$data = array(
 			'user_id'            => $userId,
 			'uni_detail_time_id' => $unidtltimeid,
-			'booking_c_date'     => date('Y-m-d H:i:s')
+			'booking_c_date'     => date('Y-m-d H:i:s'),
+			'booking_c_status'	 => 1
 			);
 
 		$process = $this->ConsultModel->bookingConsult($data);

@@ -75,7 +75,7 @@ class HomeController extends CI_Controller {
 		$data['title'] = 'Dashboard';
 		$data['dataTopic'] = $this->UserModel->getUserTopic($user_id);
 		$data['dataConsult'] = $this->UserModel->getUserConsult($user_id);
-		// print("<pre>".print_r($data['dataConsult'], true)."</pre>");exit;
+		// print("<pre>".print_r($data['dataTopic'], true)."</pre>");exit;
 		$data['dataCountry'] = $this->getDataCountry();
 		$data['dataMajor'] = $this->getDataMajor();
 
@@ -143,6 +143,9 @@ class HomeController extends CI_Controller {
 		if($type == "topic") {
 			$topicId = $this->base64url_decode($this->input->post('topicId'));
 			echo $this->UserModel->cancelBooking($user_id, $type, $topicId);
+		} else if ($type == "consult") {
+			$consultationId = $this->base64url_decode($this->input->post('consultationId'));
+			echo $this->UserModel->cancelBooking($user_id, $type, $consultationId);
 		}
 	}
 

@@ -198,7 +198,7 @@
 	    					<div class="card-body">
 	    						<div class="tab-content">
 	    							<div class="tab-pane fade show active" id="list-topic" role="tabpanel" aria-labelledby="topic-schedule">
-	    								<?php if(isset($dataTopic)) { ?>
+	    								<?php if( (isset($dataTopic)) && (count($dataTopic) > 0) ) { ?>
 			    						<h4>Your Scheduled Topics</h4>
 		    							<div class="list-group mt-4">
 			    						<?php
@@ -237,6 +237,7 @@
 										<?php } else { echo "No Scheduled Topic for you"; }?>
 									</div>
 									<div class="tab-pane fade" id="list-consult" role="tabpanel" aria-labelledby="consult-schedule">
+										<?php if( (isset($dataConsult)) && (count($dataConsult) > 0) ) { ?>
 										<h4>Your Scheduled Consultation</h4>
 										<div class="list-group mt-4">
 										<?php
@@ -273,6 +274,7 @@
 										}
 										?>
 										</div>
+									<?php } else { echo "No Scheduled Consultation for you"; }?>
 									</div>
 								</div>
 	    					</div>
