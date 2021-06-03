@@ -60,7 +60,7 @@
                         <?php
                         foreach($val['uni_detail'] as $row){
                         ?>
-                        <a class="dropdown-item" onclick="highlight('<?php echo $row['uni_id']; ?>')" href="javascript:void(0);"><?php echo $row['uni_name']; ?></a>
+                        <a class="dropdown-item" onclick="highlight('<?php echo $row['uni_id']; ?>')" href="#uni-<?php echo $row['uni_id']; ?>"><?php echo $row['uni_name']; ?></a>
                         <?php
                         }
                         ?>
@@ -74,8 +74,81 @@
             }
             ?>
         </div>
+        <?php $i = 1;?>
         <div class="container mt-3 box-book">
-            <div class="row my-0">
+            <div class="row my-0" id="consult-container">
+                <div class="col-md-6 mb-2">
+                    <div class="card card-book">
+                        <img src="<?=base_url('assets/img/default.jpeg');?>" alt="">
+                        <div class="card-body text-center p-1">
+                            <h4 class="m-0 text-muted">Uni <?=$i;?></h4>
+                        </div>
+                        <div class="row no-gutters">
+                            <div class="col">
+                                <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
+                                    data-target="#exampleModal">#1</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal"
+                                    data-target="#exampleModal">#2</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="card card-book">
+                        <img src="<?=base_url('assets/img/default.jpeg');?>" alt="">
+                        <div class="card-body text-center p-1">
+                            <h4 class="m-0 text-muted">Uni <?=$i;?></h4>
+                        </div>
+                        <div class="row no-gutters">
+                            <div class="col">
+                                <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
+                                    data-target="#exampleModal">#1</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal"
+                                    data-target="#exampleModal">#2</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="card card-book">
+                        <img src="<?=base_url('assets/img/default.jpeg');?>" alt="">
+                        <div class="card-body text-center p-1">
+                            <h4 class="m-0 text-muted">Uni <?=$i;?></h4>
+                        </div>
+                        <div class="row no-gutters">
+                            <div class="col">
+                                <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
+                                    data-target="#exampleModal">#1</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal"
+                                    data-target="#exampleModal">#2</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="card card-book">
+                        <img src="<?=base_url('assets/img/default.jpeg');?>" alt="">
+                        <div class="card-body text-center p-1">
+                            <h4 class="m-0 text-muted">Uni <?=$i;?></h4>
+                        </div>
+                        <div class="row no-gutters">
+                            <div class="col">
+                                <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
+                                    data-target="#exampleModal">#1</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal"
+                                    data-target="#exampleModal">#2</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <?php
                 $i = 0;
                 foreach($uniData as $uniInfo) {
@@ -211,7 +284,11 @@
                             </div>
                         </div>
                     </div>
-                <!-- <div class="col-md-6 mb-2" id="col<?=$i;?>">
+                
+                <?php 
+                } 
+                ?>
+                <div class="col-md-6 mb-2">
                     <div class="card card-book">
                         <img src="<?=base_url('assets/img/default.jpeg');?>" alt="">
                         <div class="card-body text-center p-1">
@@ -228,11 +305,9 @@
                             </div>
                         </div>
                     </div>
-                </div> -->
-                <?php 
-                } 
-                ?>
+                </div>
             </div>
         </div>
     </div>
+</div>
 </div>

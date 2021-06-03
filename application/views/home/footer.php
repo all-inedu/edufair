@@ -1,9 +1,7 @@
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted">
+<footer class="text-center text-lg-start bg-light text-muted" data-aos="fade right" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000">
   <!-- Section: Social media -->
-  <section
-    class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-  >
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     <!-- Left -->
     <div class="me-5 d-none d-lg-block">
       <span>Get connected with us on social networks:</span>
