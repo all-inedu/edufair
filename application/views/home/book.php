@@ -46,11 +46,8 @@
     <div class="container pb-4">
             <div class="row justify-content-center pb-5">
                 <div class="col mt-5 p-5" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000">
-                    <h2>Uni List</h2>
-                    <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sequi eligendi commodi voluptas
-                        sed!
-                        Aliquid earum id atque possimus, eaque maiores aut esse, quam veniam neque delectus aspernatur.
-                        Asperiores, fuga.</h5>
+                    <h2>University List</h2>
+                    <h5>You have a chance to book a personal consultation with all universities listed below! Book your schedule and come prepared to ask questions for the uni reps about admissions.</h5>
                 </div>
             </div>
             <div class="row">

@@ -112,11 +112,11 @@
 	                        </div>
 	                    </div>
 	                    <div class="col" data-page="2" style="display: none">
-	                        <div class="form-group">
+	                        <div class="form-group form-change grade">
 	                            <label>What grade are you in?</label>
 	                            <!-- <input type="number" class="form-control form-control-sm custom-box" name="user_grade" placeholder=""
 	                                onchange="limit(this)" required /> -->
-	                            <select class="form-control form-control-sm custom-box" name="user_grade" required style="font-size: 1rem">
+	                            <select class="form-control form-control-sm custom-box" name="user_grade" required id="userGrade" style="font-size: 1rem">
 	                            	<option value="">Select your grade</option>
 	                            	<option value="7">7</option>
 	                            	<option value="8">8</option>
@@ -127,7 +127,7 @@
 	                            </select>
 
 	                        </div>
-	                        <div class="form-group">
+	                        <div class="form-group form-change school">
 	                            <label>What school are you going to graduate from?</label>
 	                            <select name="school_option" id="userSchool" onchange="checkValue('userSchool')" required
 	                                oninvalid="validation('userSchool')">
@@ -138,7 +138,7 @@
 	                            <input type="hidden" value="" name="user_school" id="user_school">
 	                            <small class="form-text text-muted">Choose other if there are not your schools</small>
 	                        </div>
-	                        <div class="form-group">
+	                        <div class="form-group form-change destination">
 	                            <label>Where's your country destination to study abroad?</label>
 	                            <select id="userDestination" onchange="checkValue('userDestination')" multiple required
 	                                oninvalid="validation('userDestination')">
@@ -147,7 +147,7 @@
 	                            <small class="form-text text-muted">You can choose more than one</small>
 	                            <input type="hidden" value="" name="user_destination" id="user_destination">
 	                        </div>
-	                        <div class="form-group form-group-major">
+	                        <div class="form-group form-group-major form-change major">
 	                            <label>What's your intended major in university?</label>
 	                            <select id="userMajor" onchange="checkValue('userMajor')" multiple required
 	                                oninvalid="validation('userMajor')">
@@ -442,12 +442,39 @@ $(document).ready(function() {
 
     $("input[name=user_status]").click(function() {
     	var val = $(this).val();
-    	if( (val == "teacher_consellor") ) {
+    	if (val == "parent") {
+    		$(".form-group-major").show();
+    		$("#userMajor").prop('required', true);
+
+    		$(".form-change.grade").show();
+    		$("#userGrade").prop('required', true);
+
+    		$(".form-change.grade label").html("What grade is your child in?");
+    		$(".form-change.school label").html("What school is he/she going to graduate from?");
+    		$(".form-change.destination label").html("In what country does he/she want to study abroad? (can choose more than 1)");
+    		$(".form-change.major label").html("What is your child's intended major in university? (can choose more than 1)");
+
+    	} else if (val == "teacher_consellor") {
     		$(".form-group-major").hide();
     		$("#userMajor").prop('required', false);
+
+    		$(".form-change.grade").hide();
+    		$("#userGrade").prop('required', false);
+
+    		$(".form-change.school label").html("What school are you from?");
+    		$(".form-change.destination label").html("What country do your students generally interested in studying abroad?");
+
     	} else {
     		$(".form-group-major").show();
     		$("#userMajor").prop('required', true);
+
+    		$(".form-change.grade").show();
+    		$("#userGrade").prop('required', true);
+
+    		$(".form-change.grade label").html("What grade are you in?");
+    		$(".form-change.school label").html("What school are you going to graduate from?");
+    		$(".form-change.destination label").html("Where's your country destination to study abroad?");
+    		$(".form-change.major label").html("What's your intended major in university?");
     	}
     })
 });

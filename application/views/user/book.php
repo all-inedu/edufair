@@ -16,8 +16,7 @@
     <div class="row px-3">
         <div class="col-md-12 text-center mt-3 px-5">
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe incidunt animi ab ipsa placeat! Cum,
-                omnis assumenda. Sequi at rem quod eligendi dolorum eum! Quam ipsa beatae aspernatur eligendi dicta!
+                You are about to book a consultation with XX University. Please choose a day & time.
             </p>
             <hr>
         </div>

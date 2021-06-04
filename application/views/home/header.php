@@ -199,11 +199,8 @@
 
         <div class="col-md-7 p-5 my-auto text-center">
 
-            <h1>ALL-in Edufair</h1>
-            <h5 class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet laboriosam eius doloremque
-                fugiat nam
-                saepe deleniti sunt voluptates animi eveniet officiis, doloribus nobis beatae illo cum maxime, optio
-                ipsam dolores.</h5>
+            <h1>Edufair 2021</h1>
+            <h5 class="mt-4">Welcome to Edufair! Connect with the universities from all over the world and get live updates about the education system abroad.</h5>
 
             <div class="flipTimer mt-5">
                 <div class="days" data-toggle="tooltip" data-placement="bottom" title="Days">

@@ -70,6 +70,7 @@
     background-position: top;*/
     background-image: url('assets/img/home/talk-bg.png');
     background-size: 100%;
+    padding-bottom: 5em;
 }
 </style>
 
@@ -78,9 +79,7 @@
     <div class="row">
         <div class="col-12 text-left mt-5 p-0">
             <h2>Talks</h2>
-            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sequi eligendi commodi voluptas sed!
-                Aliquid earum id atque possimus, eaque maiores aut esse, quam veniam neque delectus aspernatur.
-                Asperiores, fuga.</h5>
+            <h5>Have a conversation directly with the university reps about these hot topics concerning study abroad and get information to support your university preparation strategy.</h5>
         </div>
     </div>
 </div>

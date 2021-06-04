@@ -154,8 +154,8 @@ class RegisterController extends CI_Controller {
 			redirect('/');
 		}
 
-		$topicData_day1 = $this->TopicModel->getTopicData('2021-05-20'); // change with edufair start date
-		$topicData_day2 = $this->TopicModel->getTopicData('2021-05-21'); // change iwth edufair start date
+		$topicData_day1 = $this->TopicModel->getTopicData('2021-07-24'); // change with edufair start date
+		$topicData_day2 = $this->TopicModel->getTopicData('2021-07-25'); // change iwth edufair start date
         // print("<pre>".print_r($topicData_day1, true)."</pre>");exit;
 
 		$topicData = array(
@@ -172,7 +172,7 @@ class RegisterController extends CI_Controller {
 	public function book() // route: registration/consult
 	{
 		if(!$this->session->has_userdata('user_id')) { // if the session value is null or doesn't exist
-			redirect('/');
+			// redirect('/');
 		}
 
 		// echo $this->session->userdata('user_id');
