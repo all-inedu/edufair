@@ -1,32 +1,3 @@
-<style>
-.navbar {
-    padding: 20px 10px;
-    background: #91D7EB !important;
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color: rgba(0, 0, 0, .5);
-    padding: 0 20px;
-}
-
-#btn-signup {
-    background: white;
-    padding: 5px 30px;
-    border-radius: 20px;
-    color: #000;
-}
-
-#btn-signup:hover {
-    background: #2d6689;
-    padding: 5px 30px;
-    border-radius: 20px;
-    color: white;
-}
-
-li.nav-menu {
-    padding-top: 5px;
-}
-</style>
 <nav class="navbar fixed-top shadow navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="<?php echo base_url(); ?>">ALL-in Eduspace</a>

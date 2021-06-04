@@ -48,7 +48,111 @@
     .custom-box.radio {
         border-bottom: none !important;
     }
-    </style>
+body {
+    padding: 0;
+}
+
+.card-headers img {
+    padding: 0 20%;
+}
+
+.card {
+    /*opacity: 0.8;*/
+    border: 3px solid #fff;
+    /*height: 12.2em;*/
+}
+
+#photo-banner .card {
+    height: 12.2em;
+}
+
+.card:hover {
+    border: 3px solid #39A5DC;
+}
+
+.seperate {
+    color: #3d3d3d;
+    margin: 0 -10px;
+    position: relative;
+}
+
+.modal-login .avatar {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -70px;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    z-index: 9;
+    background: #60c7c1;
+    padding: 15px;
+    box-shadow: 0px 2px 2px rgb(0 0 0 / 10%);
+}
+
+.modal-login .avatar i {
+    font-size: 38px;
+    padding: 10px;
+    ;
+    color: #FFF;
+}
+
+.modal-login .modal-title {
+    width: 100%;
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.modal-login .avatar img {
+    width: 100%;
+}
+
+.modal-login .modal-body {
+    padding: 1em 3em;
+}
+
+.modal-footer {
+    justify-content: center !important;
+}
+
+#home {
+    height: 100vh;
+    background: url('assets/img/home/header-bg.png');
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-size: 100%;
+    background-position: center;
+    padding-top: 18vh;
+}
+.navbar {
+    padding: 20px 10px;
+    background: #91D7EB !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, .5);
+    padding: 0 20px;
+}
+
+#btn-signup {
+    background: white;
+    padding: 5px 30px;
+    border-radius: 20px;
+    color: #000;
+}
+
+#btn-signup:hover {
+    background: #2d6689;
+    padding: 5px 30px;
+    border-radius: 20px;
+    color: white;
+}
+
+li.nav-menu {
+    padding-top: 5px;
+}
+</style>
 </head>
 
 <body>
