@@ -256,4 +256,16 @@ class UniModel extends CI_Model {
           return false;
         }
 	}
+
+	function getBookingConsultById($id, $d) {
+      $this->db->select('*');
+      $this->db->where('tb_booking_consult.user_id', $id);
+      $this->db->where('tb_booking_consult.booking_c_status', 1);
+      $this->db->where('date(tb_uni_detail_time.uni_dtl_t_start_time)', $d);
+      $this->db->from('tb_booking_consult');
+	  $this->db->join('tb_uni_detail_time', 'tb_uni_detail_time.uni_detail_time_id=tb_booking_consult.uni_detail_time_id');
+	  $this->db->join('tb_uni_detail', 'tb_uni_detail.uni_dtl_id=tb_uni_detail_time.uni_dtl_id');
+	  $this->db->join('tb_uni', 'tb_uni.uni_id=tb_uni_detail.uni_id');
+      return $this->db->get()->result_array();
+    }
 }

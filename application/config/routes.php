@@ -119,3 +119,5 @@ $route['dashboard/admin/book/topic'] = 'AdminController/indexBookTopic';
 
 $route['dashboard/admin/book/consult'] = 'AdminController/indexBookConsult';
 // END FUNCTION ADMIN 
+
+$route['reminder'] = 'ReminderController/reminder';
