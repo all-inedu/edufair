@@ -54,7 +54,13 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-$route['api/country/(:any)'] = 'AdminController/showCountry/$1';
+$route['api/country/(:any)'] = 'ApiController/showCountry/$1';
+$route['api/country/(:any)'] = 'ApiController/showCountry/$1';
+$route['api/participant/(:any)'] = 'ApiController/showParticipant/$1';
+$route['api/registrant'] = 'ApiController/showRegistrant';
+$route['api/user/lead'] = 'ApiController/showUserLead';
+$route['api/user/topic'] = 'ApiController/showUserTopic';
+$route['api/user/consult/(:num)'] = 'ApiController/showUserConsult/$1';
 
 /* VIEW START HERE */
 $route['registration'] = 'RegisterController/view';
@@ -80,6 +86,12 @@ $route['home/dashboard/update/information'] = 'HomeController/updateInformation'
 $route['verify/token/(:any)'] = 'RegisterController/getTokenVerifyEmail';
 /* PROCESS END HERE */
 
+
+// ADMIN FUNCTION 
+$route['admin'] = 'AdminController/login';
+$route['admin/auth'] = 'AdminController/auth';
+$route['admin/logout'] = 'AdminController/logout';
+
 $route['dashboard/admin'] = 'AdminController/index';
 
 $route['dashboard/admin/topic'] = 'AdminController/indexTopic';
@@ -100,9 +112,10 @@ $route['dashboard/admin/uni/delete/(:num)'] = 'AdminController/deleteUni/$1';
 $route['dashboard/admin/uni/consult/add'] = 'AdminController/saveUniConsult';
 $route['dashboard/admin/uni/consult/delete/(:num)'] = 'AdminController/deleteUniConsult/$1';
 
-$route['dashboard/admin/user'] = 'AdminController/indexUser';
+$route['dashboard/admin/user/(:any)'] = 'AdminController/indexUser/$1';
 // $route['dashboard/admin/user/view/(:any)'] = 'AdminController/editUser/$1';
 
 $route['dashboard/admin/book/topic'] = 'AdminController/indexBookTopic';
 
 $route['dashboard/admin/book/consult'] = 'AdminController/indexBookConsult';
+// END FUNCTION ADMIN 

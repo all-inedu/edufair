@@ -78,8 +78,16 @@
                                                         if($u['user_id']=="") {
                                                             echo "<tr class='text-center'><td colspan=5>-</td></tr>";
                                                         } else {
+                                                            if($u['booking_topic_status']==0){
+                                                                $status ="text-danger";  
+                                                                $title ="Cancel";
+                                                            } else {
+                                                                $status ="";
+                                                                $title ="Join"; 
+                                                            }
                                                     ?>
-                                                    <tr>
+                                                    <tr class="<?=$status;?>" data-toggle="tooltip" data-placement="top"
+                                                        title="<?=$title;?>">
                                                         <td><?=$u['user_first_name']." ".$u['user_last_name'];?></td>
                                                         <td><?=$u['user_email'];?></td>
                                                         <td><?=ucfirst($u['user_status']);?></td>

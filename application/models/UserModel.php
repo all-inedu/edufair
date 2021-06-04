@@ -3,7 +3,52 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class UserModel extends CI_Model {
 
-	function getUserData()
+	function showUserStatus($id)
+	{
+		$this->db->select('
+			count(user_id) as tot
+		');
+		$this->db->from('tb_user');
+		$this->db->where('user_status', $id);
+		return $this->db->get()->row_array();
+	}
+
+	public function getUserLead()
+	{
+		$this->db->select('
+			count(user_id) as tot,
+			user_know_from
+		');
+		$this->db->from('tb_user');
+		$this->db->group_by('user_know_from');
+		return $this->db->get()->result_array();
+	}
+
+	public function getUserBookingTopic($id, $s)
+	{
+		$this->db->select('
+			count(user_id) as tot
+		');
+		$this->db->from('tb_booking_topic');
+		$this->db->where('topic_id',$id);
+		$this->db->where('booking_topic_status',$s);
+		return $this->db->get()->result_array();
+	}
+
+	public function getUserBookingConsult($id, $s)
+	{
+		$this->db->select('
+			count(tb_booking_consult.user_id) as tot
+		');
+		$this->db->from('tb_booking_consult');
+		$this->db->where('tb_uni_detail.uni_id',$id);
+		$this->db->where('tb_booking_consult.booking_c_status',$s);
+		$this->db->join('tb_uni_detail_time', 'tb_uni_detail_time.uni_detail_time_id=tb_booking_consult.uni_detail_time_id');
+		$this->db->join('tb_uni_detail', 'tb_uni_detail.uni_dtl_id=tb_uni_detail_time.uni_dtl_id');
+		return $this->db->get()->result_array();
+	}
+
+	function getUserData($id)
 	{
 		$this->db->select('
 			tb_user.*,
@@ -25,6 +70,9 @@ class UserModel extends CI_Model {
 			tb_uni.	uni_name,
 			');
 		$this->db->from('tb_user');
+		if(($id!="all")) {
+			$this->db->where('tb_user.user_status',$id);
+		}
 		$this->db->order_by('tb_user.user_register_date','DESC');
 		$this->db->order_by('tb_topic.topic_start_date','ASC');
 		$this->db->order_by('tb_uni_detail_time.uni_dtl_t_start_time','ASC');
@@ -256,15 +304,15 @@ class UserModel extends CI_Model {
 	public function getUserDataPerDays()
 	{
 		$date = date("Y-m-d");
-		$day30 = date("Y-m-d", strtotime("-30 days", strtotime($date)));
+		$day30 = date("Y-m-d", strtotime("-30days", strtotime($date)));
 		$this->db->select('
 			count(user_id) as tot,
 			user_register_date
 		');
 		$this->db->from('tb_user');
-		$this->db->group_by('user_register_date');
-		$this->db->where('user_register_date <', $date);
-		$this->db->where('user_register_date >', $day30);
+		$this->db->group_by('date(user_register_date)');
+		$this->db->where('date(user_register_date) <=', $date);
+		$this->db->where('date(user_register_date) >', $day30);
 		return $this->db->get()->result_array();
 	}
 

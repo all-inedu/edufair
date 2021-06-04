@@ -43,8 +43,16 @@
                                                         if($user['user_id']=="") {
                                                             echo "<tr class='text-center'><td colspan=5>-</td></tr>";
                                                         } else {
+                                                            if($user['booking_c_status']==0){
+                                                                $status ="text-danger";  
+                                                                $title ="Cancel";
+                                                            } else {
+                                                                $status ="";
+                                                                $title ="Join"; 
+                                                            }
                                                     ?>
-                                                    <tr>
+                                                    <tr class="<?=$status;?>" data-toggle="tooltip" data-placement="top"
+                                                        title="<?=$title;?>">
                                                         <td>
                                                             <?=date('M dS Y, H:i', strtotime($user['uni_dtl_t_start_time']));?>
                                                             <?=date('- H:i A', strtotime($user['uni_dtl_t_end_time']));?>
