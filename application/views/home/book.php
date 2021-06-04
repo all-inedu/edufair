@@ -60,7 +60,7 @@
                         <?php
                         foreach($val['uni_detail'] as $row){
                         ?>
-                        <a class="dropdown-item" onclick="highlight('<?php echo $row['uni_id']; ?>')" href="#uni-<?php echo $row['uni_id']; ?>"><?php echo $row['uni_name']; ?></a>
+                        <a class="dropdown-item" onclick="highlight('<?php echo $row['uni_id']; ?>')" ><?php echo $row['uni_name']; ?></a>
                         <?php
                         }
                         ?>
