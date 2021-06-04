@@ -6,7 +6,7 @@
 }
 
 .card-topic {
-    border: 3px solid #dedede;
+    border: 3px solid #898989;
 }
 
 .card-topic:hover {
@@ -22,14 +22,17 @@
     cursor: pointer;
 }
 
-.day1talks, .day2talks {
-    border: 1px solid #ffc107;border-radius: 0.5em;
+.day1talks,
+.day2talks {
+    border: 1px solid #12116e;
+    border-radius: 0.5em;
     position: relative;
+    /* background: #ffffff; */
 }
 
 .day1talks::before {
     content: "Day 1";
-    border: 2px solid #FFc107;
+    border: 2px solid #12116e;
     border-radius: 1.5em;
     padding: 0.8em 2em;
     position: absolute;
@@ -41,7 +44,7 @@
 
 .day2talks::before {
     content: "Day 2";
-    border: 2px solid #FFc107;
+    border: 2px solid #12116e;
     border-radius: 1.5em;
     padding: 0.8em 2em;
     position: absolute;
@@ -50,22 +53,32 @@
     z-index: 2;
     background: #FFF;
 }
+
+#talks {
+    height: auto;
+    background: url('assets/img/home/talk-bg.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    padding: 20px 0 50px 0;
+}
 </style>
 
-<section style="margin-bottom: 10%;">
-<div class="container">
-    <div class="row">
-        <div class="col-md-7 text-left mt-5 p-5">
-            <h2>Talks</h2>
-            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sequi eligendi commodi voluptas sed!
-                Aliquid earum id atque possimus, eaque maiores aut esse, quam veniam neque delectus aspernatur.
-                Asperiores, fuga.</h5>
+<div class="container-fluid" id="talks">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-left my-5 p-0">
+                <h2>Talks</h2>
+                <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sequi eligendi commodi voluptas
+                    sed!
+                    Aliquid earum id atque possimus, eaque maiores aut esse, quam veniam neque delectus aspernatur.
+                    Asperiores, fuga.</h5>
+            </div>
         </div>
     </div>
-</div>
-<div class="container p-4 mb-4 day1talks" id="talks">
-    <div class="card-columns" style="padding-top: 1em">
-        <?php
+    <div class="container p-4 mb-4 day1talks">
+        <div class="card-columns" style="padding-top: 1em">
+            <?php
         foreach($talk_day1 as $row) {
             $topic_start_date = new DateTime($row['topic_start_date']);
             $topic_id = $row['topic_id'];
@@ -77,47 +90,49 @@
                 );
             $arrTopic = base64_encode(json_encode($arrTopic));
         ?>
-        <div class="card card-topic">
-            <div class="card-body">
-                <img src="<?=base_url('assets/img/default.jpeg');?>" class="img-topic">
-                <div class="row px-2 pt-2 no-gutters talk-button">
-                    <div class="col-11">
-                        <small><?php echo $topic_start_date->format('M, dS Y - H:i') ?></small>
-                        <h6 class="font-weight-bold"><?php echo $topic_name; ?></h6>
-                        <?php
+            <div class="card card-topic">
+                <div class="card-body">
+                    <img src="<?=base_url('assets/img/default.jpeg');?>" class="img-topic">
+                    <div class="row px-2 pt-2 no-gutters talk-button">
+                        <div class="col-11">
+                            <small><?php echo $topic_start_date->format('M, dS Y - H:i') ?></small>
+                            <h6 class="font-weight-bold"><?php echo $topic_name; ?></h6>
+                            <?php
                         foreach($row['uni_detail'] as $uniDetail){
                         ?>
-                        <span class="badge badge-warning"><?php echo $uniDetail['uni_name']; ?></span>
-                        <?php
+                            <span class="badge badge-warning"><?php echo $uniDetail['uni_name']; ?></span>
+                            <?php
                         }
                         ?>
+                        </div>
+                        <div class="col-1 pl-3 my-auto">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
                     </div>
-                    <div class="col-1 pl-3 my-auto">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-                <div class="hidden px-2">
-                    <hr class="m-0 my-2">
-                    <p><?php echo $row['topic_desc']; ?></p>
-                    <?php
+                    <div class="hidden px-2">
+                        <hr class="m-0 my-2">
+                        <p><?php echo $row['topic_desc']; ?></p>
+                        <?php
                     if(!$this->session->has_userdata('user_id')){
                         $props = "href='#signUpModal' data-toggle='modal'";
                     } else {
                         $props = "id='bookTopic'";
                     }
                     ?>
-                    <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book" data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>" <?php echo $props; ?> >Join Now</a>
+                        <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book"
+                            data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>"
+                            <?php echo $props; ?>>Join Now</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <?php 
+            <?php 
         }
         ?>
+        </div>
     </div>
-</div>
-<div class="container p-4 mb-4 day2talks" style="margin-top: 5em">
-    <div class="card-columns" style="padding-top: 1em">
-        <?php
+    <div class="container p-4 mb-4 day2talks" style="margin-top: 5em">
+        <div class="card-columns" style="padding-top: 1em">
+            <?php
         foreach($talk_day2 as $row) {
             $topic_start_date = new DateTime($row['topic_start_date']);
             $topic_id = $row['topic_id'];
@@ -129,50 +144,52 @@
                 );
             $arrTopic = base64_encode(json_encode($arrTopic));
         ?>
-        <div class="card card-topic">
-            <div class="card-body">
-                <img src="<?=base_url('assets/img/'.$row['topic_banner']);?>" class="img-topic">
-                <div class="row px-2 pt-2 no-gutters talk-button">
-                    <div class="col-11">
-                       <small><?php echo $topic_start_date->format('M, dS Y - H:i') ?></small>
-                        <h6 class="font-weight-bold"><?php echo $topic_name; ?></h6>
-                        <?php
+            <div class="card card-topic">
+                <div class="card-body">
+                    <img src="<?=base_url('assets/img/'.$row['topic_banner']);?>" class="img-topic">
+                    <div class="row px-2 pt-2 no-gutters talk-button">
+                        <div class="col-11">
+                            <small><?php echo $topic_start_date->format('M, dS Y - H:i') ?></small>
+                            <h6 class="font-weight-bold"><?php echo $topic_name; ?></h6>
+                            <?php
                         foreach($row['uni_detail'] as $uniDetail){
                         ?>
-                        <span class="badge badge-warning"><?php echo $uniDetail['uni_name']; ?></span>
-                        <?php
+                            <span class="badge badge-warning"><?php echo $uniDetail['uni_name']; ?></span>
+                            <?php
                         }
                         ?>
+                        </div>
+                        <div class="col-1 pl-3 my-auto">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
                     </div>
-                    <div class="col-1 pl-3 my-auto">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-                <div class="hidden px-2">
-                    <hr class="m-0 my-2">
-                    <p><?php echo $row['topic_desc']; ?></p>
-                    <?php
+                    <div class="hidden px-2">
+                        <hr class="m-0 my-2">
+                        <p><?php echo $row['topic_desc']; ?></p>
+                        <?php
                     if(!$this->session->has_userdata('user_id')){
                         $props = "href='#signUpModal' data-toggle='modal'";
                     } else {
                         $props = "id='bookTopic'";
                     }
                     ?>
-                    <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book" data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>" <?php echo $props; ?> >Join Now</a>
+                        <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book"
+                            data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>"
+                            <?php echo $props; ?>>Join Now</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <?php 
+            <?php 
         }
         ?>
-    </div>
-    <!-- <div class="row mt-3">
+        </div>
+        <!-- <div class="row mt-3">
         <div class="col-md-12 text-center">
             <button class="btn btn-circle btn-outline-primary px-5">Join Now</button>
         </div>
     </div> -->
+    </div>
 </div>
-</section>
 
 <script>
 $(".hidden").hide()
@@ -197,7 +214,7 @@ $(".btn-book").each(function() {
             url: "<?php echo base_url(); ?>home/book/topic",
             type: "POST",
             data: {
-                topic_id : topicId
+                topic_id: topicId
             },
             success: function(msg) {
                 if (msg == "001") {
@@ -205,7 +222,7 @@ $(".btn-book").each(function() {
                         icon: 'success',
                         title: 'Thank You for your participation'
                     });
-                }else if (msg == "07") {
+                } else if (msg == "07") {
                     Swal.fire({
                         icon: 'info',
                         title: 'You already booked the topic'

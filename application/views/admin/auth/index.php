@@ -7,6 +7,11 @@
     body {
         @import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
         font-family: 'Asap', sans-serif;
+        height: 100vh;
+        background: url('assets/img/home/header-bg.png');
+        background-repeat: no-repeat;
+        /* background-attachment: fixed; */
+        background-position: center;
     }
 
     .custom-box {

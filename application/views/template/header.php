@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
 <head>
     <title><?=$title;?></title>
@@ -21,7 +22,12 @@
         color: #646363 !important;
     }
 
-    .ss-main .ss-single-selected, .ss-main .ss-multi-selected{ border-top: none !important; border-left: none !important; border-right: none !important; }
+    .ss-main .ss-single-selected,
+    .ss-main .ss-multi-selected {
+        border-top: none !important;
+        border-left: none !important;
+        border-right: none !important;
+    }
 
     .allin-registration {
         margin-top: 7vh;
@@ -29,17 +35,19 @@
         padding: 2em;
         /*border-radius: 10px;*/
         box-shadow: 5px 5px 5px 0px rgb(0, 0, 0, 0.1);
-        border:1px solid #dedede
+        border: 1px solid #dedede
     }
-.custom-box {
-    border-top: none !important;
-    border-left: none !important;
-    border-right: none !important;
-    background: none !important;
-}
-.custom-box.radio {
-    border-bottom: none !important;
-}
+
+    .custom-box {
+        border-top: none !important;
+        border-left: none !important;
+        border-right: none !important;
+        background: none !important;
+    }
+
+    .custom-box.radio {
+        border-bottom: none !important;
+    }
     </style>
 </head>
 
