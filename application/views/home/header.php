@@ -58,9 +58,51 @@
         </div>
     </div>
 </div>
+<section id="home-section">
 <div class="container-fluid" id="home">
-    <div class="row">
-        <div class="col-md-5 p-5">
+    <div class="row align-items-start">
+        <div class="col-md-7 order-md-2 order-sm-1 p-5 text-center" id="edufair-title-container">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-8 text-left">
+                    <h3 class="edufair-date m-0">24 JULY</h3>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-lg-8 text-left">
+                    <h3 class="edufair-date m-0">25 JULY</h3>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-lg-8">
+                    <h1 class="edufair-title m-0">Edufair</h1>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-lg-4 text-left"><h3 class="edufair-date-year">2021</h3></div>
+                <div class="col-lg-4 text-right"><h3 class="edufair-date-string">UPDATES</h3></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 offset-lg-7">
+                    <h5 class="mt-4 text-left edufair-desc"><b>Welcome to Edufair!</b><br> 
+                    Connect with the universities from all over the world and get live updates about the education system abroad.</h5>
+                </div>
+            </div>
+            
+            <!-- <div class="flipTimer mt-5">
+                <div class="days" data-toggle="tooltip" data-placement="bottom" title="Days">
+                </div>
+                <div class="hours" data-toggle="tooltip" data-placement="bottom" title="Hours">
+                    <label class="seperate">:</label>
+                </div>
+                <div class="minutes" data-toggle="tooltip" data-placement="bottom" title="Minutes">
+                    <label class="seperate">:</label>
+                </div>
+                <div class="seconds" data-toggle="tooltip" data-placement="bottom" title="Seconds">
+                    <label class="seperate">:</label>
+                </div>
+            </div> -->
+        </div>
+        <div class="col-md-5 order-md-1 order-sm-2 p-5">
             <div class="row">
                 <div class="col-md-4 col-6 p-1 img1">
                     <div class="card bg-light shadow card-headers">
@@ -195,27 +237,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="col-md-7 p-5 my-auto text-center">
-
-            <h1>Edufair 2021</h1>
-            <h5 class="mt-4">Welcome to Edufair! Connect with the universities from all over the world and get live updates about the education system abroad.</h5>
-
-            <div class="flipTimer mt-5">
-                <div class="days" data-toggle="tooltip" data-placement="bottom" title="Days">
-                </div>
-                <div class="hours" data-toggle="tooltip" data-placement="bottom" title="Hours">
-                    <label class="seperate">:</label>
-                </div>
-                <div class="minutes" data-toggle="tooltip" data-placement="bottom" title="Minutes">
-                    <label class="seperate">:</label>
-                </div>
-                <div class="seconds" data-toggle="tooltip" data-placement="bottom" title="Seconds">
-                    <label class="seperate">:</label>
-                </div>
-            </div>
-
         </div>
     </div>
 </div>

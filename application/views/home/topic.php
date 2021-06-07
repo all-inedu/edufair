@@ -6,52 +6,56 @@
 }
 
 .card-topic {
-    border: 3px solid #898989;
-}
-
-.card-topic:hover {
-    border: 3px solid #605c5c;
+    /*border: 3px solid #898989;*/
+    border-radius: 0px;
+    background: #f7ead7;
 }
 
 .img-topic {
     display: block;
     width: 100%;
+    min-height:200px;
+    border-radius: 25px;
 }
 
 .talk-button {
     cursor: pointer;
 }
 
+.day1talks { margin-top: 3em; }
+
 .day1talks,
 .day2talks {
-    border: 1px solid #12116e;
+    border: 3px solid #12116e;
     border-radius: 0.5em;
     position: relative;
     /* background: #ffffff; */
 }
 
 .day1talks::before {
-    content: "Day 1";
-    border: 2px solid #12116e;
+    content: "DAY 1";
+    border: 3px solid #12116e;
     border-radius: 1.5em;
-    padding: 0.8em 2em;
+    padding: 0.2em 1.5em;
     position: absolute;
     top: 0;
-    margin-top: -1.8em;
+    margin-top: -1.2em;
     z-index: 2;
     background: #FFF;
+    font-size: 1.2em;
 }
 
 .day2talks::before {
-    content: "Day 2";
-    border: 2px solid #12116e;
+    content: "DAY 2";
+    border: 3px solid #12116e;
     border-radius: 1.5em;
-    padding: 0.8em 2em;
+    padding: 0.2em 1.5em;
     position: absolute;
     top: 0;
-    margin-top: -1.8em;
+    margin-top: -1.2em;
     z-index: 2;
     background: #FFF;
+    font-size: 1.2em;
 }
 
 #talks {
@@ -63,26 +67,61 @@
     padding: 20px 0 50px 0;
 }
 
-#talks-section {
+#talks h2, #booking h2{ 
+    font-family: 'Montserrat-ExtraBold';
+    font-size: 5em;
+    text-transform: uppercase;
+    color: #0d2f7f; 
+}
+
+#talks h5, #booking h5{
+    color: #061f51;
+    font-size: 1.3em;
+    text-align: justify;
+}
+
+#edufair-section {
     /*background: url('assets/img/home/talk-bg.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top;*/
-    background-image: url('assets/img/home/talk-bg.png');
-    background-size: 100%;
+    /*padding-bottom: 5em;*/
+}
+
+#booking {
+
+    background-image: url('assets/img/home/bg-unilist.png');
+    background-size: 100% auto;
+    background-position: bottom;
+    background-repeat: no-repeat;
     padding-bottom: 5em;
 }
-</style>
 
-<section id="talks-section">
+.badge-warning {
+    background-color: #e78724 !important;
+    border-radius: 1em;
+    padding: .3em .8em;
+}
+
+#talks-section {
+    background-image: url('assets/img/home/header-bg-3-f.png');
+
+    background-position: center -7.5%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+</style>
+<section id="edufair-section">
+<section class="container-fluid pb-4" id="talks-section">
 <div class="container" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000" id="talks">
     <div class="row">
-        <div class="col-12 text-left mt-5 p-0">
+        <div class="col-5 text-left mt-5">
             <h2>Talks</h2>
             <h5>Have a conversation directly with the university reps about these hot topics concerning study abroad and get information to support your university preparation strategy.</h5>
         </div>
     </div>
 </div>
+
 <?php if ($talk_day1 != "" ) {?>
 <div class="container p-4 mb-4 day1talks" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000">
     <div class="card-columns" style="padding-top: 1em">
@@ -113,7 +152,7 @@
                         }
                         ?>
                         </div>
-                        <div class="col-1 pl-3 my-auto">
+                        <div class="col-1 pl-3 align-self-end">
                             <i class="fas fa-arrow-down"></i>
                         </div>
                     </div>
@@ -144,7 +183,7 @@
     </div>
 </div>
 <?php } if ($talk_day2 != "" ) {?>
-<div class="container p-4 mb-4 day2talks" style="margin-top: 5em" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000" >
+<div class="container p-4 day2talks" style="margin-top: 5em" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000" >
     <div class="card-columns" style="padding-top: 1em">
         <?php
         foreach($talk_day2 as $row) {
@@ -173,7 +212,7 @@
                         }
                         ?>
                         </div>
-                        <div class="col-1 pl-3 my-auto">
+                        <div class="col-1 pl-3 align-self-end">
                             <i class="fas fa-arrow-down"></i>
                         </div>
                     </div>

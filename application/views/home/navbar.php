@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top shadow navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="<?php echo base_url(); ?>">ALL-in Eduspace</a>
+        <a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/home/logo_normal_small-300x68-1-e1593521308518.png" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

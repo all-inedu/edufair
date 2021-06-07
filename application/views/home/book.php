@@ -8,7 +8,7 @@
 }
 
 .box-book {
-    height: 580px;
+    height: 850px;
     overflow-x: hidden;
     overflow-y: scroll;
 }
@@ -35,19 +35,32 @@
 
 #booking {
     height: auto;
-    background: #1c4e75;
+    /*background: #1c4e75;*/
     /* background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top; */
     padding: 20px 0 50px 0;
+}   
+
+.edufair-uni-region {
+    border: 3px solid #efaa52;
+    background: transparent;
+    padding: 6px 50px !important;
+    border-radius: 12px;
+    font-size: 20px;
 }
 </style>
-<div class="container-fluid text-white p-0 pb-4" id="booking" >
+<div class="container-fluid text-white pb-4" id="booking" >
     <div class="container pb-4">
-            <div class="row justify-content-center pb-5">
-                <div class="col mt-5 p-5" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000">
+            <div class="row pb-5">
+                <div class="col-7 mt-5" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000">
                     <h2>University List</h2>
                     <h5>You have a chance to book a personal consultation with all universities listed below! Book your schedule and come prepared to ask questions for the uni reps about admissions.</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000">
+                    <h5>Region of origin:</h5>
                 </div>
             </div>
             <div class="row">
@@ -56,7 +69,7 @@
                     foreach($uniCountry as $key => $val) {
                     ?>
                     <div class="dropdown show d-inline">
-                        <button class="btn bg-white text-muted btn-sm mx-1 px-3 dropdown-toggle" data-toggle="dropdown">
+                        <button class="btn bg-white text-muted btn-sm mx-1 px-3 dropdown-toggle edufair-uni-region" data-toggle="dropdown">
                             <?php echo $key; ?>
                         </button>
                         <!-- <div class="dropdown-menu" id="dropdown-country"> -->
@@ -83,6 +96,25 @@
                     ?>
                 </div>
             </div>
+
+            <style>
+                .btn-book {
+
+                    background: #E78724;
+                    padding-left: 1.5rem;
+                    text-align: left;
+                    font-size: 1rem;
+                    border: none;
+                    font-weight: bold;
+                    color: #FFF;
+                    width: 100%;
+                }
+
+                .btn-book a {
+                    color: #FFF;
+                    text-decoration: none;
+                }
+            </style>
             <div class="row">
                 <?php $i = 1;?>
                 <div class="mt-3 p-2 box-book">
@@ -93,10 +125,13 @@
                         ?>
                             <div class="col-md-6 mb-2" id="uni-<?php echo $uniInfo['uni_id']; ?>">
                                 <div class="card">
-                                    <img src="<?php echo base_url()."assets/uni/banner/".$uniInfo['uni_photo_banner']; ?>" alt="" height="200">
-                                    <div class="card-body text-center p-1">
-                                        <h4 class="m-0 text-muted">Uni <?php echo $uniInfo['uni_name'] ?></h4>
+
+                                    <!-- <div style="border: 3px solid #cfcfcf;position: absolute;z-index: 1;right:0;padding:.5em 1.5em;font-weight: bold;margin:2em; color: #CFCFCF; letter-spacing: .2em;transform: rotate(20deg);top: 20px">FULLY BOOKED</div> -->
+                                    <img src="<?php echo base_url()."assets/uni/banner/".$uniInfo['uni_photo_banner']; ?>" alt="" height="300">
+                                    <div class="card-body pl-4 p-1">
+                                        <h4 class="m-0 pt-2 pb-2" style="color: #000">Uni <?php echo $uniInfo['uni_name'] ?></h4>
                                     </div>
+                                    <div class="card-footer btn-book">
                                     <div class="row no-gutters">
                                     <?php
                                     $day = 1;
@@ -115,40 +150,47 @@
                                         $interval = $d2->diff($d1);
                                         $time = $interval->format('%H');
                                         $disabled = "";
-                                        if(count($uniInfo['uni_detail']) <= 2) {
-                                            $disabled = "style='background:#c6c6c6 !important;border: 1px solid #c6c6c6 !important'";
-                                            if($key == "2021-05-20") {
+                                        ?>
+                                        <div class="col">
+                                            <a href='javascript:void' data-toggle="modal"
+                                                data-target="#modal<?php echo $row['uni_dtl_id']; ?>">BOOK YOUR CONSULTATION</a>
+                                        </div>
+
+                                        <?php
+                                        // if(count($uniInfo['uni_detail']) <= 2) {
+                                            // $disabled = "style='background:#c6c6c6 !important;border: 1px solid #c6c6c6 !important'";
+                                            // if($key == "2021-05-20") {
                                             ?>
-                                            <div class="col">
+                                           <!--  <div class="col">
                                                 <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
                                                     data-target="#modal<?php echo $row['uni_dtl_id']; ?>">Day 1</button>
                                             </div>
                                             <div class="col">
                                                 <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal" <?php echo $disabled; ?>
                                                     data-target="#day2">Day 2</button>
-                                            </div>
+                                            </div> -->
                                             <?php
-                                            } else if ($key == "2021-05-21") {
+                                            // } else if ($key == "2021-05-21") {
                                             ?>
-                                            <div class="col">
+                                            <!-- <div class="col">
                                                 <button class="btn btn-success btn-block btn-sm btn-book" data-toggle="modal" <?php echo $disabled; ?>
                                                     data-target="#day2">Day 1</button>
                                             </div>
                                             <div class="col">
                                                 <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
                                                     data-target="#modal<?php echo $row['uni_dtl_id']; ?>">Day 2</button>
-                                            </div>
+                                            </div> -->
                                             <?php
-                                            }
-                                        } else {
+                                            // }
+                                        // } else {
 
                                             ?>
-                                            <div class="col">
+                                            <!-- <div class="col">
                                                 <button class="btn btn-primary btn-block btn-sm btn-book" data-toggle="modal"
                                                     data-target="#modal<?php echo $row['uni_dtl_id']; ?>">Day $day;</button>
-                                            </div>
+                                            </div> -->
                                             <?php
-                                        }
+                                        // }
                                         ?>
 
                                         
@@ -220,6 +262,7 @@
                                     }
                                     ?>
                                     </div>
+                                    </div>
                                 </div>
                             </div>
                         
@@ -251,3 +294,4 @@
     </div>
 
 </div>
+</section>

@@ -12,9 +12,48 @@
     <link rel="stylesheet" href="<?=base_url('assets/css/flipTimerss.css');?>" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style type="text/css">
+    @font-face { font-family: 'SF-Pro-Display-Regular'; src: url('<?php echo base_url(); ?>assets/font/SF-Pro-Display-Regular.otf');  }
+    @font-face { font-family: 'Montserrat-ExtraBold'; src: url('<?php echo base_url(); ?>assets/font/Montserrat-ExtraBold.otf');  }
     body {
-        @import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
-        font-family: 'Asap', sans-serif;
+        /*@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');*/
+        /*font-family: 'Asap', sans-serif;*/
+        font-family: 'SF-Pro-Display-Regular';
+    }
+    #home h3, #home h1{
+        font-family: 'Montserrat-ExtraBold';
+    }
+
+    #home h3.edufair-date {
+        font-size: 3em;
+        -webkit-text-stroke: 2.5px #eda853;
+        color: transparent;
+    }
+
+    #home h1.edufair-title {
+        text-transform: uppercase;
+        font-size: 8.8em;
+        color: #27387a;
+    }
+
+    #home h3.edufair-date-year {
+        color: #eda853;
+        font-size: 3em;
+        letter-spacing: .3em
+    }
+
+    #home h3.edufair-date-string {
+        font-size: 3em;
+        color: transparent;
+        -webkit-text-stroke: 2.5px #27387a;
+    }
+
+    #home h5.edufair-desc {
+        font-size: 1.3em;
+        color: #27387a;
+    }
+
+    .navbar-nav .nav-item {
+        font-size: 20px;
     }
 
     .ss-main .ss-single-selected .placeholder .ss-disabled,
@@ -50,6 +89,8 @@
     }
 body {
     padding: 0;
+    /*background-image: url('<?php echo base_url(); ?>assets/img/home/compressed/background-min.png');*/
+
 }
 
 .card-headers img {
@@ -57,8 +98,9 @@ body {
 }
 
 .card {
+    border: none !important;
     /*opacity: 0.8;*/
-    border: 3px solid #fff;
+    /*border: 3px solid #fff;*/
     /*height: 12.2em;*/
 }
 
@@ -67,7 +109,7 @@ body {
 }
 
 .card:hover {
-    border: 3px solid #39A5DC;
+    /*border: 3px solid #39A5DC;*/
 }
 
 .seperate {
@@ -116,15 +158,44 @@ body {
     justify-content: center !important;
 }
 
-#home {
-    height: 100vh;
-    background: url('assets/img/home/header-bg.png');
-    background-repeat: no-repeat;
-    /* background-attachment: fixed; */
-    background-size: 100%;
-    background-position: center;
-    padding-top: 18vh;
+@media (max-width: 575.98px) {
+    #home-section {
+        background: url('assets/img/home/compressed/header-bg-2.png');
+        background-repeat: no-repeat;
+
+        background-size: auto 100% !important;
+        /* background-attachment: fixed; */
+        
+        background-position: center;
+    }
+
+    #home {
+        padding-top: 18vh;
+        height: auto;
+    }
+
+    #talks .row div{
+        padding:auto 1em;
+    }
 }
+
+@media (min-width: 768px) {
+    #home-section {
+        background: url('assets/img/home/compressed/header-bg-2.png');
+        background-repeat: no-repeat;
+        /* background-attachment: fixed; */
+        
+        background-position: center top;
+        background-size: 100% auto;
+    }
+
+    #home {
+        
+        padding-top: 18vh;
+        /*height: 100vh;*/
+    }
+}
+
 .navbar {
     padding: 20px 10px;
     background: #91D7EB !important;
@@ -152,6 +223,15 @@ body {
 li.nav-menu {
     padding-top: 5px;
 }
+
+#edufair-title-container {
+    /*background: url('<?php echo base_url(); ?>assets/home/edufair.png');*/
+    background-repeat: no-repeat;
+    background-size: 80% auto;
+    background-position: center 13%;
+}
+
+.hidden { visibility: hidden; }
 </style>
 </head>
 
