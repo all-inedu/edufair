@@ -107,31 +107,31 @@ $(".btn-book-consul").each(function() {
     });
 });
 
-$("#dropdown-country .dropdown-item").each(function() {
-    $(this).click(function() {
-        var countryName = $(this).data('country');
+// $("#dropdown-country .dropdown-item").each(function() {
+//     $(this).click(function() {
+//         var countryName = $(this).data('country');
 
 
-        $.ajax({
-            url: "<?php echo base_url(); ?>home/findUniByCountry",
-            type: "post",
-            data : {
-                countryName : countryName
-            },
-            success: function(msg) {
-                if(msg != "05") {
-                    $(".box-book").html(msg);
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Something went wrong! Please try again.'
-                    });
-                }
-            }
-        });
-    });
-});
+//         $.ajax({
+//             url: "<?php echo base_url(); ?>home/findUniByCountry",
+//             type: "post",
+//             data : {
+//                 countryName : countryName
+//             },
+//             success: function(msg) {
+//                 if(msg != "05") {
+//                     $(".box-book").html(msg);
+//                 } else {
+//                     Swal.fire({
+//                         icon: 'error',
+//                         title: 'Oops...',
+//                         text: 'Something went wrong! Please try again.'
+//                     });
+//                 }
+//             }
+//         });
+//     });
+// });
 
 
 $("#forgot-password").click(function(e) {
@@ -329,24 +329,19 @@ $("#loginForm").submit(function(event) {
 <script>
 
 function highlight(uni_id, e) {
-    $(".card").css({"border-color" : "#FFF"})
+
+    $(".card").css({ "border" : "3px solid transparent" });
+
+    var uniContainer = $("#uni-"+uni_id+" .card").offset().top;
+    var parentContainer = $(".box-book").offset().top;
+
+    var distance = uniContainer-parentContainer;
+
+    $(".box-book").scrollTop(distance);
 
     $("#uni-"+uni_id+" .card").css({
-            "border-color" : "yellow"
-
+        "border" : "3px solid #e78724"
     });
-
-    // e.preventDefault();
-
-    //     var myElement = document.getElementById('uni-'+uni_id);
-    // var topPos = myElement.offsetTop;
-
-    // $("body").scrollTop(500);
-
-
-    // alert(topPos+'dan'+(topPos-500));
-
-    // document.getElementById('consult-container').scrollTop = topPos;
 }
 
 $(document).ready(function(){

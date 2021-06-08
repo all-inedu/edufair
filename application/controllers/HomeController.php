@@ -32,13 +32,7 @@ class HomeController extends CI_Controller {
 
 		// print_r($data['bookingTopic']);exit;
 
-        $this->load->view('template/header', $data);
-        $this->load->view('home/navbar');
-        $this->load->view('home/header');
-		$this->load->view('home/topic', $data);
-		$this->load->view('home/book');
-		$this->load->view('home/footer');
-        $this->load->view('template/footer');
+		$this->load->view('home/home', $data);
 	}
 
 	public function login()

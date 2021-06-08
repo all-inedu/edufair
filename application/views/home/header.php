@@ -78,8 +78,8 @@
                 </div>
             </div>
             <div class="row justify-content-md-center">
-                <div class="col-lg-4 text-left"><h3 class="edufair-date-year">2021</h3></div>
-                <div class="col-lg-4 text-right"><h3 class="edufair-date-string">UPDATES</h3></div>
+                <div class="col-sm-6 col-lg-4 text-left"><h3 class="edufair-date-year">2021</h3></div>
+                <div class="col-sm-6 col-lg-4 text-right"><h3 class="edufair-date-string">UPDATES</h3></div>
             </div>
             <div class="row">
                 <div class="col-lg-3 offset-lg-7">
