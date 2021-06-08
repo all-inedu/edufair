@@ -1,4 +1,4 @@
-<div class="container-fluid" style="margin-top:15vh;margin-bottom:3rem;">
+<div class="container-fluid" id="register-form" style="margin-top:15vh;margin-bottom:3rem;">
     <div class="container">
     	<div class="row">
 	    	<div class="col-lg-4">
