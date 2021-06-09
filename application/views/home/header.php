@@ -32,7 +32,7 @@
         </div>
     </div>
 </div>
-<div id="forgotPassModal" class="modal fade">
+<div id="forgotPass" class="modal fade">
     <div class="modal-dialog modal-login modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
