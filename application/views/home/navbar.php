@@ -34,7 +34,7 @@
                 </li>
                 <?php } else { ?>
                 <li class="nav-item ml-5">
-                    <a class="nav-link" id="btn-signup" href="#signUpModal" data-toggle="modal">Sign Up</a>
+                    <a class="nav-link" id="btn-signup" href="#signUp" data-toggle="modal">Sign Up</a>
                 </li>
                 <?php } ?>
 

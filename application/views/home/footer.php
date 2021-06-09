@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted" data-aos="fade right" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000">
+<footer class="text-center text-lg-start bg-light text-muted" data-aos="fade right" data-aos-offset="200" data-aos-delay="25" data-aos-duration="1000">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     <!-- Left -->
@@ -36,7 +36,7 @@
             <img src="<?php echo base_url(); ?>assets/home/logo_normal_small-300x68-1-e1593521308518.png" alt="">
           </h6>
           <p>
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+            Connect with the universities from all over the world and get live updates about the education system abroad.
           </p>
         </div>
         <!-- Grid column -->
@@ -48,13 +48,13 @@
             Navigation
           </h6>
           <p>
-            <a href="#!" class="text-reset">Topic</a>
+            <a href="#talks" class="text-reset">Topic</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Consultation</a>
+            <a href="#booking" class="text-reset">Uni List</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">FAQ</a>
+            <a class="text-reset" href="#signUp" data-toggle="modal">Sign Up</a>
           </p>
         </div>
         <!-- Grid column -->
