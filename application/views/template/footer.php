@@ -145,8 +145,8 @@ $(".btn-book-consul").each(function() {
 
 $("#forgot-password").click(function(e) {
     e.preventDefault();
-    $("#signUpModal .close").click();
-    $("#forgotPassModal").modal('toggle');
+    $("#signUp .close").click();
+    $("#forgotPass").modal('toggle');
 
     // $("#signUpModal .modal-title").html("Forgot Password");
     // $("#signUpModal .modal-body").html('<form action="" method="post">'+
@@ -175,6 +175,7 @@ function forgotPassword() {
                     title: 'Please Check Your Email',
                     text: 'We already sent you an Email'
                 });
+                window.location = "<?php echo base_url(); ?>";
             } else {
                 Swal.fire({
                         icon: 'error',
