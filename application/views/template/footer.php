@@ -161,6 +161,8 @@ $("#forgot-password").click(function(e) {
 });
 
 function forgotPassword() {
+    Swal.showLoading();
+
     var fpEmail = $("#fp_email").val();
     $.ajax({
         url: "<?php echo base_url(); ?>forgot-password",
@@ -355,6 +357,7 @@ function highlight(uni_id, e) {
 }
 
 $(document).ready(function(){
+
   // Add smooth scrolling to all links
   $("a").on('click', function(event) {
 

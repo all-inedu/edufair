@@ -247,7 +247,7 @@
 			    							$diff = date_diff($today, $eventDate);
 
 			    							if($today < $eventDate)
-			    								$string = $diff->format("%d")."days to go";
+			    								$string = $diff->format("%d")." days to go";
 			    							else
 			    								$string = "expired";
 											?>
