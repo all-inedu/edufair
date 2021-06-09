@@ -17,14 +17,23 @@
 <script src="//unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();
+
+$(window).on('load', function() {
+    $(".loading").fadeOut("slow");
+    $("body").css({"overflow":"auto"});
+});
 </script>
 <script type="text/javascript">
-
 $(document).ready(function(e) {
     $(function() {
         $('[data-toggle="tooltip"]').tooltip()
     });
 });
+
+$(document).scroll(function() {
+    var $nav = $(".navbar");
+    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+})
 
 $(".navigate-page-1").on('click', function() {
     $("div[data-page='2']").hide("slide", {

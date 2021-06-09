@@ -1,4 +1,4 @@
-<div id="signUpModal" class="modal fade">
+<div id="signUp" class="modal fade">
     <div class="modal-dialog modal-login modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -61,7 +61,7 @@
 <section id="home-section">
 <div class="container-fluid" id="home">
     <div class="row align-items-start">
-        <div class="col-md-7 order-md-2 order-sm-1 p-5 text-center" id="edufair-title-container">
+        <div class="col-md-7 order-md-2 order-sm-1 pt-5 pl-5 pr-5 text-center" id="edufair-title-container">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2 text-left">
                     <h3 class="edufair-date m-0">24 JULY</h3>
@@ -82,7 +82,7 @@
                 <div class="col-sm-6 col-lg-6 col-xl-4 text-right"><h3 class="edufair-date-string">UPDATES</h3></div>
             </div>
             <div class="row">
-                <div class="col-lg-5 col-xl-3 offset-lg-5 offset-xl-7">
+                <div class="col-lg-5 col-xl-5 col-xxl-3 offset-lg-5 offset-xl-6 offset-xxl-7">
                     <h5 class="mt-4 text-left edufair-desc"><b>Welcome to Edufair!</b><br> 
                     Connect with the universities from all over the world and get live updates about the education system abroad.</h5>
                 </div>
