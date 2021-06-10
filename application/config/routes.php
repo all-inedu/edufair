@@ -116,8 +116,10 @@ $route['dashboard/admin/user/(:any)'] = 'AdminController/indexUser/$1';
 // $route['dashboard/admin/user/view/(:any)'] = 'AdminController/editUser/$1';
 
 $route['dashboard/admin/book/topic'] = 'AdminController/indexBookTopic';
+$route['dashboard/admin/book/export/topic'] = 'AdminController/exportBookTopic';
 
 $route['dashboard/admin/book/consult'] = 'AdminController/indexBookConsult';
+$route['dashboard/admin/book/export/consult'] = 'AdminController/exportBookConsult';
 // END FUNCTION ADMIN 
 
 $route['reminder'] = 'ReminderController/reminder';

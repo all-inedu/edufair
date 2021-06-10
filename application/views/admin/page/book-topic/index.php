@@ -36,6 +36,10 @@
                                     </div>
                                 </div>
                             </div>
+                            <a href="<?=base_url('dashboard/admin/book/export/topic');?>" target="_blank"
+                                class="btn btn-sm btn-dark float-right mb-3"><i class="fas fa-file-excel"></i> &nbsp;
+                                Export to
+                                Excel</a>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover nowrap" id="dataTopic" cellspacing="0">
                                     <thead class="text-center">
@@ -43,7 +47,8 @@
                                             <th>No</th>
                                             <th>Topic Name</th>
                                             <th>Date</th>
-                                            <th>Total</th>
+                                            <th>Join</th>
+                                            <th>Cancel</th>
                                             <th>Participants</th>
                                         </tr>
                                     </thead>
@@ -62,15 +67,24 @@
                                             <td>
                                                 <?php 
                                                     $data = [];
+                                                    $cancel = [];
+                                                    $join = [];
                                                     foreach ($t['user'] as $d) {
                                                         if(!empty($d['user_id']))
                                                         {
+                                                            if($d['booking_topic_status']==0)
+                                                            {
+                                                                $cancel[] = $d['booking_topic_status']; 
+                                                            } else {
+                                                                $join[] = $d['booking_topic_status']; 
+                                                            }
                                                             $data[] = $d['user_id']; 
                                                         }
                                                     }
-                                                    echo count($data);
+                                                    echo count($join);
                                                 ?>
                                             </td>
+                                            <td><?=count($cancel);?></td>
                                             <td>
                                                 <table style="font-size:12px;" width="100%">
                                                     <?php 
@@ -114,11 +128,11 @@
 <script>
 var tables = $('#dataTopic').DataTable({
     "scrollX": true,
-    dom: 'Bfrtip',
-    buttons: [{
-        extend: 'excel',
-        text: '<i class="fas fa-file-excel"></i> &nbsp; Export to Excell'
-    }]
+    // dom: 'Bfrtip',
+    // buttons: [{
+    //     extend: 'excel',
+    //     text: '<i class="fas fa-file-excel"></i> &nbsp; Export to Excell'
+    // }]
 });
 
 
