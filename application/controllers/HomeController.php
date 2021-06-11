@@ -15,7 +15,6 @@ class HomeController extends CI_Controller {
 
 	public function index()
 	{
-		
 		$data['title']      = "Edufair";
 		$topicData_day1     = $this->TopicModel->getTopicData('2021-07-24'); // change with edufair start date
 		$topicData_day2     = $this->TopicModel->getTopicData('2021-07-25'); // change iwth edufair start date

@@ -15,7 +15,26 @@
     <style type="text/css">
     @font-face { font-family: 'SF-Pro-Display-Regular'; src: url('<?php echo base_url(); ?>assets/font/SF-Pro-Display-Regular.otf');  }
     @font-face { font-family: 'Montserrat-ExtraBold'; src: url('<?php echo base_url(); ?>assets/font/Montserrat-ExtraBold.otf');  }
-    body{font-family:SF-Pro-Display-Regular;padding:0;overflow:hidden;}#home h1,#home h3{font-family:Montserrat-ExtraBold}#home h3.edufair-date{color:transparent}#home h1.edufair-title{text-transform:uppercase;color:#27387a}#home h3.edufair-date-year{color:#eda853;letter-spacing:.3em}#home h3.edufair-date-string{color:transparent;}#home h5.edufair-desc{font-size:1.3em;color:#27387a}.navbar-nav .nav-item{font-size:20px}.ss-main .ss-multi-selected .ss-values .ss-disabled,.ss-main .ss-single-selected .placeholder .ss-disabled{color:#646363!important}.ss-main .ss-multi-selected,.ss-main .ss-single-selected{border-top:none!important;border-left:none!important;border-right:none!important}.allin-registration{margin-top:7vh;padding:2em;box-shadow:5px 5px 5px 0 rgb(0,0,0,.1);border:1px solid #dedede}.custom-box{border-top:none!important;border-left:none!important;border-right:none!important;background:0 0!important}.custom-box.radio{border-bottom:none!important}.card-headers img{padding:0 20%}.card{border:3px solid transparent}#photo-banner .card{height:12.2em}.seperate{color:#3d3d3d;margin:0 -10px;position:relative}.modal-login .avatar{position:absolute;margin:0 auto;left:0;right:0;top:-70px;width:95px;height:95px;border-radius:50%;z-index:9;background:#60c7c1;padding:15px;box-shadow:0 2px 2px rgb(0 0 0 / 10%)}.modal-login .avatar i{font-size:38px;padding:10px;color:#fff}.modal-login .modal-title{width:100%;text-align:center;padding-top:1rem}.modal-login .avatar img{width:100%}.modal-login .modal-body{padding:1em 3em}.modal-footer{justify-content:center!important}.navbar{padding:20px 10px;}.navbar-light .navbar-nav .nav-link{color:rgba(0,0,0,.5);padding:0 20px}#btn-signup{padding:5px 30px;border: 1px solid #27387A;border-radius:20px;color:#000}#btn-signup:hover{background:#2d6689;padding:5px 30px;border-radius:20px;color:#fff}li.nav-menu{padding-top:5px}#edufair-title-container{background-repeat:no-repeat;background-size:80% auto;background-position:center 13%}#booking h2,#talks h2{font-family:Montserrat-ExtraBold;text-transform:uppercase;color:#0d2f7f}.edufair-uni-region{border:3px solid #efaa52;background:0 0;border-radius:12px;font-size:20px}.btn-book{background:#e78724;padding-left:1.5rem;text-align:left;font-size:1rem;border:none;font-weight:700;color:#fff;width:100%}.btn-book a{color:#fff;text-decoration:none}.card-topic{border-radius:0;background:#f7ead7}.img-topic{display:block;width:100%;min-height:200px;border-radius:25px}.talk-button{cursor:pointer}.day1talks{margin-top:3em}.day1talks,.day2talks{border:3px solid #12116e;border-radius:.5em;position:relative}.day1talks::before{content:"DAY 1";border:3px solid #12116e;border-radius:1.5em;padding:.2em 1.5em;position:absolute;top:0;margin-top:-1.2em;z-index:2;background:#fff;font-size:1.2em;color:#12116e;font-weight:700}.day2talks::before{content:"DAY 2";border:3px solid #12116e;border-radius:1.5em;padding:.2em 1.5em;position:absolute;top:0;margin-top:-1.2em;z-index:2;background:#fff;font-size:1.2em;color:#12116e;font-weight:700}#talks{height:auto;padding:20px 0 50px 0}#booking h5,#talks h5{color:#061f51;font-size:1.3em;text-align:justify}#booking{background-image:url(assets/img/home/bg-unilist.png);background-size:100% auto;background-position:bottom;background-repeat:no-repeat;padding-bottom:5em}.badge-warning{background-color:#e78724!important;border-radius:1em;padding:.3em .8em}#talks-section{background-image:url(assets/img/home/header-bg-3-f.png);background-size:100%;background-repeat:no-repeat}#register-form .card{border:1px solid #ccc;}.loading{position:fixed;left:0px;top:0px;width:100%;height:100%;z-index:9999;background-color:#FFF;background-image:url('assets/home/logo_normal_small-300x68-1-e1593521308518.png');background-position:center center;background-repeat: no-repeat;}.navbar.scrolled{background-color: #FFF !important;transition:background-color 200ms linear;}
+    body{font-family:SF-Pro-Display-Regular;padding:0;overflow:hidden;}#home h1,#home h3{font-family:Montserrat-ExtraBold}#home h3.edufair-date{color:transparent}#home h1.edufair-title{text-transform:uppercase;color:#27387a}#home h3.edufair-date-year{color:#eda853;letter-spacing:.3em}#home h3.edufair-date-string{color:transparent;}#home h5.edufair-desc{font-size:1.3em;color:#27387a}.navbar-nav .nav-item{font-size:20px}.ss-main .ss-multi-selected .ss-values .ss-disabled,.ss-main .ss-single-selected .placeholder .ss-disabled{color:#646363!important}.ss-main .ss-multi-selected,.ss-main .ss-single-selected{border-top:none!important;border-left:none!important;border-right:none!important}.allin-registration{margin-top:7vh;padding:2em;box-shadow:5px 5px 5px 0 rgb(0,0,0,.1);border:1px solid #dedede}.custom-box{border-top:none!important;border-left:none!important;border-right:none!important;background:0 0!important}.custom-box.radio{border-bottom:none!important}.card-headers img{padding:0 20%}.card{border:3px solid transparent}#photo-banner .card{height:12.2em}.seperate{color:#3d3d3d;margin:0 -10px;position:relative}.modal-login .avatar{position:absolute;margin:0 auto;left:0;right:0;top:-70px;width:95px;height:95px;border-radius:50%;z-index:9;background:#60c7c1;padding:15px;box-shadow:0 2px 2px rgb(0 0 0 / 10%)}.modal-login .avatar i{font-size:38px;padding:10px;color:#fff}.modal-login .modal-title{width:100%;text-align:center;padding-top:1rem}.modal-login .avatar img{width:100%}.modal-login .modal-body{padding:1em 3em}.modal-footer{justify-content:center!important}.navbar{padding:20px 10px;}.navbar-light .navbar-nav .nav-link{color:rgba(0,0,0,.5);padding:0 20px}#btn-signup{padding:5px 30px;border: 1px solid #27387A;border-radius:20px;color:#000}#btn-signup:hover{background:#2d6689;padding:5px 30px;border-radius:20px;color:#fff}li.nav-menu{padding-top:5px}#edufair-title-container{background-repeat:no-repeat;background-size:80% auto;background-position:center 13%}#booking h2,#talks h2{font-family:Montserrat-ExtraBold;text-transform:uppercase;color:#0d2f7f}.edufair-uni-region{border:3px solid #efaa52;background:0 0;border-radius:12px;font-size:20px}.btn-book{background:#e78724;padding-left:1.5rem;text-align:left;font-size:1rem;border:none;font-weight:700;color:#fff;width:100%}.btn-book a{color:#fff;text-decoration:none}.card-topic{border-radius:0;background:#f7ead7}.img-topic{display:block;width:100%;min-height:200px;border-radius:25px}.talk-button{cursor:pointer}.day1talks{margin-top:3em}.day1talks,.day2talks{border:3px solid #12116e;border-radius:.5em;position:relative}.day1talks::before{content:"DAY 1";border:3px solid #12116e;border-radius:1.5em;padding:.2em 1.5em;position:absolute;top:0;margin-top:-1.2em;z-index:2;background:#fff;font-size:1.2em;color:#12116e;font-weight:700}.day2talks::before{content:"DAY 2";border:3px solid #12116e;border-radius:1.5em;padding:.2em 1.5em;position:absolute;top:0;margin-top:-1.2em;z-index:2;background:#fff;font-size:1.2em;color:#12116e;font-weight:700}#talks{height:auto;padding:20px 0 50px 0}#booking h5,#talks h5{color:#061f51;font-size:1.3em;text-align:justify}#booking{background-image:url(assets/img/home/bg-unilist.png);background-size:100% auto;background-position:bottom;background-repeat:no-repeat;padding-bottom:5em}.badge-warning{background-color:#e78724!important;border-radius:1em;padding:.3em .8em}#talks-section{background-image:url(assets/img/home/header-bg-3-f.png);background-size:100%;background-repeat:no-repeat}#register-form .card{border:1px solid #ccc;}.loading{position:fixed;left:0px;top:0px;width:100%;height:100%;z-index:9999;background-color:#FFF;background-image:url('assets/home/logo_normal_small-300x68-1-e1593521308518.png');background-position:center center;background-repeat: no-repeat;}.navbar.scrolled{background-color: #FFF !important;transition:background-color 200ms linear;}.nav-block{background: #0A2F7C;padding: 5px 1em;border-radius:1em;}.nav-block a{color:#FFF !important;}
+
+        #register-form {
+            background-image: url('<?php echo base_url(); ?>assets/user/dashboard/bg.jpg');
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: bottom;
+        }
+
+        #footer-copy {
+            background-image: url('<?php echo base_url(); ?>assets/user/dashboard/footer-copy.jpg');
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+
+        footer, .footer {
+            background-image: url('<?php echo base_url(); ?>assets/user/dashboard/footer.jpg');
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
 
         @media screen and (max-width: 576px) and (min-width: 375px) {
             .col-sm-6 {
@@ -211,17 +230,21 @@
             }
 
             #talks-section {
-                background-position: center 1%;
+                background-position: center 6%;
             }
         }
 
         @media (min-width: 1400px) {
+            .offset-xxl-7 {
+                margin-left: 58.333333%;
+            }
+
             #home h1.edufair-title {
                 font-size: 8.8em;
             }
 
             #talks-section {
-                background-position:center -5.5%;
+                background-position:center -7%;
             }
 
             

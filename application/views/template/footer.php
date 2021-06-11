@@ -116,48 +116,11 @@ $(".btn-book-consul").each(function() {
     });
 });
 
-// $("#dropdown-country .dropdown-item").each(function() {
-//     $(this).click(function() {
-//         var countryName = $(this).data('country');
-
-
-//         $.ajax({
-//             url: "<?php echo base_url(); ?>home/findUniByCountry",
-//             type: "post",
-//             data : {
-//                 countryName : countryName
-//             },
-//             success: function(msg) {
-//                 if(msg != "05") {
-//                     $(".box-book").html(msg);
-//                 } else {
-//                     Swal.fire({
-//                         icon: 'error',
-//                         title: 'Oops...',
-//                         text: 'Something went wrong! Please try again.'
-//                     });
-//                 }
-//             }
-//         });
-//     });
-// });
-
 
 $("#forgot-password").click(function(e) {
     e.preventDefault();
     $("#signUp .close").click();
     $("#forgotPass").modal('toggle');
-
-    // $("#signUpModal .modal-title").html("Forgot Password");
-    // $("#signUpModal .modal-body").html('<form action="" method="post">'+
-    //                 '<div class="form-group">'+
-    //                     '<input type="email" id="fp_email" class="form-control" name="fp_email" placeholder="Enter Your Email Address" required="required">'+
-    //                 '</div>'+
-    //                 '<div class="form-group">'+
-    //                     '<button type="button" class="btn btn-primary btn-lg btn-block fp-btn" onclick="forgotPassword()">Send</button>'+
-    //                 '</div>'+
-    //             '</form>');
-    // $("#signUpModal .modal-footer").html("");
 });
 
 function forgotPassword() {
@@ -215,7 +178,7 @@ $("#loginForm").submit(function(event) {
 </script>
 <script>
     $("#change-information").click(function() {
-        $("#view-form").hide();
+        // $("#view-form").hide();
         $("#edit-form").show();
     });
 
@@ -308,7 +271,7 @@ $("#loginForm").submit(function(event) {
                 cancelButtonText: 'No!'
             }).then((result) => {
                 if(result.isConfirmed) {
-
+                    Swal.showLoading();
                     var consultationId = $(this).data('consultation');
                     
                     $.ajax({
@@ -337,6 +300,10 @@ $("#loginForm").submit(function(event) {
             })  
         });
     });
+
+    $(".btn-save-profile").click(function() {
+        $("#btn-edit-profile").click(); 
+    });
 </script>
 <script>
 
@@ -357,6 +324,19 @@ function highlight(uni_id, e) {
 }
 
 $(document).ready(function(){
+
+    var url_string = window.location.href; //window.location.href
+    var url = new URL(url_string);
+    var section = url.searchParams.get("section");
+    if(section == "talks") {
+        $("html, body").animate({
+            scrollTop: $("#talks").offset().top
+        }, 800);
+    } else if (section == "booking") {
+        $("html, body").animate({
+            scrollTop: $("#booking").offset().top
+        }, 800);
+    }
 
   // Add smooth scrolling to all links
   $("a").on('click', function(event) {

@@ -25,10 +25,10 @@
   <!-- Section: Social media -->
 
   <!-- Section: Links  -->
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
+  <section class="footer">
+    <div class="container text-center text-md-start pt-5">
       <!-- Grid row -->
-      <div class="row mt-3">
+      <div class="row pt-3">
         <!-- Grid column -->
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
@@ -77,7 +77,7 @@
   <!-- Section: Links  -->
 
   <!-- Copyright -->
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+  <div class="text-center p-4" id="footer-copy">
     © 2020 Copyright:
     <a class="text-reset fw-bold" href="https://all-inedu.com">All-in Eduspace. All rights reserved.</a>
   </div>
