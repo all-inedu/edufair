@@ -1,10 +1,174 @@
-<div class="container-fluid" id="register-form" style="margin-top:15vh;margin-bottom:3rem;">
+<style>
+#register-form { color: #0C2F80; }
+#register-form .card{
+	background: transparent;
+	border: 1px solid #0C2F80;
+	border-radius: 1.2em;
+}
+#register-form .card h5, #register-form .card p { color: #0C2F80; }
+
+#register-form .card.profile h5 { color: #96B1CC; }
+.list-group-item {background: transparent !important; border: none !important;}
+.card-topic .list-group-item + .list-group-item, .card-consult .list-group-item + .list-group-item {
+	border-top: 1px solid blue !important;
+}
+.card-topic::before {
+	content: "Talks";
+	position: absolute;
+	top: 0;
+	background: #0C2F80;
+	padding: 7px 5em;
+	color: #FFF;
+	margin-top: -1.2em;
+	left: 1.5em;
+	border-radius: .5em;
+}
+
+.card-consult::before {
+	content: "Uni Consultation";
+	position: absolute;
+	top: 0;
+	background: #0C2F80;
+	padding: 7px 5em;
+	color: #FFF;
+	margin-top: -1.2em;
+	left: 1.5em;
+	border-radius: .5em;
+}
+
+#register-form .u-btn {
+	border: 1px solid;
+	padding: 5px 1.5em;
+	border-radius: 1.5em;
+}
+
+.cancel-booking-topic, .cancel-booking-consult { color: #F0AA53; border-color: #F0AA53; cursor: pointer; }
+.join-link { color: #E9C699; border-color: #E9C699; cursor: pointer; }
+
+</style>
+<div class="modal fade" id="editprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="#" method="post" id="personal-information-form" novalidate class="needs-validation">
+      <div class="modal-body">
+      	
+        <ul class="list-group list-group-flush" id="edit-form">
+		    <li class="list-group-item">
+		    	<div class="row pb-2">
+		    		<div class="col-lg-3"><b>First Name</b></div>
+		    		<div class="col-lg-3">
+		    			<input type="text" name="user_first_name" value="<?php echo $this->session->userdata('user_first_name'); ?>" class="form-control custom-box" />
+		    		</div>
+		    		<div class="col-lg-3"><b>Last Name</b></div>
+		    		<div class="col-lg-3">
+		    			<input type="text" name="user_last_name" value="<?php echo $this->session->userdata('user_last_name'); ?>" class="form-control custom-box" />
+		    		</div>
+		    	</div>
+		    </li>
+		    <li class="list-group-item">
+		    	<div class="row pt-2 pb-2">
+		    		<div class="col-lg-3"><b>Date of Birth</b></div>
+		    		<div class="col-lg-9">
+		    			<input type="date" name="user_dob" value="<?php echo $this->session->userdata('user_dob'); ?>" class="form-control custom-box">
+		    			
+		    		</div>
+		    	</div>
+		    </li>
+		    <li class="list-group-item">
+		    	<div class="row pt-2 pb-2">
+		    		<div class="col-lg-3"><b>Phone</b></div>
+		    		<div class="col-lg-9">
+		    			<input type="text" name="user_phone" value="<?php echo $this->session->userdata('user_phone'); ?>" class="form-control custom-box" />
+		    		</div>
+		    	</div>
+		    </li>
+		    <li class="list-group-item">
+		    	<div class="row pt-2 pb-2">
+		    		<div class="col-lg-3"><b>Email</b></div>
+		    		<div class="col-lg-9">
+		    			<input type="email" name="user_email" value="<?php echo $this->session->userdata('user_email'); ?>" class="form-control custom-box" />
+		    		</div>
+		    	</div>
+		    </li>
+		    <li class="list-group-item">
+		    	<div class="row pt-2 pb-2">
+		    		<div class="col-lg-3"><b>School</b></div>
+		    		<div class="col-lg-9">
+			    		<select name="school_option" id="userSchool" onchange="checkValue('userSchool')" required
+                            oninvalid="validation('userSchool')">
+                            <option value="<?php echo $this->session->userdata('user_school'); ?>" data-placeholder="true"><?php echo $this->session->userdata('user_school'); ?></option>
+                            <option value="other">Other</option>
+                        </select>
+                        <input type="text" class="form-control form-control-sm mt-1" id="userSchoolNew">
+                   		<input type="hidden" value="<?php echo $this->session->userdata('user_school'); ?>" name="user_school" id="user_school">
+                    </div>
+		    	</div>
+		    </li>
+		    <li class="list-group-item">
+		    	<div class="row pt-2 pb-2">
+		    		<div class="col-lg-3"><b>Destination</b></div>
+		    		<div class="col-lg-9">
+		    			<select id="userDestination" onchange="checkValue('userDestination')" multiple required
+                            oninvalid="validation('userDestination')">
+                            <?php
+                            for($i = 0 ; $i < count($dataCountry); $i++){ 
+                            	?>
+                            	<option value="<?php echo $dataCountry[$i]; ?>"><?php echo $dataCountry[$i]; ?></option>
+                            	<?php
+                            }
+                            ?>
+                        </select>
+                        <input type="hidden" value="<?php echo $this->session->userdata('user_country'); ?>" name="user_destination" id="user_destination">
+		    		</div>
+		    	</div>
+		    </li>
+		    <li class="list-group-item">
+		    	<div class="row pt-2">
+		    		<div class="col-lg-3"><b>Major</b></div>
+		    		<div class="col-lg-9">
+		    			<select id="userMajor" onchange="checkValue('userMajor')" multiple required
+                            oninvalid="validation('userMajor')">
+                            <option value="other">Other</option>
+                            <?php
+                            for($i = 0 ; $i < count($dataMajor); $i++){ 
+                            	?>
+                            	<option value="<?php echo $dataMajor[$i]; ?>"><?php echo $dataMajor[$i]; ?></option>
+                            	<?php
+                            }
+                            ?>
+                        </select>
+                        <input type="text" class="form-control form-control-sm mt-1 custom-box" name="user_major_other"
+                            id="userMajorNew">
+                        <input type="hidden" value="<?php echo $this->session->userdata('user_major'); ?>" name="user_major" id="user_major">
+		    		</div>
+		    	</div>
+		    </li>
+		    
+		</ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button class="btn btn-primary btn-edit-profile" type="submit">Save</button>
+      </div>
+
+		</form>
+    </div>
+  </div>
+</div>
+<!-- body -->
+<div class="container-fluid" id="register-form" style="padding-top:15vh;padding-bottom:3rem;">
     <div class="container">
     	<div class="row">
 	    	<div class="col-lg-4">
 	    		<div class="row">
 	    			<div class="col-lg-12">
-	    				<div class="card">
+	    				<div class="card profile">
 			    			<div class="card-body">
 				    			<div class="row text-center">
 				    				<div class="col-lg-12">
@@ -20,17 +184,60 @@
 				    					<h4><?php echo $this->session->userdata('user_first_name')." ".$this->session->userdata('user_last_name'); ?></h4>
 				    				</div>
 				    				<div class="col-lg-12">
-				    					<p><?php echo ucfirst($this->session->userdata('user_status')); ?></p>
+				    					<h5><?php echo ucfirst($this->session->userdata('user_status')); ?></h5>
 				    				</div>
 				    				<div class="col-lg-12">
-				    					<button class="btn btn-primary" id="change-information"><i class="fas fa-edit"></i> Change My Personal Information</button>
+				    					<button class="btn btn-warning" style="color: #FFF;padding:5px 2em;background: #F0AA53" id="change-information" data-toggle="modal" data-target="#editprofile">Edit Profile</button>
+				    					<a href="https://all-inedu.com/sign-me/"><button class="btn btn-danger">Initial Consult</button></a>
+				    				</div>
+				    			</div>
+				    			<div class="row">
+				    				<div class="col-lg-12">
+				    					<ul class="list-group list-group-flush" id="view-form">
+				    						<li class="list-group-item">
+										    	<div class="row pt-2 pb-2">
+										    		<div class="col-lg-5"><b>Date of Birth</b></div>
+										    		<div class="col-lg-7"><?php echo date('d M Y', strtotime($this->session->userdata('user_dob'))); ?></div>
+										    	</div>
+										    </li>
+										    <li class="list-group-item">
+										    	<div class="row pt-2 pb-2">
+										    		<div class="col-lg-5"><b>Phone</b></div>
+										    		<div class="col-lg-7"><?php echo $this->session->userdata('user_phone'); ?></div>
+										    	</div>
+										    </li>
+										    <li class="list-group-item">
+										    	<div class="row pt-2 pb-2">
+										    		<div class="col-lg-5"><b>Email</b></div>
+										    		<div class="col-lg-7"><?php echo $this->session->userdata('user_email'); ?></div>
+										    	</div>
+										    </li>
+										    <li class="list-group-item">
+										    	<div class="row pt-2 pb-2">
+										    		<div class="col-lg-5"><b>School</b></div>
+										    		<div class="col-lg-7"><?php echo $this->session->userdata('user_school'); ?></div>
+										    	</div>
+										    </li>
+										    <li class="list-group-item">
+										    	<div class="row pt-2 pb-2">
+										    		<div class="col-lg-5"><b>Destination</b></div>
+										    		<div class="col-lg-7"><?php echo $this->session->userdata('user_country'); ?></div>
+										    	</div>
+										    </li>
+										    <li class="list-group-item">
+										    	<div class="row pt-2">
+										    		<div class="col-lg-5"><b>Major</b></div>
+										    		<div class="col-lg-7"><?php echo $this->session->userdata('user_major'); ?></div>
+										    	</div>
+										    </li>
+				    					</ul>
 				    				</div>
 				    			</div>
 				    		</div>
 			    		</div>
 	    			</div>
 	    		</div>
-	    		<div class="row mt-4">
+	    		<!-- <div class="row mt-4">
 	    			<div class="col-lg-12">
 	    				<div class="card">
     						<div class="list-group" id="list-tab" role="tablist">
@@ -39,244 +246,115 @@
 						    </div>
 	    				</div>
 	    			</div>
-	    		</div>
+	    		</div> -->
 	    	</div>
 	    	<div class="col-lg-8">
-	    		<div class="row">
-	    			<div class="col">
-	    				<div class="card">
-			    			<div class="card-body">
-			    				<ul class="list-group list-group-flush" id="view-form">
-								    <li class="list-group-item">
-								    	<div class="row pb-2">
-								    		<div class="col-lg-3"><b>Full Name</b></div>
-								    		<div class="col-lg-9"><?php echo $this->session->userdata('user_first_name')." ".$this->session->userdata('user_last_name'); ?></div>
-								    	</div>
-								    </li>
-								    <li class="list-group-item">
-								    	<div class="row pt-2 pb-2">
-								    		<div class="col-lg-3"><b>Date of Birth</b></div>
-								    		<div class="col-lg-9"><?php echo date('d M Y', strtotime($this->session->userdata('user_dob'))); ?></div>
-								    	</div>
-								    </li>
-								    <li class="list-group-item">
-								    	<div class="row pt-2 pb-2">
-								    		<div class="col-lg-3"><b>Phone</b></div>
-								    		<div class="col-lg-9"><?php echo $this->session->userdata('user_phone'); ?></div>
-								    	</div>
-								    </li>
-								    <li class="list-group-item">
-								    	<div class="row pt-2 pb-2">
-								    		<div class="col-lg-3"><b>Email</b></div>
-								    		<div class="col-lg-9"><?php echo $this->session->userdata('user_email'); ?></div>
-								    	</div>
-								    </li>
-								    <li class="list-group-item">
-								    	<div class="row pt-2 pb-2">
-								    		<div class="col-lg-3"><b>School</b></div>
-								    		<div class="col-lg-9"><?php echo $this->session->userdata('user_school'); ?></div>
-								    	</div>
-								    </li>
-								    <li class="list-group-item">
-								    	<div class="row pt-2 pb-2">
-								    		<div class="col-lg-3"><b>Destination</b></div>
-								    		<div class="col-lg-9"><?php echo $this->session->userdata('user_country'); ?></div>
-								    	</div>
-								    </li>
-								    <li class="list-group-item">
-								    	<div class="row pt-2">
-								    		<div class="col-lg-3"><b>Major</b></div>
-								    		<div class="col-lg-9"><?php echo $this->session->userdata('user_major'); ?></div>
-								    	</div>
-								    </li>
-								</ul>
-								<form action="#" method="post" id="personal-information-form" novalidate class="needs-validation">
-								<ul class="list-group list-group-flush" id="edit-form" style="display: none">
-								    <li class="list-group-item">
-								    	<div class="row pb-2">
-								    		<div class="col-lg-3"><b>First Name</b></div>
-								    		<div class="col-lg-3">
-								    			<input type="text" name="user_first_name" value="<?php echo $this->session->userdata('user_first_name'); ?>" class="form-control custom-box" />
-								    		</div>
-								    		<div class="col-lg-3"><b>Last Name</b></div>
-								    		<div class="col-lg-3">
-								    			<input type="text" name="user_last_name" value="<?php echo $this->session->userdata('user_last_name'); ?>" class="form-control custom-box" />
-								    		</div>
-								    	</div>
-								    </li>
-								    <li class="list-group-item">
-								    	<div class="row pt-2 pb-2">
-								    		<div class="col-lg-3"><b>Date of Birth</b></div>
-								    		<div class="col-lg-9">
-								    			<input type="date" name="user_dob" value="<?php echo $this->session->userdata('user_dob'); ?>" class="form-control custom-box">
-								    			
-								    		</div>
-								    	</div>
-								    </li>
-								    <li class="list-group-item">
-								    	<div class="row pt-2 pb-2">
-								    		<div class="col-lg-3"><b>Phone</b></div>
-								    		<div class="col-lg-9">
-								    			<input type="text" name="user_phone" value="<?php echo $this->session->userdata('user_phone'); ?>" class="form-control custom-box" />
-								    		</div>
-								    	</div>
-								    </li>
-								    <li class="list-group-item">
-								    	<div class="row pt-2 pb-2">
-								    		<div class="col-lg-3"><b>Email</b></div>
-								    		<div class="col-lg-9">
-								    			<input type="email" name="user_email" value="<?php echo $this->session->userdata('user_email'); ?>" class="form-control custom-box" />
-								    		</div>
-								    	</div>
-								    </li>
-								    <li class="list-group-item">
-								    	<div class="row pt-2 pb-2">
-								    		<div class="col-lg-3"><b>School</b></div>
-								    		<div class="col-lg-9">
-									    		<select name="school_option" id="userSchool" onchange="checkValue('userSchool')" required
-					                                oninvalid="validation('userSchool')">
-					                                <option value="<?php echo $this->session->userdata('user_school'); ?>" data-placeholder="true"><?php echo $this->session->userdata('user_school'); ?></option>
-					                                <option value="other">Other</option>
-					                            </select>
-					                            <input type="text" class="form-control form-control-sm mt-1" id="userSchoolNew">
-				                           		<input type="hidden" value="<?php echo $this->session->userdata('user_school'); ?>" name="user_school" id="user_school">
-					                        </div>
-								    	</div>
-								    </li>
-								    <li class="list-group-item">
-								    	<div class="row pt-2 pb-2">
-								    		<div class="col-lg-3"><b>Destination</b></div>
-								    		<div class="col-lg-9">
-								    			<select id="userDestination" onchange="checkValue('userDestination')" multiple required
-					                                oninvalid="validation('userDestination')">
-					                                <?php
-					                                for($i = 0 ; $i < count($dataCountry); $i++){ 
-					                                	?>
-					                                	<option value="<?php echo $dataCountry[$i]; ?>"><?php echo $dataCountry[$i]; ?></option>
-					                                	<?php
-					                                }
-					                                ?>
-					                            </select>
-					                            <input type="hidden" value="<?php echo $this->session->userdata('user_country'); ?>" name="user_destination" id="user_destination">
-								    		</div>
-								    	</div>
-								    </li>
-								    <li class="list-group-item">
-								    	<div class="row pt-2">
-								    		<div class="col-lg-3"><b>Major</b></div>
-								    		<div class="col-lg-9">
-								    			<select id="userMajor" onchange="checkValue('userMajor')" multiple required
-					                                oninvalid="validation('userMajor')">
-					                                <option value="other">Other</option>
-					                                <?php
-					                                for($i = 0 ; $i < count($dataMajor); $i++){ 
-					                                	?>
-					                                	<option value="<?php echo $dataMajor[$i]; ?>"><?php echo $dataMajor[$i]; ?></option>
-					                                	<?php
-					                                }
-					                                ?>
-					                            </select>
-					                            <input type="text" class="form-control form-control-sm mt-1 custom-box" name="user_major_other"
-					                                id="userMajorNew">
-					                            <input type="hidden" value="<?php echo $this->session->userdata('user_major'); ?>" name="user_major" id="user_major">
-								    		</div>
-								    	</div>
-								    </li>
-								    <li class="list-group-item text-right">
-								    	<button class="btn btn-primary" type="submit">Save</button>
-								    	<div class="test"></div>
-								    </li>
-								</ul>
-								</form>
-			    			</div>
-			    		</div>
-	    			</div>
-	    		</div>
-	    		<div class="row mt-4">
+	    		<div class="row mt-3">
 	    			<div class="col-lg-12">
-	    				<div class="card">
-	    					<div class="card-body">
-	    						<div class="tab-content">
-	    							<div class="tab-pane fade show active" id="list-topic" role="tabpanel" aria-labelledby="topic-schedule">
-	    								<?php if( (isset($dataTopic)) && (count($dataTopic) > 0) ) { ?>
-			    						<h4>Your Scheduled Topics</h4>
-		    							<div class="list-group mt-4">
-			    						<?php
-			    						foreach($dataTopic as $row) {
-			    							$today = date_create(date('Y-m-d'));
-			    							$eventDate = date_create($row->topic_start_date);
-			    							$diff = date_diff($today, $eventDate);
+	    				<div class="card card-topic">
+	    					<div class="card-body ml-3">
+	    						<?php if( (isset($dataTopic)) && (count($dataTopic) > 0) ) { ?>
+    							<div class="list-group mt-4">
+    								<h4>Scheduled Talks</h4>
+	    						<?php
+	    						foreach($dataTopic as $row) {
+	    							$topic_start_date = new DateTime($row->topic_start_date);
+	    							$today = date_create(date('Y-m-d'));
+	    							$eventDate = date_create($row->topic_start_date);
+	    							$diff = date_diff($today, $eventDate);
 
-			    							if($today < $eventDate)
-			    								$string = $diff->format("%d")." days to go";
-			    							else
-			    								$string = "expired";
-			    							?>
-												<div class="list-group-item list-group-item-action flex-column align-items-start">
-													<div class="d-flex w-100 justify-content-between">
-														<h5 class="mb-1"><?php echo $row->topic_name; ?></h5>
-														<small><?php echo $string; ?></small>
-													</div>
-													<p class="mb-1"><i class="fas fa-calendar-alt"></i> <?php echo date('d M Y H:i', strtotime($row->topic_start_date)); ?></p>
-													<?php
-													if($diff->format("%d") > 1) {
-														?>	
-														<small class="cancel-booking-topic" data-topic="<?php echo rtrim(strtr(base64_encode($row->topic_id), '+/', '-_'), '='); ?>" style=" color: red;cursor: pointer;">Cancel</small>
-														<?php
-													} else {
-														?>
-														<small data-link="<?php echo $row->topic_zoom_link; ?>" class="join-link" style=" color: blue">Click to join talks</small>
-														<?php
-													}	
-													?>
-												</div>
-			    							<?php
-			    						}
-			    						?>
-										</div>
-										<?php } else { echo "No Scheduled Topic for you"; }?>
-									</div>
-									<div class="tab-pane fade" id="list-consult" role="tabpanel" aria-labelledby="consult-schedule">
-										<?php if( (isset($dataConsult)) && (count($dataConsult) > 0) ) { ?>
-										<h4>Your Scheduled Consultation</h4>
-										<div class="list-group mt-4">
-										<?php
-										foreach($dataConsult as $row) {
-											$today = date_create(date('Y-m-d'));
-			    							$eventDate = date_create($row->uni_dtl_t_start_time);
-			    							$diff = date_diff($today, $eventDate);
-
-			    							if($today < $eventDate)
-			    								$string = $diff->format("%d")." days to go";
-			    							else
-			    								$string = "expired";
-											?>
-											<div class="list-group-item list-group-item-action flex-column align-items-start">
-												<!-- <img src="<?php echo base_url()."assets/uni/banner/".$row->uni_photo_banner; ?>" alt="" width="100px"> -->
-												<div class="d-flex w-100 justify-content-between">
-													<h5 class="mb-1"><?php echo $row->uni_name; ?></h5>
-													<small><?php echo $string; ?></small>
-												</div>
-												<p class="mb-1"><i class="fas fa-calendar-alt"></i> <?php echo date('d M Y H:i', strtotime($row->uni_dtl_t_start_time)); ?></p>
+	    							if($today < $eventDate)
+	    								$string = $diff->format("%d")." days to go";
+	    							else
+	    								$string = "expired";
+	    							?>
+										<div class="list-group-item list-group-item-action flex-column align-items-start">
+											<div class="d-flex w-100 justify-content-between">
+												<h5 class="mb-1"><b><?php echo $row->topic_name; ?></b></h5>
+												<!-- <small><?php echo $string; ?></small> -->
 												<?php
 												if($diff->format("%d") > 1) {
 													?>	
-													<small class="cancel-booking-consult" data-consultation="<?php echo rtrim(strtr(base64_encode($row->uni_detail_time_id), '+/', '-_'), '='); ?>" style=" color: red; cursor: pointer">Cancel</small>
+													<small class="u-btn cancel-booking-topic" data-topic="<?php echo rtrim(strtr(base64_encode($row->topic_id), '+/', '-_'), '='); ?>">Cancel</small>
 													<?php
 												} else {
 													?>
-													<small data-link="<?php echo $row->uni_dtl_zoom_link; ?>" class="join-link" style=" color: blue">Click to join consultation</small>
+													<small data-link="<?php echo $row->topic_zoom_link; ?>" class="u-btn join-link" >Click to join talks</small>
 													<?php
 												}	
 												?>
 											</div>
-											<?php
-										}
-										?>
+											<p class="mb-1"><i class="fas fa-calendar-alt"></i> <?php echo $topic_start_date->format('M, dS Y - H:i') ?></p>
+											
 										</div>
-									<?php } else { echo "No Scheduled Consultation for you"; }?>
-									</div>
+	    							<?php
+	    						}
+	    						?>
 								</div>
+								<?php } else { ?><br>
+									<p>You haven't book a topic. Click <a href="<?php echo base_url(); ?>?section=talks">here</a> to book a topic.</p>
+									<?php
+									}
+								?>
+	    						<!-- <div class="tab-content">
+	    							<div class="tab-pane fade show active" id="list-topic" role="tabpanel" aria-labelledby="topic-schedule">
+	    								
+									</div>
+									<div class="tab-pane fade" id="list-consult" role="tabpanel" aria-labelledby="consult-schedule">
+										
+									</div>
+								</div> -->
+	    					</div>
+	    				</div>
+	    			</div>
+	    		</div>
+	    		<div class="row" style="margin-top:4em">
+	    			<div class="col-lg-12">
+	    				<div class="card card-consult">
+	    					<div class="card-body ml-3">
+	    						<?php if( (isset($dataConsult)) && (count($dataConsult) > 0) ) { ?>
+								<div class="list-group mt-4">
+									<h4>Scheduled Consultations</h4>
+								<?php
+								foreach($dataConsult as $row) {
+									$topic_start_date = new DateTime($row->uni_dtl_t_start_time);
+									$today = date_create(date('Y-m-d'));
+	    							$eventDate = date_create($row->uni_dtl_t_start_time);
+	    							$diff = date_diff($today, $eventDate);
+
+	    							if($today < $eventDate)
+	    								$string = $diff->format("%d")." days to go";
+	    							else
+	    								$string = "expired";
+									?>
+									<div class="list-group-item list-group-item-action flex-column align-items-start">
+										<!-- <img src="<?php echo base_url()."assets/uni/banner/".$row->uni_photo_banner; ?>" alt="" width="100px"> -->
+										<div class="d-flex w-100 justify-content-between">
+											<h5 class="mb-1"><b><?php echo $row->uni_name; ?></b></h5>
+											<!-- <small><?php echo $string; ?></small> -->
+											<?php
+											if($diff->format("%d") > 1) {
+												?>	
+												<small class="u-btn cancel-booking-consult" data-consultation="<?php echo rtrim(strtr(base64_encode($row->uni_detail_time_id), '+/', '-_'), '='); ?>">Cancel</small>
+												<?php
+											} else {
+												?>
+												<small data-link="<?php echo $row->uni_dtl_zoom_link; ?>" class="u-btn join-link">Click to join consultation</small>
+												<?php
+											}	
+											?>
+										</div>
+										<p class="mb-1"><i class="fas fa-calendar-alt"></i> <?php echo $topic_start_date->format('M, dS Y - H:i') ?></p>
+										
+									</div>
+									<?php
+								}
+								?>
+								</div>
+							<?php } else {?> <br>
+								<p>You haven't book a consultation. Click <a href="<?php echo base_url(); ?>?section=booking">here</a> to book a consultation.</p>
+							<?php
+							 	}	?>
 	    					</div>
 	    				</div>
 	    			</div>

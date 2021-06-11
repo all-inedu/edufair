@@ -53,7 +53,6 @@ $route['default_controller'] = 'HomeController/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-
 $route['api/country/(:any)'] = 'ApiController/showCountry/$1';
 $route['api/country/(:any)'] = 'ApiController/showCountry/$1';
 $route['api/participant/(:any)'] = 'ApiController/showParticipant/$1';
