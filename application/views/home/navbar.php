@@ -39,9 +39,9 @@
                         Welcome, <?php echo $this->session->userdata('user_first_name'); ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="userMenuLink">
-                        <a class="dropdown-item" href="<?php echo base_url(); ?>home/dashboard"><i
+                        <a class="dropdown-item" href="<?php echo base_url(); ?>home/dashboard" style="color: #0A2F7C !important;"><i
                                 class="far fa-address-card"></i> Profile</a>
-                        <a class="dropdown-item" href="<?php echo base_url(); ?>logout"><i
+                        <a class="dropdown-item" href="<?php echo base_url(); ?>logout" style="color: #0A2F7C !important;"><i
                                 class="fas fa-sign-out-alt"></i> Logout</a>
                     </div>
                 </li>
