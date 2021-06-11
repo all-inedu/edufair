@@ -21,11 +21,11 @@ $(document).ready(function() {
 
     var tables = $('#dataTable').DataTable({
         "scrollX": true,
-        dom: 'Bfrtip',
-        buttons: [{
-            extend: 'excel',
-            text: '<i class="fas fa-file-excel"></i> &nbsp; Export to Excel'
-        }]
+        // dom: 'Bfrtip',
+        // buttons: [{
+        //     extend: 'excel',
+        //     text: '<i class="fas fa-file-excel"></i> &nbsp; Export to Excel'
+        // }]
     });
 });
 </script>

@@ -16,11 +16,13 @@
 <script src="<?=base_url('assets/js/jquery.flipTimer.js');?>"></script>
 <script src="//unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init();
+AOS.init();
 
 $(window).on('load', function() {
-    $(".loading").fadeOut("slow");
-    $("body").css({"overflow":"auto"});
+    // $(".loading").fadeOut("slow");
+    $("body").css({
+        "overflow": "auto"
+    });
 });
 </script>
 <script type="text/javascript">
@@ -58,15 +60,15 @@ $(".navigate-page-2").on('click', function() {
 $(".btn-book-consul").each(function() {
     $(this).click(function() {
         var user_id = "<?php echo $this->session->userdata('user_id'); ?>";
-        if( (user_id == "") ) {
+        if ((user_id == "")) {
             var parent = $(this).closest(".modal").attr('id');
-            $("#"+parent+" .close").click(); // close booking consult modal
+            $("#" + parent + " .close").click(); // close booking consult modal
             $("#btn-signup").click(); // show login modal
-            
+
             return;
         }
 
-        var startTime = $(this).data('starttime'); 
+        var startTime = $(this).data('starttime');
         var endTime = $(this).data('endtime');
         var unidtltimeid = $(this).data('unidtltimeid');
         var splitTime = startTime.split(" ");
@@ -74,29 +76,31 @@ $(".btn-book-consul").each(function() {
         var show_startTime = splitTime[1];
 
         var showDate = new Date(show_startDate);
-        var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][showDate.getMonth()];
+        var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+            [showDate.getMonth()];
         var str_showDate = showDate.getDate() + " " + month + " " + showDate.getFullYear();
 
         swal.fire({
             icon: 'question',
-            title: 'Are you sure to book a consultation on <br><b>'+str_showDate+'</b> at <b> '+show_startTime.substr(0, 5)+' </b> ?',
+            title: 'Are you sure to book a consultation on <br><b>' + str_showDate +
+                '</b> at <b> ' + show_startTime.substr(0, 5) + ' </b> ?',
             showCancelButton: true,
             focusConfirm: false,
             confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
             cancelButtonText: 'Wait!'
         }).then((result) => {
-            if(result.isConfirmed) {
+            if (result.isConfirmed) {
                 $.ajax({
                     url: '<?php echo base_url(); ?>registration/consult/booking',
                     type: 'post',
                     data: {
-                        startTime : startTime,
-                        endTime : endTime,
-                        unidtltimeid : unidtltimeid
+                        startTime: startTime,
+                        endTime: endTime,
+                        unidtltimeid: unidtltimeid
                     },
                     success: function(msg) {
                         console.log(msg);
-                        if(msg == "001") {
+                        if (msg == "001") {
                             Swal.fire({
                                 icon: 'success',
                                 title: 'You have successfully booked the schedule',
@@ -131,10 +135,10 @@ function forgotPassword() {
         url: "<?php echo base_url(); ?>forgot-password",
         type: "post",
         data: {
-            fpEmail : fpEmail
+            fpEmail: fpEmail
         },
         success: function(msg) {
-            if(msg) {
+            if (msg) {
                 Swal.fire({
                     icon: 'success',
                     title: 'Please Check Your Email',
@@ -143,13 +147,13 @@ function forgotPassword() {
                 window.location = "<?php echo base_url(); ?>";
             } else {
                 Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Something went wrong! Please try again.'
-                    });
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong! Please try again.'
+                });
             }
         }
-    }) 
+    })
 }
 
 $("#loginForm").submit(function(event) {
@@ -162,7 +166,7 @@ $("#loginForm").submit(function(event) {
         type: "POST",
         data: $("#loginForm").serialize(),
         success: function(msg) {
-            
+
             if (msg == "001") {
                 location.reload();
             } else {
@@ -182,83 +186,97 @@ $("#loginForm").submit(function(event) {
         $("#edit-form").show();
     });
 
-    $("#personal-information-form").submit(function(event) {
-        event.preventDefault();
+$("#personal-information-form").submit(function(event) {
+    event.preventDefault();
 
-        if ($("#personal-information-form")[0].checkValidity() === false) {
-            event.stopPropagation();
-        } else {
-            Swal.showLoading();
+    if ($("#personal-information-form")[0].checkValidity() === false) {
+        event.stopPropagation();
+    } else {
+        Swal.showLoading();
 
-            $.ajax({
-                url: "<?php echo base_url(); ?>home/dashboard/update/information",
-                type: 'post',
-                data: $("#personal-information-form").serialize(),
-                success: function(msg) {
-                    if(msg == "001") {
-                        location.reload();
-                    } else {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Something went wrong! Please try again.'
-                        });
-                    }
-                }
-            })
-        }
-    });
-</script>
-<script>
-
-    $(".join-link").each(function() {
-        $(this).click(function() {
-            var link = $(this).data('link');
-            window.location = link; 
-        });
-    });
-
-    $(".cancel-booking-topic").each(function() {
-        $(this).click(function() {
-            //tambah konfirmasi
-            swal.fire({
-                icon: 'question',
-                title: 'Are you sure to cancel this talks ?',
-                showCancelButton: true,
-                focusConfirm: false,
-                confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
-                cancelButtonText: 'No!'
-            }).then((result) => {
-                if(result.isConfirmed) {
-
-                    var topicId = $(this).data('topic');
-                    
-                    $.ajax({
-                        url: "<?php echo base_url(); ?>/home/cancel/topic",
-                        type: "post",
-                        data: {
-                            topicId : topicId
-                        },
-                        success: function(msg) {
-                            if(msg == 1) {
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'The topic has been canceled'
-                                });
-                                location.reload();
-                            } else {
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Oops...',
-                                    text: 'Something went wrong! Please try again.'
-                                });
-                            }
-                        }
+        $.ajax({
+            url: "<?php echo base_url(); ?>home/dashboard/update/information",
+            type: 'post',
+            data: $("#personal-information-form").serialize(),
+            success: function(msg) {
+                if (msg == "001") {
+                    location.reload();
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong! Please try again.'
                     });
                 }
-            })  
-        });
+            }
+        })
+    }
+});
+</script>
+<script>
+$(".join-link").each(function() {
+    $(this).click(function() {
+        var link = $(this).data('link');
+        window.location = link;
     });
+});
+
+$(".cancel-booking-topic").each(function() {
+    $(this).click(function() {
+        //tambah konfirmasi
+        swal.fire({
+            icon: 'question',
+            title: 'Are you sure to cancel this talks ?',
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
+            cancelButtonText: 'No!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                var topicId = $(this).data('topic');
+
+                $.ajax({
+                    url: "<?php echo base_url(); ?>/home/cancel/topic",
+                    type: "post",
+                    data: {
+                        topicId: topicId
+                    },
+                    success: function(msg) {
+                        if (msg == 1) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'The topic has been canceled'
+                            });
+                            location.reload();
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong! Please try again.'
+                            });
+                        }
+                    }
+                });
+            }
+        })
+    });
+});
+
+$(".cancel-booking-consult").each(function() {
+    $(this).click(function() {
+        swal.fire({
+            icon: 'question',
+            title: 'Are you sure to cancel this consultation ?',
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
+            cancelButtonText: 'No!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                var consultationId = $(this).data('consultation');
+
 
     $(".cancel-booking-consult").each(function() {
         $(this).click(function() {
@@ -294,10 +312,11 @@ $("#loginForm").submit(function(event) {
                                     text: 'Something went wrong! Please try again.'
                                 });
                             }
+
                         }
                     });
                 }
-            })  
+            })
         });
     });
 
@@ -306,20 +325,21 @@ $("#loginForm").submit(function(event) {
     });
 </script>
 <script>
-
 function highlight(uni_id, e) {
 
-    $(".card").css({ "border" : "3px solid transparent" });
+    $(".card").css({
+        "border": "3px solid transparent"
+    });
 
-    var uniContainer = $("#uni-"+uni_id+" .card").offset().top;
+    var uniContainer = $("#uni-" + uni_id + " .card").offset().top;
     var parentContainer = $(".box-book").offset().top;
 
-    var distance = uniContainer-parentContainer;
+    var distance = uniContainer - parentContainer;
 
     $(".box-book").scrollTop(distance);
 
-    $("#uni-"+uni_id+" .card").css({
-        "border" : "3px solid #e78724"
+    $("#uni-" + uni_id + " .card").css({
+        "border": "3px solid #e78724"
     });
 }
 
@@ -363,4 +383,5 @@ $(document).ready(function(){
   });
 });
 </script>
+
 </html>

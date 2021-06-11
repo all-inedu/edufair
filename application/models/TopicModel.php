@@ -192,12 +192,16 @@ class TopicModel extends CI_Model {
           tb_user.user_status,
           tb_user.user_email,
           tb_user.user_school,
-          tb_user.user_grade
+          tb_user.user_grade,
+          tb_user.user_dob,
+          tb_user.user_know_from
           
       ');
       $this->db->from('tb_topic');
       $this->db->order_by('tb_topic.topic_start_date','ASC');
-      $this->db->order_by('tb_user.user_first_name','ASC');
+      $this->db->order_by('tb_booking_topic.booking_topic_status','DESC');
+       $this->db->order_by('tb_user.user_first_name','ASC');
+      $this->db->order_by('tb_user.user_status','ASC');
       $this->db->where('tb_topic.topic_status', 1);
       $this->db->join('tb_booking_topic', 'tb_booking_topic.topic_id=tb_topic.topic_id','left');
       $this->db->join('tb_user', 'tb_user.user_id=tb_booking_topic.user_id', 'left');
@@ -223,6 +227,8 @@ class TopicModel extends CI_Model {
             "user_school"           => $row['user_school'],
             "user_grade"            => $row['user_grade'],
             "booking_topic_status"  => $row['booking_topic_status'],
+            "user_dob"              => $row['user_dob'],
+            "user_know_from"        => $row['user_know_from'],
         ];
       }
       return $data;
@@ -268,6 +274,16 @@ class TopicModel extends CI_Model {
       } else {
           return false;
       }
+    }
+
+    function getBookingTopicById($id, $d) {
+      $this->db->select('*');
+      $this->db->where('tb_booking_topic.user_id', $id);
+      $this->db->where('tb_booking_topic.booking_topic_status', 1);
+      $this->db->where('date(tb_topic.topic_start_date)', $d);
+      $this->db->from('tb_booking_topic');
+      $this->db->join('tb_topic', 'tb_topic.topic_id=tb_booking_topic.topic_id');
+      return $this->db->get()->result_array();
     }
 
 }

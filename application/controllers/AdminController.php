@@ -418,11 +418,27 @@ class AdminController extends CI_Controller {
 		// echo json_encode($data);
 	}
 
+	function exportBookTopic()
+	{
+		$this->checkAuth();
+		$data['top'] = $this->topic->getTopicStatusData(1);
+		$data['topic'] = $this->topic->getBookingTopic();
+		$this->load->view('admin/page/book-topic/export/excel', $data);
+	}
+
 	function indexBookConsult()
 	{
 		$this->checkAuth();
 		$data['uni'] = $this->uni->getBookConsult();
 		$this->load->view('admin/page/book-consult/index', $data);
+		// echo json_encode($data);
+	}
+
+	function exportBookConsult()
+	{
+		$this->checkAuth();
+		$data['uni'] = $this->uni->getBookConsult();
+		$this->load->view('admin/page/book-consult/export/excel', $data);
 		// echo json_encode($data);
 	}
 

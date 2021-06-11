@@ -51,8 +51,8 @@
                 </li>
                 <?php } ?>
 
-            </ul>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 </div>

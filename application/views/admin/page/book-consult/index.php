@@ -18,6 +18,10 @@
                     </ol>
                     <div class="card mb-4">
                         <div class="card-body">
+                            <a href="<?=base_url('dashboard/admin/book/export/consult');?>" target="_blank"
+                                class="btn btn-sm btn-dark float-right mb-3"><i class="fas fa-file-excel"></i> &nbsp;
+                                Export to
+                                Excel</a>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover nowrap" id="dataTopic" cellspacing="0">
                                     <thead class="text-center">
@@ -25,7 +29,8 @@
                                             <th>No</th>
                                             <th>University Name</th>
                                             <th>Participants</th>
-                                            <th>Total</th>
+                                            <th>Total Join</th>
+                                            <th>Total Cancel</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -39,6 +44,8 @@
                                             <td>
                                                 <table style="font-size:12px;" width="100%">
                                                     <?php 
+                                                    $join = [];
+                                                    $cancel = [];
                                                     foreach ($u['user'] as $user) {
                                                         if($user['user_id']=="") {
                                                             echo "<tr class='text-center'><td colspan=5>-</td></tr>";
@@ -46,9 +53,11 @@
                                                             if($user['booking_c_status']==0){
                                                                 $status ="text-danger";  
                                                                 $title ="Cancel";
+                                                                 $cancel[] = $user['booking_c_status'];
                                                             } else {
                                                                 $status ="";
                                                                 $title ="Join"; 
+                                                                 $join[] = $user['booking_c_status'];
                                                             }
                                                     ?>
                                                     <tr class="<?=$status;?>" data-toggle="tooltip" data-placement="top"
@@ -68,7 +77,10 @@
                                                 </table>
                                             </td>
                                             <td>
-                                                <?=count($u['user']);?>
+                                                <?=count($join);?>
+                                            </td>
+                                            <td>
+                                                <?=count($cancel);?>
                                             </td>
                                         </tr>
                                         <?php $no++; } ?>
@@ -87,11 +99,11 @@
 <script>
 var tables = $('#dataTopic').DataTable({
     "scrollX": true,
-    dom: 'Bfrtip',
-    buttons: [{
-        extend: 'excel',
-        text: '<i class="fas fa-file-excel"></i> &nbsp; Export to Excell'
-    }]
+    // dom: 'Bfrtip',
+    // buttons: [{
+    //     extend: 'excel',
+    //     text: '<i class="fas fa-file-excel"></i> &nbsp; Export to Excell'
+    // }]
 });
 
 
