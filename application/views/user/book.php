@@ -129,13 +129,12 @@
                                             <?php
                                             }
                                             ?>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <?php
+                            <?php
                             $day++;
-
                         }
                         ?>
                 </div>

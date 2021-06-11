@@ -1,4 +1,4 @@
-<div class="container-fluid" style="margin-top:15vh;margin-bottom:3rem;">
+<div class="container-fluid" id="register-form" style="margin-top:15vh;margin-bottom:3rem;">
     <div class="container">
     	<div class="row">
 	    	<div class="col-lg-4">
@@ -208,7 +208,7 @@
 			    							$diff = date_diff($today, $eventDate);
 
 			    							if($today < $eventDate)
-			    								$string = $diff->format("%a")."days to go";
+			    								$string = $diff->format("%d")." days to go";
 			    							else
 			    								$string = "expired";
 			    							?>
@@ -219,7 +219,7 @@
 													</div>
 													<p class="mb-1"><i class="fas fa-calendar-alt"></i> <?php echo date('d M Y H:i', strtotime($row->topic_start_date)); ?></p>
 													<?php
-													if($diff->format("%a") > 1) {
+													if($diff->format("%d") > 1) {
 														?>	
 														<small class="cancel-booking-topic" data-topic="<?php echo rtrim(strtr(base64_encode($row->topic_id), '+/', '-_'), '='); ?>" style=" color: red;cursor: pointer;">Cancel</small>
 														<?php
@@ -247,7 +247,7 @@
 			    							$diff = date_diff($today, $eventDate);
 
 			    							if($today < $eventDate)
-			    								$string = $diff->format("%a")."days to go";
+			    								$string = $diff->format("%d")." days to go";
 			    							else
 			    								$string = "expired";
 											?>
@@ -259,7 +259,7 @@
 												</div>
 												<p class="mb-1"><i class="fas fa-calendar-alt"></i> <?php echo date('d M Y H:i', strtotime($row->uni_dtl_t_start_time)); ?></p>
 												<?php
-												if($diff->format("%a") > 1) {
+												if($diff->format("%d") > 1) {
 													?>	
 													<small class="cancel-booking-consult" data-consultation="<?php echo rtrim(strtr(base64_encode($row->uni_detail_time_id), '+/', '-_'), '='); ?>" style=" color: red; cursor: pointer">Cancel</small>
 													<?php

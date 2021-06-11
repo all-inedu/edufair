@@ -120,6 +120,7 @@ class UniModel extends CI_Model {
 		        );
 				
 			}
+			// print("<pre>".print_r($data, true)."</pre>");exit;
 			return $data;
 		} else {
 			return false;
