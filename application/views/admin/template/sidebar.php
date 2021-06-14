@@ -9,7 +9,7 @@
                 <div class="sb-sidenav-menu-heading">Master</div>
                 <a class="nav-link" href="<?=base_url('dashboard/admin/topic');?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-book-open fa-fw"></i></div>
-                    Topic
+                    Talks
                 </a>
                 <a class="nav-link" href="<?=base_url('dashboard/admin/uni');?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-university fa-fw"></i></div>
@@ -23,7 +23,7 @@
                 <div class="sb-sidenav-menu-heading">Book</div>
                 <a class="nav-link" href="<?=base_url('dashboard/admin/book/topic');?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-user-tag fa-fw"></i></div>
-                    Topic
+                    Talk
                 </a>
                 <a class="nav-link" href="<?=base_url('dashboard/admin/book/consult');?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-bookmark fa-fw"></i></div>

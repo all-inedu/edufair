@@ -54,7 +54,7 @@
                                                 onclick='window.location.href ="<?=base_url("dashboard/admin/uni/edit/".$u["uni_id"]);?>"'>
                                                 <?=$u['uni_name'];?>
                                             </td>
-                                            <td><?=$u['uni_description'];?></td>
+                                            <td><?=substr($u['uni_description'], 0, 100);?> ...</td>
                                             <td class="text-center">
                                                 <?=$u['uni_country'];?><br>
                                                 <?=$u['uni_detail_country'];?>

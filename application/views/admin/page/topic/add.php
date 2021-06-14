@@ -19,11 +19,11 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Topic</h1>
+                    <h1 class="mt-4">Talk</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item"><a href="<?=base_url('dashboard/admin/topic');?>">Topic List</a>
+                        <li class="breadcrumb-item"><a href="<?=base_url('dashboard/admin/topic');?>">Talk List</a>
                         </li>
-                        <li class="breadcrumb-item active">Add Topic</li>
+                        <li class="breadcrumb-item active">Add Talk</li>
                     </ol>
                     <div class="card mb-4">
                         <div class="card-body">
@@ -38,11 +38,11 @@
                                     </div>
                                     <div class="col-md-7">
                                         <div class="form-group">
-                                            <label>Topic Name</label>
+                                            <label>Talk Name</label>
                                             <input type="text" class="form-control form-control-sm"
-                                                placeholder="Topic name" name="topic_name" required>
+                                                placeholder="Talk name" name="topic_name" required>
                                             <div class="invalid-feedback">
-                                                The topic name is required.
+                                                The talk name is required.
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -50,7 +50,7 @@
                                             <textarea class="form-control form-control-sm" name="topic_desc" rows="5"
                                                 minlength="6" required></textarea>
                                             <div class="invalid-feedback">
-                                                The topic description is required.
+                                                The talk description is required.
                                             </div>
                                         </div>
                                         <div class="row">
@@ -77,7 +77,7 @@
                                         <div class="form-group">
                                             <label>List of University</label>
                                             <select name="uni_id[]" id="uniList" onchange="checkValue('uniList')"
-                                                oninvalid="validation('uniList')" multiple required>
+                                                oninvalid="validation('uniList')" multiple>
                                                 <option data-placeholder="true"></option>
                                                 <?php foreach ($uni as $u) {?>
                                                 <option value="<?=$u['uni_id'];?>"><?=$u['uni_name'];?></option>
