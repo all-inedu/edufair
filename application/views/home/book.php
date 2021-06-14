@@ -156,26 +156,19 @@
                                 <h4 class="m-0 pt-2 pb-2" style="color: #000">
                                     <?php echo strtoupper($uniInfo['uni_name']); ?></h4>
                             </div>
+
                             <div class="card-footer btn-book">
                                 <div class="row no-gutters">
                                     <div class="col">
+                                        <?php
+                                        if($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
+                                        ?>
                                         <a href='javascript:void' data-toggle="modal"
-                                            data-target="#modal<?php echo $count; ?>">BOOK YOUR CONSULTATION
-                                        </a>
+                                            data-target="#modal<?php echo $count; ?>">BOOK YOUR CONSULTATION</a>
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
-                                    
-                                    <div class="card-footer btn-book">
-                                    <div class="row no-gutters">
-                                        <div class="col">
-                                            <?php
-                                            if($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
-                                            ?>
-                                            <a href='javascript:void' data-toggle="modal"
-                                                data-target="#modal<?php echo $count; ?>">BOOK YOUR CONSULTATION</a>
-                                            <?php
-                                            }
-                                            ?>
-                                        </div>
                                     <?php
                                         if(count(($uniInfo['uni_detail']))>1) {
                                             $card = "modal-lg";
