@@ -17,7 +17,11 @@
 <script src="//unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
 AOS.init();
-
+$(function () {
+  $('[data-toggle="popover"]').popover({
+    trigger: 'hover'
+  })
+})
 $(window).on('load', function() {
     // $(".loading").fadeOut("slow");
     $("body").css({
@@ -263,19 +267,6 @@ $(".cancel-booking-topic").each(function() {
     });
 });
 
-$(".cancel-booking-consult").each(function() {
-    $(this).click(function() {
-        swal.fire({
-            icon: 'question',
-            title: 'Are you sure to cancel this consultation ?',
-            showCancelButton: true,
-            focusConfirm: false,
-            confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
-            cancelButtonText: 'No!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-
-                var consultationId = $(this).data('consultation');
 
 
     $(".cancel-booking-consult").each(function() {

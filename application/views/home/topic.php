@@ -51,12 +51,12 @@
                             <p><?php echo $row['topic_desc']; ?></p>
                             <?php
                     if(!$this->session->has_userdata('user_id')){
-                        $props = "href='#signUpModal' data-toggle='modal'";
+                        $props = "href='#signUp' data-toggle='modal'";
                     } else {
                         $props = "id='bookTopic'";
                     }
                     ?>
-
+                    
                             <?php
                     if(!in_array($topic_id, $bookingTopic)) {
                         ?>
@@ -114,7 +114,7 @@
                             <p><?php echo $row['topic_desc']; ?></p>
                             <?php
                     if(!$this->session->has_userdata('user_id')){
-                        $props = "href='#signUpModal' data-toggle='modal'";
+                        $props = "href='#signUp' data-toggle='modal'";
                     } else {
                         $props = "id='bookTopic'";
                     }

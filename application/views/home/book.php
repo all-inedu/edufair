@@ -88,6 +88,44 @@
                     ?>
                 </div>
             </div>
+            <style>
+                .live-talks {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    margin-top: 1em;
+                    margin-left: 2em;
+                    width: 100%;
+                }
+
+                .live-talks .left-string {
+                    background: rgb(255,84,42);
+                    background: linear-gradient(90deg, rgba(255,84,42,1) 0%, rgba(201,66,0,1) 45%, rgba(211,0,5,1) 100%);
+                    padding: .3em .3em;
+                    font-weight: bold;
+                    letter-spacing: 2px;
+                    text-align: center;
+                }
+
+                .live-talks .right-string {
+                    text-align: center;
+                    padding: .3em .8em;
+                    background: #0A2F7C;
+                    border: 1px solid #FFF;
+                }
+
+                .inst-unilist {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    margin-right: 1em;
+                    margin-top: 1em;
+                }
+
+                .inst-unilist img {
+                    width: 30px;
+                }
+            </style>
             <div class="row">
                 <div class="mt-3 p-2 box-book">
                     <div class="row my-0" id="consult-container">
@@ -98,6 +136,15 @@
                         ?>
                             <div class="col-md-6 mb-2" id="uni-<?php echo $uniInfo['uni_id']; ?>">
                                 <div class="card">
+                                    <div class="live-talks">
+                                        <div class="row">
+                                            <div class="col-2 left-string">JOIN</div>
+                                            <div class="col-4 right-string">UNIVERSITY TALKS</div>
+                                        </div>
+                                    </div>
+                                    <div class="inst-unilist" data-container="body" data-toggle="popover" data-content="<?php echo $uniInfo['uni_description']; ?>" style="cursor: pointer">
+                                        <img src="<?php echo base_url(); ?>assets/home/information-13.png" alt="">
+                                    </div>
 
                                     <!-- <div style="border: 3px solid #cfcfcf;position: absolute;z-index: 1;right:0;padding:.5em 1.5em;font-weight: bold;margin:2em; color: #CFCFCF; letter-spacing: .2em;transform: rotate(20deg);top: 20px">FULLY BOOKED</div> -->
                                     <img src="<?php echo base_url()."assets/uni/banner/".$uniInfo['uni_photo_banner']; ?>" alt="" height="300">
@@ -107,8 +154,14 @@
                                     <div class="card-footer btn-book">
                                     <div class="row no-gutters">
                                         <div class="col">
+                                            <?php
+                                            if($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
+                                            ?>
                                             <a href='javascript:void' data-toggle="modal"
                                                 data-target="#modal<?php echo $count; ?>">BOOK YOUR CONSULTATION</a>
+                                            <?php
+                                            }
+                                            ?>
                                         </div>
                                         <div class="modal" tabindex="-1" role="dialog" id="modal<?php echo $count; ?>">
                                         <div class="modal-dialog" role="document">

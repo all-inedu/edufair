@@ -45,6 +45,10 @@
 .cancel-booking-topic, .cancel-booking-consult { color: #F0AA53; border-color: #F0AA53; cursor: pointer; }
 .join-link { color: #E9C699; border-color: #E9C699; cursor: pointer; }
 
+body {
+	font-family: 'Montserrat';
+}
+
 </style>
 <div class="modal fade" id="editprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -201,31 +205,31 @@
 										    	</div>
 										    </li>
 										    <li class="list-group-item">
-										    	<div class="row pt-2 pb-2">
+										    	<div class="row">
 										    		<div class="col-lg-5"><b>Phone</b></div>
 										    		<div class="col-lg-7"><?php echo $this->session->userdata('user_phone'); ?></div>
 										    	</div>
 										    </li>
 										    <li class="list-group-item">
-										    	<div class="row pt-2 pb-2">
+										    	<div class="row">
 										    		<div class="col-lg-5"><b>Email</b></div>
 										    		<div class="col-lg-7"><?php echo $this->session->userdata('user_email'); ?></div>
 										    	</div>
 										    </li>
 										    <li class="list-group-item">
-										    	<div class="row pt-2 pb-2">
+										    	<div class="row">
 										    		<div class="col-lg-5"><b>School</b></div>
 										    		<div class="col-lg-7"><?php echo $this->session->userdata('user_school'); ?></div>
 										    	</div>
 										    </li>
 										    <li class="list-group-item">
-										    	<div class="row pt-2 pb-2">
+										    	<div class="row">
 										    		<div class="col-lg-5"><b>Destination</b></div>
 										    		<div class="col-lg-7"><?php echo $this->session->userdata('user_country'); ?></div>
 										    	</div>
 										    </li>
 										    <li class="list-group-item">
-										    	<div class="row pt-2">
+										    	<div class="row">
 										    		<div class="col-lg-5"><b>Major</b></div>
 										    		<div class="col-lg-7"><?php echo $this->session->userdata('user_major'); ?></div>
 										    	</div>

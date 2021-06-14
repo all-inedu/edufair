@@ -75,6 +75,8 @@ class UniModel extends CI_Model {
 		// 		LEFT JOIN tb_booking_consult bc ON bc.uni_id = u.uni_id
 		// 		WHERE u.uni_status = 1 ORDER BY ud.uni_dtl_start_date ASC";
 
+		
+
 		$sql = "SELECT *
 				FROM `tb_uni` u 
 				JOIN tb_uni_detail ud ON ud.uni_id = u.uni_id 
@@ -87,12 +89,24 @@ class UniModel extends CI_Model {
 			$data = array();
 			foreach($query->result() as $row){
 				if(!isset($data[$row->uni_id])) {
+					$sql_count_fullbooked = "SELECT IF(SUM(udt.uni_dtl_t_status) = 0, 'FULL', 'NOT_FULL') AS 'status'
+								FROM `tb_uni` u 
+								JOIN tb_uni_detail ud ON ud.uni_id = u.uni_id 
+				                JOIN tb_uni_detail_time udt ON udt.uni_dtl_id = ud.uni_dtl_id
+								WHERE u.uni_status = 1 AND u.uni_id = ".$row->uni_id;
+					$query_count_fullbooked = $this->db->query($sql_count_fullbooked);
+					foreach($query_count_fullbooked->result() as $rows) {
+						$status_fullbooked = $rows->status;
+					}
+
+
 		            $data[$row->uni_id] = array(
 						"uni_id"           => $row->uni_id,
 						"uni_name"         => $row->uni_name,
 						"uni_country"      => $row->uni_country,
 						"uni_description"  => $row->uni_description,
 						"uni_photo_banner" => $row->uni_photo_banner,
+						"uni_status_fullbooked" => $status_fullbooked,
 						// "uni_zoom_link"    => $row->uni_zoom_link,
 						"uni_detail"       => array()
 		              	);
