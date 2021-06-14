@@ -12,21 +12,21 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Topic</h1>
+                    <h1 class="mt-4">Talk</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Topic List</li>
+                        <li class="breadcrumb-item active">Talk List</li>
                     </ol>
                     <div class="card mb-4">
                         <div class="card-header">
                             <div class="float-left mt-1 ">
                                 <i class="fas fa-table mr-1 "></i>
-                                Topic List
+                                Talk List
                             </div>
 
                             <div class="float-right">
                                 <a href="<?=base_url('dashboard/admin/topic/add');?>"
                                     class="btn btn-sm btn-outline-primary"><i class="fas fa-plus"></i> Add
-                                    Topic</a>
+                                    Talk</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -36,7 +36,7 @@
                                     <thead class="text-center">
                                         <tr>
                                             <th>No</th>
-                                            <th>Topic</th>
+                                            <th>Talk</th>
                                             <th>Universities</th>
                                             <th>Date</th>
                                             <th>Zoom Link</th>

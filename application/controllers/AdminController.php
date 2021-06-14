@@ -81,6 +81,16 @@ class AdminController extends CI_Controller {
 		$topic = $this->topic->getId();
 		$newid = $topic['topic_id'] + 1;
 
+		if($this->input->post('uni_id')) {
+			foreach ($this->input->post('uni_id') as $uni) {
+				$data_topic_dtl = [
+					'topic_id' => $newid,
+					'uni_id' => $uni
+				];
+				$this->topic->insertTopicDetail($data_topic_dtl);
+			} 
+		}
+
 		$config['upload_path'] = './assets/topic';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size']  = '5000';
@@ -111,14 +121,6 @@ class AdminController extends CI_Controller {
 			'topic_banner' => $filesname
 		];
 		$process = $this->topic->insertTopic($data);
-
-		foreach ($this->input->post('uni_id') as $uni) {
-			$data_topic_dtl = [
-				'topic_id' => $newid,
-				'uni_id' => $uni
-			];
-			$this->topic->insertTopicDetail($data_topic_dtl);
-		} 
 			
 		if($process){
 			echo '001';
@@ -139,6 +141,20 @@ class AdminController extends CI_Controller {
 	public function updateTopic() 
 	{
 		$topic_id = $this->input->post('topic_id');
+		
+		// Delete all topic detail 
+		$this->topic->deleteTopicDetail($topic_id);
+
+		// Add new topic detail 
+		if($this->input->post('uni_id')) {
+			foreach ($this->input->post('uni_id') as $uni) {
+				$data_topic_dtl = [
+					'topic_id' => $topic_id,
+					'uni_id' => $uni
+				];
+				$this->topic->insertTopicDetail($data_topic_dtl);
+			} 
+		}
 
 		$config['upload_path'] = './assets/topic';
         $config['allowed_types'] = 'gif|jpg|png';
@@ -154,8 +170,10 @@ class AdminController extends CI_Controller {
 				$filesname = htmlspecialchars($this->upload->data('file_name'));
 				$this->upload->data();
 
-				$path = FCPATH  . "assets/topic/".$banner_old;
-				unlink($path);
+				if($banner_old!="default.jpeg") {
+					$path = FCPATH  . "assets/topic/".$banner_old;
+					unlink($path);
+				}
 			} else {
 				$error = array('error' => $this->upload->display_errors());
 				echo json_encode($error);
@@ -173,18 +191,6 @@ class AdminController extends CI_Controller {
 			'topic_banner' => $filesname
 		];
 		$process = $this->topic->updateTopic($topic_id, $data);
-
-		// Delete all topic detail 
-		$this->topic->deleteTopicDetail($topic_id);
-
-		// Add new topic detail 
-		foreach ($this->input->post('uni_id') as $uni) {
-			$data_topic_dtl = [
-				'topic_id' => $topic_id,
-				'uni_id' => $uni
-			];
-			$this->topic->insertTopicDetail($data_topic_dtl);
-		} 
 			
 		if($process){
 			echo '001';
@@ -308,8 +314,10 @@ class AdminController extends CI_Controller {
 				echo json_encode($error);
 			}	
 
-			$path = FCPATH  . "assets/uni/banner/".$banner_old;
-			unlink($path);
+			if($banner_old!="default.jpeg") {
+				$path = FCPATH  . "assets/uni/banner/".$banner_old;
+				unlink($path);
+			}
 		} else {
 			$filesname = $banner_old;
 		}	

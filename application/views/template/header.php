@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="<?=base_url('assets/css/flipTimerss.css');?>" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style type="text/css">
-
     @font-face {
         font-family: 'SF-Pro-Display-Regular';
         src: url('<?php echo base_url(); ?>assets/font/SF-Pro-Display-Regular.otf');
@@ -603,26 +602,36 @@
 
 
     }
+
     #register-form {
-            background-image: url('<?php echo base_url(); ?>assets/user/dashboard/bg.jpg');
-            background-size: 100%;
-            background-repeat: no-repeat;
-            background-position: bottom;
-        }
+        background-image: url('<?php echo base_url(); ?>assets/user/dashboard/bg.jpg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: bottom;
+    }
 
-        #footer-copy {
-            background-image: url('<?php echo base_url(); ?>assets/user/dashboard/footer-copy.jpg');
-            background-size: 100%;
-            background-repeat: no-repeat;
-        }
+    #footer-copy {
+        background-image: url('<?php echo base_url(); ?>assets/user/dashboard/footer-copy.jpg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
 
-        footer, .footer {
-            background-image: url('<?php echo base_url(); ?>assets/user/dashboard/footer.jpg');
-            background-size: 100%;
-            background-repeat: no-repeat;
-        }
+    footer,
+    .footer {
+        background-image: url('<?php echo base_url(); ?>assets/user/dashboard/footer.jpg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
 
-    .nav-block{background: #0A2F7C;padding: 5px 1em;border-radius:1em;}.nav-block a{color:#FFF !important;}
+    .nav-block {
+        background: #0A2F7C;
+        padding: 5px 1em;
+        border-radius: 1em;
+    }
+
+    .nav-block a {
+        color: #FFF !important;
+    }
     </style>
 </head>
 

@@ -185,10 +185,10 @@ $("#loginForm").submit(function(event) {
 });
 </script>
 <script>
-    $("#change-information").click(function() {
-        // $("#view-form").hide();
-        $("#edit-form").show();
-    });
+$("#change-information").click(function() {
+    // $("#view-form").hide();
+    $("#edit-form").show();
+});
 
 $("#personal-information-form").submit(function(event) {
     event.preventDefault();
@@ -267,8 +267,6 @@ $(".cancel-booking-topic").each(function() {
     });
 });
 
-
-
     $(".cancel-booking-consult").each(function() {
         $(this).click(function() {
             swal.fire({
@@ -334,12 +332,12 @@ function highlight(uni_id, e) {
     });
 }
 
-$(document).ready(function(){
+$(document).ready(function() {
 
     var url_string = window.location.href; //window.location.href
     var url = new URL(url_string);
     var section = url.searchParams.get("section");
-    if(section == "talks") {
+    if (section == "talks") {
         $("html, body").animate({
             scrollTop: $("#talks").offset().top
         }, 800);
@@ -349,29 +347,29 @@ $(document).ready(function(){
         }, 800);
     }
 
-  // Add smooth scrolling to all links
-  $("a").on('click', function(event) {
+    // Add smooth scrolling to all links
+    $("a").on('click', function(event) {
 
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
 
-      // Store hash
-      var hash = this.hash;
-      var topPos = $(hash).offset().top;
+            // Store hash
+            var hash = this.hash;
+            var topPos = $(hash).offset().top;
 
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: topPos
-      }, 800, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+                scrollTop: topPos
+            }, 800, function() {
+
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+            });
+        } // End if
+    });
 });
 </script>
 

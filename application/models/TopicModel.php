@@ -23,8 +23,8 @@ class TopicModel extends CI_Model {
     function getTopicDataById($id) 
     {
       $sql = "SELECT t.*, u.* FROM `tb_topic` t 
-              JOIN tb_topic_detail td ON t.topic_id = td.topic_id
-              JOIN tb_uni u ON u.uni_id = td.uni_id
+              LEFT JOIN tb_topic_detail td ON t.topic_id = td.topic_id
+              LEFT JOIN tb_uni u ON u.uni_id = td.uni_id
               WHERE t.topic_id = '".$id."'";
 
       $query = $this->db->query($sql);
@@ -80,17 +80,17 @@ class TopicModel extends CI_Model {
     {
       if($requestedDate!="") {
       $sql = "SELECT t.*, u.* FROM `tb_topic` t 
-              JOIN tb_topic_detail td ON t.topic_id = td.topic_id
-              JOIN tb_uni u ON u.uni_id = td.uni_id
+              LEFT JOIN tb_topic_detail td ON t.topic_id = td.topic_id
+              LEFT JOIN tb_uni u ON u.uni_id = td.uni_id
               WHERE t.topic_start_date BETWEEN '".$requestedDate."' AND '".$requestedDate." 23:59:59' AND
-              t.topic_status = 1 AND u.uni_status = 1
+              t.topic_status = 1 
               ORDER BY t.topic_start_date ASC
               ";
       // echo $sql;exit;
       } else {
       $sql = "SELECT t.*, u.* FROM `tb_topic` t 
-              JOIN tb_topic_detail td ON t.topic_id = td.topic_id
-              JOIN tb_uni u ON u.uni_id = td.uni_id
+              LEFT JOIN tb_topic_detail td ON t.topic_id = td.topic_id
+              LEFT JOIN tb_uni u ON u.uni_id = td.uni_id
               ORDER BY t.topic_start_date ASC";
       }
       

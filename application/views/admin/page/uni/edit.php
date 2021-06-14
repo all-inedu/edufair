@@ -62,11 +62,12 @@
                                             <select class="form-control form-control-sm" name="uni_country"
                                                 id="uniCountry" required>
                                                 <option value="">Select the country</option>
-                                                <option value="United States">United States</option>
-                                                <option value="United Kingdom">United Kingdom</option>
+                                                <option value="Asia">Asia</option>
+                                                <option value="Australia">Australia</option>
                                                 <option value="Canada">Canada</option>
                                                 <option value="Europe">Europe</option>
-                                                <option value="Asia">Asia</option>
+                                                <option value="United Kingdom">United Kingdom</option>
+                                                <option value="United States">United States</option>
                                             </select>
                                         </div>
 
@@ -217,7 +218,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Submit</button>
                     </div>
                 </form>
             </div>
