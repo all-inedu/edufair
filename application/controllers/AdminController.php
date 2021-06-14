@@ -92,7 +92,7 @@ class AdminController extends CI_Controller {
 		}
 
 		$config['upload_path'] = './assets/topic';
-        $config['allowed_types'] = 'gif|jpg|png|webp';
+        $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size']  = '5000';
 		$this->load->library('upload');
 		$this->upload->initialize($config);
@@ -157,7 +157,7 @@ class AdminController extends CI_Controller {
 		}
 
 		$config['upload_path'] = './assets/topic';
-        $config['allowed_types'] = 'gif|jpg|png|webp';
+        $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size']  = '5000';
 		$this->load->library('upload');
 		$this->upload->initialize($config);
@@ -170,8 +170,10 @@ class AdminController extends CI_Controller {
 				$filesname = htmlspecialchars($this->upload->data('file_name'));
 				$this->upload->data();
 
-				$path = FCPATH  . "assets/topic/".$banner_old;
-				unlink($path);
+				if($banner_old!="default.jpeg") {
+					$path = FCPATH  . "assets/topic/".$banner_old;
+					unlink($path);
+				}
 			} else {
 				$error = array('error' => $this->upload->display_errors());
 				echo json_encode($error);
@@ -243,7 +245,7 @@ class AdminController extends CI_Controller {
 		$newid = $uni['uni_id'] + 1;
 
 		$config['upload_path'] = './assets/uni/banner';
-        $config['allowed_types'] = 'gif|jpg|png|webp';
+        $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size']  = '5000';
 		$this->load->library('upload');
 		$this->upload->initialize($config);
@@ -296,7 +298,7 @@ class AdminController extends CI_Controller {
 		$uni_id = $this->input->post('uni_id');
 		
 		$config['upload_path'] = './assets/uni/banner';
-        $config['allowed_types'] = 'gif|jpg|png|webp';
+        $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size']  = '5000';
 		$this->load->library('upload');
 		$this->upload->initialize($config);
@@ -312,8 +314,10 @@ class AdminController extends CI_Controller {
 				echo json_encode($error);
 			}	
 
-			$path = FCPATH  . "assets/uni/banner/".$banner_old;
-			unlink($path);
+			if($banner_old!="default.jpeg") {
+				$path = FCPATH  . "assets/uni/banner/".$banner_old;
+				unlink($path);
+			}
 		} else {
 			$filesname = $banner_old;
 		}	

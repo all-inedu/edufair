@@ -601,6 +601,36 @@
 
 
     }
+
+    #register-form {
+        background-image: url('<?php echo base_url(); ?>assets/user/dashboard/bg.jpg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: bottom;
+    }
+
+    #footer-copy {
+        background-image: url('<?php echo base_url(); ?>assets/user/dashboard/footer-copy.jpg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    footer,
+    .footer {
+        background-image: url('<?php echo base_url(); ?>assets/user/dashboard/footer.jpg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .nav-block {
+        background: #0A2F7C;
+        padding: 5px 1em;
+        border-radius: 1em;
+    }
+
+    .nav-block a {
+        color: #FFF !important;
+    }
     </style>
 </head>
 

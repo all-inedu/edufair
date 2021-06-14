@@ -9,29 +9,42 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav ml-auto">
+                    <?php 
+                $segment1 = $this->uri->segment(1);
+                $segment2 = $this->uri->segment(2);
+                if( ($segment1 == "home") && ($segment2 == "dashboard") ) {
+                    $base_url = base_url();
+                    $url_talks = $base_url."?section=talks";
+                    $url_unilist = $base_url."?section=booking";
+                } else {
+                    $base_url = "";
+                    $url_talks = "#talks";
+                    $url_unilist = "#booking";
+                }
+                ?>
                     <li class="nav-item nav-menu active">
-                        <a class="nav-link" href="<?=base_url('#home');?>">Home <span
+                        <a class="nav-link" href="<?php echo $base_url; ?>">Home <span
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item nav-menu">
-                        <a class="nav-link" href="<?=base_url('#talks');?>">Talks</a>
+                        <a class="nav-link" id="link-talks" href="<?php echo $url_talks; ?>">Talks</a>
                     </li>
                     <li class="nav-item nav-menu">
-                        <a class="nav-link" href="<?=base_url('#booking');?>">Uni List</a>
+                        <a class="nav-link" id="link-booking" href="<?php echo $url_unilist; ?>">Uni List</a>
                     </li>
 
 
                     <?php if($this->session->userdata('user_id')) { ?>
-                    <li class="nav-item nav-menu dropdown">
-                        <a class="nav-link dropdown-toggle btn-user" href="#" id="userMenuLink" role="button"
+                    <li class="nav-item nav-menu dropdown nav-block">
+                        <a class="nav-link dropdown-toggle" href="#" id="userMenuLink" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Welcome, <?php echo $this->session->userdata('user_first_name'); ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="userMenuLink">
-                            <a class="dropdown-item" href="<?php echo base_url(); ?>home/dashboard"><i
-                                    class="far fa-address-card"></i> Profile</a>
-                            <a class="dropdown-item" href="<?php echo base_url(); ?>logout"><i
-                                    class="fas fa-sign-out-alt"></i> Logout</a>
+                            <a class="dropdown-item" href="<?php echo base_url(); ?>home/dashboard"
+                                style="color: #0A2F7C !important;"><i class="far fa-address-card"></i> Profile</a>
+                            <a class="dropdown-item" href="<?php echo base_url(); ?>logout"
+                                style="color: #0A2F7C !important;"><i class="fas fa-sign-out-alt"></i> Logout</a>
                         </div>
                     </li>
                     <?php } else { ?>

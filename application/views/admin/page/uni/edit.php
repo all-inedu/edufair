@@ -95,7 +95,7 @@
                                                     onchange="readURL(this);">
                                                 <input type="text" id="uniBanner" name="uni_photo_banner" hidden>
                                                 <input type="text" id="uniBanner" name="uni_photo_banner_old"
-                                                    value="<?=$uni['uni_photo_banner'];?>" hidden>
+                                                    value="<?=$uni['uni_photo_banner'];?>">
                                                 <label class="custom-file-label"
                                                     for="imgUpload"><?=$uni['uni_photo_banner'];?></label>
                                             </div>

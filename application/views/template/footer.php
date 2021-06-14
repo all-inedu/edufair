@@ -277,52 +277,54 @@ $(".cancel-booking-consult").each(function() {
 
                                         var consultationId = $(this).data('consultation');
 
+
                                         $(".cancel-booking-consult").each(function() {
-                                                    $(this).click(function() {
-                                                            swal.fire({
-                                                                icon: 'question',
-                                                                title: 'Are you sure to cancel this consultation ?',
-                                                                showCancelButton: true,
-                                                                focusConfirm: false,
-                                                                confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
-                                                                cancelButtonText: 'No!'
-                                                            }).then((result) => {
-                                                                    if (result.isConfirmed) {
-                                                                        Swal.showLoading();
-                                                                        var consultationId = $(this).data(
-                                                                            'consultation');
+                                            $(this).click(function() {
+                                                swal.fire({
+                                                    icon: 'question',
+                                                    title: 'Are you sure to cancel this consultation ?',
+                                                    showCancelButton: true,
+                                                    focusConfirm: false,
+                                                    confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
+                                                    cancelButtonText: 'No!'
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                        Swal.showLoading();
+                                                        var consultationId = $(this).data(
+                                                            'consultation');
 
-                                                                        $.ajax({
-                                                                                url: "<?php echo base_url(); ?>/home/cancel/consult",
-                                                                                type: "post",
-                                                                                data: {
-                                                                                    consultationId: consultationId
-                                                                                },
-                                                                                success: function(msg) {
-                                                                                    if (msg == 1) {
-                                                                                        Swal.fire({
-                                                                                            icon: 'success',
-                                                                                            title: 'The Consultation has been canceled'
-                                                                                        });
-                                                                                        location
-                                                                                            .reload();
-                                                                                    } else {
-                                                                                        Swal.fire({
-                                                                                            icon: 'error',
-                                                                                            title: 'Oops...',
-                                                                                            text: 'Something went wrong! Please try again.'
-                                                                                        });
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        });
+                                                        $.ajax({
+                                                            url: "<?php echo base_url(); ?>/home/cancel/consult",
+                                                            type: "post",
+                                                            data: {
+                                                                consultationId: consultationId
+                                                            },
+                                                            success: function(msg) {
+                                                                if (msg == 1) {
+                                                                    Swal.fire({
+                                                                        icon: 'success',
+                                                                        title: 'The Consultation has been canceled'
+                                                                    });
+                                                                    location
+                                                                    .reload();
+                                                                } else {
+                                                                    Swal.fire({
+                                                                        icon: 'error',
+                                                                        title: 'Oops...',
+                                                                        text: 'Something went wrong! Please try again.'
+                                                                    });
                                                                 }
-                                                            })
-                                                    });
 
-                                                $(".btn-save-profile").click(function() {
-                                                    $("#btn-edit-profile").click();
-                                                });
+                                                            }
+                                                        });
+                                                    }
+                                                })
+                                            });
+                                        });
+
+                                        $(".btn-save-profile").click(function() {
+                                            $("#btn-edit-profile").click();
+                                        });
 </script>
 <script>
 function highlight(uni_id, e) {
