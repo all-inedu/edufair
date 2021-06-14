@@ -92,7 +92,7 @@ class AdminController extends CI_Controller {
 		}
 
 		$config['upload_path'] = './assets/topic';
-        $config['allowed_types'] = 'gif|jpg|png';
+        $config['allowed_types'] = 'gif|jpg|png|webp';
         $config['max_size']  = '5000';
 		$this->load->library('upload');
 		$this->upload->initialize($config);
@@ -157,7 +157,7 @@ class AdminController extends CI_Controller {
 		}
 
 		$config['upload_path'] = './assets/topic';
-        $config['allowed_types'] = 'gif|jpg|png';
+        $config['allowed_types'] = 'gif|jpg|png|webp';
         $config['max_size']  = '5000';
 		$this->load->library('upload');
 		$this->upload->initialize($config);
@@ -243,7 +243,7 @@ class AdminController extends CI_Controller {
 		$newid = $uni['uni_id'] + 1;
 
 		$config['upload_path'] = './assets/uni/banner';
-        $config['allowed_types'] = 'gif|jpg|png';
+        $config['allowed_types'] = 'gif|jpg|png|webp';
         $config['max_size']  = '5000';
 		$this->load->library('upload');
 		$this->upload->initialize($config);
@@ -296,7 +296,7 @@ class AdminController extends CI_Controller {
 		$uni_id = $this->input->post('uni_id');
 		
 		$config['upload_path'] = './assets/uni/banner';
-        $config['allowed_types'] = 'gif|jpg|png';
+        $config['allowed_types'] = 'gif|jpg|png|webp';
         $config['max_size']  = '5000';
 		$this->load->library('upload');
 		$this->upload->initialize($config);
