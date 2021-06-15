@@ -83,7 +83,6 @@ class UniModel extends CI_Model {
                 JOIN tb_uni_detail_time udt ON udt.uni_dtl_id = ud.uni_dtl_id
 				WHERE u.uni_status = 1 ORDER BY ud.uni_dtl_start_date ASC";
 		
-		
 		$query = $this->db->query($sql);
 		if($query->num_rows() > 0) {
 			$data = array();
@@ -99,6 +98,13 @@ class UniModel extends CI_Model {
 						$status_fullbooked = $rows->status;
 					}
 
+					$sql_count_topic = "SELECT IF(COUNT(*) > 0, 'REGISTERED', 'NOT_REGISTERED') AS topic_registered FROM tb_topic_detail td 
+										WHERE td.uni_id = ".$row->uni_id;
+					$query_count_topic = $this->db->query($sql_count_topic);
+					foreach($query_count_topic->result() as $rows) {
+						$status_topicregistered = $rows->topic_registered;
+					}
+
 
 		            $data[$row->uni_id] = array(
 						"uni_id"           => $row->uni_id,
@@ -107,6 +113,7 @@ class UniModel extends CI_Model {
 						"uni_description"  => $row->uni_description,
 						"uni_photo_banner" => $row->uni_photo_banner,
 						"uni_status_fullbooked" => $status_fullbooked,
+						"uni_topic_reg"	   => $status_topicregistered,
 						// "uni_zoom_link"    => $row->uni_zoom_link,
 						"uni_detail"       => array()
 		              	);

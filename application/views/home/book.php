@@ -136,14 +136,23 @@
                         $i = 0;
                         $count = 1;
                         foreach($uniData as $uniInfo) {
+                            // print("<pre>".print_r($uniInfo, true)."</pre>");exit;
                         ?>
                             <div class="col-md-6 mb-2" id="uni-<?php echo $uniInfo['uni_id']; ?>">
                                 <div class="card">
                                     <div class="live-talks">
-                                        <div class="row">
-                                            <div class="col-2 left-string">JOIN</div>
-                                            <div class="col-4 right-string">UNIVERSITY TALKS</div>
-                                        </div>
+                                        <?php
+                                        if($uniInfo['uni_topic_reg'] == "REGISTERED") {
+                                        ?>
+                                        <a href="#talks" style="color: #FFF; text-decoration: none">
+                                            <div class="row">
+                                                <div class="col-2 left-string">JOIN</div>
+                                                <div class="col-4 right-string">UNIVERSITY TALKS</div>
+                                            </div>
+                                        </a>
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
                                     <div class="inst-unilist" data-container="body" data-toggle="popover" data-content="<?php echo $uniInfo['uni_description']; ?>" style="cursor: pointer">
                                         <img src="<?php echo base_url(); ?>assets/home/information-13.png" alt="">
