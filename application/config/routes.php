@@ -109,6 +109,8 @@ $route['dashboard/admin/uni/update'] = 'AdminController/updateUni';
 $route['dashboard/admin/uni/delete/(:num)'] = 'AdminController/deleteUni/$1';
 
 $route['dashboard/admin/uni/consult/add'] = 'AdminController/saveUniConsult';
+$route['dashboard/admin/uni/consult/edit/(:num)'] = 'AdminController/editUniConsult/$1';
+$route['dashboard/admin/uni/consult/update'] = 'AdminController/updateUniConsult';
 $route['dashboard/admin/uni/consult/delete/(:num)'] = 'AdminController/deleteUniConsult/$1';
 
 $route['dashboard/admin/user/(:any)'] = 'AdminController/indexUser/$1';

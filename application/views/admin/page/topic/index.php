@@ -40,6 +40,7 @@
                                             <th>Universities</th>
                                             <th>Date</th>
                                             <th>Zoom Link</th>
+                                            <th>Password</th>
                                             <th width="10%">Banner</th>
                                             <th width="10%">Status</th>
                                         </tr>
@@ -68,6 +69,7 @@
                                                 <?=date('- H:i A', strtotime($t['topic_end_date']));?>
                                             </td>
                                             <td><?=$t['topic_zoom_link'];?></td>
+                                            <td><?=$t['topic_password'];?></td>
                                             <td class="text-center">
                                                 <img src="<?=base_url('assets/topic/'.$t['topic_banner']);?>"
                                                     width="100%">

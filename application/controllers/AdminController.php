@@ -117,6 +117,7 @@ class AdminController extends CI_Controller {
 			'topic_start_date' => $this->input->post('topic_start_date'),
 			'topic_end_date' => $this->input->post('topic_end_date'),
 			'topic_zoom_link' => $this->input->post('topic_zoom_link'),
+			'topic_password' => $this->input->post('topic_password'),
 			'topic_status' => 1,
 			'topic_banner' => $filesname
 		];
@@ -188,6 +189,7 @@ class AdminController extends CI_Controller {
 			'topic_start_date' => $this->input->post('topic_start_date'),
 			'topic_end_date' => $this->input->post('topic_end_date'),
 			'topic_zoom_link' => $this->input->post('topic_zoom_link'),
+			'topic_password' => $this->input->post('topic_password'),
 			'topic_banner' => $filesname
 		];
 		$process = $this->topic->updateTopic($topic_id, $data);
@@ -367,7 +369,8 @@ class AdminController extends CI_Controller {
 			'uni_dtl_start_date' => $this->input->post('uni_dtl_start_date'),
 			'uni_dtl_end_date' => $this->input->post('uni_dtl_end_date'),
 			'uni_dtl_duration' => $this->input->post('uni_dtl_duration'),
-			'uni_dtl_zoom_link' => $this->input->post('uni_dtl_zoom_link')
+			'uni_dtl_zoom_link' => $this->input->post('uni_dtl_zoom_link'),
+			'uni_dtl_password' => $this->input->post('uni_dtl_password')
 		];	
 		$process = $this->uni->insertUniDetail($data);
 
@@ -395,6 +398,66 @@ class AdminController extends CI_Controller {
 
 		if($process){
 			echo $this->input->post('uni_id');
+		} else {
+			echo 0;
+		}
+	}
+
+	function editUniConsult($id)
+	{
+		$process = $this->uni->getUniDtlId($id);
+		echo json_encode($process);
+	}
+
+	function updateUniConsult()
+	{
+		$id = $this->input->post('uni_id');
+		$dtl_id = $this->input->post('uni_dtl_id');
+
+		$start =  $this->input->post('uni_dtl_start_date');
+		$start_old =  $this->input->post('uni_dtl_start_date_old');
+		$end = $this->input->post('uni_dtl_end_date');
+		$end_old = $this->input->post('uni_dtl_end_date_old');
+		$duration 	= $this->input->post('uni_dtl_duration');
+		$duration_old 	= $this->input->post('uni_dtl_duration_old');
+
+		if(($start!=$start_old) or ($end!=$end_old) or ($duration!=$duration_old)){
+			$this->uni->deleteUniDetailTime($dtl_id);
+			
+			$start_time 	= date('Y-m-d H:i', strtotime($start));
+			$end_time 		= date('Y-m-d H:i', strtotime($end));
+			$diff 			= strtotime($end_time) - strtotime($start_time);
+			$jam  			= $diff / (60 * 60);
+			$menit    		= $jam * 60;
+			$jumlah_sesi 	= $menit/$duration;
+
+			$datas = [];
+			for($i = 1; $i<=$jumlah_sesi ; $i++){
+				$starttime = strtotime("+".$duration*$i-$duration."minutes", strtotime($start_time));
+				$endtime = strtotime("+".$duration*$i."minutes", strtotime($start_time));
+				$datas[$i] = [
+					'uni_dtl_id' => $dtl_id,
+					'uni_dtl_t_start_time' => date('Y-m-d H:i:s', $starttime),
+					'uni_dtl_t_end_time' => date('Y-m-d H:i:s', $endtime),
+					'uni_dtl_t_status' => 1
+					
+				];
+				$this->uni->insertUniDetailTime($datas[$i]);
+			}
+		}
+
+		$data = [
+			'uni_dtl_start_date' => $this->input->post('uni_dtl_start_date'),
+			'uni_dtl_end_date' => $this->input->post('uni_dtl_end_date'),
+			'uni_dtl_duration' => $this->input->post('uni_dtl_duration'),
+			'uni_dtl_zoom_link' => $this->input->post('uni_dtl_zoom_link'),
+			'uni_dtl_password' => $this->input->post('uni_dtl_password'),
+		];
+
+		$process = $this->uni->updateUniDetail($data, $dtl_id);
+		
+		if($process) {
+			echo $id;
 		} else {
 			echo 0;
 		}
