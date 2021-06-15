@@ -160,14 +160,8 @@
                             <div class="card-footer btn-book">
                                 <div class="row no-gutters">
                                     <div class="col">
-                                        <?php
-                                        if($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
-                                        ?>
                                         <a href='javascript:void' data-toggle="modal"
                                             data-target="#modal<?php echo $count; ?>">BOOK YOUR CONSULTATION</a>
-                                        <?php
-                                        }
-                                        ?>
                                     </div>
                                     <?php
                                         if(count(($uniInfo['uni_detail']))>1) {
@@ -190,77 +184,93 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <div class="row">
-                                                        <?php
-                                                    $day = 1;
-                                                    foreach($uniInfo['uni_detail'] as $key => $row) {
-                                                        $uni_dtl_id = $row['uni_dtl_id'];
-                                                        $assigned_time  = $row['uni_dtl_start_date'];
-                                                        $start = explode(" ", $assigned_time);
-                                                        $start_time = substr($start[1], 0, 5);
-
-                                                        $completed_time  = $row['uni_dtl_end_date'];
-                                                        $end = explode(" ", $completed_time );
-                                                        $end_time = substr($end[1], 0, 5);
-
-                                                        $d1 = new DateTime($assigned_time);
-                                                        $d2 = new DateTime($completed_time);
-
-                                                        $interval = $d2->diff($d1);
-                                                        $time = $interval->format('%H');
-                                                        $disabled = "";
-                                                        ?>
-                                                        <div class="<?=$col;?>">
-                                                            <div class="row">
-                                                                <div class="col text-center pt-4 pb-4"
-                                                                    style="color: #000">
-                                                                    <h4><?php echo date('d M Y', strtotime($key)); ?>
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
+                                                    <?php
+                                                    // check if uni status fullbook is not full
+                                                    if($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
+                                                    ?>
+                                                        <div class="row">
                                                             <?php
-                                                        foreach($row['uni_dtl_time'] as $detailTime){
-                                                            $uni_dtl_time_id = $detailTime['uni_detail_time_id'];
-                                                            $startTimeData = explode(" ", $detailTime['uni_dtl_t_start_time']);
-                                                            $uni_dtl_t_start_time = substr($startTimeData[1], 0, 5);
-                                                            $endTimeData = explode(" ", $detailTime['uni_dtl_t_end_time']);
-                                                            $uni_dtl_t_end_time = substr($endTimeData[1], 0, 5);
-                                                            $uni_dtl_t_status = $detailTime['uni_dtl_t_status'];
+                                                        $day = 1;
+                                                        foreach($uniInfo['uni_detail'] as $key => $row) {
+                                                            $uni_dtl_id = $row['uni_dtl_id'];
+                                                            $assigned_time  = $row['uni_dtl_start_date'];
+                                                            $start = explode(" ", $assigned_time);
+                                                            $start_time = substr($start[1], 0, 5);
+
+                                                            $completed_time  = $row['uni_dtl_end_date'];
+                                                            $end = explode(" ", $completed_time );
+                                                            $end_time = substr($end[1], 0, 5);
+
+                                                            $d1 = new DateTime($assigned_time);
+                                                            $d2 = new DateTime($completed_time);
+
+                                                            $interval = $d2->diff($d1);
+                                                            $time = $interval->format('%H');
                                                             $disabled = "";
-                                                            $booked = "Book";
-                                                            if($uni_dtl_t_status != 1) {
-                                                                $disabled = "disabled";
-                                                                $booked = "Booked";
+                                                            ?>
+                                                            <div class="<?=$col;?>">
+                                                                <div class="row">
+                                                                    <div class="col text-center pt-4 pb-4"
+                                                                        style="color: #000">
+                                                                        <h4><?php echo date('d M Y', strtotime($key)); ?>
+                                                                        </h4>
+                                                                    </div>
+                                                                </div>
+                                                                <?php
+                                                            foreach($row['uni_dtl_time'] as $detailTime){
+                                                                $uni_dtl_time_id = $detailTime['uni_detail_time_id'];
+                                                                $startTimeData = explode(" ", $detailTime['uni_dtl_t_start_time']);
+                                                                $uni_dtl_t_start_time = substr($startTimeData[1], 0, 5);
+                                                                $endTimeData = explode(" ", $detailTime['uni_dtl_t_end_time']);
+                                                                $uni_dtl_t_end_time = substr($endTimeData[1], 0, 5);
+                                                                $uni_dtl_t_status = $detailTime['uni_dtl_t_status'];
+                                                                $disabled = "";
+                                                                $booked = "Book";
+                                                                if($uni_dtl_t_status != 1) {
+                                                                    $disabled = "disabled";
+                                                                    $booked = "Booked";
+                                                                }
+                                                                ?>
+
+                                                                <div class="row mb-2">
+                                                                    <div class="col-sm-8 col-lg-9 pr-0">
+                                                                        <button
+                                                                            class="btn btn-outline-info btn-disabled btn-block"
+                                                                            disabled><?php echo $uni_dtl_t_start_time; ?> -
+                                                                            <?php echo $uni_dtl_t_end_time; ?> WIB</button>
+                                                                    </div>
+                                                                    <div class="col-sm-4 col-lg-3">
+                                                                        <button
+                                                                            class="btn btn-primary btn-block btn-book-consul"
+                                                                            data-starttime="<?php echo $detailTime['uni_dtl_t_start_time']?>"
+                                                                            data-endtime="<?php echo $detailTime['uni_dtl_t_end_time']; ?>"
+                                                                            data-unidtltimeid="<?php echo $uni_dtl_time_id; ?>"
+                                                                            <?php echo $disabled; ?>>
+                                                                            <?php echo $booked; ?>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <?php
                                                             }
                                                             ?>
-
-                                                            <div class="row mb-2">
-                                                                <div class="col-sm-8 col-lg-9 pr-0">
-                                                                    <button
-                                                                        class="btn btn-outline-info btn-disabled btn-block"
-                                                                        disabled><?php echo $uni_dtl_t_start_time; ?> -
-                                                                        <?php echo $uni_dtl_t_end_time; ?> WIB</button>
-                                                                </div>
-                                                                <div class="col-sm-4 col-lg-3">
-                                                                    <button
-                                                                        class="btn btn-primary btn-block btn-book-consul"
-                                                                        data-starttime="<?php echo $detailTime['uni_dtl_t_start_time']?>"
-                                                                        data-endtime="<?php echo $detailTime['uni_dtl_t_end_time']; ?>"
-                                                                        data-unidtltimeid="<?php echo $uni_dtl_time_id; ?>"
-                                                                        <?php echo $disabled; ?>>
-                                                                        <?php echo $booked; ?>
-                                                                    </button>
-                                                                </div>
                                                             </div>
                                                             <?php
+                                                        $day++;
                                                         }
                                                         ?>
                                                         </div>
-                                                        <?php
-                                                    $day++;
+                                                    <?php
+                                                    // check if uni status fullbook is fully booked
+                                                    } else {
+                                                    ?>
+                                                        <div class="row">
+                                                            <div class="col" style="color: black;">
+                                                                Hello this consultation is closed because full booked. <a href="#">Notify Me</a>
+                                                            </div>
+                                                        </div>
+                                                    <?php
                                                     }
                                                     ?>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

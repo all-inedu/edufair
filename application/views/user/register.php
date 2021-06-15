@@ -1,6 +1,11 @@
+<style>
+	body {
+		background-image: url("<?php echo base_url(); ?>assets/img/home/compressed/header-bg-2.webp");
+	}
+</style>
 	<div class="container-fluid">
 	    <div class="container">
-	        <div class="col-xl-6 offset-xl-3 allin-registration shadow">
+	        <div class="col-xl-6 offset-xl-3 allin-registration shadow" style="background: #FFF">
 	            <h3 class="text-center" style="letter-spacing: 0.2em;margin-bottom: 1em;">REGISTRATION</h3>
 	            <hr>
 	            <form method="get" id="registerForm" novalidate class="needs-validation">
@@ -34,7 +39,7 @@
 	                                <div class="form-group">
 	                                    <label>Password</label>
 	                                    <input type="password" class="form-control form-control-sm custom-box" name="user_password"
-	                                        minlength="8" required>
+	                                        minlength="8" required placeholder="Min. 8 Characters">
 	                                    <div class="invalid-feedback">
 	                                        Minimum 8 characters.
 	                                    </div>
@@ -43,7 +48,7 @@
 	                        </div>
 	                        <div class="form-group">
 	                            <label>Phone Number</label>
-	                            <input type="number" class="form-control form-control-sm custom-box" placeholder="08xx xxxx"
+	                            <input type="number" class="form-control form-control-sm custom-box" placeholder="08xx xxxx xxxx"
 	                                name="user_phone" required>
 	                        </div>
 	                        <div class="row">
@@ -170,7 +175,7 @@
 	                        </div>
 	                        <div class="form-group">
 	                        	<label>Whats your biggest challenge in prepping for uni?</label>
-	                        	<textarea class="form-control custom-box" placeholder="Tell your story here" required></textarea>
+	                        	<textarea class="form-control custom-box" name="user_biggest_challenge" placeholder="Tell your story here" required></textarea>
 	                        </div>
 	                        <hr>
 	                        <div class="form-group">
@@ -398,6 +403,32 @@ function limit() {
 $(document).ready(function() {
     $("#registerForm").submit(function(event) {
         event.preventDefault();
+		var first_name  = $("input[name=user_first_name]").val();
+		var last_name   = $("input[name=user_last_name]").val();
+		var email       = $("input[name=user_email]").val();
+		var password    = $("input[name=user_password]").val();
+		var phone       = $("input[name=user_phone]").val();
+		var gender      = $("input[name=user_gender]").val();
+		var dateofbirth = $("input[name=user_dateofbirth]").val();
+		var status      = $("input[name=user_status]").val();
+		var first_time  = $("input[name=user_first_time]").val();
+		var grade       = $("input[name=user_grade]").val();
+		var school      = $("input[name=user_school]").val();
+		var destination = $("input[name=user_destination]").val();
+		var major       = $("input[name=user_major_other]").val();
+		var lead 	    = $("input[name=user_lead]").val();
+		var biggest     = $("input[name=biggest-challenge]").val();
+		
+		if( (first_name == "")  || (last_name == "") || (email == "") || (password == "") || (phone == "") || (gender == "") || (dateofbirth == "") ) {
+			$(".navigate-page-1").trigger("click");
+			return;
+		} else if ( (grade == "") || (school == "") || (destination == "") || (major == "") || (lead == "") ) {
+			$(".navigate-page-2").trigger("click");
+			return;
+		}
+
+        
+
         if ($("#registerForm")[0].checkValidity() === false) {
             event.stopPropagation();
         } else {

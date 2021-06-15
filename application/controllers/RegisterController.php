@@ -80,7 +80,8 @@ class RegisterController extends CI_Controller {
 			"user_school"     => $this->input->post('user_school'),
 			"user_country"    => $this->input->post('user_destination'),
 			"user_major"      => $user_major,
-			"user_lead"       => str_replace("'", "\'", $this->input->post('user_lead'))
+			"user_lead"       => str_replace("'", "\'", $this->input->post('user_lead')),
+			"user_biggest"	  => $this->input->post('user_biggest_challenge')
 		);
 
 
