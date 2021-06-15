@@ -42,6 +42,16 @@
     padding: 20px 0 50px 0;
 }
 </style>
+<!-- Modal -->
+<div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container-fluid text-white pb-4" id="booking">
     <div class="container pb-4">
         <div class="row pb-5">
@@ -154,7 +164,7 @@
                                         }
                                         ?>
                                     </div>
-                                    <div class="inst-unilist" data-container="body" data-toggle="popover" data-content="<?php echo $uniInfo['uni_description']; ?>" style="cursor: pointer">
+                                    <div class="inst-unilist" data-container="body" data-toggle="modal" data-content="<?php echo $uniInfo['uni_description']; ?>" data-target="#uni-story" style="cursor: pointer">
                                         <img src="<?php echo base_url(); ?>assets/home/information-13.png" alt="">
                                     </div>
 
@@ -300,3 +310,12 @@
 
 </div>
 </section>
+<script>
+    $(".inst-unilist").each(function() {
+        $(this).click(function() {
+            var uni_story = $(this).data('content');
+            // alert(uni_story);
+            $("#uni-story .modal-body").html(uni_story);
+        });
+    });
+</script>
