@@ -146,7 +146,7 @@ class UserModel extends CI_Model {
         return $array;
       }
 
-	    $sql    = "INSERT INTO `tb_user`(`user_first_name`, `user_last_name`, `user_email`, `user_password`, `user_phone`, `user_status`, `user_gender`, `user_dob`, `user_first_time`, `user_grade`, `user_school`, `user_country`, `user_major`, `user_know_from`, `user_register_date`, `user_last_login`) 
+	    $sql    = "INSERT INTO `tb_user`(`user_first_name`, `user_last_name`, `user_email`, `user_password`, `user_phone`, `user_status`, `user_gender`, `user_dob`, `user_first_time`, `user_grade`, `user_school`, `user_country`, `user_major`, `user_know_from`, `user_register_date`, `user_last_login`, `user_biggest_challenge`) 
 	    		VALUES ('".$data['user_first_name']."',
 	    				'".$data['user_last_name']."',
 	    				'".$data['user_email']."',
@@ -162,7 +162,8 @@ class UserModel extends CI_Model {
 	    				'".$data['user_major']."',
 	    				'".$data['user_lead']."',
 	    				now(),
-	    				'')";
+	    				'',
+	    				'".$data['user_biggest']."')";
 	    $query = $this->db->query($sql);
 	    if($query) {
         $array = array(
