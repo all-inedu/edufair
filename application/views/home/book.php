@@ -43,14 +43,15 @@
 }
 </style>
 <!-- Modal -->
-<div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        
-      </div>
+<div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <div class="container-fluid text-white pb-4" id="booking">
     <div class="container pb-4">
@@ -102,42 +103,42 @@
                     ?>
             </div>
             <style>
-                .live-talks {
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    margin-top: 1em;
-                    margin-left: 2em;
-                    width: 100%;
-                }
+            .live-talks {
+                position: absolute;
+                left: 0;
+                top: 0;
+                margin-top: 1em;
+                margin-left: 2em;
+                width: 100%;
+            }
 
-                .live-talks .left-string {
-                    background: rgb(255,84,42);
-                    background: linear-gradient(90deg, rgba(255,84,42,1) 0%, rgba(201,66,0,1) 45%, rgba(211,0,5,1) 100%);
-                    padding: .3em .3em;
-                    font-weight: bold;
-                    letter-spacing: 2px;
-                    text-align: center;
-                }
+            .live-talks .left-string {
+                background: rgb(255, 84, 42);
+                background: linear-gradient(90deg, rgba(255, 84, 42, 1) 0%, rgba(201, 66, 0, 1) 45%, rgba(211, 0, 5, 1) 100%);
+                padding: .3em .3em;
+                font-weight: bold;
+                letter-spacing: 2px;
+                text-align: center;
+            }
 
-                .live-talks .right-string {
-                    text-align: center;
-                    padding: .3em .8em;
-                    background: #0A2F7C;
-                    border: 1px solid #FFF;
-                }
+            .live-talks .right-string {
+                text-align: center;
+                padding: .3em .8em;
+                background: #0A2F7C;
+                border: 1px solid #FFF;
+            }
 
-                .inst-unilist {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    margin-right: 1em;
-                    margin-top: 1em;
-                }
+            .inst-unilist {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin-right: 1em;
+                margin-top: 1em;
+            }
 
-                .inst-unilist img {
-                    width: 30px;
-                }
+            .inst-unilist img {
+                width: 30px;
+            }
             </style>
             <div class="row">
                 <div class="mt-3 p-2 box-book">
@@ -148,33 +149,35 @@
                         foreach($uniData as $uniInfo) {
                             // print("<pre>".print_r($uniInfo, true)."</pre>");exit;
                         ?>
-                            <div class="col-md-6 mb-2" id="uni-<?php echo $uniInfo['uni_id']; ?>">
-                                <div class="card">
-                                    <div class="live-talks">
-                                        <?php
+                        <div class="col-md-6 mb-2" id="uni-<?php echo $uniInfo['uni_id']; ?>">
+                            <div class="card">
+                                <div class="live-talks">
+                                    <?php
                                         if($uniInfo['uni_topic_reg'] == "REGISTERED") {
                                         ?>
-                                        <a href="#talks" style="color: #FFF; text-decoration: none">
-                                            <div class="row">
-                                                <div class="col-2 left-string">JOIN</div>
-                                                <div class="col-4 right-string">UNIVERSITY TALKS</div>
-                                            </div>
-                                        </a>
-                                        <?php
+                                    <a href="#talks" style="color: #FFF; text-decoration: none">
+                                        <div class="row">
+                                            <div class="col-2 left-string">JOIN</div>
+                                            <div class="col-4 right-string">UNIVERSITY TALKS</div>
+                                        </div>
+                                    </a>
+                                    <?php
                                         }
                                         ?>
-                                    </div>
-                                    <div class="inst-unilist" data-container="body" data-toggle="modal" data-content="<?php echo $uniInfo['uni_description']; ?>" data-target="#uni-story" style="cursor: pointer">
-                                        <img src="<?php echo base_url(); ?>assets/home/information-13.png" alt="">
-                                    </div>
+                                </div>
+                                <div class="inst-unilist" data-container="body" data-toggle="modal"
+                                    data-content="<?php echo $uniInfo['uni_description']; ?>" data-target="#uni-story"
+                                    style="cursor: pointer">
+                                    <img src="<?php echo base_url(); ?>assets/home/information-13.png" alt="">
+                                </div>
 
-                            <!-- <div style="border: 3px solid #cfcfcf;position: absolute;z-index: 1;right:0;padding:.5em 1.5em;font-weight: bold;margin:2em; color: #CFCFCF; letter-spacing: .2em;transform: rotate(20deg);top: 20px">FULLY BOOKED</div> -->
-                            <img src="<?php echo base_url()."assets/uni/banner/".$uniInfo['uni_photo_banner']; ?>"
-                                alt="" height="300">
-                            <div class="card-body pl-4 p-1">
-                                <h4 class="m-0 pt-2 pb-2" style="color: #000">
-                                    <?php echo strtoupper($uniInfo['uni_name']); ?></h4>
-                            </div>
+                                <!-- <div style="border: 3px solid #cfcfcf;position: absolute;z-index: 1;right:0;padding:.5em 1.5em;font-weight: bold;margin:2em; color: #CFCFCF; letter-spacing: .2em;transform: rotate(20deg);top: 20px">FULLY BOOKED</div> -->
+                                <img src="<?php echo base_url()."assets/uni/banner/".$uniInfo['uni_photo_banner']; ?>"
+                                    alt="" height="300">
+                                <div class="card-body pl-4 p-1">
+                                    <h4 class="m-0 pt-2 pb-2" style="color: #000">
+                                        <?php echo strtoupper($uniInfo['uni_name']); ?></h4>
+                                </div>
 
                             <div class="card-footer btn-book">
                                 <div class="row no-gutters">
@@ -261,8 +264,10 @@
                                                                     <div class="col-sm-8 col-lg-9 pr-0">
                                                                         <button
                                                                             class="btn btn-outline-info btn-disabled btn-block"
-                                                                            disabled><?php echo $uni_dtl_t_start_time; ?> -
-                                                                            <?php echo $uni_dtl_t_end_time; ?> WIB</button>
+                                                                            disabled><?php echo $uni_dtl_t_start_time; ?>
+                                                                            -
+                                                                            <?php echo $uni_dtl_t_end_time; ?>
+                                                                            WIB</button>
                                                                     </div>
                                                                     <div class="col-sm-4 col-lg-3">
                                                                         <button
@@ -284,7 +289,7 @@
                                                         }
                                                         ?>
                                                         </div>
-                                                    <?php
+                                                        <?php
                                                     // check if uni status fullbook is fully booked
                                                     } else {
                                                     ?>
@@ -293,9 +298,10 @@
                                                                 Hello this consultation is closed because full booked. <a href="javascript:void(0)" data-uniid="<?php echo $uniInfo['uni_id']; ?>" class="notify-me">Notify Me</a>
                                                             </div>
                                                         </div>
-                                                    <?php
+                                                        <?php
                                                     }
                                                     ?>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -303,20 +309,19 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <?php 
+                        <?php 
                         $count++;
                         } 
                         ?>
+                    </div>
                 </div>
             </div>
+
         </div>
 
     </div>
-
-</div>
-</section>
-<script>
+    </section>
+    <script>
     $(".inst-unilist").each(function() {
         $(this).click(function() {
             var uni_story = $(this).data('content');
@@ -324,4 +329,4 @@
             $("#uni-story .modal-body").html(uni_story);
         });
     });
-</script>
+    </script>

@@ -81,6 +81,11 @@
                                                 value="<?=$topic['topic_zoom_link'];?>" name="topic_zoom_link" required>
                                         </div>
                                         <div class="form-group">
+                                            <label>Password</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                value="<?=$topic['topic_password'];?>" name="topic_password">
+                                        </div>
+                                        <div class="form-group">
                                             <label>List of University</label>
                                             <select name="uni_id[]" id="uniList" onchange="checkValue('uniList')"
                                                 oninvalid="validation('uniList')" multiple>

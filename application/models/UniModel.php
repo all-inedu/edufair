@@ -11,9 +11,12 @@ class UniModel extends CI_Model {
         return $this->db->get()->row_array();
 	}
 	
-	function getUniDtlId() 
-    {
-        $this->db->select('uni_dtl_id');
+	function getUniDtlId($id="") 
+	{
+		$this->db->select('*');
+		if($id!="") {
+			$this->db->where('uni_dtl_id', $id);
+		}
         $this->db->order_by('uni_dtl_id','DESC');
         $this->db->from('tb_uni_detail');
         return $this->db->get()->row_array();
@@ -33,6 +36,7 @@ class UniModel extends CI_Model {
 			tb_uni_detail.uni_dtl_end_date,
 			tb_uni_detail.uni_dtl_duration,
 			tb_uni_detail.uni_dtl_zoom_link,
+			tb_uni_detail.uni_dtl_password,
 		');
 		if($id!=""){
 			$this->db->where('tb_uni.uni_id',$id);
@@ -61,6 +65,7 @@ class UniModel extends CI_Model {
 				  "uni_dtl_end_date" 		=> $queryData->uni_dtl_end_date,
 				  "uni_dtl_duration" 		=> $queryData->uni_dtl_duration,
 				  "uni_dtl_zoom_link"   	=> $queryData->uni_dtl_zoom_link,
+				  "uni_dtl_password"   		=> $queryData->uni_dtl_password,
                 );
         }
         return $data;
@@ -261,6 +266,16 @@ class UniModel extends CI_Model {
         }
 	}
 
+	function updateUniDetail($data, $id) {
+		$this->db->where('uni_dtl_id', $id);
+		$query = $this->db->update('tb_uni_detail', $data);
+		if($query) {
+          return true;
+        } else {
+          return false;
+        }
+	}
+
 	function deleteUniDetail($id)
 	{
 		$this->db->where('uni_dtl_id', $id);
@@ -275,6 +290,17 @@ class UniModel extends CI_Model {
 	function insertUniDetailTime($data) 
 	{
 		$query = $this->db->insert('tb_uni_detail_time', $data);
+        if($query) {
+          return true;
+        } else {
+          return false;
+        }
+	}
+
+	function deleteUniDetailTime($id)
+	{
+		$this->db->where('uni_dtl_id', $id);
+		$query = $this->db->delete('tb_uni_detail_time');
         if($query) {
           return true;
         } else {

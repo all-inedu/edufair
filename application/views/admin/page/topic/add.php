@@ -75,6 +75,11 @@
                                                 placeholder="https://zoom.us" name="topic_zoom_link" required>
                                         </div>
                                         <div class="form-group">
+                                            <label>Password</label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                name="topic_password">
+                                        </div>
+                                        <div class="form-group">
                                             <label>List of University</label>
                                             <select name="uni_id[]" id="uniList" onchange="checkValue('uniList')"
                                                 oninvalid="validation('uniList')" multiple>

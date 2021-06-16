@@ -41,6 +41,7 @@ class TopicModel extends CI_Model {
                   "topic_banner"     => $queryData->topic_banner,
                   "topic_status"     => $queryData->topic_status,
                   "topic_zoom_link"  => $queryData->topic_zoom_link,
+                  "topic_password"   => $queryData->topic_password,
                   "uni_detail"       => array()
               );
           }
@@ -108,6 +109,7 @@ class TopicModel extends CI_Model {
                   "topic_banner"     => $queryData->topic_banner,
                   "topic_status"     => $queryData->topic_status,
                   "topic_zoom_link"  => $queryData->topic_zoom_link,
+                  "topic_password"   => $queryData->topic_password,
                   "uni_detail"       => array()
               );
           }

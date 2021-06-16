@@ -129,6 +129,7 @@
                                         <th>Duration</th>
                                         <th>Slots</th>
                                         <th>Zoom Link</th>
+                                        <th>Password</th>
                                         <th>#</th>
                                     </tr>
                                 </thead>
@@ -137,7 +138,9 @@
                                     <?php if($dtl['uni_dtl_start_date']!="") { ?>
                                     <tr>
                                         <td class="text-center"><?=$no;?></td>
-                                        <td class="text-center">
+                                        <td class="text-center pointer" style="cursor:pointer;"
+                                            onclick='editDetail(<?=$dtl["uni_dtl_id"];?>)' data-toggle="modal"
+                                            data-target="#editConsult">
                                             <?=date('M dS Y - H:i', strtotime($dtl['uni_dtl_start_date']));?></td>
                                         <td class="text-center">
                                             <?=date('M dS Y - H:i', strtotime($dtl['uni_dtl_end_date']));?></td>
@@ -156,6 +159,7 @@
                                             ?>
                                         </td>
                                         <td class="text-center"><?=$dtl['uni_dtl_zoom_link'];?></td>
+                                        <td class="text-center"><?=$dtl['uni_dtl_password'];?></td>
                                         <td class="text-center pointer"><span class="uni-dtl"
                                                 onclick='deleteDetail(<?=$dtl["uni_dtl_id"];?>, "<?=date("M dS Y", strtotime($dtl["uni_dtl_start_date"]));?>", <?=$uni["uni_id"];?>)'><i
                                                     class="fas fa-trash text-danger"></i></span></td>
@@ -213,6 +217,78 @@
                             <label>Zoom Link</label>
                             <input type="text" class="form-control form-control-sm" name="uni_dtl_zoom_link"
                                 placeholder="https://www.zoom.us">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="text" class="form-control form-control-sm" name="uni_dtl_password"
+                                placeholder="password">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Consultation  -->
+    <div class="modal fade" id="editConsult" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form action="" id="editConsultForm" class="needs-validation" novalidate>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><?=$uni['uni_name'];?></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Start Date</label>
+                                    <input type="text" name="uni_id" value="<?=$uni['uni_id'];?>" hidden>
+                                    <input type="text" name="uni_dtl_id" id="uni_dtl_id" hidden>
+                                    <input type="datetime-local" class="form-control form-control-sm"
+                                        name="uni_dtl_start_date" id="uni_dtl_start_date" required>
+                                    <input type="datetime-local" name="uni_dtl_start_date_old"
+                                        id="uni_dtl_start_date_old" hidden>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>End Date</label>
+                                    <input type="datetime-local" class="form-control form-control-sm"
+                                        name="uni_dtl_end_date" id="uni_dtl_end_date" required>
+                                    <input type="datetime-local" name="uni_dtl_end_date_old" id="uni_dtl_end_date_old"
+                                        hidden>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Duration</label>
+                                    <input type="number" class="form-control form-control-sm" name="uni_dtl_duration"
+                                        id="uni_dtl_duration" max="60" required>
+                                    <input type="number" name="uni_dtl_duration_old" id="uni_dtl_duration_old" hidden>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Zoom Link</label>
+                            <input type="text" class="form-control form-control-sm" name="uni_dtl_zoom_link"
+                                id="uni_dtl_zoom_link" placeholder="https://www.zoom.us">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="text" class="form-control form-control-sm" name="uni_dtl_password"
+                                id="uni_dtl_password" placeholder="password">
                         </div>
 
                     </div>
@@ -455,6 +531,74 @@
                             icon: 'success',
                             title: 'Horee!',
                             text: 'The consultation has been created.',
+                            showConfirmButton: false
+                        })
+                        setTimeout(function() {
+                            window.location.href =
+                                "<?php echo base_url('dashboard/admin/uni/edit/'); ?>" +
+                                msg;
+                        }, 2000)
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong! Please try again.'
+                        });
+                    }
+                }
+            });
+        }
+    });
+
+    function dateTimeLocal(date) {
+        var dateTime = new Date(date);
+        dateTime.setMinutes(dateTime.getMinutes() - dateTime.getTimezoneOffset());
+        dateTime = dateTime.toISOString().slice(0, 16);
+        return dateTime
+    }
+
+    function editDetail(id) {
+        $.ajax({
+            url: "<?=base_url('dashboard/admin/uni/consult/edit/');?>" + id,
+            type: "POST",
+            dataType: 'JSON',
+            success: function(datas) {
+                var start = dateTimeLocal(datas.uni_dtl_start_date)
+                var end = dateTimeLocal(datas.uni_dtl_end_date)
+                $("#uni_dtl_id").val(datas.uni_dtl_id)
+                $("#uni_dtl_start_date").val(start)
+                $("#uni_dtl_end_date").val(end)
+                $("#uni_dtl_start_date_old").val(start)
+                $("#uni_dtl_end_date_old").val(end)
+                $("#uni_dtl_duration").val(datas.uni_dtl_duration)
+                $("#uni_dtl_duration_old").val(datas.uni_dtl_duration)
+                $("#uni_dtl_zoom_link").val(datas.uni_dtl_zoom_link)
+                $("#uni_dtl_password").val(datas.uni_dtl_password)
+            }
+        });
+    }
+
+    $("#editConsultForm").submit(function(event) {
+        event.preventDefault();
+        if ($("#editConsultForm")[0].checkValidity() === false) {
+            event.stopPropagation();
+        } else {
+            Swal.showLoading();
+
+            var form_data = new FormData($('#editConsultForm')[0]);
+
+            $.ajax({
+                url: "<?=base_url('dashboard/admin/uni/consult/update');?>",
+                type: "POST",
+                data: form_data,
+                processData: false,
+                contentType: false,
+                success: function(msg) {
+                    if (msg > 0) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Horee!',
+                            text: 'The consultation has been updated.',
                             showConfirmButton: false
                         })
                         setTimeout(function() {

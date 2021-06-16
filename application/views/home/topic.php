@@ -1,16 +1,5 @@
 <section id="edufair-section">
     <section class="container-fluid pb-4" id="talks-section">
-        <div class="container" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000"
-            id="talks">
-            <div class="row">
-                <div class="col-lg-5 col-sm-12 text-left mt-5">
-                    <h2>Talks</h2>
-                    <h5>Have a conversation directly with the university reps about these hot topics concerning study
-                        abroad and get information to support your university preparation strategy.</h5>
-                </div>
-            </div>
-        </div>
-
         <?php if ($talk_day1 != "" ) {?>
         <div class="container p-4 mb-4 day1talks" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50"
             data-aos-duration="1000">
@@ -56,7 +45,7 @@
                         $props = "id='bookTopic'";
                     }
                     ?>
-                    
+
                             <?php
                     if(!in_array($topic_id, $bookingTopic)) {
                         ?>

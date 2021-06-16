@@ -61,7 +61,7 @@
 <section id="home-section">
     <div class="container-fluid" id="home" style="padding-bottom:25px;">
         <div class="row align-items-start">
-            <div class="col-md-8 order-md-2 order-sm-1 pt-5 pl-5 pr-5 text-center" id="edufair-title-container">
+            <div class="col-md-8 order-md-2 order-sm-1 text-center" id="edufair-title-container">
                 <div class="row">
                     <div class="col-xl-8 offset-xl-2 text-left">
                         <h3 class="edufair-date m-0">24 JULY</h3>
@@ -110,64 +110,120 @@
             <div class="col-md-4 order-md-1 order-sm-2 flip-photo">
                 <div class="row">
                     <div class="col-md-4 col-4 p-1 img1">
-                        <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/speaker-uni/SPEAKER-04.webp');?>" width="100%">
-                        </div>
+
                     </div>
                     <div class="col-md-4 col-4 p-1 img2">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/speaker-uni/SPEAKER-05.webp');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-03.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/Uni/LOGO-15.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img3">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/speaker-uni/SPEAKER-06.webp');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/Uni/LOGO-04.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-16.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img4">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/speaker-uni/SPEAKER-07.webp');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-05.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/Uni/LOGO-17.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-32.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img5">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/speaker-uni/SPEAKER-08.webp');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/Uni/LOGO-06.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-19.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/Uni/LOGO-33.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img6">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/speaker-uni/SPEAKER-09.webp');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-07.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/Uni/LOGO-18.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-37.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img7">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/speaker-uni/SPEAKER-10.webp');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/Uni/LOGO-08.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-21.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img8">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/speaker-uni/SPEAKER-11.webp');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-09.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/Uni/LOGO-20.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-29.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img9">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/speaker-uni/SPEAKER-12.webp');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/Uni/LOGO-10.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-22.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/Uni/LOGO-30.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img10">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/speaker-uni/SPEAKER-13.webp');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-12.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/Uni/LOGO-23.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-26.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img11">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/speaker-uni/SPEAKER-14.webp');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/Uni/LOGO-11.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-25.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img12">
-                        <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/speaker-uni/SPEAKER-04.webp');?>" width="100%">
-                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="talks-header" id="talks">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-lg-5 col-sm-12 text-left mt-5">
+                        <h2>Talks</h2>
+                        <h5>Have a conversation directly with the university reps about these hot topics concerning
+                            study
+                            abroad and get information to support your university preparation strategy.</h5>
                     </div>
                 </div>
             </div>
@@ -193,62 +249,50 @@
 
     <script>
     $('.img1').each(function() {
-        var random = Math.floor(Math.random() * $('.card-headers', this).length);
-        $('.card-headers', this).hide().eq(random).show();
+        $('.card-headers', this).hide().eq(0).show();
     });
 
     $('.img2').each(function() {
-        var random = Math.floor(Math.random() * $('.card-headers', this).length);
-        $('.card-headers', this).hide().eq(random).show();
+        $('.card-headers', this).hide().eq(0).show();
     });
 
     $('.img3').each(function() {
-        var random = Math.floor(Math.random() * $('.card-headers', this).length);
-        $('.card-headers', this).hide().eq(random).show();
+        $('.card-headers', this).hide().eq(0).show();
     });
 
     $('.img4').each(function() {
-        var random = Math.floor(Math.random() * $('.card-headers', this).length);
-        $('.card-headers', this).hide().eq(random).show();
+        $('.card-headers', this).hide().eq(0).show();
     });
 
     $('.img5').each(function() {
-        var random = Math.floor(Math.random() * $('.card-headers', this).length);
-        $('.card-headers', this).hide().eq(random).show();
+        $('.card-headers', this).hide().eq(0).show();
     });
 
     $('.img6').each(function() {
-        var random = Math.floor(Math.random() * $('.card-headers', this).length);
-        $('.card-headers', this).hide().eq(random).show();
+        $('.card-headers', this).hide().eq(0).show();
     });
 
     $('.img7').each(function() {
-        var random = Math.floor(Math.random() * $('.card-headers', this).length);
-        $('.card-headers', this).hide().eq(random).show();
+        $('.card-headers', this).hide().eq(0).show();
     });
 
     $('.img8').each(function() {
-        var random = Math.floor(Math.random() * $('.card-headers', this).length);
-        $('.card-headers', this).hide().eq(random).show();
+        $('.card-headers', this).hide().eq(0).show();
     });
 
     $('.img9').each(function() {
-        var random = Math.floor(Math.random() * $('.card-headers', this).length);
-        $('.card-headers', this).hide().eq(random).show();
+        $('.card-headers', this).hide().eq(0).show();
     });
     $('.img10').each(function() {
-        var random = Math.floor(Math.random() * $('.card-headers', this).length);
-        $('.card-headers', this).hide().eq(random).show();
+        $('.card-headers', this).hide().eq(0).show();
     });
 
     $('.img11').each(function() {
-        var random = Math.floor(Math.random() * $('.card-headers', this).length);
-        $('.card-headers', this).hide().eq(random).show();
+        $('.card-headers', this).hide().eq(0).show();
     });
 
     $('.img12').each(function() {
-        var random = Math.floor(Math.random() * $('.card-headers', this).length);
-        $('.card-headers', this).hide().eq(random).show();
+        $('.card-headers', this).hide().eq(0).show();
     });
 
     setInterval(function() {
