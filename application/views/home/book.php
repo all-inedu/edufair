@@ -211,7 +211,7 @@
                                                 <div class="modal-body">
                                                     <?php
                                                     // check if uni status fullbook is not full
-                                                    if($uniInfo['uni_status_fullbooked'] != "NOT_FULL") {
+                                                    if($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
                                                     ?>
                                                         <div class="row">
                                                             <?php
