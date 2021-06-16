@@ -76,7 +76,8 @@ p {
         <div class="row">
             <div class="col-md-12 text-center mt-3 px-5">
                 <p>
-                    You are about to book a consultation with XX University. Please choose a day & time
+                    Join our University Talks and get trending admission insights based on the selected topics.<br>
+                    If you skip, you can join later.
                 </p>
                 <hr>
             </div>
