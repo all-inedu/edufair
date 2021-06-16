@@ -416,10 +416,10 @@ $(document).ready(function() {
         var dateofbirth = $("input[name=user_dateofbirth]").val();
         var status = $("input[name=user_status]").val();
         var first_time = $("input[name=user_first_time]").val();
-        var grade = $("input[name=user_grade]").val();
+        var grade = $("select[name=user_grade]").val();
         var school = $("input[name=user_school]").val();
         var destination = $("input[name=user_destination]").val();
-        var major = $("input[name=user_major_other]").val();
+        var major = $("input[name=user_major]").val();
         var lead = $("input[name=user_lead]").val();
         var biggest = $("input[name=biggest-challenge]").val();
 
@@ -429,6 +429,7 @@ $(document).ready(function() {
             return;
         } else if ((grade == "") || (school == "") || (destination == "") || (major == "") || (lead ==
                 "")) {
+            // alert(grade + " and " + school + " and " + destination + " and " + major + " and " + lead);
             $(".navigate-page-2").trigger("click");
             return;
         }

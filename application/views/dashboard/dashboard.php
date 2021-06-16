@@ -300,7 +300,7 @@ body {
 	    						?>
 								</div>
 								<?php } else { ?><br>
-									<p>You haven't book a topic. Click <a href="<?php echo base_url(); ?>?section=talks">here</a> to book a topic.</p>
+									<p>You have no university talk scheduled. Click <a href="<?php echo base_url(); ?>?section=talks">here</a> to book.</p>
 									<?php
 									}
 								?>
@@ -364,7 +364,7 @@ body {
 								?>
 								</div>
 							<?php } else {?> <br>
-								<p>You haven't book a consultation. Click <a href="<?php echo base_url(); ?>?section=booking">here</a> to book a consultation.</p>
+								<p>You have no consultation scheduled. Click <a href="<?php echo base_url(); ?>?section=booking">here</a> to book.</p>
 							<?php
 							 	}	?>
 	    					</div>

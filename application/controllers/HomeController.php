@@ -174,6 +174,8 @@ class HomeController extends CI_Controller {
 			"user_major"      => $user_major
 		);
 
+		// print_r($data);exit;
+
 		$process = $this->UserModel->updateInformation($data, $userId);
 	 	if($process) {
 	 		$userData = $this->UserModel->getUserDataById($userId);
