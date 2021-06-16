@@ -31,10 +31,11 @@
     }
 
     #home-section {
-        background: url('assets/img/home/compressed/header-bg-2.webp');
+        background: url('assets/img/home/header-bg.webp');
         background-repeat: no-repeat;
         background-position: top;
         background-size: 100% auto;
+        background-color: #EBF6FC;
     }
 
     #home h1,
@@ -197,9 +198,14 @@
     }
 
     #edufair-title-container {
+        padding: 0 10%;
         background-repeat: no-repeat;
         background-size: 80% auto;
         background-position: center 13%
+    }
+
+    .talks-header {
+        padding: 5% 0px 5% 10% !important;
     }
 
     #booking h2,
@@ -208,6 +214,7 @@
         text-transform: uppercase;
         color: #0d2f7f
     }
+
 
     .edufair-uni-region {
         border: 3px solid #efaa52;
@@ -303,7 +310,7 @@
 
     #booking {
         background: #EBF6FC;
-        background-image: url('assets/img/home/compressed/bg-unilist.webp');
+        background-image: url('assets/img/home/bg-unilist.webp');
         background-size: cover auto;
         background-position: top;
         background-repeat: no-repeat;
@@ -318,7 +325,7 @@
 
     #talks-section {
         background: #EBF6FC;
-        background-image: url('assets/img/home/compressed/header-bg-3.webp');
+        /* background-image: url('assets/img/home/compressed/header-bg-3.webp'); */
         background-position: top;
         background-size: 100%;
         background-repeat: no-repeat;
@@ -348,6 +355,14 @@
     }
 
     @media screen and (max-width: 576px) and (min-width: 375px) {
+        #home-section {
+            background-color: #EBF6FC;
+        }
+
+        .talks-header {
+            padding: 0% 0% !important;
+        }
+
         .container-fluid {
             padding-left: 15px !important;
             padding-right: 15px !important;
@@ -375,14 +390,8 @@
             max-width: 33.333333%;
         }
 
-        #home-section {
-            background: url('assets/img/home/compressed/header-bg-2.webp');
-            background-repeat: no-repeat;
-            background-size: auto 100% !important;
-            background-position: center;
-        }
-
         #home {
+            background: #EBF6FC;
             padding-top: 18vh;
             height: auto;
         }
@@ -446,7 +455,6 @@
 
     @media (max-width: 768px) and (min-width: 576px) {
         #home {
-            background: url('assets/img/home/compressed/header-bg-2.webp');
             background-repeat: no-repeat;
             background-position: center top;
             background-size: 100% 100%;
@@ -485,7 +493,6 @@
         }
 
         #talks-section {
-            background-image: url('');
             padding: 0px;
         }
 
@@ -509,7 +516,6 @@
         }
 
         #home {
-            background: url('assets/img/home/compressed/header-bg-2.webp');
             background-repeat: no-repeat;
             background-position: center top;
             background-size: 100% 100%;
