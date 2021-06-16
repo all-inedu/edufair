@@ -279,11 +279,15 @@ body {
 												<?php
 												if($diff->format("%d") > 1) {
 													?>	
-													<small class="u-btn cancel-booking-topic" data-topic="<?php echo rtrim(strtr(base64_encode($row->topic_id), '+/', '-_'), '='); ?>">Cancel</small>
+													<small>
+														<button class="u-btn cancel-booking-topic" data-topic="<?php echo rtrim(strtr(base64_encode($row->topic_id), '+/', '-_'), '='); ?>">Cancel</button>
+													</small>
 													<?php
 												} else {
 													?>
-													<small data-link="<?php echo $row->topic_zoom_link; ?>" class="u-btn join-link" >Click to join talks</small>
+													<small>
+														<button data-link="<?php echo $row->topic_zoom_link; ?>" class="u-btn join-link">Click to join talks</button>
+													</small>
 													<?php
 												}	
 												?>
@@ -339,11 +343,15 @@ body {
 											<?php
 											if($diff->format("%d") > 1) {
 												?>	
-												<small class="u-btn cancel-booking-consult" data-consultation="<?php echo rtrim(strtr(base64_encode($row->uni_detail_time_id), '+/', '-_'), '='); ?>">Cancel</small>
+												<small>
+													<button class="u-btn cancel-booking-consult" data-consultation="<?php echo rtrim(strtr(base64_encode($row->uni_detail_time_id), '+/', '-_'), '='); ?>">Cancel</button>
+												</small>
 												<?php
 											} else {
 												?>
-												<small data-link="<?php echo $row->uni_dtl_zoom_link; ?>" class="u-btn join-link">Click to join consultation</small>
+												<small>
+													<button data-link="<?php echo $row->uni_dtl_zoom_link; ?>" class="u-btn join-link">Click to join consultation</button>
+												</small>
 												<?php
 											}	
 											?>

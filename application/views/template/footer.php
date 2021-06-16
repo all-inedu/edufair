@@ -86,7 +86,7 @@ $(".btn-book-consul").each(function() {
 
         swal.fire({
             icon: 'question',
-            title: 'Are you sure to book a consultation on <br><b>' + str_showDate +
+            title: 'You\'re about to book a consultation on <br><b>' + str_showDate +
                 '</b> at <b> ' + show_startTime.substr(0, 5) + ' </b> ?',
             showCancelButton: true,
             focusConfirm: false,
@@ -271,7 +271,7 @@ $(".cancel-booking-topic").each(function() {
         $(this).click(function() {
             swal.fire({
                 icon: 'question',
-                title: 'Are you sure to cancel this consultation ?',
+                title: 'If this time slot is booked by another user, you have to choose other time slots for a reschedule',
                 showCancelButton: true,
                 focusConfirm: false,
                 confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
@@ -311,6 +311,25 @@ $(".cancel-booking-topic").each(function() {
 
     $(".btn-save-profile").click(function() {
         $("#btn-edit-profile").click(); 
+    });
+
+    $(".notify-me").each(function() {
+        $(this).click(function() {
+            var uniId = $(this).data('uniid');
+            $.ajax({
+                url: "<?php echo base_url(); ?>home/waiting-list",
+                type: "post",
+                data: {
+                    uniId : uniId
+                },
+                success: function(msg) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Sukses'
+                    });
+                }
+            });
+        });
     });
 </script>
 <script>

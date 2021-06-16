@@ -169,9 +169,9 @@
                     if (msg == "001") {
                         Swal.fire({
                             icon: 'success',
-                            title: 'Thank You for your participation'
+                            title: 'Yay, your booking is successful!<br>Check the dashboard for your agenda'
                         });
-                    } else if (msg == "07") {
+                    } else if (msg == "07") { // utk sekarang tidak akan muncul notif ini
                         Swal.fire({
                             icon: 'info',
                             title: 'You already booked the topic'

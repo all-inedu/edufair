@@ -186,6 +186,15 @@ class HomeController extends CI_Controller {
 	 	}
 	}
 
+	public function insertToWaitingList()
+	{
+		$userId = $this->session->userdata('user_id');	
+		$uniId = $this->input->post('uniId');
+
+		$process = $this->UserModel->insertToWaitingList($uniId, $userId);
+		return $process;
+	}
+
 	// **************************************************** //
 	// **************************************************** //
 	// ******** FORGOT PASSWORD FUNCTION START ************ //

@@ -387,4 +387,15 @@ class UserModel extends CI_Model {
     	$this->db->where('user_id', $userId);
     	return $this->db->update('tb_user', $data);
     }
+
+    public function insertToWaitingList($uniId, $userId)
+    {
+    	$data = array(
+    		"user_id" => $userId,
+    		"uni_id" => $uniId,
+    		"wl_date" => date('Y-m-d')
+    	);
+
+    	return $this->db->insert('tb_waiting_list', $data);
+    }
 }

@@ -178,9 +178,9 @@
 
                             <div class="card-footer btn-book">
                                 <div class="row no-gutters">
-                                    <div class="col">
-                                        <a href='javascript:void' data-toggle="modal"
-                                            data-target="#modal<?php echo $count; ?>">BOOK YOUR CONSULTATION</a>
+                                    <div class="col book-consultation-container" style="cursor: pointer" data-toggle="modal"
+                                            data-target="#modal<?php echo $count; ?>">
+                                        <a href='javascript:void'>BOOK YOUR CONSULTATION</a>
                                     </div>
                                     <?php
                                         if(count(($uniInfo['uni_detail']))>1) {
@@ -192,9 +192,12 @@
                                         }
                                     ?>
 
-                                    <div class="modal" tabindex="-1" role="dialog" id="modal<?php echo $count; ?>">
-                                        <div class="modal-dialog <?=$card;?>" role="document">
+                                    <div class="modal fade" tabindex="-1" role="dialog" id="modal<?php echo $count; ?>">
+                                        <div class="modal-dialog <?=$card;?> modal-dialog-centered" role="document">
                                             <div class="modal-content">
+                                                <?php
+                                                if($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
+                                                ?>
                                                 <div class="modal-header">
                                                     <h5 class="modal-title">Time</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
@@ -202,10 +205,13 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
+                                                <?php
+                                                }
+                                                ?>
                                                 <div class="modal-body">
                                                     <?php
                                                     // check if uni status fullbook is not full
-                                                    if($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
+                                                    if($uniInfo['uni_status_fullbooked'] != "NOT_FULL") {
                                                     ?>
                                                         <div class="row">
                                                             <?php
@@ -284,7 +290,7 @@
                                                     ?>
                                                         <div class="row">
                                                             <div class="col" style="color: black;">
-                                                                Hello this consultation is closed because full booked. <a href="#">Notify Me</a>
+                                                                Hello this consultation is closed because full booked. <a href="javascript:void(0)" data-uniid="<?php echo $uniInfo['uni_id']; ?>" class="notify-me">Notify Me</a>
                                                             </div>
                                                         </div>
                                                     <?php
