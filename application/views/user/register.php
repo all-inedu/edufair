@@ -1,10 +1,12 @@
 <style>
 body {
-    background-image: url("<?php echo base_url(); ?>assets/img/home/compressed/header-bg-2.webp");
+    background-image: url("<?php echo base_url(); ?>assets/img/home/header-bg.webp");
+    background-size: 100%;
+    background-attachment: fixed;
 }
 </style>
 <div class="container-fluid">
-    <div class="container">
+    <div class="container mb-5">
         <div class="col-xl-6 offset-xl-3 allin-registration shadow" style="background: #FFF">
             <h3 class="text-center" style="letter-spacing: 0.2em;margin-bottom: 1em;">REGISTRATION</h3>
             <hr>

@@ -1,4 +1,10 @@
 <style>
+body {
+    background-image: url("<?php echo base_url(); ?>assets/img/home/header-bg.webp");
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
 .topic-card {
     height: 50vh;
     overflow-x: hidden;
