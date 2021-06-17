@@ -92,108 +92,142 @@
             <div class="col-md-4 order-md-1 order-sm-2 flip-photo">
                 <div class="row">
                     <div class="col-md-4 col-4 p-1 img1">
-
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-01.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-13.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-25.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-37.png');?>" width="100%">
+                        </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img2">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-03.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-02.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Uni/LOGO-15.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-14.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-26.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-38.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img3">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Uni/LOGO-04.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-03.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-16.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-15.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-27.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img4">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-05.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-04.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Uni/LOGO-17.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-16.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-32.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-28.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img5">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Uni/LOGO-06.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-05.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-19.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-17.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Uni/LOGO-33.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-29.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img6">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-07.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-06.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Uni/LOGO-18.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-18.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-37.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-30.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img7">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Uni/LOGO-08.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-07.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-21.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-19.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-31.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img8">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-09.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-08.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Uni/LOGO-20.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-20.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-29.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-32.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img9">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Uni/LOGO-10.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-09.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-22.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-21.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Uni/LOGO-30.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-33.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img10">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-12.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-10.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Uni/LOGO-23.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-22.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-26.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-34.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img11">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Uni/LOGO-11.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-11.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/Speaker/SPEAKER-25.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-23.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-35.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img12">
-
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-12.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-24.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-36.png');?>" width="100%">
+                        </div>
                     </div>
                 </div>
             </div>
