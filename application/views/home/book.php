@@ -48,7 +48,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Desription</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Description</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -131,7 +131,7 @@
                 text-align: center;
                 padding: .3em .8em;
                 background: #0A2F7C;
-                border: 1px solid #FFF;
+                /* border: 1px solid #FFF; */
             }
 
             .inst-unilist {
@@ -163,8 +163,8 @@
                                         ?>
                                     <a href="#talks" style="color: #FFF; text-decoration: none">
                                         <div class="row">
-                                            <div class="col-2 left-string">JOIN</div>
-                                            <div class="col-4 right-string">UNIVERSITY TALKS</div>
+                                            <div class="col-md-2 col-2 left-string">JOIN</div>
+                                            <div class="col-md-4 col-6 right-string">UNIVERSITY TALKS</div>
                                         </div>
                                     </a>
                                     <?php

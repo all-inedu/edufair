@@ -64,11 +64,12 @@
             <div class="col-md-8 order-md-2 order-sm-1 text-center" id="edufair-title-container">
                 <div class="row">
                     <div class="col">
-                        <img src="<?php echo base_url(); ?>assets/home/edufair.png" alt="Edufair" width="100%">
+                        <img src="<?php echo base_url(); ?>assets/img/TITLE EDUFAIR.png"
+                            alt="Global University Fair 2021" width="100%">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-5 col-xl-5 col-xxl-3 offset-lg-5 offset-xl-6 offset-xxl-7">
+                    <div class="col-lg-6 col-xl-6 col-xxl-3 offset-lg-6 offset-xl-6 offset-xxl-7">
                         <h5 class="mt-4 text-left edufair-desc"><b>Welcome to Edufair!</b><br>
                             Connect with the universities from all over the world and get live updates about the
                             education system abroad.</h5>

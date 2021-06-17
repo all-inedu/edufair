@@ -62,7 +62,7 @@
     }
 
     #home h5.edufair-desc {
-        font-size: 1.3em;
+        font-size: 1.6em;
         color: #27387a
     }
 
@@ -318,7 +318,7 @@
     #booking h5,
     #talks h5 {
         color: #061f51;
-        font-size: 1.3em;
+        font-size: 1.6em;
         text-align: justify
     }
 
@@ -369,6 +369,19 @@
     }
 
     @media screen and (max-width: 576px) and (min-width: 375px) {
+        #edufair-title-container {
+            padding: 0 8%;
+        }
+
+        #home h5.edufair-desc {
+            font-size: 1.3em;
+        }
+
+        #booking h5,
+        #talks h5 {
+            font-size: 1.2em;
+        }
+
         .card-body {
             padding: 10px;
         }
@@ -403,7 +416,8 @@
         }
 
         .flip-photo {
-            padding: 20px;
+            margin-top: 30px;
+            padding: 0 40px;
         }
 
 
