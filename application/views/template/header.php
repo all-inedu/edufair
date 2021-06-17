@@ -170,18 +170,31 @@
         padding: 0 20px
     }
 
-    #btn-signup {
+    #btn-login {
+        background: none;
         padding: 5px 30px;
         border: 1px solid #27387A;
-        border-radius: 20px;
+        border-radius: 0px;
         color: #000
     }
 
-    #btn-signup:hover {
+    #btn-login:hover {
         background: #2d6689;
         padding: 5px 30px;
-        border-radius: 20px;
         color: #fff
+    }
+
+    #btn-signup {
+        background: #2d6689;
+        padding: 5px 30px;
+        color: #fff;
+        border: 1px solid #27387A;
+    }
+
+    #btn-signup:hover {
+        background: none;
+        color: #000;
+        border: 1px solid #27387A;
     }
 
     .btn-user {
@@ -355,6 +368,22 @@
     }
 
     @media screen and (max-width: 576px) and (min-width: 375px) {
+        .navbar-collapse {
+            margin-top: 20px;
+            border-top: 2px solid #dedede;
+        }
+
+        #btn-login {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        #btn-signup {
+            margin-left: 7px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
         #home-section {
             background-color: #EBF6FC;
         }

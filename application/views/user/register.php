@@ -112,7 +112,13 @@ body {
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group text-right">
+                        <div class="form-group float-left">
+                            <a href="<?=base_url();?>" class="btn btn-warning"><i class="fas fa-arrow-left pr-2"> </i>
+                                Back
+                                to
+                                Home</a>
+                        </div>
+                        <div class="form-group float-right">
                             <button type="button" class="btn btn-primary navigate navigate-page-2">Next <i
                                     class="fas fa-arrow-right pl-2"></i></button>
                         </div>
