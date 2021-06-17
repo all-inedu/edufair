@@ -311,5 +311,14 @@
             $('.card-headers', this).hide().eq(random).show().addClass(
                 "animate__animated animate__flipInY");
         });
-    }, 5000);
+    }, 6000);
+
+    setInterval(function() {
+        let index = Math.floor(Math.random() * 12) + 1;
+        $('.img' + index).each(function() {
+            var random = Math.floor(Math.random() * $('.card-headers', this).length);
+            $('.card-headers', this).hide().eq(random).show().addClass(
+                "animate__animated animate__flipInY");
+        });
+    }, 7000);
     </script>
