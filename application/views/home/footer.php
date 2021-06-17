@@ -1,6 +1,5 @@
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted" data-aos="fade right" data-aos-offset="200"
-    data-aos-delay="25" data-aos-duration="1000">
+<footer class="text-center text-lg-start bg-light text-muted">
     <!-- Section: Social media -->
     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
         <!-- Left -->

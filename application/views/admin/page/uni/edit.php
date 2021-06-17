@@ -309,7 +309,7 @@
     function disableForm() {
         $("#addUni input").prop("readonly", true);
         $("#addUni select").prop("disabled", true);
-        $("#addUni textarea").prop("readonly", true);
+        // $("#addUni textarea").prop("disabled", true);
         $("#imgUpload").prop("disabled", true);
         $("#buttonSubmit").hide();
         $('#uniCountry').val('<?=$uni["uni_country"];?>');
@@ -346,14 +346,15 @@
             $("#editData").addClass('btn-warning text-dark');
             $("#addUni input").prop("readonly", false);
             $("#addUni select").prop("disabled", false);
-            $("#addUni textarea").prop("readonly", false);
+            // $("#addUni textarea").prop("disabled", false);
             $("#imgUpload").prop("disabled", false);
             $("#buttonSubmit").show();
         } else {
             $("#editData").removeClass('btn-warning text-dark');
             $("#addUni input").prop("readonly", true);
             $("#addUni select").prop("disabled", true);
-            $("#addUni textarea").prop("readonly", true);
+
+            // $("#addUni textarea").prop("disabled", true);
             $("#imgUpload").prop("disabled", true);
             $("#buttonSubmit").hide();
         }

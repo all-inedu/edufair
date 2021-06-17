@@ -14,6 +14,37 @@ class ReminderController extends CI_Controller {
         $this->load->library('mail_smtp');
     }
 
+    // public function reminder() {
+    //     // Reminder H-7 
+    //     $date = date("Y-m-d");
+
+    //     if($date=="2021-06-17") {
+            
+    //     }
+        
+    //     foreach ($data as $d) {
+    //         if((!empty($d['topic'])) or (!empty($d['consult']))) {
+    //             $email = $d['user_email'];
+                
+    //             $config = $this->mail_smtp->smtp();
+    //             $this->load->library('mail_smtp', $config);
+    //             $this->email->initialize($config);
+    //             $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
+    //             $this->email->to($email);
+    //             // $this->email->to('hafidz.fanany@all-inedu.com');
+
+    //             $this->email->subject('Edufair Reminder');
+
+    //             $bodyMail = $this->load->view('mail/reminder', $d, true);
+    //             $this->email->message($bodyMail);
+
+    //                 // Send Email
+    //             $this->email->send();
+    //         } 
+    //     }
+    //     // echo json_encode($data);
+    // }
+
     public function reminder() {
         $date = "2021-05-19";
         // $date = date("Y-m-d");

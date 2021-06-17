@@ -22,6 +22,13 @@ body {
     opacity: 0.9;
 }
 
+.cke_editable {
+    cursor: text;
+    border: 1px solid #dedede;
+    padding: 10px;
+    border-radius: 5px;
+}
+
 table.table-bordered.dataTable tbody td {
     border-bottom-width: 0;
     vertical-align: middle !important;
