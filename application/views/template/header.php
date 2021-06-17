@@ -233,7 +233,8 @@
         border: 3px solid #efaa52;
         background: 0 0;
         border-radius: 12px;
-        font-size: 20px
+        font-size: 17px;
+        margin-bottom: 10px;
     }
 
     .btn-book {
@@ -368,6 +369,10 @@
     }
 
     @media screen and (max-width: 576px) and (min-width: 375px) {
+        .card-body {
+            padding: 10px;
+        }
+
         .navbar-collapse {
             margin-top: 20px;
             border-top: 2px solid #dedede;
@@ -646,16 +651,12 @@
     }
 
     #footer-copy {
-        background-image: url('<?php echo base_url(); ?>assets/user/dashboard/footer-copy.jpg');
-        background-size: 100%;
-        background-repeat: no-repeat;
+        background: #AED0EB;
     }
 
     footer,
     .footer {
-        background-image: url('<?php echo base_url(); ?>assets/user/dashboard/footer.jpg');
-        background-size: 100%;
-        background-repeat: no-repeat;
+        background: #D1E4F3;
     }
 
     .nav-block {
