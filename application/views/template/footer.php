@@ -17,10 +17,10 @@
 <script src="//unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
 AOS.init();
-$(function () {
-  $('[data-toggle="popover"]').popover({
-    trigger: 'hover'
-  })
+$(function() {
+    $('[data-toggle="popover"]').popover({
+        trigger: 'hover'
+    })
 })
 $(window).on('load', function() {
     // $(".loading").fadeOut("slow");
@@ -267,88 +267,95 @@ $(".cancel-booking-topic").each(function() {
     });
 });
 
-    $(".cancel-booking-consult").each(function() {
-        $(this).click(function() {
-            swal.fire({
-                icon: 'question',
-                title: 'If this time slot is booked by another user, you have to choose other time slots for a reschedule',
-                showCancelButton: true,
-                focusConfirm: false,
-                confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
-                cancelButtonText: 'No!'
-            }).then((result) => {
-                if(result.isConfirmed) {
-                    Swal.showLoading();
-                    var consultationId = $(this).data('consultation');
-                    
-                    $.ajax({
-                        url: "<?php echo base_url(); ?>/home/cancel/consult",
-                        type: "post",
-                        data: {
-                            consultationId : consultationId
-                        },
-                        success: function(msg) {
-                            if(msg == 1) {
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'The Consultation has been canceled'
-                                });
-                                location.reload();
-                            } else {
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Oops...',
-                                    text: 'Something went wrong! Please try again.'
-                                });
-                            }
+$(".cancel-booking-consult").each(function() {
+    $(this).click(function() {
+        swal.fire({
+            icon: 'question',
+            title: 'If this time slot is booked by another user, you have to choose other time slots for a reschedule',
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
+            cancelButtonText: 'No!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.showLoading();
+                var consultationId = $(this).data('consultation');
 
+                $.ajax({
+                    url: "<?php echo base_url(); ?>/home/cancel/consult",
+                    type: "post",
+                    data: {
+                        consultationId: consultationId
+                    },
+                    success: function(msg) {
+                        if (msg == 1) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'The Consultation has been canceled'
+                            });
+                            location.reload();
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong! Please try again.'
+                            });
                         }
-                    });
-                }
-            })
+
+                    }
+                });
+            }
+        })
+    });
+});
+
+$(".btn-save-profile").click(function() {
+    $("#btn-edit-profile").click();
+});
+
+$(".notify-me").each(function() {
+    $(this).click(function() {
+        var uniId = $(this).data('uniid');
+        $.ajax({
+            url: "<?php echo base_url(); ?>home/waiting-list",
+            type: "post",
+            data: {
+                uniId: uniId
+            },
+            success: function(msg) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sukses'
+                });
+            }
         });
     });
-
-    $(".btn-save-profile").click(function() {
-        $("#btn-edit-profile").click(); 
-    });
-
-    $(".notify-me").each(function() {
-        $(this).click(function() {
-            var uniId = $(this).data('uniid');
-            $.ajax({
-                url: "<?php echo base_url(); ?>home/waiting-list",
-                type: "post",
-                data: {
-                    uniId : uniId
-                },
-                success: function(msg) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Sukses'
-                    });
-                }
-            });
-        });
-    });
+});
 </script>
 <script>
 function highlight(uni_id, e) {
+    // var uniContainer = $("#uni-" + uni_id + " .card").offset().top;
+    // var parentContainer = $(".box-book").offset().top;
+
+    // var distance = uniContainer - parentContainer;
+
+    var elmnt = document.getElementById("uni-" + uni_id)
+    elmnt.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+    });
 
     $(".card").css({
-        "border": "3px solid transparent"
+        "border": "5px solid transparent"
     });
-
-    var uniContainer = $("#uni-" + uni_id + " .card").offset().top;
-    var parentContainer = $(".box-book").offset().top;
-
-    var distance = uniContainer - parentContainer;
-
-    $(".box-book").scrollTop(distance);
 
     $("#uni-" + uni_id + " .card").css({
-        "border": "3px solid #e78724"
+        "border": "5px solid #27387A"
     });
+
+
+    // $(".box-book").scrollTop(distance);
+
 }
 
 $(document).ready(function() {

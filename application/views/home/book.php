@@ -25,7 +25,7 @@
 }
 
 .box-book::-webkit-scrollbar-thumb {
-    background: #fff;
+    background: #27387a;
     border-radius: 10px;
 }
 
@@ -93,8 +93,9 @@
                         <?php
                                 foreach($val['uni_detail'] as $row){
                                 ?>
-                        <a class="dropdown-item"
-                            onclick="highlight('<?php echo $row['uni_id']; ?>')"><?php echo $row['uni_name']; ?></a>
+                        <a class="dropdown-item" onclick="highlight('<?php echo $row['uni_id']; ?>')">
+                            <?php echo $row['uni_name']; ?>
+                        </a>
                         <?php
                                 }
                                 ?>
@@ -268,7 +269,7 @@
                                                                 ?>
 
                                                                 <div class="row mb-2">
-                                                                    <div class="col-sm-8 col-lg-9 pr-0">
+                                                                    <div class="col-sm-8 col-lg-8 pr-0">
                                                                         <button
                                                                             class="btn btn-outline-info btn-disabled btn-block"
                                                                             disabled><?php echo $uni_dtl_t_start_time; ?>
@@ -276,7 +277,7 @@
                                                                             <?php echo $uni_dtl_t_end_time; ?>
                                                                             WIB</button>
                                                                     </div>
-                                                                    <div class="col-sm-4 col-lg-3">
+                                                                    <div class="col-sm-4 col-lg-4">
                                                                         <button
                                                                             class="btn btn-primary btn-block btn-book-consul"
                                                                             data-starttime="<?php echo $detailTime['uni_dtl_t_start_time']?>"
