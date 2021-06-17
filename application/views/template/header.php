@@ -410,10 +410,10 @@
             padding: 0% 0% !important;
         }
 
-        .container-fluid {
+        /* .container-fluid {
             padding-left: 15px !important;
             padding-right: 15px !important;
-        }
+        } */
 
         .flip-photo {
             margin-top: 30px;

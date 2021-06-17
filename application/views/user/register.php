@@ -5,205 +5,228 @@ body {
     background-attachment: fixed;
 }
 </style>
-<div class="container-fluid">
-    <div class="container mb-5">
-        <div class="col-xl-6 offset-xl-3 allin-registration shadow" style="background: #FFF">
-            <h3 class="text-center" style="letter-spacing: 0.2em;margin-bottom: 1em;">REGISTRATION</h3>
-            <hr>
-            <form method="get" id="registerForm" novalidate class="needs-validation">
-                <div class="row mt-4">
-                    <div class="col" data-page="1">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label>First Name</label>
-                                    <input name="user_first_name" type="text"
-                                        class="form-control form-control-sm custom-box" placeholder="Mikhael" required>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label>Last Name</label>
-                                    <input name="user_last_name" type="text"
-                                        class="form-control form-control-sm custom-box" placeholder="Jackdad" required>
-                                </div>
+
+<div class="container mb-5">
+    <div class="col-xl-6 offset-xl-3 allin-registration shadow" style="background: #FFF">
+        <h3 class="text-center" style="letter-spacing: 0.2em;margin-bottom: 1em;">REGISTRATION</h3>
+        <hr>
+        <form method="get" id="registerForm" novalidate class="needs-validation">
+            <div class="row mt-4">
+                <div class="col" data-page="1">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input name="user_first_name" type="text"
+                                    class="form-control form-control-sm custom-box" placeholder="Mikhael" required>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label>Email address</label>
-                                    <input type="email" class="form-control form-control-sm custom-box"
-                                        name="user_email" placeholder="xxxxx@xxxx.com" required>
-                                </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input name="user_last_name" type="text" class="form-control form-control-sm custom-box"
+                                    placeholder="Jackdad" required>
                             </div>
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" class="form-control form-control-sm custom-box"
-                                        name="user_password" minlength="8" required placeholder="Min. 8 Characters">
-                                    <div class="invalid-feedback">
-                                        Minimum 8 characters.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Phone Number</label>
-                            <input type="number" class="form-control form-control-sm custom-box"
-                                placeholder="08xx xxxx xxxx" name="user_phone" required>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>You are a:</label>
-                                    <div class="form-control custom-box radio border-0">
-                                        <div class="form-check form-check-inline">
-                                            <input id="male" class="form-check-input input-status" type="radio"
-                                                name="user_gender" value="male" checked>
-                                            <label for="male" class="form-check-label">Male</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input id="female" class="form-check-input input-status" type="radio"
-                                                name="user_gender" value="female">
-                                            <label for="female" class="form-check-label">Female</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>Date of Birth:</label>
-                                    <input type="date" name="user_dateofbirth" class="form-control custom-box" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>You came here as:</label>
-                            <div class="form-control custom-box radio border-0">
-                                <div class="form-check form-check-inline">
-                                    <input id="parent" class="form-check-input input-status" type="radio"
-                                        name="user_status" value="parent">
-                                    <label for="parent" class="form-check-label">Parent</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input id="student" class="form-check-input input-status" type="radio"
-                                        name="user_status" value="student" checked>
-                                    <label for="student" class="form-check-label">Student</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input id="teacher" class="form-check-input input-status" type="radio"
-                                        name="user_status" value="teacher_consellor">
-                                    <label for="teacher" class="form-check-label">Teacher/Consellor</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Is this your first time attending ALL-in event?</label>
-                            <div class="form-control custom-box radio border-0">
-                                <div class="form-check form-check-inline">
-                                    <input id="ft_yes" class="form-check-input" type="radio" name="user_first_time"
-                                        value="yes" checked>
-                                    <label for="ft_yes" class="form-check-label">Yes</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input id="ft_no" class="form-check-input" type="radio" name="user_first_time"
-                                        value="no">
-                                    <label for="ft_no" class="form-check-label">No</label>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="form-group float-left">
-                            <a href="<?=base_url();?>" class="btn btn-warning"><i class="fas fa-arrow-left pr-2"> </i>
-                                Back
-                                to
-                                Home</a>
-                        </div>
-                        <div class="form-group float-right">
-                            <button type="button" class="btn btn-primary navigate navigate-page-2">Next <i
-                                    class="fas fa-arrow-right pl-2"></i></button>
                         </div>
                     </div>
-                    <div class="col" data-page="2" style="display: none">
-                        <div class="form-group form-change grade">
-                            <label>What grade are you in?</label>
-                            <!-- <input type="number" class="form-control form-control-sm custom-box" name="user_grade" placeholder=""
-	                                onchange="limit(this)" required /> -->
-                            <select class="form-control form-control-sm custom-box" name="user_grade" required
-                                id="userGrade" style="font-size: 1rem">
-                                <option value="">Select your grade</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-
-                        </div>
-                        <div class="form-group form-change school">
-                            <label>What school are you going to graduate from?</label>
-                            <select name="school_option" id="userSchool" onchange="checkValue('userSchool')" required
-                                oninvalid="validation('userSchool')">
-                                <option data-placeholder="true"></option>
-                                <option value="other">Other</option>
-                            </select>
-                            <input type="text" class="form-control form-control-sm mt-1" id="userSchoolNew">
-                            <input type="hidden" value="" name="user_school" id="user_school">
-                            <small class="form-text text-muted">Choose other if there are not your schools</small>
-                        </div>
-                        <div class="form-group form-change destination">
-                            <label>Where's your country destination to study abroad?</label>
-                            <select id="userDestination" onchange="checkValue('userDestination')" multiple required
-                                oninvalid="validation('userDestination')">
-                                <option data-placeholder="true"></option>
-                            </select>
-                            <small class="form-text text-muted">You can choose more than one</small>
-                            <input type="hidden" value="" name="user_destination" id="user_destination">
-                        </div>
-                        <div class="form-group form-group-major form-change major">
-                            <label>What's your intended major in university?</label>
-                            <select id="userMajor" onchange="checkValue('userMajor')" multiple required
-                                oninvalid="validation('userMajor')">
-                                <option data-placeholder="true"></option>
-                                <option value="other">Other</option>
-                            </select>
-                            <small class="form-text text-muted">You can choose more than one and Choose other if there
-                                are not your intended major</small>
-                            <input type="text" class="form-control form-control-sm mt-1 custom-box"
-                                name="user_major_other" id="userMajorNew">
-                            <input type="hidden" value="" name="user_major" id="user_major">
-                        </div>
-                        <div class="form-group">
-                            <label>I know this Edufair from</label>
-                            <select id="userLead" onchange="checkValue('userLead')" required
-                                oninvalid="validation('userLead')" class="custom-box">
-                                <option data-placeholder="true"></option>
-                            </select>
-                            <input type="text" class="form-control form-control-sm mt-1 custom-box" id="userLeadNew">
-                            <input type="hidden" value="" name="user_lead" id="user_lead">
-                        </div>
-                        <div class="form-group">
-                            <label>Whats your biggest challenge in prepping for uni?</label>
-                            <textarea class="form-control custom-box" name="user_biggest_challenge"
-                                placeholder="Tell your story here" required></textarea>
-                        </div>
-                        <hr>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-xl-6 text-left"><button type="button"
-                                        class="btn btn-primary navigate-page-1"><i class="fas fa-arrow-left pr-2"></i>
-                                        Back</button></div>
-                                <div class="col-xl-6 text-right"><button type="submit"
-                                        class="btn btn-success navigate-page-3 btn-register">Submit <i
-                                            class="fas fa-paper-plane pl-2"></i></button></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Email address</label>
+                                <input type="email" class="form-control form-control-sm custom-box" name="user_email"
+                                    placeholder="xxxxx@xxxx.com" required>
                             </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="number" class="form-control form-control-sm custom-box"
+                                    placeholder="08xx xxxx xxxx" name="user_phone" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input id="user_password" type="password"
+                                    class="form-control form-control-sm custom-box" name="user_password" minlength="8"
+                                    required placeholder="Min. 8 Characters">
+                                <div class="invalid-feedback">
+                                    Minimum 8 characters.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input id="confirm_user_password" type="password"
+                                    class="form-control form-control-sm custom-box" name="confirm_user_password"
+                                    minlength="8" required placeholder="Min. 8 Characters">
+                                <small id="confirmFeedback" class="text-danger" hidden>
+                                    Sorry, your password doesn't match
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>You are a:</label>
+                                <div class="form-control custom-box radio border-0">
+                                    <div class="form-check form-check-inline">
+                                        <input id="male" class="form-check-input input-status" type="radio"
+                                            name="user_gender" value="male" checked>
+                                        <label for="male" class="form-check-label">Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input id="female" class="form-check-input input-status" type="radio"
+                                            name="user_gender" value="female">
+                                        <label for="female" class="form-check-label">Female</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Date of Birth:</label>
+                                <input type="date" name="user_dateofbirth" class="form-control custom-box" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label>You came here as:</label>
+                                <div class="form-control custom-box radio border-0">
+                                    <div class="form-check form-check-inline">
+                                        <input id="parent" class="form-check-input input-status" type="radio"
+                                            name="user_status" value="parent">
+                                        <label for="parent" class="form-check-label">Parent</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input id="student" class="form-check-input input-status" type="radio"
+                                            name="user_status" value="student" checked>
+                                        <label for="student" class="form-check-label">Student</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input id="teacher" class="form-check-input input-status" type="radio"
+                                            name="user_status" value="teacher_consellor">
+                                        <label for="teacher" class="form-check-label">Teacher/Consellor</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Is this your first time attending ALL-in event?</label>
+                                <div class="form-control custom-box radio border-0">
+                                    <div class="form-check form-check-inline">
+                                        <input id="ft_yes" class="form-check-input" type="radio" name="user_first_time"
+                                            value="yes" checked>
+                                        <label for="ft_yes" class="form-check-label">Yes</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input id="ft_no" class="form-check-input" type="radio" name="user_first_time"
+                                            value="no">
+                                        <label for="ft_no" class="form-check-label">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group float-left">
+                        <a href="<?=base_url();?>" class="btn btn-warning"><i class="fas fa-arrow-left pr-2"> </i>
+                            Back
+                            to
+                            Home</a>
+                    </div>
+                    <div class="form-group float-right">
+                        <button type="button" class="btn btn-primary navigate navigate-page-2">Next <i
+                                class="fas fa-arrow-right pl-2"></i></button>
+                    </div>
+                </div>
+                <div class="col" data-page="2" style="display: none">
+                    <div class="form-group form-change grade">
+                        <label>What grade are you in?</label>
+                        <!-- <input type="number" class="form-control form-control-sm custom-box" name="user_grade" placeholder=""
+	                                onchange="limit(this)" required /> -->
+                        <select class="form-control form-control-sm custom-box" name="user_grade" required
+                            id="userGrade" style="font-size: 1rem">
+                            <option value="">Select your grade</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group form-change school">
+                        <label>What school are you going to graduate from?</label>
+                        <select name="school_option" id="userSchool" onchange="checkValue('userSchool')" required
+                            oninvalid="validation('userSchool')">
+                            <option data-placeholder="true"></option>
+                            <option value="other">Other</option>
+                        </select>
+                        <input type="text" class="form-control form-control-sm mt-1" id="userSchoolNew">
+                        <input type="hidden" value="" name="user_school" id="user_school">
+                        <small class="form-text text-muted">Choose other if there are not your schools</small>
+                    </div>
+                    <div class="form-group form-change destination">
+                        <label>Where's your country destination to study abroad?</label>
+                        <select id="userDestination" onchange="checkValue('userDestination')" multiple required
+                            oninvalid="validation('userDestination')">
+                            <option data-placeholder="true"></option>
+                        </select>
+                        <small class="form-text text-muted">You can choose more than one</small>
+                        <input type="hidden" value="" name="user_destination" id="user_destination">
+                    </div>
+                    <div class="form-group form-group-major form-change major">
+                        <label>What's your intended major in university?</label>
+                        <select id="userMajor" onchange="checkValue('userMajor')" multiple required
+                            oninvalid="validation('userMajor')">
+                            <option data-placeholder="true"></option>
+                            <option value="other">Other</option>
+                        </select>
+                        <small class="form-text text-muted">You can choose more than one and Choose other if there
+                            are not your intended major</small>
+                        <input type="text" class="form-control form-control-sm mt-1 custom-box" name="user_major_other"
+                            id="userMajorNew">
+                        <input type="hidden" value="" name="user_major" id="user_major">
+                    </div>
+                    <div class="form-group">
+                        <label>I know this Edufair from</label>
+                        <select id="userLead" onchange="checkValue('userLead')" required
+                            oninvalid="validation('userLead')" class="custom-box">
+                            <option data-placeholder="true"></option>
+                        </select>
+                        <input type="text" class="form-control form-control-sm mt-1 custom-box" id="userLeadNew">
+                        <input type="hidden" value="" name="user_lead" id="user_lead">
+                    </div>
+                    <div class="form-group">
+                        <label>Whats your biggest challenge in prepping for uni?</label>
+                        <textarea class="form-control custom-box" name="user_biggest_challenge"
+                            placeholder="Tell your story here" required></textarea>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xl-6 text-left"><button type="button"
+                                    class="btn btn-primary navigate-page-1"><i class="fas fa-arrow-left pr-2"></i>
+                                    Back</button></div>
+                            <div class="col-xl-6 text-right"><button type="submit"
+                                    class="btn btn-success navigate-page-3 btn-register">Submit <i
+                                        class="fas fa-paper-plane pl-2"></i></button></div>
                         </div>
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -303,6 +326,20 @@ $(document).ready(function() {
     });
 
 });
+
+$("#confirm_user_password").change(function() {
+    var psw = $("#user_password").val()
+    var pswConfirm = $(this).val()
+    if (psw != pswConfirm) {
+        $(this).removeClass("is-valid");
+        $(this).addClass("is-invalid");
+        $("#confirmFeedback").removeAttr("hidden")
+    } else {
+        $(this).removeClass("is-invalid");
+        $(this).addClass("is-valid");
+        $("#confirmFeedback").prop("hidden", true)
+    }
+})
 
 function checkValue(param) {
     switch (param) {
