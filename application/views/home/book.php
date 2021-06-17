@@ -80,7 +80,7 @@
                     foreach($uniCountry as $key => $val) {
                     ?>
                 <div class="dropdown show d-inline">
-                    <button class="btn bg-white text-muted btn-sm mx-1 px-3 dropdown-toggle edufair-uni-region"
+                    <button class="btn bg-white text-muted btn-sm mx-1 dropdown-toggle edufair-uni-region"
                         data-toggle="dropdown">
                         <?php echo $key; ?>
                     </button>

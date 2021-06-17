@@ -638,7 +638,7 @@
         }
 
         .edufair-uni-region {
-            padding: 6px 50px !important;
+            padding: 6px 30px !important;
         }
 
         #talks-section {
