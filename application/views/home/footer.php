@@ -10,13 +10,16 @@
 
         <!-- Right -->
         <div>
-            <a href="https://www.facebook.com/allineduspace/" class="me-4 text-reset mr-2">
+            <a href="https://instagram.com/allineduspace/" target="_blank" class="me-4 text-reset mr-2">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/allineduspace/" target="_blank" class="me-4 text-reset mr-2">
                 <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://www.linkedin.com/company/all-in-eduspace" class="me-4 text-reset mr-2">
+            <a href="https://www.linkedin.com/company/all-in-eduspace" target="_blank" class="me-4 text-reset mr-2">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="https://www.youtube.com/channel/UCLZ0P-RRdr7k5j2dxhNlObg" class="me-4 text-reset">
+            <a href="https://www.youtube.com/channel/UCLZ0P-RRdr7k5j2dxhNlObg" target="_blank" class="me-4 text-reset">
                 <i class="fab fa-youtube"></i>
             </a>
         </div>
@@ -50,7 +53,7 @@
                         Navigation
                     </h6>
                     <p>
-                        <a href="#talks" class="text-reset">Topic</a>
+                        <a href="#talks" class="text-reset">Talks</a>
                     </p>
                     <p>
                         <a href="#booking" class="text-reset">Uni List</a>
