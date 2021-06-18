@@ -70,7 +70,7 @@ body {
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>You are a:</label>
                                 <div class="form-control custom-box radio border-0">
@@ -87,7 +87,7 @@ body {
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Date of Birth:</label>
                                 <input type="date" name="user_dateofbirth" class="form-control custom-box" required>
