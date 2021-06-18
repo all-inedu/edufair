@@ -54,10 +54,11 @@
                     </li>
                     <?php } else { ?>
                     <li class="nav-item ml-3">
-                        <button class="nav-link" id="btn-login" data-target="#signUp" data-toggle="modal">Login</button>
+                        <a class="nav-link" id="btn-login" data-target="#signUp" data-toggle="modal"
+                            style="cursor:pointer;">Log In</a>
                     </li>
 
-                    <li class="nav-item ml-2">
+                    <li class="nav-item">
                         <a class="nav-link" id="btn-signup" href="<?=base_url();?>registration">Sign
                             Up</a>
                     </li>
