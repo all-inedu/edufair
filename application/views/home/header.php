@@ -305,7 +305,7 @@
             $('.card-headers', this).hide().eq(random).show().addClass(
                 "animate__animated animate__flipInY");
         });
-    }, 5000);
+    }, 2000);
 
     setInterval(function() {
         let index = Math.floor(Math.random() * 12) + 1;
@@ -314,7 +314,7 @@
             $('.card-headers', this).hide().eq(random).show().addClass(
                 "animate__animated animate__flipInY");
         });
-    }, 5000);
+    }, 2000);
 
     setInterval(function() {
         let index = Math.floor(Math.random() * 12) + 1;
@@ -323,5 +323,5 @@
             $('.card-headers', this).hide().eq(random).show().addClass(
                 "animate__animated animate__flipInY");
         });
-    }, 5000);
+    }, 2000);
     </script>

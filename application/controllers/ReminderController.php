@@ -25,7 +25,7 @@ class ReminderController extends CI_Controller {
         // $this->email->message($bodyMail);
         // $this->email->send();
 
-        $this->load->view('mail/welcome');
+        $this->load->view('mail/reminder_h-7');
     }
 
     public function reminder() {
