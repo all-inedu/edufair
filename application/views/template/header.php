@@ -392,6 +392,12 @@
             border-top: 2px solid #dedede;
         }
 
+        .nav-block {
+            margin-top: 20px;
+            text-align: center;
+            margin: 20px;
+        }
+
         #btn-login {
             margin-top: 20px;
             width: 100%;
@@ -675,9 +681,8 @@
     }
 
     .nav-block {
-        background: #0A2F7C;
+        background: #27387A;
         padding: 5px 1em;
-        border-radius: 1em;
     }
 
     .nav-block a {

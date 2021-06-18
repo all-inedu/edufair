@@ -75,20 +75,6 @@
                             education system abroad.</h5>
                     </div>
                 </div>
-
-                <!-- <div class="flipTimer mt-5">
-                <div class="days" data-toggle="tooltip" data-placement="bottom" title="Days">
-                </div>
-                <div class="hours" data-toggle="tooltip" data-placement="bottom" title="Hours">
-                    <label class="seperate">:</label>
-                </div>
-                <div class="minutes" data-toggle="tooltip" data-placement="bottom" title="Minutes">
-                    <label class="seperate">:</label>
-                </div>
-                <div class="seconds" data-toggle="tooltip" data-placement="bottom" title="Seconds">
-                    <label class="seperate">:</label>
-                </div>
-            </div> -->
             </div>
             <div class="col-md-4 order-md-1 order-sm-2 flip-photo">
                 <div class="row">
@@ -328,7 +314,7 @@
             $('.card-headers', this).hide().eq(random).show().addClass(
                 "animate__animated animate__flipInY");
         });
-    }, 6000);
+    }, 5000);
 
     setInterval(function() {
         let index = Math.floor(Math.random() * 12) + 1;
@@ -337,5 +323,5 @@
             $('.card-headers', this).hide().eq(random).show().addClass(
                 "animate__animated animate__flipInY");
         });
-    }, 7000);
+    }, 5000);
     </script>

@@ -40,11 +40,16 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Welcome, <?php echo $this->session->userdata('user_first_name'); ?>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="userMenuLink">
+                        <div class="dropdown-menu dropdown-menu-right text-left w-100" aria-labelledby="userMenuLink">
                             <a class="dropdown-item" href="<?php echo base_url(); ?>home/dashboard"
-                                style="color: #0A2F7C !important;"><i class="far fa-address-card"></i> Profile</a>
+                                style="color: #0A2F7C !important;"><i
+                                    class="far fa-address-card fa-fw pr-3  float-right mt-1"></i>
+                                Profile</a>
+                            <hr class="m-0">
                             <a class="dropdown-item" href="<?php echo base_url(); ?>logout"
-                                style="color: #0A2F7C !important;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                                style="color: #0A2F7C !important;"><i
+                                    class="fas fa-sign-out-alt fa-fw pr-3 float-right mt-1"></i>
+                                Logout</a>
                         </div>
                     </li>
                     <?php } else { ?>
