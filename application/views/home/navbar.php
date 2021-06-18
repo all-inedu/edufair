@@ -1,6 +1,6 @@
 <div class="bg-primary">
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-transparent">
-        <div class="container">
+        <div class="container-fluid navbar-allin">
             <a class="navbar-brand" href="<?php echo base_url(); ?>"><img
                     src="<?php echo base_url(); ?>assets/home/logo_normal_small-300x68-1-e1593521308518.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"

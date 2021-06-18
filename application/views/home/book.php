@@ -8,7 +8,7 @@
 }
 
 .box-book {
-    height: 790px;
+    height: 780px;
     overflow-x: hidden;
     overflow-y: scroll;
 }
@@ -35,11 +35,7 @@
 
 #booking {
     height: auto;
-    /*background: #1c4e75;*/
-    /* background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: top; */
-    padding: 20px 0 50px 0;
+    padding: 2% 10% 2% 6%;
 }
 </style>
 <!-- Modal -->
@@ -60,10 +56,9 @@
     </div>
 </div>
 <div class="container-fluid text-white pb-4" id="booking">
-    <div class="container pb-4">
+    <div class="pb-4">
         <div class="row pb-5">
-            <div class="col-sm-12 col-lg-7 mt-5" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50"
-                data-aos-duration="1000">
+            <div class="col-sm-12 col-lg-7 mt-5">
                 <h2>University List</h2>
                 <h5>You have a chance to book a personal consultation with all universities listed below! Book your
                     schedule and come prepared to ask questions for the uni reps about admissions.</h5>
@@ -75,7 +70,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col text-left">
+            <div class="col text-left" style="margin-left:-5px;">
                 <?php
                     foreach($uniCountry as $key => $val) {
                     ?>
@@ -147,7 +142,7 @@
                 width: 30px;
             }
             </style>
-            <div class="row">
+            <div class="row p-4">
                 <div class="mt-3 p-2 box-book">
                     <div class="row my-0" id="consult-container">
                         <?php

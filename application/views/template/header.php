@@ -219,7 +219,7 @@
     }
 
     .talks-header {
-        padding: 5% 0px 5% 10% !important;
+        padding: 2% 0px 4% 4% !important;
     }
 
     #booking h2,
@@ -344,7 +344,8 @@
         background-position: top;
         background-size: 100%;
         background-repeat: no-repeat;
-        padding: 0px;
+        padding-left: 6%;
+        padding-right: 10%;
     }
 
     #register-form .card {
@@ -367,6 +368,10 @@
     .navbar.scrolled {
         background-color: #FFF !important;
         transition: background-color 200ms linear;
+    }
+
+    .navbar-allin {
+        padding: 0 140px 0 80px !important;
     }
 
     @media screen and (max-width: 576px) and (min-width: 375px) {
@@ -658,7 +663,8 @@
         }
 
         #talks-section {
-            background-position: center -5.5%;
+            padding-left: 6%;
+            padding-right: 10%;
         }
 
 

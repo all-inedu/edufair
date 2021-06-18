@@ -1,29 +1,26 @@
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-light text-muted">
     <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-        <!-- Left -->
-        <div class="me-5 d-none d-lg-block">
-            <span>Get connected with us on social networks:</span>
-        </div>
-        <!-- Left -->
+    <section class="container">
+        <div class="row py-3">
+            <div class="col text-center">
+                <span>Get connected with us on social networks: &nbsp;&nbsp;</span>
 
-        <!-- Right -->
-        <div>
-            <a href="https://instagram.com/allineduspace/" target="_blank" class="me-4 text-reset mr-2">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/allineduspace/" target="_blank" class="me-4 text-reset mr-2">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.linkedin.com/company/all-in-eduspace" target="_blank" class="me-4 text-reset mr-2">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://www.youtube.com/channel/UCLZ0P-RRdr7k5j2dxhNlObg" target="_blank" class="me-4 text-reset">
-                <i class="fab fa-youtube"></i>
-            </a>
+                <a href="https://instagram.com/allineduspace/" target="_blank" class="me-4 text-reset mr-2">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/allineduspace/" target="_blank" class="me-4 text-reset mr-2">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/all-in-eduspace" target="_blank" class="me-4 text-reset mr-2">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCLZ0P-RRdr7k5j2dxhNlObg" target="_blank"
+                    class="me-4 text-reset">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
         </div>
-        <!-- Right -->
     </section>
     <!-- Section: Social media -->
 
