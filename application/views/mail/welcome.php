@@ -60,12 +60,13 @@
         <br>
         <br>
         <div class="box">
-            <b>Hello, there!</b> <br><br>
-            You’re one step closer to starting your university research journey!<br>
-            But first, let’s verify your account by clicking the button below.
-            <br><br>
-            <a href="<?=$url;?>" class="btn">Verify</a> <br><br>
-            We’re excited to see you soon! <br><br>
+            Heads up, you’re in for insightful sessions with global universities to talk about important topics that
+            will help you prepare for admissions! <br><br>
+
+            You can also book a consultation and have a 1-on-1 talk with the university rep to ask away your burning
+            questions. See the schedule on our website! <br><br>
+
+            <a href="<?=base_url();?>" class="btn">Visit our website here! </a> <br><br>
 
             Best regards,<br>
             ALL-in Eduspace Team

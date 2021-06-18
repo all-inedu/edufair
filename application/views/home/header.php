@@ -64,8 +64,8 @@
             <div class="col-md-8 order-md-2 order-sm-1 text-center" id="edufair-title-container">
                 <div class="row">
                     <div class="col">
-                        <img src="<?php echo base_url(); ?>assets/img/TITLE EDUFAIR.png"
-                            alt="Global University Fair 2021" width="100%">
+                        <img src="<?php echo base_url(); ?>assets/img/title.png" alt="Global University Fair 2021"
+                            width="100%">
                     </div>
                 </div>
                 <div class="row">

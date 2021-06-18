@@ -125,3 +125,4 @@ $route['dashboard/admin/book/export/consult'] = 'AdminController/exportBookConsu
 // END FUNCTION ADMIN 
 
 $route['reminder'] = 'ReminderController/reminder';
+$route['welcome'] = 'ReminderController/welcome';

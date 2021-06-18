@@ -242,7 +242,7 @@ class RegisterController extends CI_Controller {
         $this->email->to($email);
         // $this->email->cc('manuel.eric@all-inedu.com');
 
-        $this->email->subject('Please verify your email');
+        $this->email->subject('Let’s get you verified!');
 
         $bodyMail = $this->load->view('mail/verify_email', $data, true);
         $this->email->message($bodyMail);
