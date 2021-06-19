@@ -24,9 +24,14 @@ class HomeController extends CI_Controller {
 		$data['uniCountry'] = $this->UniModel->getUniCountry();
 
 		if ($this->session->has_userdata('user_id')) {
-			$data['bookingTopic'] = $this->TopicModel->getBookingTopicData($this->session->userdata('user_id')); 
+			$bookingTopic = $this->TopicModel->getBookingTopicData($this->session->userdata('user_id')); 
+			if(isset($bookingTopic)) {
+				$data['bookingTopic'] = $bookingTopic;
+			} else {
+				$data['bookingTopic'] = [];
+			}
 		} else {
-			$data['bookingTopic'] = array(); // set null if user id session doesn't exitst
+			$data['bookingTopic'] = []; // set null if user id session doesn't exitst
 		}
 
 		// print_r($data['bookingTopic']);exit;

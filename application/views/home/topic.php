@@ -47,9 +47,7 @@
                     } else {
                         $props = "id='bookTopic'";
                     }
-                    ?>
 
-                        <?php
                     if(!in_array($topic_id, $bookingTopic)) {
                         ?>
                         <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book"
@@ -109,10 +107,14 @@
                     } else {
                         $props = "id='bookTopic'";
                     }
-                    ?>
+
+                    if(!in_array($topic_id, $bookingTopic)) {
+                        ?>
+
                         <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book"
                             data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>"
                             <?php echo $props; ?>>Join Now</a>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -152,7 +154,6 @@ $(".talk-button").click(function() {
 $(".btn-book").each(function() {
     $(this).click(function() {
         var topicId = $(this).data('topicid');
-
         $.ajax({
             url: "<?php echo base_url(); ?>home/book/topic",
             type: "POST",
@@ -179,6 +180,7 @@ $(".btn-book").each(function() {
                 }
             }
         });
+        $(this).prop("hidden", true);
     });
 });
 </script>

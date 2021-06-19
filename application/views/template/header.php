@@ -171,6 +171,10 @@
         padding: 0 20px
     }
 
+    .swal2-title {
+        font-size: 17px !important;
+    }
+
     #btn-login {
         background: #2d6689;
         padding: 5px 15px 5px 30px;
@@ -697,6 +701,7 @@
     .nav-block {
         background: #27387A;
         padding: 5px 1em;
+        border-radius: 20px;
     }
 
     .nav-block a {

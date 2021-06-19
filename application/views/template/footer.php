@@ -64,6 +64,9 @@ $(".navigate-page-2").on('click', function() {
 $(".btn-book-consul").each(function() {
     $(this).click(function() {
         var user_id = "<?php echo $this->session->userdata('user_id'); ?>";
+        $(this).html("Booked")
+        $(this).prop("disabled", true)
+
         if ((user_id == "")) {
             var parent = $(this).closest(".modal").attr('id');
             $("#" + parent + " .close").click(); // close booking consult modal
@@ -177,7 +180,7 @@ $("#loginForm").submit(function(event) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Something went wrong! Please try again.'
+                    text: 'Your username/email or password is incorrect!'
                 });
             }
         }
