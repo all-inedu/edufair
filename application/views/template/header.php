@@ -176,7 +176,7 @@
     }
 
     #btn-login {
-        background: #2d6689;
+        background: #0D2F7F;
         padding: 5px 15px 5px 30px;
         /* border: 1px solid #27387A; */
         border-radius: 20px 0px 0px 20px;
@@ -189,10 +189,10 @@
     }
 
     #btn-signup {
-        background: #2d6689;
+        background: #0D2F7F;
         padding: 5px 30px 5px 15px;
         color: #fff;
-        border-left: 1px solid #27387A;
+        border-left: 2px solid #ECA754;
         border-radius: 0px 20px 20px 0;
     }
 
@@ -699,7 +699,7 @@
     }
 
     .nav-block {
-        background: #27387A;
+        background: #0D2F7F;
         padding: 5px 1em;
         border-radius: 20px;
     }

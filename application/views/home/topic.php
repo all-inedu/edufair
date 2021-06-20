@@ -2,11 +2,15 @@
 .img-topic {
     cursor: pointer;
 }
+
+.badge-allin {
+    background: #0D2F7F;
+}
 </style>
 <section class="container-fluid" id="talks-section">
     <?php if ($talk_day1 != "" ) {?>
     <div class="p-4 mb-4 day1talks">
-        <div class="card-columns " style="padding-top: 1em">
+        <div class="row" style="padding-top: 1em">
             <?php
         foreach($talk_day1 as $row) {
             $topic_start_date = new DateTime($row['topic_start_date']);
@@ -19,29 +23,30 @@
                 );
             $arrTopic = base64_encode(json_encode($arrTopic));
             ?>
-            <div class="card card-topic">
-                <div class="card-body">
-                    <img src="<?=base_url('assets/topic/'.$row['topic_banner']);?>" class="img-topic" width="100%">
-                    <div class="row px-2 pt-2 no-gutters talk-button">
-                        <div class="col-11">
-                            <small><?php echo $topic_start_date->format('M, dS Y - H:i') ?></small>
-                            <h6 class="font-weight-bold"><?php echo $topic_name; ?></h6>
-                            <?php
+            <div class="col-md-4 mb-3">
+                <div class="card card-topic">
+                    <div class="card-body">
+                        <img src="<?=base_url('assets/topic/'.$row['topic_banner']);?>" class="img-topic" width="100%">
+                        <div class="row px-2 pt-2 no-gutters talk-button">
+                            <div class="col-11">
+                                <small><?php echo $topic_start_date->format('M, dS Y - H:i') ?></small>
+                                <h6 class="font-weight-bold"><?php echo $topic_name; ?></h6>
+                                <?php
                         foreach($row['uni_detail'] as $uniDetail){
                         ?>
-                            <span class="badge badge-warning"><?php echo $uniDetail['uni_name']; ?></span>
-                            <?php
+                                <span class="badge badge-allin text-white"><?php echo $uniDetail['uni_name']; ?></span>
+                                <?php
                         }
                         ?>
+                            </div>
+                            <div class="col-1 pl-3 align-self-end">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
                         </div>
-                        <div class="col-1 pl-3 align-self-end">
-                            <i class="fas fa-arrow-down"></i>
-                        </div>
-                    </div>
-                    <div class="hidden px-2">
-                        <hr class="m-0 my-2">
-                        <p><?php echo $row['topic_desc']; ?></p>
-                        <?php
+                        <div class="hidden px-2">
+                            <hr class="m-0 my-2">
+                            <p><?php echo $row['topic_desc']; ?></p>
+                            <?php
                     if(!$this->session->has_userdata('user_id')){
                         $props = "href='#signUp' data-toggle='modal'";
                     } else {
@@ -50,12 +55,13 @@
 
                     if(!in_array($topic_id, $bookingTopic)) {
                         ?>
-                        <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book"
-                            data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>"
-                            <?php echo $props; ?>>Join Now</a>
-                        <?php
+                            <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book"
+                                data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>"
+                                <?php echo $props; ?>>Join Now</a>
+                            <?php
                     }
                     ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,7 +72,7 @@
     </div>
     <?php } if ($talk_day2 != "" ) {?>
     <div class="p-4 day2talks" style="margin-top: 5em">
-        <div class="card-columns" style="padding-top: 1em">
+        <div class="row" style="padding-top: 1em">
             <?php
         foreach($talk_day2 as $row) {
             $topic_start_date = new DateTime($row['topic_start_date']);
@@ -79,29 +85,30 @@
                 );
             $arrTopic = base64_encode(json_encode($arrTopic));
         ?>
-            <div class="card card-topic">
-                <div class="card-body">
-                    <img src="<?=base_url('assets/topic/'.$row['topic_banner']);?>" class="img-topic" width="100%">
-                    <div class="row px-2 pt-2 no-gutters talk-button">
-                        <div class="col-11">
-                            <small><?php echo $topic_start_date->format('M, dS Y - H:i') ?></small>
-                            <h6 class="font-weight-bold"><?php echo $topic_name; ?></h6>
-                            <?php
+            <div class="col-md-4 mb-3">
+                <div class="card card-topic">
+                    <div class="card-body">
+                        <img src="<?=base_url('assets/topic/'.$row['topic_banner']);?>" class="img-topic" width="100%">
+                        <div class="row px-2 pt-2 no-gutters talk-button">
+                            <div class="col-11">
+                                <small><?php echo $topic_start_date->format('M, dS Y - H:i') ?></small>
+                                <h6 class="font-weight-bold"><?php echo $topic_name; ?></h6>
+                                <?php
                         foreach($row['uni_detail'] as $uniDetail){
                         ?>
-                            <span class="badge badge-warning"><?php echo $uniDetail['uni_name']; ?></span>
-                            <?php
+                                <span class="badge badge-allin text-white"><?php echo $uniDetail['uni_name']; ?></span>
+                                <?php
                         }
                         ?>
+                            </div>
+                            <div class="col-1 pl-3 align-self-end">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
                         </div>
-                        <div class="col-1 pl-3 align-self-end">
-                            <i class="fas fa-arrow-down"></i>
-                        </div>
-                    </div>
-                    <div class="hidden px-2">
-                        <hr class="m-0 my-2">
-                        <p><?php echo $row['topic_desc']; ?></p>
-                        <?php
+                        <div class="hidden px-2">
+                            <hr class="m-0 my-2">
+                            <p><?php echo $row['topic_desc']; ?></p>
+                            <?php
                     if(!$this->session->has_userdata('user_id')){
                         $props = "href='#signUp' data-toggle='modal'";
                     } else {
@@ -111,10 +118,11 @@
                     if(!in_array($topic_id, $bookingTopic)) {
                         ?>
 
-                        <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book"
-                            data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>"
-                            <?php echo $props; ?>>Join Now</a>
-                        <?php } ?>
+                            <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book"
+                                data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>"
+                                <?php echo $props; ?>>Join Now</a>
+                            <?php } ?>
+                        </div>
                     </div>
                 </div>
             </div>
