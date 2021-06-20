@@ -59,13 +59,16 @@
         <br>
         <br>
         <div class="box">
-            Heads up, you’re in for insightful sessions with global universities to talk about important topics that
-            will help you prepare for admissions! <br><br>
+            Hello! <br>
+            Are you ready for the fair tomorrow?
 
-            You can also book a consultation and have a 1-on-1 talk with the university rep to ask away your burning
-            questions. See the schedule on our website! <br><br>
+            <p>Here’s your scheduled university talks and consultations. <br>
+                Don’t forget to be prompt tomorrow and
+                prepare
+                your list of questions for the universities.</p>
 
-            <a href="<?=base_url();?>" class="btn">Visit our website here! </a> <br><br>
+            <p>See you tomorrow! </p>
+
 
             Best regards,<br>
             ALL-in Eduspace Team

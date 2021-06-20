@@ -54,19 +54,27 @@
 
 <body>
     <div class="container">
-        <img src="<?=base_url(); ?>assets/home/logo_normal_small-300x68-1-e1593521308518.png"
-            alt="https://all-inedu.com/" width="250px">
+        <img src="<?=base_url(); ?>assets/img/email-header.jpg" alt="https://edufair.all-inedu.com/" width="100%">
 
         <br>
         <br>
         <div class="box">
-            Heads up, you’re in for insightful sessions with global universities to talk about important topics that
-            will help you prepare for admissions! <br><br>
+            One week away until ALL-in Edufair 2021! <br>
+            Have you booked your university talks and private consultation
+            yet?
 
-            You can also book a consultation and have a 1-on-1 talk with the university rep to ask away your burning
-            questions. See the schedule on our website! <br><br>
+            <p>Pick a time slot with the universities of your choice and get accurate information from the university
+                representatives. Make sure to come prepared with a list of questions you want to ask! </p>
+
+            <p>Want to stay updated on news about majors and admissions? Tune in to the university talks and discuss
+                topics
+                on SAT & ACT test-optional policies, updated requirements for specific majors, and many more. </p>
+
+            <p>See the schedule available here:</p>
 
             <a href="<?=base_url();?>" class="btn">Visit our website here! </a> <br><br>
+
+            <p>Book your schedule now!</p>
 
             Best regards,<br>
             ALL-in Eduspace Team

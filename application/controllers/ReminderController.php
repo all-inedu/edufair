@@ -21,11 +21,11 @@ class ReminderController extends CI_Controller {
         // $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
         // $this->email->to('hafidz.fanany@all-inedu.com');
         // $this->email->subject('Welcome to ALL-in Edufair 2021!');
-        // $bodyMail = $this->load->view('mail/welcome', '', true);
+        // $bodyMail = $this->load->view('mail/thanks', '', true);
         // $this->email->message($bodyMail);
         // $this->email->send();
 
-        $this->load->view('mail/reminder_h-7');
+        // $this->load->view('mail/thanks');
     }
 
     public function reminder() {

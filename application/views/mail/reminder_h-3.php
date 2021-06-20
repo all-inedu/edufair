@@ -59,11 +59,11 @@
         <br>
         <br>
         <div class="box">
-            Heads up, you’re in for insightful sessions with global universities to talk about important topics that
-            will help you prepare for admissions! <br><br>
+            Book your talks and consultation now! <br>
+            You can learn about the countries’ different university systems and
+            requirements directly from the representatives.
 
-            You can also book a consultation and have a 1-on-1 talk with the university rep to ask away your burning
-            questions. See the schedule on our website! <br><br>
+            <p>See the schedule here:</p>
 
             <a href="<?=base_url();?>" class="btn">Visit our website here! </a> <br><br>
 

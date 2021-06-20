@@ -54,8 +54,7 @@
 
 <body>
     <div class="container">
-        <img src="<?=base_url(); ?>assets/home/logo_normal_small-300x68-1-e1593521308518.png"
-            alt="https://all-inedu.com/" width="250px">
+        <img src="<?=base_url();?>assets/img/email-header.jpg" alt="https://edufair.all-inedu.com/" width="100%">
 
         <br>
         <br>

@@ -59,13 +59,10 @@
         <br>
         <br>
         <div class="box">
-            Heads up, you’re in for insightful sessions with global universities to talk about important topics that
-            will help you prepare for admissions! <br><br>
+            How was your experience?
 
-            You can also book a consultation and have a 1-on-1 talk with the university rep to ask away your burning
-            questions. See the schedule on our website! <br><br>
+            <p>Thank you for joining ALL-in Edufair! We love to see you again in our next event. </p>
 
-            <a href="<?=base_url();?>" class="btn">Visit our website here! </a> <br><br>
 
             Best regards,<br>
             ALL-in Eduspace Team
