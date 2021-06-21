@@ -86,7 +86,7 @@ class UniModel extends CI_Model {
 				FROM `tb_uni` u 
 				JOIN tb_uni_detail ud ON ud.uni_id = u.uni_id 
                 JOIN tb_uni_detail_time udt ON udt.uni_dtl_id = ud.uni_dtl_id
-				WHERE u.uni_status = 1 ORDER BY ud.uni_dtl_start_date ASC";
+				WHERE u.uni_status = 1 ORDER BY u.uni_name ASC";
 		
 		$query = $this->db->query($sql);
 		if($query->num_rows() > 0) {
@@ -157,7 +157,8 @@ class UniModel extends CI_Model {
 	{
 		$sql = "SELECT DISTINCT(u.uni_id), u.uni_name, u.uni_country FROM tb_uni u
 				RIGHT JOIN tb_uni_detail ud ON ud.uni_id = u.uni_id
-				WHERE u.uni_status = 1";
+				WHERE u.uni_status = 1 
+				ORDER BY u.uni_country, u.uni_name ASC";
 		$query = $this->db->query($sql);
 		if($query->num_rows() > 0) {
 			$data = array();
