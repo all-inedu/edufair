@@ -210,21 +210,31 @@ class RegisterController extends CI_Controller {
 	public function bookingConsult()
 	{
 		$userId = $this->session->userdata('user_id'); //get user id from session login
+		$uniid = $this->input->post('uniid');
 		$startTime = $this->input->post('startTime');
 		$endTime = $this->input->post('endTime');
 		$unidtltimeid = $this->input->post('unidtltimeid');
-		$data = array(
-			'user_id'            => $userId,
-			'uni_detail_time_id' => $unidtltimeid,
-			'booking_c_date'     => date('Y-m-d H:i:s'),
-			'booking_c_status'	 => 1
-			);
 
-		$process = $this->ConsultModel->bookingConsult($data);
-		if($process) {
-			echo "001";
+		$checkBooked = $this->ConsultModel->checkConsult($userId, $uniid);
+		$checkTime = $this->ConsultModel->checkTime($userId, $startTime);
+
+		if((count($checkBooked)>0)){
+			echo "05"; //eror multiple
+		} else if((count($checkTime)>0)) {
+			echo "06"; //eror waktu sama
 		} else {
-			echo "04"; // error booking consult
+			$data = array(
+				'user_id'            => $userId,
+				'uni_detail_time_id' => $unidtltimeid,
+				'booking_c_date'     => date('Y-m-d H:i:s'),
+				'booking_c_status'	 => 1
+				);
+			$process = $this->ConsultModel->bookingConsult($data);
+			if($process) {
+				echo "001";
+			} else {
+				echo "04"; // error booking consult
+			}
 		}
 	}
 

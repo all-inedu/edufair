@@ -55,8 +55,8 @@
 
                     if(!in_array($topic_id, $bookingTopic)) {
                         ?>
-                            <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book"
-                                data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>"
+                            <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book btn-<?=$topic_id;?>"
+                                data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic;?>"
                                 <?php echo $props; ?>>Join Now</a>
                             <?php
                     }
@@ -110,7 +110,7 @@
                             <p><?php echo $row['topic_desc']; ?></p>
                             <?php
                     if(!$this->session->has_userdata('user_id')){
-                        $props = "href='#signUp' data-toggle='modal'";
+                        $props = "data-target='#signUp' data-toggle='modal'";
                     } else {
                         $props = "id='bookTopic'";
                     }
@@ -118,7 +118,7 @@
                     if(!in_array($topic_id, $bookingTopic)) {
                         ?>
 
-                            <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book"
+                            <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book btn-<?=$topic_id;?>"
                                 data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>"
                                 <?php echo $props; ?>>Join Now</a>
                             <?php } ?>
@@ -173,7 +173,10 @@ $(".btn-book").each(function() {
                     Swal.fire({
                         icon: 'success',
                         title: 'You’re on!',
-                        text: 'You have successfully booked this university talk. We’ll remind you before the event.',
+                        html: 'You have successfully booked this university talk. <br> We’ll remind you before the event.',
+                        confirmButtonText: 'OK',
+                    }).then((result) => {
+                        $('.btn-' + topicId).prop('hidden', true);
                     });
                 } else {
                     Swal.fire({
@@ -184,7 +187,6 @@ $(".btn-book").each(function() {
                 }
             }
         });
-        $(this).prop('hidden', true)
     });
 });
 </script>

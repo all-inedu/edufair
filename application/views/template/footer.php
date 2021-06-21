@@ -64,9 +64,6 @@ $(".navigate-page-2").on('click', function() {
 $(".btn-book-consul").each(function() {
     $(this).click(function() {
         var user_id = "<?php echo $this->session->userdata('user_id'); ?>";
-        $(this).html("Booked")
-        $(this).prop("disabled", true)
-
         if ((user_id == "")) {
             var parent = $(this).closest(".modal").attr('id');
             $("#" + parent + " .close").click(); // close booking consult modal
@@ -75,6 +72,7 @@ $(".btn-book-consul").each(function() {
             return;
         }
 
+        var uniid = $(this).data('uniid');
         var startTime = $(this).data('starttime');
         var endTime = $(this).data('endtime');
         var unidtltimeid = $(this).data('unidtltimeid');
@@ -101,16 +99,35 @@ $(".btn-book-consul").each(function() {
                     url: '<?php echo base_url(); ?>registration/consult/booking',
                     type: 'post',
                     data: {
+                        uniid: uniid,
                         startTime: startTime,
                         endTime: endTime,
                         unidtltimeid: unidtltimeid
                     },
                     success: function(msg) {
-                        console.log(msg);
+                        // console.log(msg);
                         if (msg == "001") {
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Yay, your booking is successful!',
+                                text: 'Check the dashboard for your agenda.',
+                                confirmButtonText: 'OK',
+                            }).then((result) => {
+                                $('.btn-' + unidtltimeid).html("Booked")
+                                $('.btn-' + unidtltimeid).prop(
+                                    "disabled",
+                                    true)
+                            });
+                        } else if (msg == "05") {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'You have booked at this university!',
+                                text: 'Check the dashboard for your agenda.'
+                            });
+                        } else if (msg == "06") {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'You have booked at another university at the same time',
                                 text: 'Check the dashboard for your agenda.'
                             });
                         } else {

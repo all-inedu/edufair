@@ -274,7 +274,8 @@
                                                                     </div>
                                                                     <div class="col-sm-4 col-lg-4">
                                                                         <button
-                                                                            class="btn btn-primary btn-block btn-book-consul"
+                                                                            class="btn btn-primary btn-block btn-book-consul btn-<?=$uni_dtl_time_id;?>"
+                                                                            data-uniid="<?=$uniInfo['uni_id'];?>"
                                                                             data-starttime="<?php echo $detailTime['uni_dtl_t_start_time']?>"
                                                                             data-endtime="<?php echo $detailTime['uni_dtl_t_end_time']; ?>"
                                                                             data-unidtltimeid="<?php echo $uni_dtl_time_id; ?>"
@@ -296,13 +297,21 @@
                                                     // check if uni status fullbook is fully booked
                                                     } else {
                                                     ?>
-                                                        <div class="row">
-                                                            <div class="col" style="color: black;">
-                                                                Hello this consultation is closed because full booked.
-                                                                <a href="javascript:void(0)"
-                                                                    data-uniid="<?php echo $uniInfo['uni_id']; ?>"
-                                                                    class="notify-me">Notify Me</a>
+                                                        <div class="text-center pb-5">
+                                                            <div class="swal2-icon swal2-question swal2-icon-show"
+                                                                style="display: flex;">
+                                                                <div class="swal2-icon-content">?</div>
                                                             </div>
+                                                            <h5 class="text-dark text-center">
+                                                                Hello this consultation is closed because
+                                                                full booked.</h5>
+
+                                                            <button data-dismiss="modal"
+                                                                class="btn btn-warning text-dark mt-3 mr-2">Close</button>
+
+                                                            <button data-uniid="<?php echo $uniInfo['uni_id']; ?>"
+                                                                class="btn btn-primary mt-3 notify-me ml-2">Notify
+                                                                Me</button>
                                                         </div>
                                                         <?php
                                                     }
