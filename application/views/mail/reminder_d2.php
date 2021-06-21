@@ -49,6 +49,16 @@
         text-decoration: none;
         color: #000;
     }
+
+    .table {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .table tr td {
+        padding: 10px;
+        border: 1px solid #dedede;
+    }
     </style>
 </head>
 
@@ -60,21 +70,82 @@
         <br>
         <br>
         <div class="box">
-            How was your experience?
+            Rise and shine, <?=$user_name;?>!<br>
 
-            <p>
-                We are happy to bring you even better events in the future! <br>
-                To help us get there, please do fill out the
-                feedback form below:</p>
+            <p>Don’t forget your appointment on this last day! <br>
+                Here is your consultation and university talks schedule
+                on July 25th:</p>
+            <?php
+                if(!empty($topic)) {
+            ?>
+            <div style="margin-left:10px; font-weight:bold;">University Talks:</div>
+            <table class="table">
+                <?php
+                $no=1;
+                foreach($topic as $t):
+            ?>
+                <tr>
+                    <td width="1%"><?=$no;?></td>
+                    <td width="60%">
+                        <b><?=$t['topic_name'];?></b> <br>
+                        <small><i>
+                                <?=date("D, M dS Y,", strtotime($t['topic_start_date']));?>
+                                at
+                                <?=date("H:i a", strtotime($t['topic_start_date']));?>
+                            </i></small>
 
-            <a href="#" class="btn">Fill Out Feedback Form</a> <br>
+                        <p>
+                            <a href="<?=$t['topic_zoom_link'];?>" class="btn">Join Now</a>
+                        </p>
+                        <small>Password: <br>
+                            <?=$t['topic_password'];?></small>
+                    </td>
+                </tr>
+                <?php
+                $no++;
+            endforeach;
+            ?>
+            </table>
+            <?php
+                } 
+            ?>
 
-            <p>
-                Thank you for joining ALL-in Edufair! <br>
-                We love to see you again in our next event.
-            </p>
+            <?php
+                if(!empty($consult)) {
+            ?>
+            <div style="margin-top:20px; margin-left:10px; font-weight:bold;">Consultations:</div>
+            <table class="table">
+                <?php
+                $no=1;
+                foreach($consult as $c):
+            ?>
+                <tr>
+                    <td width="1%"><?=$no;?></td>
+                    <td width="60%">
+                        <b><?=$c['uni_name'];?></b> <br>
+                        <small><i>
+                                <?=date("D, M dS Y,", strtotime($c['uni_dtl_start_date']));?>
+                                at
+                                <?=date("H:i a", strtotime($c['uni_dtl_start_date']));?>
+                            </i></small>
 
-
+                        <p>
+                            <a href="<?=$c['uni_dtl_zoom_link'];?>" class="btn">Join Now</a>
+                        </p>
+                        <small> Password: <br>
+                            <?=$c['uni_dtl_password'];?></small>
+                    </td>
+                </tr>
+                <?php
+                $no++;
+                endforeach;
+            ?>
+            </table>
+            <?php
+                }
+            ?>
+            <br>
+            We’ll be expecting you! <br><br>
 
             Best regards,<br>
             ALL-in Eduspace Team
@@ -111,7 +182,6 @@
                 </tr>
             </table>
         </div>
-
     </div>
 </body>
 

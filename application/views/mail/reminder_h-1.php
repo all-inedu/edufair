@@ -49,17 +49,28 @@
         text-decoration: none;
         color: #000;
     }
+
+    .table {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .table tr td {
+        padding: 10px;
+        border: 1px solid #dedede;
+    }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <img src="<?=base_url(); ?>assets/img/email-header.jpg" alt="https://edufair.all-inedu.com/" width="100%">
+        <img src="https://edufair.all-inedu.com/assets/img/email-header.jpg" alt="https://edufair.all-inedu.com/"
+            width="100%">
 
         <br>
         <br>
         <div class="box">
-            Hello! <br>
+            Hello, <?=$user_name;?>!<br>
             Are you ready for the fair tomorrow?
 
             <p>Here’s your scheduled university talks and consultations. <br>
@@ -68,7 +79,60 @@
                 your list of questions for the universities.</p>
 
             <p>See you tomorrow! </p>
+            <?php
+                if(!empty($topic)) {
+            ?>
+            <div style="margin-left:10px; font-weight:bold;">University Talks:</div>
+            <table class="table">
+                <?php
+                $no=1;
+                foreach($topic as $t):
+            ?>
+                <tr>
+                    <td width="1%"><?=$no;?></td>
+                    <td width="60%"><?=$t['topic_name'];?></td>
+                    <td>
+                        <?=date("D, M dS Y,", strtotime($t['topic_start_date']));?>
+                        at
+                        <?=date("H:i a", strtotime($t['topic_start_date']));?>
+                    </td>
+                </tr>
+                <?php
+                $no++;
+            endforeach;
+            ?>
+            </table>
+            <?php
+                } 
+            ?>
 
+            <?php
+                if(!empty($consult)) {
+            ?>
+            <div style="margin-top:20px; margin-left:10px; font-weight:bold;">Consultations:</div>
+            <table class="table">
+                <?php
+                $no=1;
+                foreach($consult as $c):
+            ?>
+                <tr>
+                    <td width="1%"><?=$no;?></td>
+                    <td width="60%"><?=$c['uni_name'];?></td>
+                    <td>
+                        <?=date("D, M dS Y,", strtotime($c['uni_dtl_start_date']));?>
+                        at
+                        <?=date("H:i a", strtotime($c['uni_dtl_start_date']));?>
+                    </td>
+                </tr>
+                <?php
+                $no++;
+                endforeach;
+            ?>
+            </table>
+            <?php
+                }
+            ?>
+            <br>
 
             Best regards,<br>
             ALL-in Eduspace Team
@@ -105,7 +169,6 @@
                 </tr>
             </table>
         </div>
-
     </div>
 </body>
 

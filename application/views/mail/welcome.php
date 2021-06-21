@@ -54,7 +54,8 @@
 
 <body>
     <div class="container">
-        <img src="<?=base_url(); ?>assets/img/email-header.jpg" alt="https://edufair.all-inedu.com/" width="100%">
+        <img src="https://edufair.all-inedu.com/assets/img/email-header.jpg" alt="https://edufair.all-inedu.com/"
+            width="100%">
 
         <br>
         <br>
@@ -65,7 +66,7 @@
             You can also book a consultation and have a 1-on-1 talk with the university rep to ask away your burning
             questions. See the schedule on our website! <br><br>
 
-            <a href="<?=base_url();?>" class="btn">Visit our website here! </a> <br><br>
+            <a href="https://edufair.all-inedu.com/" class="btn">Visit our website here! </a> <br><br>
 
             Best regards,<br>
             ALL-in Eduspace Team

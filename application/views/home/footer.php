@@ -50,14 +50,16 @@
                         Navigation
                     </h6>
                     <p>
-                        <a href="#talks" class="text-reset">Talks</a>
+                        <a href="<?=base_url('?section=talks');?>" class="text-reset">Talks</a>
                     </p>
                     <p>
-                        <a href="#booking" class="text-reset">Uni List</a>
+                        <a href="<?=base_url('?section=booking');?>" class="text-reset">Uni List</a>
                     </p>
+                    <?php if(!$this->session->userdata('user_id')) { ?>
                     <p>
-                        <a class="text-reset" href="#signUp" data-toggle="modal">Sign Up</a>
+                        <a class="text-reset" data-target="#signUp" data-toggle="modal">Sign Up</a>
                     </p>
+                    <?php } ?>
                 </div>
                 <!-- Grid column -->
 

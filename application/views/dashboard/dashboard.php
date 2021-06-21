@@ -1,6 +1,7 @@
 <style>
 #register-form {
     color: #0C2F80;
+    padding: 10% 10% 10% 6%;
 }
 
 #register-form .card {
@@ -21,6 +22,7 @@
 .list-group-item {
     background: transparent !important;
     border: none !important;
+    padding: 15px 0px;
 }
 
 .card-topic .list-group-item+.list-group-item,
@@ -73,6 +75,13 @@
 
 body {
     font-family: 'Montserrat';
+}
+
+@media screen and (max-width: 576px) and (min-width: 375px) {
+    #register-form {
+        color: #0C2F80;
+        padding: 10px;
+    }
 }
 </style>
 <div class="modal fade" id="editprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -210,93 +219,95 @@ body {
 </div>
 <!-- body -->
 <div class="container-fluid" id="register-form" style="padding-top:20vh;padding-bottom:3rem;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card profile">
-                            <div class="card-body">
-                                <div class="row text-center">
-                                    <div class="col-lg-12">
-                                        <?php
+    <div class="row">
+        <div class="col-lg-4 mb-4">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card profile">
+                        <div class="card-body">
+                            <div class="row text-center">
+                                <div class="col-lg-12">
+                                    <?php
 				    					if($this->session->userdata('user_gender') == "male")
 				    						$img = "avatar-profile-b.png";
 				    					else
 				    						$img = "avatar-profile-g.png";
 				    					?>
-                                        <img src="<?php echo base_url(); ?>assets/img/<?php echo $img; ?>" width="70%">
-                                    </div>
-                                    <div class="col-lg-12 pt-3 pb-1">
-                                        <h4><?php echo $this->session->userdata('user_first_name')." ".$this->session->userdata('user_last_name'); ?>
-                                        </h4>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <h5><?php echo ucfirst($this->session->userdata('user_status')); ?></h5>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <button class="btn btn-warning"
-                                            style="color: #FFF;padding:5px 2em;background: #F0AA53"
-                                            id="change-information" data-toggle="modal" data-target="#editprofile">Edit
-                                            Profile</button>
-                                        <a href="https://all-inedu.com/sign-me/"><button class="btn btn-danger">Initial
-                                                Consult</button></a>
-                                    </div>
+                                    <img src="<?php echo base_url(); ?>assets/img/<?php echo $img; ?>" width="100%"
+                                        style="padding:0 30%">
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <ul class="list-group list-group-flush" id="view-form">
-                                            <li class="list-group-item">
-                                                <div class="row pt-2 pb-2">
-                                                    <div class="col-lg-5"><b>Date of Birth</b></div>
-                                                    <div class="col-lg-7">
-                                                        <?php echo date('d M Y', strtotime($this->session->userdata('user_dob'))); ?>
-                                                    </div>
+                                <div class="col-lg-12 pt-3 pb-1">
+                                    <h4><?php echo $this->session->userdata('user_first_name')." ".$this->session->userdata('user_last_name'); ?>
+                                    </h4>
+                                </div>
+                                <div class="col-lg-12">
+                                    <h5 class="text-dark">
+                                        <?php echo ucfirst($this->session->userdata('user_status')); ?></h5>
+                                </div>
+                                <div class="col-lg-12">
+                                    <button class="btn btn-warning"
+                                        style="color: #FFF;padding:5px 2em;background: #F0AA53" id="change-information"
+                                        data-toggle="modal" data-target="#editprofile">Edit
+                                        Profile</button>
+                                    <!-- <a href="https://all-inedu.com/sign-me/"><button class="btn btn-danger">Initial
+                                            Consult</button></a> -->
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <ul class="list-group list-group-flush" id="view-form">
+                                        <li class="list-group-item py-2">
+                                            <div class="row pt-2 pb-2">
+                                                <div class="col-lg-5"><b>Date of Birth</b></div>
+                                                <div class="col-lg-7">
+                                                    <?php echo date('d M Y', strtotime($this->session->userdata('user_dob'))); ?>
                                                 </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="row">
-                                                    <div class="col-lg-5"><b>Phone</b></div>
-                                                    <div class="col-lg-7">
-                                                        <?php echo $this->session->userdata('user_phone'); ?></div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="row">
-                                                    <div class="col-lg-5"><b>Email</b></div>
-                                                    <div class="col-lg-7">
-                                                        <?php echo $this->session->userdata('user_email'); ?></div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="row">
-                                                    <div class="col-lg-5"><b>School</b></div>
-                                                    <div class="col-lg-7">
-                                                        <?php echo $this->session->userdata('user_school'); ?></div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="row">
-                                                    <div class="col-lg-5"><b>Destination</b></div>
-                                                    <div class="col-lg-7">
-                                                        <?php echo $this->session->userdata('user_country'); ?></div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="row">
-                                                    <div class="col-lg-5"><b>Major</b></div>
-                                                    <div class="col-lg-7">
-                                                        <?php echo $this->session->userdata('user_major'); ?></div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item py-2">
+                                            <div class="row">
+                                                <div class="col-lg-5"><b>Phone</b></div>
+                                                <div class="col-lg-7">
+                                                    <?php echo $this->session->userdata('user_phone'); ?></div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item py-2">
+                                            <div class="row">
+                                                <div class="col-lg-5"><b>Email</b></div>
+                                                <div class="col-lg-7">
+                                                    <?php echo $this->session->userdata('user_email'); ?></div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item py-2">
+                                            <div class="row">
+                                                <div class="col-lg-5"><b>School</b></div>
+                                                <div class="col-lg-7">
+                                                    <?php echo $this->session->userdata('user_school'); ?></div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item py-2">
+                                            <div class="row">
+                                                <div class="col-lg-5"><b>Destination</b></div>
+                                                <div class="col-lg-7">
+                                                    <?php echo $this->session->userdata('user_country'); ?></div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item py-2">
+                                            <div class="row">
+                                                <div class="col-lg-5"><b>Major</b></div>
+                                                <div class="col-lg-7">
+                                                    <?php echo $this->session->userdata('user_major'); ?></div>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="row mt-4">
+            </div>
+            <!-- <div class="row mt-4">
 	    			<div class="col-lg-12">
 	    				<div class="card">
     						<div class="list-group" id="list-tab" role="tablist">
@@ -306,16 +317,16 @@ body {
 	    				</div>
 	    			</div>
 	    		</div> -->
-            </div>
-            <div class="col-lg-8">
-                <div class="row mt-3">
-                    <div class="col-lg-12">
-                        <div class="card card-topic">
-                            <div class="card-body ml-3">
-                                <?php if( (isset($dataTopic)) && (count($dataTopic) > 0) ) { ?>
-                                <div class="list-group mt-4">
-                                    <h4>Scheduled Talks</h4>
-                                    <?php
+        </div>
+        <div class="col-lg-8">
+            <div class="row mt-3">
+                <div class="col-lg-12">
+                    <div class="card card-topic">
+                        <div class="card-body ml-3">
+                            <?php if( (isset($dataTopic)) && (count($dataTopic) > 0) ) { ?>
+                            <div class="list-group mt-4">
+                                <h4>Scheduled Talks</h4>
+                                <?php
 	    						foreach($dataTopic as $row) {
 	    							$topic_start_date = new DateTime($row->topic_start_date);
 	    							$today = date_create(date('Y-m-d'));
@@ -327,43 +338,43 @@ body {
 	    							else
 	    								$string = "expired";
 	    							?>
-                                    <div class="list-group-item list-group-item-action flex-column align-items-start">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 class="mb-1"><b><?php echo $row->topic_name; ?></b></h5>
-                                            <!-- <small><?php echo $string; ?></small> -->
-                                            <?php
+                                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1"><b><?php echo $row->topic_name; ?></b></h5>
+                                        <!-- <small><?php echo $string; ?></small> -->
+                                        <?php
 												if($diff->format("%d") > 1) {
 													?>
-                                            <small>
-                                                <button class="u-btn cancel-booking-topic"
-                                                    data-topic="<?php echo rtrim(strtr(base64_encode($row->topic_id), '+/', '-_'), '='); ?>">Cancel</button>
-                                            </small>
-                                            <?php
+                                        <small>
+                                            <button class="u-btn cancel-booking-topic"
+                                                data-topic="<?php echo rtrim(strtr(base64_encode($row->topic_id), '+/', '-_'), '='); ?>">Cancel</button>
+                                        </small>
+                                        <?php
 												} else {
 													?>
-                                            <small>
-                                                <button data-link="<?php echo $row->topic_zoom_link; ?>"
-                                                    class="u-btn join-link">Click to join talks</button>
-                                            </small>
-                                            <?php
+                                        <small>
+                                            <button data-link="<?php echo $row->topic_zoom_link; ?>"
+                                                class="u-btn join-link">Click to join talks</button>
+                                        </small>
+                                        <?php
 												}	
 												?>
-                                        </div>
-                                        <p class="mb-1"><i class="fas fa-calendar-alt"></i>
-                                            <?php echo $topic_start_date->format('M, dS Y - H:i') ?></p>
-
                                     </div>
-                                    <?php
+                                    <p class="mb-1"><i class="fas fa-calendar-alt"></i>
+                                        <?php echo $topic_start_date->format('M, dS Y - H:i') ?></p>
+
+                                </div>
+                                <?php
 	    						}
 	    						?>
-                                </div>
-                                <?php } else { ?><br>
-                                <p>You have no university talk scheduled. Click <a
-                                        href="<?php echo base_url(); ?>?section=talks">here</a> to book.</p>
-                                <?php
+                            </div>
+                            <?php } else { ?><br>
+                            <p>You have no university talk scheduled. Click <a
+                                    href="<?php echo base_url(); ?>?section=talks">here</a> to book.</p>
+                            <?php
 									}
 								?>
-                                <!-- <div class="tab-content">
+                            <!-- <div class="tab-content">
 	    							<div class="tab-pane fade show active" id="list-topic" role="tabpanel" aria-labelledby="topic-schedule">
 	    								
 									</div>
@@ -371,18 +382,18 @@ body {
 										
 									</div>
 								</div> -->
-                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin-top:4em">
-                    <div class="col-lg-12">
-                        <div class="card card-consult">
-                            <div class="card-body ml-3">
-                                <?php if( (isset($dataConsult)) && (count($dataConsult) > 0) ) { ?>
-                                <div class="list-group mt-4">
-                                    <h4>Scheduled Consultations</h4>
-                                    <?php
+            </div>
+            <div class="row" style="margin-top:4em">
+                <div class="col-lg-12">
+                    <div class="card card-consult">
+                        <div class="card-body ml-3">
+                            <?php if( (isset($dataConsult)) && (count($dataConsult) > 0) ) { ?>
+                            <div class="list-group mt-4">
+                                <h4>Scheduled Consultations</h4>
+                                <?php
 								foreach($dataConsult as $row) {
 									$topic_start_date = new DateTime($row->uni_dtl_t_start_time);
 									$today = date_create(date('Y-m-d'));
@@ -394,43 +405,42 @@ body {
 	    							else
 	    								$string = "expired";
 									?>
-                                    <div class="list-group-item list-group-item-action flex-column align-items-start">
-                                        <!-- <img src="<?php echo base_url()."assets/uni/banner/".$row->uni_photo_banner; ?>" alt="" width="100px"> -->
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 class="mb-1"><b><?php echo $row->uni_name; ?></b></h5>
-                                            <!-- <small><?php echo $string; ?></small> -->
-                                            <?php
+                                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <!-- <img src="<?php echo base_url()."assets/uni/banner/".$row->uni_photo_banner; ?>" alt="" width="100px"> -->
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1"><b><?php echo $row->uni_name; ?></b></h5>
+                                        <!-- <small><?php echo $string; ?></small> -->
+                                        <?php
 											if($diff->format("%d") > 1) {
 												?>
-                                            <small>
-                                                <button class="u-btn cancel-booking-consult"
-                                                    data-consultation="<?php echo rtrim(strtr(base64_encode($row->uni_detail_time_id), '+/', '-_'), '='); ?>">Cancel</button>
-                                            </small>
-                                            <?php
+                                        <small>
+                                            <button class="u-btn cancel-booking-consult"
+                                                data-consultation="<?php echo rtrim(strtr(base64_encode($row->uni_detail_time_id), '+/', '-_'), '='); ?>">Cancel</button>
+                                        </small>
+                                        <?php
 											} else {
 												?>
-                                            <small>
-                                                <button data-link="<?php echo $row->uni_dtl_zoom_link; ?>"
-                                                    class="u-btn join-link">Click to join consultation</button>
-                                            </small>
-                                            <?php
+                                        <small>
+                                            <button data-link="<?php echo $row->uni_dtl_zoom_link; ?>"
+                                                class="u-btn join-link">Click to join consultation</button>
+                                        </small>
+                                        <?php
 											}	
 											?>
-                                        </div>
-                                        <p class="mb-1"><i class="fas fa-calendar-alt"></i>
-                                            <?php echo $topic_start_date->format('M, dS Y - H:i') ?></p>
-
                                     </div>
-                                    <?php
+                                    <p class="mb-1"><i class="fas fa-calendar-alt"></i>
+                                        <?php echo $topic_start_date->format('M, dS Y - H:i') ?></p>
+
+                                </div>
+                                <?php
 								}
 								?>
-                                </div>
-                                <?php } else {?> <br>
-                                <p>You have no consultation scheduled. Click <a
-                                        href="<?php echo base_url(); ?>?section=booking">here</a> to book.</p>
-                                <?php
-							 	}	?>
                             </div>
+                            <?php } else {?> <br>
+                            <p>You have no consultation scheduled. Click <a
+                                    href="<?php echo base_url(); ?>?section=booking">here</a> to book.</p>
+                            <?php
+							 	}	?>
                         </div>
                     </div>
                 </div>

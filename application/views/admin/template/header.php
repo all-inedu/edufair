@@ -18,7 +18,7 @@
 <style>
 body {
     font-size: 14px;
-    background: url("<?=base_url('assets/img/BG-ADMIN.jpg');?>");
+    background: url("<?=base_url('assets/img/BG.webp');?>");
     background-size: 100%;
     background-position: center bottom;
     background-attachment: fixed;

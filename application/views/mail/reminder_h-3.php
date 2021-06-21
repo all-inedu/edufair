@@ -54,7 +54,8 @@
 
 <body>
     <div class="container">
-        <img src="<?=base_url(); ?>assets/img/email-header.jpg" alt="https://edufair.all-inedu.com/" width="100%">
+        <img src="https://edufair.all-inedu.com/assets/img/email-header.jpg" alt="https://edufair.all-inedu.com/"
+            width="100%">
 
         <br>
         <br>
@@ -65,7 +66,9 @@
 
             <p>See the schedule here:</p>
 
-            <a href="<?=base_url();?>" class="btn">Visit our website here! </a> <br><br>
+            <a href="https://edufair.all-inedu.com/" class="btn">Visit our website here! </a>
+
+            <p>Load up your university prep with accurate insights and ace your admissions!</p>
 
             Best regards,<br>
             ALL-in Eduspace Team

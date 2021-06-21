@@ -377,6 +377,14 @@
         padding: 0 140px 0 80px !important;
     }
 
+    #register-form {
+        background-image: url('<?php echo base_url(); ?>assets/img/BG.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-attachment: fixed;
+    }
+
     @media screen and (max-width: 576px) and (min-width: 375px) {
         #edufair-title-container {
             padding: 0 8%;
@@ -680,13 +688,6 @@
         }
 
 
-    }
-
-    #register-form {
-        background-image: url('<?php echo base_url(); ?>assets/user/dashboard/bg.jpg');
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-position: bottom;
     }
 
     #footer-copy {

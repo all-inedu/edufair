@@ -278,11 +278,13 @@ class TopicModel extends CI_Model {
       }
     }
 
-    function getBookingTopicById($id, $d) {
+    function getBookingTopicById($id, $d="") {
       $this->db->select('*');
       $this->db->where('tb_booking_topic.user_id', $id);
       $this->db->where('tb_booking_topic.booking_topic_status', 1);
-      $this->db->where('date(tb_topic.topic_start_date)', $d);
+      if($d!=""){
+        $this->db->where('date(tb_topic.topic_start_date)', $d);
+      }
       $this->db->from('tb_booking_topic');
       $this->db->join('tb_topic', 'tb_topic.topic_id=tb_booking_topic.topic_id');
       return $this->db->get()->result_array();
