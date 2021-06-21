@@ -127,6 +127,9 @@
                         <div class="card-headers">
                             <img src="<?=base_url('assets/img/home/edufair/Edufair-28.png');?>" width="100%">
                         </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-40.png');?>" width="100%">
+                        </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img5">
                         <div class="card-headers">
@@ -148,6 +151,9 @@
                         </div>
                         <div class="card-headers">
                             <img src="<?=base_url('assets/img/home/edufair/Edufair-30.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-42.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img7">
@@ -171,6 +177,9 @@
                         <div class="card-headers">
                             <img src="<?=base_url('assets/img/home/edufair/Edufair-32.png');?>" width="100%">
                         </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-44.png');?>" width="100%">
+                        </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img9">
                         <div class="card-headers">
@@ -192,6 +201,9 @@
                         </div>
                         <div class="card-headers">
                             <img src="<?=base_url('assets/img/home/edufair/Edufair-34.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-46.png');?>" width="100%">
                         </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img11">
