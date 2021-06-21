@@ -249,8 +249,8 @@ body {
                                         style="color: #FFF;padding:5px 2em;background: #F0AA53" id="change-information"
                                         data-toggle="modal" data-target="#editprofile">Edit
                                         Profile</button>
-                                    <!-- <a href="https://all-inedu.com/sign-me/"><button class="btn btn-danger">Initial
-                                            Consult</button></a> -->
+                                    <a href="https://all-inedu.com/sign-me/"><button class="btn btn-danger">Initial
+                                            Consult</button></a>
                                 </div>
                             </div>
                             <hr>
