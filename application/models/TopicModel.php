@@ -66,7 +66,7 @@ class TopicModel extends CI_Model {
 
     function getBookingTopicData($user_id)
     {
-      $sql = "SELECT * FROM tb_booking_topic WHERE user_id = $user_id";
+      $sql = "SELECT * FROM tb_booking_topic WHERE user_id = $user_id and booking_topic_status = 1";
       $query = $this->db->query($sql);
       if($query->num_rows() > 0) {
         $array = array();
@@ -165,7 +165,9 @@ class TopicModel extends CI_Model {
       }
 
       if($bookingCount > 0) {
-        return "07";
+        // return "07";
+        $this->db->where('topic_id', $topicId);
+        $this->db->delete('tb_booking_topic');
       }
 
       $data = array(

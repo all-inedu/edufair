@@ -172,12 +172,8 @@ $(".btn-book").each(function() {
                 if (msg == "001") {
                     Swal.fire({
                         icon: 'success',
-                        title: 'Yay, your booking is successful!<br>Check the dashboard for your agenda'
-                    });
-                } else if (msg == "07") { // utk sekarang tidak akan muncul notif ini
-                    Swal.fire({
-                        icon: 'info',
-                        title: 'You already booked the topic'
+                        title: 'You’re on!',
+                        text: 'You have successfully booked this university talk. We’ll remind you before the event.',
                     });
                 } else {
                     Swal.fire({
@@ -188,7 +184,7 @@ $(".btn-book").each(function() {
                 }
             }
         });
-        $(this).prop("hidden", true);
+        $(this).prop('hidden', true)
     });
 });
 </script>

@@ -110,8 +110,8 @@ $(".btn-book-consul").each(function() {
                         if (msg == "001") {
                             Swal.fire({
                                 icon: 'success',
-                                title: 'You have successfully booked the schedule',
-                                text: 'We\'ll remind you before the event'
+                                title: 'Yay, your booking is successful!',
+                                text: 'Check the dashboard for your agenda.'
                             });
                         } else {
                             Swal.fire({
@@ -233,7 +233,8 @@ $(".cancel-booking-topic").each(function() {
         //tambah konfirmasi
         swal.fire({
             icon: 'question',
-            title: 'Are you sure to cancel this talks ?',
+            title: 'Cancel this talk session?',
+            text: 'If you cancel, you can book this university talk again anytime.',
             showCancelButton: true,
             focusConfirm: false,
             confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
@@ -253,7 +254,8 @@ $(".cancel-booking-topic").each(function() {
                         if (msg == 1) {
                             Swal.fire({
                                 icon: 'success',
-                                title: 'The topic has been canceled'
+                                title: 'You have canceled this session.',
+                                text: 'We hope to see you in the other university talks!'
                             });
                             location.reload();
                         } else {
@@ -274,7 +276,8 @@ $(".cancel-booking-consult").each(function() {
     $(this).click(function() {
         swal.fire({
             icon: 'question',
-            title: 'If this time slot is booked by another user, you have to choose other time slots for a reschedule',
+            title: 'Cancel this consultation?',
+            text: 'If this time slot is booked by another user, you have to choose other time slots for a reschedule.',
             showCancelButton: true,
             focusConfirm: false,
             confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
@@ -294,7 +297,7 @@ $(".cancel-booking-consult").each(function() {
                         if (msg == 1) {
                             Swal.fire({
                                 icon: 'success',
-                                title: 'The Consultation has been canceled'
+                                title: 'You have canceled this consultation.'
                             });
                             location.reload();
                         } else {
