@@ -202,7 +202,7 @@ class UniModel extends CI_Model {
 						"uni_id"           => $row->uni_id,
 						"uni_name"         => $row->uni_name,
 						"uni_country"      => $row->uni_country,
-						// "uni_description"  => $row->uni_description,
+						"uni_description"  => $row->uni_description,
 						"uni_photo_banner" => $row->uni_photo_banner,
 						"uni_status_fullbooked" => $status_fullbooked,
 						"uni_topic_reg"	   => $status_topicregistered,

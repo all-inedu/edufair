@@ -298,7 +298,14 @@
                                                                             WIB</button>
                                                                     </div>
                                                                     <div class="col-sm-4 col-lg-4">
-                                                                        <button
+                                                                        <?php 
+                                                                            if(!$this->session->has_userdata('user_id')){
+                                                                                $props = "data-target='#signUp' data-toggle='modal'";
+                                                                            } else {
+                                                                                $props= "";
+                                                                            }
+                                                                        ?>
+                                                                        <button <?=$props;?>
                                                                             class="btn btn-primary btn-block btn-book-consul btn-<?=$uni_dtl_time_id;?>"
                                                                             data-uniid="<?=$uniInfo['uni_id'];?>"
                                                                             data-starttime="<?php echo $detailTime['uni_dtl_t_start_time']?>"
