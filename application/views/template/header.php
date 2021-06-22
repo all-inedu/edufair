@@ -543,6 +543,12 @@
     }
 
     @media (max-width: 768px) and (min-width: 576px) {
+        .navbar.scrolled {
+            background-color: #FFF !important;
+            z-index: 999 !important;
+            /* transition: background-color 200ms linear; */
+        }
+
         #home {
             background-repeat: no-repeat;
             background-position: center top;
@@ -587,7 +593,8 @@
 
         .navbar {
             background-color: #FFF !important;
-            transition: background-color 200ms linear !important;
+            z-index: 999 !important;
+            /* transition: background-color 200ms linear !important; */
         }
 
         .btn-user {
