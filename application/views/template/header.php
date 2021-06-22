@@ -527,7 +527,7 @@
         }
 
         .navbar {
-            margin: 0px;
+            margin: 0px -15px;
             padding: 20px 20px;
             background-color: #FFF !important;
             /* transition: background-color 200ms linear !important; */
