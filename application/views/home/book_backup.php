@@ -180,33 +180,13 @@
                                     <h4 class="m-0 pt-2 pb-2" style="color: #000">
                                         <?php echo strtoupper($uniInfo['uni_name']); ?></h4>
                                 </div>
-                                <?php
-                                    $count_unidtl = [];
-                                    foreach($uniInfo['uni_detail'] as $dtl) {
-                                        if($dtl['uni_dtl_id']!="") {
-                                            $count_unidtl[] = $dtl['uni_dtl_id'];
-                                        }
-                                    }
-                                    if(count($count_unidtl)>0){
-                                        $btn = "btn-book";
-                                        $html='class="col book-consultation-container" style="cursor: pointer" data-toggle="modal" data-target="#modal-'.$uniInfo['uni_id'].'"';
-                                        $text = "BOOK YOUR CONSULTATION";
-                                    } else {
-                                        $btn = "bg-primary";
-                                        $html = 'class="col book-consultation-container"';
-                                        $text = "<b>NOT OPEN CONSULTATION</b>";
-                                    }
-                                        
-                                ?>
-                                <div class="card-footer <?=$btn;?>">
-                                    <div class="row no-gutters">
-                                        <div <?=$html;?>>
-                                            <?=$text;?>
-                                            <div class="float-right">
-                                                <i class="fas fa-arrow-circle-right"></i>
-                                            </div>
-                                        </div>
 
+                                <div class="card-footer btn-book">
+                                    <div class="row no-gutters">
+                                        <div class="col book-consultation-container" style="cursor: pointer"
+                                            data-toggle="modal" data-target="#modal-<?=$uniInfo['uni_id'];?>">
+                                            <a href='javascript:void'>BOOK YOUR CONSULTATION</a>
+                                        </div>
                                         <?php
                                         if(count(($uniInfo['uni_detail']))>1) {
                                             $card = "modal-lg";
@@ -263,7 +243,7 @@
                                                                 <div class="row">
                                                                     <div class="col text-center pt-4 pb-4"
                                                                         style="color: #000">
-                                                                        <h4><?php echo date('d M Y', strtotime($assigned_time)); ?>
+                                                                        <h4><?php echo date('d M Y', strtotime($key)); ?>
                                                                         </h4>
                                                                     </div>
                                                                 </div>

@@ -20,7 +20,8 @@ class HomeController extends CI_Controller {
 		$topicData_day2     = $this->TopicModel->getTopicData('2021-07-25'); // change iwth edufair start date
 		$data['talk_day1']  = $topicData_day1;
 		$data['talk_day2']  = $topicData_day2;
-		$data['uniData']    = $this->UniModel->getUniData();
+		// $data['uniData']    = $this->UniModel->getUniData();
+		$data['uniData']    = $this->UniModel->showAllUniData();
 		$data['uniCountry'] = $this->UniModel->getUniCountry();
 
 		if ($this->session->has_userdata('user_id')) {
@@ -34,8 +35,7 @@ class HomeController extends CI_Controller {
 			$data['bookingTopic'] = []; // set null if user id session doesn't exitst
 		}
 
-		// print_r($data['bookingTopic']);exit;
-
+		// echo json_encode($data['uniData']);
 		$this->load->view('home/home', $data);
 	}
 
