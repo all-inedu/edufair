@@ -5,7 +5,7 @@
 
 .badge-allin {
     background: #0D2F7F;
-    scroll-margin-top: 300px;
+    scroll-margin-top: 350px;
 }
 </style>
 <section class="container-fluid" id="talks-section">
