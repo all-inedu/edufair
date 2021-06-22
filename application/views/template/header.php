@@ -386,6 +386,14 @@
     }
 
     @media screen and (max-width: 576px) and (min-width: 375px) {
+        .navbar-brand {
+            margin-right: 0;
+        }
+
+        .navbar-brand img {
+            width: 80%;
+        }
+
         #edufair-title-container {
             padding: 0 8%;
         }
