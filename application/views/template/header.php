@@ -387,11 +387,11 @@
 
     @media screen and (max-width: 576px) and (min-width: 375px) {
         .navbar-brand {
-            margin-right: 0;
+            margin-right: 0 !important;
         }
 
         .navbar-brand img {
-            width: 80%;
+            width: 80% !important;
         }
 
         #edufair-title-container {
