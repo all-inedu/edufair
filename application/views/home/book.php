@@ -198,8 +198,8 @@
                                         $text = "BOOK YOUR CONSULTATION";
                                     } else {
                                         $btn = "btn-not";
-                                        $html = 'class="col book-consultation-container"';
-                                        $text = "<b>Hmm Join Talk</b>";
+                                        $html = 'class="col book-consultation-container" style="cursor: pointer"';
+                                        $text = "<b>JOIN TALKS</b>";
                                     }
                                         
                                 ?>
@@ -375,5 +375,11 @@
             // alert(uni_story);
             $("#uni-story .modal-body").html(uni_story);
         });
+    });
+
+    $(".btn-not").click(function() {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#talks").offset().top
+        }, 1000);
     });
     </script>
