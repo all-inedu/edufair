@@ -37,6 +37,11 @@
     height: auto;
     padding: 2% 10% 2% 6%;
 }
+
+.btn-not {
+    background: #c4c4c4;
+    color: #595959;
+}
 </style>
 <!-- Modal -->
 <div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
@@ -192,7 +197,7 @@
                                         $html='class="col book-consultation-container" style="cursor: pointer" data-toggle="modal" data-target="#modal-'.$uniInfo['uni_id'].'"';
                                         $text = "BOOK YOUR CONSULTATION";
                                     } else {
-                                        $btn = "bg-primary";
+                                        $btn = "btn-not";
                                         $html = 'class="col book-consultation-container"';
                                         $text = "<b>NOT OPEN CONSULTATION</b>";
                                     }
