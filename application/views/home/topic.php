@@ -13,6 +13,11 @@
     <div class="p-4 mb-4 day1talks">
         <div class="row" style="padding-top: 1em">
             <?php
+            if(count($talk_day1)%2==1) {
+                $col = "col-md-4";
+            } else {
+               $col = "col-md-6"; 
+            }
         foreach($talk_day1 as $row) {
             $topic_start_date = new DateTime($row['topic_start_date']);
             $topic_id = $row['topic_id'];
@@ -24,7 +29,7 @@
                 );
             $arrTopic = base64_encode(json_encode($arrTopic));
             ?>
-            <div class="col-md-4 mb-3">
+            <div class="<?=$col;?> mb-3">
                 <div class="card card-topic">
                     <div class="card-body">
                         <img src="<?=base_url('assets/topic/'.$row['topic_banner']);?>" class="img-topic" width="100%">
@@ -76,6 +81,11 @@
     <div class="p-4 day2talks" style="margin-top: 5em">
         <div class="row" style="padding-top: 1em">
             <?php
+            if(count($talk_day2)%2==1) {
+                $col = "col-md-4";
+            } else {
+               $col = "col-md-6"; 
+            }
         foreach($talk_day2 as $row) {
             $topic_start_date = new DateTime($row['topic_start_date']);
             $topic_id = $row['topic_id'];
@@ -87,7 +97,7 @@
                 );
             $arrTopic = base64_encode(json_encode($arrTopic));
         ?>
-            <div class="col-md-4 mb-3">
+            <div class="<?=$col;?> mb-3">
                 <div class="card card-topic">
                     <div class="card-body">
                         <img src="<?=base_url('assets/topic/'.$row['topic_banner']);?>" class="img-topic" width="100%">
