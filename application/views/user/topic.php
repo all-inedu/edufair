@@ -82,8 +82,10 @@ p {
         <div class="row">
             <div class="col-md-12 text-center mt-3 px-5">
                 <p>
+                <h5>
                     Join our University Talks and get trending admission insights based on the selected topics.<br>
                     If you skip, you can join later.
+                </h5>
                 </p>
                 <hr>
             </div>
@@ -209,9 +211,9 @@ $(document).ready(function() {
                     window.location.href = "<?php echo base_url(); ?>registration/consult";
                 } else {
                     Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Something went wrong! Please try again.'
+                        icon: 'info',
+                        title: '',
+                        text: 'You have to choose one of the university talks!'
                     });
                 }
             }

@@ -60,7 +60,11 @@ body {
     <div class="row px-3">
         <div class="col-md-12 text-center mt-3 px-5">
             <p>
-                You are about to book a consultation with XX University. Please choose a day & time.
+            <h5>
+                Gain accurate information by booking a 1-on-1 consultation with the universities. <br>
+                If you skip, you can join later.
+
+            </h5>
             </p>
             <hr>
         </div>
@@ -80,7 +84,7 @@ body {
 
                 <!-- <div style="border: 3px solid #cfcfcf;position: absolute;z-index: 1;right:0;padding:.5em 1.5em;font-weight: bold;margin:2em; color: #CFCFCF; letter-spacing: .2em;transform: rotate(20deg);top: 20px">FULLY BOOKED</div> -->
                 <img src="<?php echo base_url()."assets/uni/banner/".$uniInfo['uni_photo_banner']; ?>" alt=""
-                    height="300">
+                    width="100%">
                 <div class="card-body pl-4 p-1">
                     <h4 class="m-0 pt-2 pb-2" style="color: #000">
                         <?php echo strtoupper($uniInfo['uni_name']); ?></h4>
@@ -89,7 +93,7 @@ body {
                 <div class="card-footer btn-book">
                     <div class="row no-gutters">
                         <div class="col book-consultation-container" style="cursor: pointer" data-toggle="modal"
-                            data-target="#modal<?php echo $count; ?>">
+                            data-target="#modal-<?=$uniInfo['uni_id'];?>">
                             <a href='javascript:void'>BOOK YOUR CONSULTATION</a>
                         </div>
                         <?php
@@ -102,7 +106,7 @@ body {
                                         }
                                     ?>
 
-                        <div class="modal fade" tabindex="-1" role="dialog" id="modal<?php echo $count; ?>">
+                        <div class="modal fade" tabindex="-1" role="dialog" id="modal-<?=$uniInfo['uni_id'];?>">
                             <div class="modal-dialog <?=$card;?> modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <?php
@@ -166,15 +170,17 @@ body {
                                                                 ?>
 
                                                 <div class="row mb-2">
-                                                    <div class="col-sm-8 col-lg-9 pr-0">
+                                                    <div class="col-sm-8 col-lg-8 pr-0">
                                                         <button class="btn btn-outline-info btn-disabled btn-block"
                                                             disabled><?php echo $uni_dtl_t_start_time; ?>
                                                             -
                                                             <?php echo $uni_dtl_t_end_time; ?>
                                                             WIB</button>
                                                     </div>
-                                                    <div class="col-sm-4 col-lg-3">
-                                                        <button class="btn btn-primary btn-block btn-book-consul"
+                                                    <div class="col-sm-4 col-lg-4">
+                                                        <button
+                                                            class="btn btn-primary btn-block btn-book-consul btn-<?=$uni_dtl_time_id;?>"
+                                                            data-uniid="<?=$uniInfo['uni_id'];?>"
                                                             data-starttime="<?php echo $detailTime['uni_dtl_t_start_time']?>"
                                                             data-endtime="<?php echo $detailTime['uni_dtl_t_end_time']; ?>"
                                                             data-unidtltimeid="<?php echo $uni_dtl_time_id; ?>"
@@ -196,13 +202,21 @@ body {
                                                     // check if uni status fullbook is fully booked
                                                     } else {
                                                     ?>
-                                        <div class="row">
-                                            <div class="col" style="color: black;">
-                                                Hello this consultation is closed because full booked. <a
-                                                    href="javascript:void(0)"
-                                                    data-uniid="<?php echo $uniInfo['uni_id']; ?>"
-                                                    class="notify-me">Notify Me</a>
+                                        <div class="text-center pb-5">
+                                            <div class="swal2-icon swal2-question swal2-icon-show"
+                                                style="display: flex;">
+                                                <div class="swal2-icon-content">?</div>
                                             </div>
+                                            <h5 class="text-dark text-center">
+                                                Hello this consultation is closed because
+                                                full booked.</h5>
+
+                                            <button data-dismiss="modal"
+                                                class="btn btn-warning text-dark mt-3 mr-2">Close</button>
+
+                                            <button data-uniid="<?php echo $uniInfo['uni_id']; ?>"
+                                                class="btn btn-primary mt-3 notify-me ml-2">Notify
+                                                Me</button>
                                         </div>
                                         <?php
                                                     }
@@ -231,7 +245,7 @@ body {
                         </div>
                         <div class="col text-right mr-3">
                             <a href="<?php echo base_url(); ?>">
-                                <button type="button" class="btn btn-primary navigate-page-3">See More <i
+                                <button type="button" class="btn btn-primary navigate-page-3">Join Later<i
                                         class="fas fa-paper-plane pl-2"></i></button></a>
                         </div>
                     </div>

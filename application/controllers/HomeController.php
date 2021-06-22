@@ -198,8 +198,19 @@ class HomeController extends CI_Controller {
 		$userId = $this->session->userdata('user_id');	
 		$uniId = $this->input->post('uniId');
 
-		$process = $this->UserModel->insertToWaitingList($uniId, $userId);
-		return $process;
+		$check = $this->UserModel->showWaitingListById($userId, $uniId);
+
+		if(count($check)>0) {
+			echo "01"; // udah ada didatabase
+		} else {
+			$process = $this->UserModel->insertToWaitingList($uniId, $userId);
+			if($process) {
+				echo "02"; // Sukses
+			} else {
+				echo "03"; // Sukses
+			}
+		}
+
 	}
 
 	// **************************************************** //

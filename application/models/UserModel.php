@@ -397,5 +397,13 @@ class UserModel extends CI_Model {
     	);
 
     	return $this->db->insert('tb_waiting_list', $data);
-    }
+	}
+	
+	public function showWaitingListById($user_id, $uni_id)
+	{
+		$this->db->select('uni_id');
+		$this->db->where('user_id', $user_id);
+		$this->db->where('uni_id', $uni_id);
+		return $this->db->get('tb_waiting_list')->result_array();
+	}
 }

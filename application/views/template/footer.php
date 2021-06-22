@@ -346,10 +346,27 @@ $(".notify-me").each(function() {
                 uniId: uniId
             },
             success: function(msg) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Sukses'
-                });
+                // console.log(msg);
+                if (msg == "01") {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Thank You',
+                        text: 'You have been registered on the waiting list '
+                    });
+                } else if (msg == "02") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Done!',
+                        text: 'You will be notified if a slot opens up for a consultation.'
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong! Please try again.'
+                    });
+                }
+                $('#modal-' + uniId).modal('hide');
             }
         });
     });

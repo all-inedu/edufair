@@ -48,7 +48,7 @@
                             <p><?php echo $row['topic_desc']; ?></p>
                             <?php
                     if(!$this->session->has_userdata('user_id')){
-                        $props = "href='#signUp' data-toggle='modal'";
+                        $props = "data-target='#signUp' data-toggle='modal'";
                     } else {
                         $props = "id='bookTopic'";
                     }

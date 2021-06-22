@@ -184,7 +184,7 @@
                                 <div class="card-footer btn-book">
                                     <div class="row no-gutters">
                                         <div class="col book-consultation-container" style="cursor: pointer"
-                                            data-toggle="modal" data-target="#modal<?php echo $count; ?>">
+                                            data-toggle="modal" data-target="#modal-<?=$uniInfo['uni_id'];?>">
                                             <a href='javascript:void'>BOOK YOUR CONSULTATION</a>
                                         </div>
                                         <?php
@@ -198,7 +198,7 @@
                                     ?>
 
                                         <div class="modal fade" tabindex="-1" role="dialog"
-                                            id="modal<?php echo $count; ?>">
+                                            id="modal-<?=$uniInfo['uni_id'];?>">
                                             <div class="modal-dialog <?=$card;?> modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <?php
