@@ -5,6 +5,7 @@
 
 .badge-allin {
     background: #0D2F7F;
+    scroll-margin-top: 300px;
 }
 </style>
 <section class="container-fluid" id="talks-section">
@@ -34,7 +35,8 @@
                                 <?php
                         foreach($row['uni_detail'] as $uniDetail){
                         ?>
-                                <span class="badge badge-allin text-white"><?php echo $uniDetail['uni_name']; ?></span>
+                                <span class="badge badge-allin text-white"
+                                    id="topic-<?=$uniDetail['uni_id'];?>"><?php echo $uniDetail['uni_name']; ?></span>
                                 <?php
                         }
                         ?>
@@ -96,7 +98,8 @@
                                 <?php
                         foreach($row['uni_detail'] as $uniDetail){
                         ?>
-                                <span class="badge badge-allin text-white"><?php echo $uniDetail['uni_name']; ?></span>
+                                <span class="badge badge-allin text-white"
+                                    id="topic-<?=$uniDetail['uni_id'];?>"><?php echo $uniDetail['uni_name']; ?></span>
                                 <?php
                         }
                         ?>

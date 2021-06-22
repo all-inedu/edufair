@@ -162,12 +162,13 @@
                                     <?php
                                         if($uniInfo['uni_topic_reg'] == "REGISTERED") {
                                         ?>
-                                    <a href="#talks" style="color: #FFF; text-decoration: none">
+                                    <div class="text-white btn-topic" style="cursor:pointer"
+                                        data-uniid="<?=$uniInfo['uni_id'];?>">
                                         <div class="row">
                                             <div class="col-md-2 col-2 left-string">JOIN</div>
                                             <div class="col-md-4 col-6 right-string">UNIVERSITY TALKS</div>
                                         </div>
-                                    </a>
+                                    </div>
                                     <?php
                                         }
                                         ?>
@@ -196,14 +197,16 @@
                                         $btn = "btn-book";
                                         $html='class="col book-consultation-container" style="cursor: pointer" data-toggle="modal" data-target="#modal-'.$uniInfo['uni_id'].'"';
                                         $text = "BOOK YOUR CONSULTATION";
+                                        $data = "";
                                     } else {
-                                        $btn = "btn-not";
+                                        $btn = "btn-not btn-topic";
                                         $html = 'class="col book-consultation-container" style="cursor: pointer"';
                                         $text = "<b>JOIN TALKS</b>";
+                                        $data = 'data-uniid="'.$uniInfo['uni_id'].'"';
                                     }
                                         
                                 ?>
-                                <div class="card-footer <?=$btn;?>">
+                                <div class="card-footer <?=$btn;?>" <?=$data;?>>
                                     <div class="row no-gutters">
                                         <div <?=$html;?>>
                                             <?=$text;?>
@@ -377,9 +380,15 @@
         });
     });
 
-    $(".btn-not").click(function() {
-        $([document.documentElement, document.body]).animate({
-            scrollTop: $("#talks").offset().top
-        }, 1000);
+    $(".btn-topic").each(function() {
+        $(this).click(function() {
+            var uni_id = $(this).data('uniid')
+            var e = document.getElementById("topic-" + uni_id)
+
+            e.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+            });
+        });
     });
     </script>
