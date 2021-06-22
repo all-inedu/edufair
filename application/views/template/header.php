@@ -386,6 +386,10 @@
     }
 
     @media screen and (max-width: 576px) and (min-width: 375px) {
+        .navbar {
+            margin-left: -15px;
+        }
+
         .navbar-brand {
             margin-right: 0 !important;
         }
