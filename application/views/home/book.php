@@ -199,7 +199,7 @@
                                     } else {
                                         $btn = "btn-not";
                                         $html = 'class="col book-consultation-container"';
-                                        $text = "<b>NOT OPEN CONSULTATION</b>";
+                                        $text = "<b>Hmm Join Talk</b>";
                                     }
                                         
                                 ?>

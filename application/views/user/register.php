@@ -216,19 +216,18 @@ body {
                     </div>
                     <hr>
                     <div class="form-group">
-                        <div class="row">
-                            <div class="col-xl-6 text-left"><button type="button"
-                                    class="btn btn-primary navigate-page-1"><i class="fas fa-arrow-left pr-2"></i>
-                                    Back</button></div>
-                            <div class="col-xl-6 text-right"><button type="submit"
-                                    class="btn btn-success navigate-page-3 btn-register">Submit <i
-                                        class="fas fa-paper-plane pl-2"></i></button></div>
-                        </div>
+                        <div class="float-left"><button type="button" class="btn btn-primary navigate-page-1"><i
+                                    class="fas fa-arrow-left pr-2"></i>
+                                Back</button></div>
+                        <div class="float-right"><button type="submit"
+                                class="btn btn-success navigate-page-3 btn-register">Submit <i
+                                    class="fas fa-paper-plane pl-2"></i></button></div>
                     </div>
                 </div>
             </div>
-        </form>
     </div>
+    </form>
+</div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
