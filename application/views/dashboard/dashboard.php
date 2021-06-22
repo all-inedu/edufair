@@ -354,7 +354,7 @@ body {
 													?>
                                         <small>
                                             <button data-link="<?php echo $row->topic_zoom_link; ?>"
-                                                class="u-btn join-link">Click to join talks</button>
+                                                class="u-btn join-link">Join Talks</button>
                                         </small>
                                         <?php
 												}	
@@ -422,7 +422,7 @@ body {
 												?>
                                         <small>
                                             <button data-link="<?php echo $row->uni_dtl_zoom_link; ?>"
-                                                class="u-btn join-link">Click to join consultation</button>
+                                                class="u-btn join-link">Join Consultation</button>
                                         </small>
                                         <?php
 											}	

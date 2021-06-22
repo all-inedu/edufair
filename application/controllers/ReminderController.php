@@ -29,7 +29,7 @@ class ReminderController extends CI_Controller {
     }
 
     public function reminderh7() {
-        $date_reminder = "2021-06-21"; // ganti 2021-07-17
+        $date_reminder = "2021-07-17"; // ganti 2021-07-17
         $date = date("Y-m-d");
 
         if($date_reminder==$date) {
@@ -52,7 +52,7 @@ class ReminderController extends CI_Controller {
     }
 
     public function reminderh3() {
-        $date_reminder = "2021-06-21"; // ganti 2021-07-21
+        $date_reminder = "2021-07-21"; // ganti 2021-07-21
         $date = date("Y-m-d");
 
         if($date_reminder==$date) {
@@ -75,159 +75,168 @@ class ReminderController extends CI_Controller {
     }
 
     public function reminderh1() {
-        $date = "2021-07-23";
-        // $date = date("Y-m-d");
+        // $date = "2021-07-23";
+        $date = date("Y-m-d");
         
-        $tomorrow = date("Y-m-d",strtotime('+1 days', strtotime($date))); 
-        $user = $this->user->getUserData("all");
-        $data = [];
-        foreach ($user as $u) {
-            $bookTopic = $this->topic->getBookingTopicById($u['user_id'], $tomorrow);
-            $bookConsult = $this->uni->getBookingConsultById($u['user_id'], $tomorrow);
-            if(!isset($data[$u['user_id']])) {
-                $data[$u['user_id']] = [
-                    'user_name' => $u['user_first_name']." ".$u['user_last_name'],
-                    'user_email' => $u['user_email'],
-                    'topic' => $bookTopic,
-                    'consult' => $bookConsult,
-                ];
+        if($date=="2021-07-23") {
+            $tomorrow = date("Y-m-d",strtotime('+1 days', strtotime($date))); 
+            $user = $this->user->getUserData("all");
+            $data = [];
+            foreach ($user as $u) {
+                $bookTopic = $this->topic->getBookingTopicById($u['user_id'], $tomorrow);
+                $bookConsult = $this->uni->getBookingConsultById($u['user_id'], $tomorrow);
+                if(!isset($data[$u['user_id']])) {
+                    $data[$u['user_id']] = [
+                        'user_name' => $u['user_first_name']." ".$u['user_last_name'],
+                        'user_email' => $u['user_email'],
+                        'topic' => $bookTopic,
+                        'consult' => $bookConsult,
+                    ];
+                }
             }
-        }
 
-        foreach ($data as $d) {
-            if((!empty($d['topic'])) or (!empty($d['consult']))) {
-                $email = $d['user_email'];
-                
-                $config = $this->mail_smtp->smtp();
-                $this->load->library('mail_smtp', $config);
-                $this->email->initialize($config);
-                $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
-                $this->email->to($email);
-                // $this->email->to('hafidz.fanany@all-inedu.com');
-                $this->email->subject('These universities are expecting you!');
-                $bodyMail = $this->load->view('mail/reminder_h-1', $d, true);
-                $this->email->message($bodyMail);
-                $this->email->send();
+            foreach ($data as $d) {
+                if((!empty($d['topic'])) or (!empty($d['consult']))) {
+                    $email = $d['user_email'];
+                    
+                    $config = $this->mail_smtp->smtp();
+                    $this->load->library('mail_smtp', $config);
+                    $this->email->initialize($config);
+                    $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
+                    $this->email->to($email);
+                    // $this->email->to('hafidz.fanany@all-inedu.com');
+                    $this->email->subject('These universities are expecting you!');
+                    $bodyMail = $this->load->view('mail/reminder_h-1', $d, true);
+                    $this->email->message($bodyMail);
+                    $this->email->send();
+                }
             }
         }
         
     }
 
     public function reminderd1() {
-        $date = "2021-07-24";
-        // $date = date("Y-m-d");
-        
-        $user = $this->user->getUserData("all");
-        $data = [];
-        foreach ($user as $u) {
-            $bookTopic = $this->topic->getBookingTopicById($u['user_id'], $date);
-            $bookConsult = $this->uni->getBookingConsultById($u['user_id'], $date);
-            if(!isset($data[$u['user_id']])) {
-                $data[$u['user_id']] = [
-                    'user_name' => $u['user_first_name']." ".$u['user_last_name'],
-                    'user_email' => $u['user_email'],
-                    'topic' => $bookTopic,
-                    'consult' => $bookConsult,
-                ];
+        // $date = "2021-07-24";
+        $date = date("Y-m-d");
+
+        if($date=="2021-07-24") {   
+            $user = $this->user->getUserData("all");
+            $data = [];
+            foreach ($user as $u) {
+                $bookTopic = $this->topic->getBookingTopicById($u['user_id'], $date);
+                $bookConsult = $this->uni->getBookingConsultById($u['user_id'], $date);
+                if(!isset($data[$u['user_id']])) {
+                    $data[$u['user_id']] = [
+                        'user_name' => $u['user_first_name']." ".$u['user_last_name'],
+                        'user_email' => $u['user_email'],
+                        'topic' => $bookTopic,
+                        'consult' => $bookConsult,
+                    ];
+                }
             }
-        }
 
-        foreach ($data as $d) {
-            if((!empty($d['topic'])) or (!empty($d['consult']))) {
-                $email = $d['user_email'];
-                
-                $config = $this->mail_smtp->smtp();
-                $this->load->library('mail_smtp', $config);
-                $this->email->initialize($config);
-                $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
-                $this->email->to($email);
-                // $this->email->to('hafidz.fanany@all-inedu.com');
-                $this->email->subject('Your Day 1 Agenda');
-                $bodyMail = $this->load->view('mail/reminder_d1', $d, true);
-                $this->email->message($bodyMail);
-                $this->email->send();
+            foreach ($data as $d) {
+                if((!empty($d['topic'])) or (!empty($d['consult']))) {
+                    $email = $d['user_email'];
+                    
+                    $config = $this->mail_smtp->smtp();
+                    $this->load->library('mail_smtp', $config);
+                    $this->email->initialize($config);
+                    $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
+                    $this->email->to($email);
+                    // $this->email->to('hafidz.fanany@all-inedu.com');
+                    $this->email->subject('Your Day 1 Agenda');
+                    $bodyMail = $this->load->view('mail/reminder_d1', $d, true);
+                    $this->email->message($bodyMail);
+                    $this->email->send();
 
-                // $this->load->view('mail/reminder_d1', $d);
-            } 
+                    // $this->load->view('mail/reminder_d1', $d);
+                } 
+            }
         }
         // echo json_encode($data);
     }
 
     public function reminderd2() {
-        $date = "2021-07-25";
-        // $date = date("Y-m-d");
+        // $date = "2021-07-25";
+        $date = date("Y-m-d");
         
-        $user = $this->user->getUserData("all");
-        $data = [];
-        foreach ($user as $u) {
-            $bookTopic = $this->topic->getBookingTopicById($u['user_id'], $date);
-            $bookConsult = $this->uni->getBookingConsultById($u['user_id'], $date);
-            if(!isset($data[$u['user_id']])) {
-                $data[$u['user_id']] = [
-                    'user_name' => $u['user_first_name']." ".$u['user_last_name'],
-                    'user_email' => $u['user_email'],
-                    'topic' => $bookTopic,
-                    'consult' => $bookConsult,
-                ];
+        if($date=="2021-07-25") {
+            $user = $this->user->getUserData("all");
+            $data = [];
+            foreach ($user as $u) {
+                $bookTopic = $this->topic->getBookingTopicById($u['user_id'], $date);
+                $bookConsult = $this->uni->getBookingConsultById($u['user_id'], $date);
+                if(!isset($data[$u['user_id']])) {
+                    $data[$u['user_id']] = [
+                        'user_name' => $u['user_first_name']." ".$u['user_last_name'],
+                        'user_email' => $u['user_email'],
+                        'topic' => $bookTopic,
+                        'consult' => $bookConsult,
+                    ];
+                }
             }
-        }
 
-        foreach ($data as $d) {
-            if((!empty($d['topic'])) or (!empty($d['consult']))) {
-                $email = $d['user_email'];
-                
-                $config = $this->mail_smtp->smtp();
-                $this->load->library('mail_smtp', $config);
-                $this->email->initialize($config);
-                $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
-                $this->email->to($email);
-                // $this->email->to('hafidz.fanany@all-inedu.com');
-                $this->email->subject('Your Day 2 Agenda');
-                $bodyMail = $this->load->view('mail/reminder_d2', $d, true);
-                $this->email->message($bodyMail);
-                $this->email->send();
+            foreach ($data as $d) {
+                if((!empty($d['topic'])) or (!empty($d['consult']))) {
+                    $email = $d['user_email'];
+                    
+                    $config = $this->mail_smtp->smtp();
+                    $this->load->library('mail_smtp', $config);
+                    $this->email->initialize($config);
+                    $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
+                    $this->email->to($email);
+                    // $this->email->to('hafidz.fanany@all-inedu.com');
+                    $this->email->subject('Your Day 2 Agenda');
+                    $bodyMail = $this->load->view('mail/reminder_d2', $d, true);
+                    $this->email->message($bodyMail);
+                    $this->email->send();
 
-                // $this->load->view('mail/reminder_d2', $d);
-            } 
+                    // $this->load->view('mail/reminder_d2', $d);
+                } 
+            }
         }
     }
 
     public function thanks() {
-        // $date = date("Y-m-d");
+        // $date = "2021-07-26";
+        $date = date("Y-m-d");
         
-        $user = $this->user->getUserData("all");
-        $data = [];
-        foreach ($user as $u) {
-            $bookTopic = $this->topic->getBookingTopicById($u['user_id']);
-            $bookConsult = $this->uni->getBookingConsultById($u['user_id']);
-            if(!isset($data[$u['user_id']])) {
-                $data[$u['user_id']] = [
-                    'user_name' => $u['user_first_name']." ".$u['user_last_name'],
-                    'user_email' => $u['user_email'],
-                    'topic' => $bookTopic,
-                    'consult' => $bookConsult,
-                ];
+        if($date=="2021-07-26") {
+            $user = $this->user->getUserData("all");
+            $data = [];
+            foreach ($user as $u) {
+                $bookTopic = $this->topic->getBookingTopicById($u['user_id']);
+                $bookConsult = $this->uni->getBookingConsultById($u['user_id']);
+                if(!isset($data[$u['user_id']])) {
+                    $data[$u['user_id']] = [
+                        'user_name' => $u['user_first_name']." ".$u['user_last_name'],
+                        'user_email' => $u['user_email'],
+                        'topic' => $bookTopic,
+                        'consult' => $bookConsult,
+                    ];
+                }
             }
-        }
 
-        foreach ($data as $d) {
-            if((!empty($d['topic'])) or (!empty($d['consult']))) {
-                $email = $d['user_email'];
+            foreach ($data as $d) {
+                if((!empty($d['topic'])) or (!empty($d['consult']))) {
+                    $email = $d['user_email'];
 
-                $config = $this->mail_smtp->smtp();
-                $this->load->library('mail_smtp', $config);
-                $this->email->initialize($config);
-                $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
-                $this->email->to($email);
-                // $this->email->to('hafidz.fanany@all-inedu.com');
-                $this->email->subject('See you next time!');
-                $bodyMail = $this->load->view('mail/thanks', $d, true);
-                $this->email->message($bodyMail);
-                $this->email->send();
+                    $config = $this->mail_smtp->smtp();
+                    $this->load->library('mail_smtp', $config);
+                    $this->email->initialize($config);
+                    $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
+                    $this->email->to($email);
+                    // $this->email->to('hafidz.fanany@all-inedu.com');
+                    $this->email->subject('See you next time!');
+                    $bodyMail = $this->load->view('mail/thanks', $d, true);
+                    $this->email->message($bodyMail);
+                    $this->email->send();
 
-                // $this->load->view('mail/thanks', $d);
-            } 
-        }
-    }    
+                    // $this->load->view('mail/thanks', $d);
+                } 
+            }
+        }    
+    }
     
 }

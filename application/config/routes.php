@@ -124,7 +124,7 @@ $route['dashboard/admin/book/consult'] = 'AdminController/indexBookConsult';
 $route['dashboard/admin/book/export/consult'] = 'AdminController/exportBookConsult';
 // END FUNCTION ADMIN 
 
-$route['welcome'] = 'ReminderController/welcome';
+// $route['welcome'] = 'ReminderController/welcome';
 $route['reminder-h7'] = 'ReminderController/reminderh7';
 $route['reminder-h3'] = 'ReminderController/reminderh3';
 $route['reminder-h1'] = 'ReminderController/reminderh1';

@@ -30,7 +30,6 @@ class RegisterController extends CI_Controller {
 	public function register()
 	{	
 		
-
 		// saving school name if user select other start
 		$schoolOption = $this->input->post('school_option');
 		if(strtolower($schoolOption) == "other") {
@@ -137,6 +136,20 @@ class RegisterController extends CI_Controller {
 
 		$create_session = $this->login($uid);
 		if($create_session == "001") {
+			$user = $this->UserModel->getUserDataById($uid);
+			$email = $user['user_email'];
+
+			$config = $this->mail_smtp->smtp();
+			$this->load->library('mail_smtp', $config);
+			$this->email->initialize($config);
+			$this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
+			$this->email->to($email);
+			// $this->email->cc('manuel.eric@all-inedu.com');
+			$this->email->subject('Welcome to ALL-in Global University Fair 2021!');
+			$bodyMail = $this->load->view('mail/welcome', '', true);
+			$this->email->message($bodyMail);
+			$this->email->send();
+
 			redirect('/registration/topic');
 		} else {
 			echo "Server Timeout";

@@ -90,11 +90,13 @@
             ?>
                 <tr>
                     <td width="1%"><?=$no;?></td>
-                    <td width="60%"><?=$t['topic_name'];?></td>
                     <td>
-                        <?=date("D, M dS Y,", strtotime($t['topic_start_date']));?>
-                        at
-                        <?=date("H:i a", strtotime($t['topic_start_date']));?>
+                        <?=$t['topic_name'];?><br>
+                        <small>
+                            <?=date("D, M dS Y,", strtotime($t['topic_start_date']));?>
+                            at
+                            <?=date("H:i a", strtotime($t['topic_start_date']));?>
+                        </small>
                     </td>
                 </tr>
                 <?php
@@ -117,11 +119,13 @@
             ?>
                 <tr>
                     <td width="1%"><?=$no;?></td>
-                    <td width="60%"><?=$c['uni_name'];?></td>
                     <td>
-                        <?=date("D, M dS Y,", strtotime($c['uni_dtl_start_date']));?>
-                        at
-                        <?=date("H:i a", strtotime($c['uni_dtl_start_date']));?>
+                        <?=$c['uni_name'];?><br>
+                        <small>
+                            <?=date("D, M dS Y,", strtotime($c['uni_dtl_start_date']));?>
+                            at
+                            <?=date("H:i a", strtotime($c['uni_dtl_start_date']));?>
+                        </small>
                     </td>
                 </tr>
                 <?php

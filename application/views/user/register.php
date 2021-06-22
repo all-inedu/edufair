@@ -204,6 +204,7 @@ body {
                         <select id="userLead" onchange="checkValue('userLead')" required
                             oninvalid="validation('userLead')" class="custom-box">
                             <option data-placeholder="true"></option>
+                            <option value="other">Other</option>
                         </select>
                         <input type="text" class="form-control form-control-sm mt-1 custom-box" id="userLeadNew">
                         <input type="hidden" value="" name="user_lead" id="user_lead">
@@ -385,7 +386,7 @@ function checkValue(param) {
             break;
         case "userLead":
             // lead 
-            if ($('#userLead').val() == 'Others') {
+            if ($('#userLead').val() == 'other') {
                 $('#userLeadNew').show();
                 $('#userLeadNew').focus();
                 $('#userLeadNew').prop('required', true);
@@ -536,9 +537,9 @@ $(document).ready(function() {
             $(".form-change.grade label").html("What grade is your child in?");
             $(".form-change.school label").html("What school is he/she going to graduate from?");
             $(".form-change.destination label").html(
-                "In what country does he/she want to study abroad? (can choose more than 1)");
+                "In what country does he/she want to study abroad? <br> (can choose more than 1)");
             $(".form-change.major label").html(
-                "What is your child's intended major in university? (can choose more than 1)");
+                "What is your child's intended major in university? <br> (can choose more than 1)");
 
         } else if (val == "teacher_consellor") {
             $(".form-group-major").hide();
