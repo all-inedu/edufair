@@ -386,10 +386,6 @@
     }
 
     @media screen and (max-width: 576px) and (min-width: 375px) {
-        .navbar {
-            margin-left: -15px !important;
-        }
-
         .navbar-brand {
             margin-right: 0 !important;
         }
@@ -531,9 +527,10 @@
         }
 
         .navbar {
-            padding: 20px 30px 20px 20px;
+            margin: 0px;
+            padding: 20px 20px;
             background-color: #FFF !important;
-            transition: background-color 200ms linear !important;
+            /* transition: background-color 200ms linear !important; */
         }
 
         .btn-user {
