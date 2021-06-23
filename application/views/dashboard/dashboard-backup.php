@@ -7,7 +7,7 @@
 #register-form .card {
     background: transparent;
     border: 1px solid #0C2F80;
-    border-radius: 10px;
+    border-radius: 1.2em;
 }
 
 #register-form .card h5,
@@ -31,27 +31,27 @@
 }
 
 .card-topic::before {
-    content: "Scheduled Talks";
+    content: "Talks";
     position: absolute;
     top: 0;
     background: #0C2F80;
-    padding: 7px 10px;
+    padding: 7px 5em;
     color: #FFF;
     margin-top: -1.2em;
     left: 1.5em;
-    border-radius: 10px;
+    border-radius: .5em;
 }
 
 .card-consult::before {
-    content: "Scheduled University Consultation";
+    content: "Uni Consultation";
     position: absolute;
     top: 0;
     background: #0C2F80;
-    padding: 7px 10px;
+    padding: 7px 5em;
     color: #FFF;
     margin-top: -1.2em;
     left: 1.5em;
-    border-radius: 10px;
+    border-radius: .5em;
 }
 
 #register-form .u-btn {
@@ -78,22 +78,6 @@ body {
 }
 
 @media screen and (max-width: 576px) and (min-width: 375px) {
-    h4 {
-        font-size: 18px;
-    }
-
-    h5 {
-        font-size: 16px;
-    }
-
-    p {
-        font-size: 14px;
-    }
-
-    .u-btn {
-        font-size: 14px;
-    }
-
     #register-form {
         color: #0C2F80;
         padding: 10px;
@@ -323,8 +307,17 @@ body {
                     </div>
                 </div>
             </div>
+            <!-- <div class="row mt-4">
+	    			<div class="col-lg-12">
+	    				<div class="card">
+    						<div class="list-group" id="list-tab" role="tablist">
+								<a class="list-group-item list-group-item-action active" id="topic-schedule" data-toggle="list" href="#list-topic" role="tab" aria-controls="talks">Talks</a>
+								<a class="list-group-item list-group-item-action" id="consult-schedule" data-toggle="list" href="#list-consult" role="tab" aria-controls="consultation">Consultation</a>
+						    </div>
+	    				</div>
+	    			</div>
+	    		</div> -->
         </div>
-
         <div class="col-lg-8">
             <div class="row mt-3">
                 <div class="col-lg-12">
@@ -332,38 +325,43 @@ body {
                         <div class="card-body ml-3">
                             <?php if( (isset($dataTopic)) && (count($dataTopic) > 0) ) { ?>
                             <div class="list-group mt-4">
+                                <h4>Scheduled Talks</h4>
                                 <?php
 	    						foreach($dataTopic as $row) {
 	    							$topic_start_date = new DateTime($row->topic_start_date);
-	    						?>
-                                <div class="row mb-3">
-                                    <div class="col-md-8 mb-2">
+	    							$today = date_create(date('Y-m-d'));
+	    							$eventDate = date_create($row->topic_start_date);
+	    							$diff = date_diff($today, $eventDate);
+
+	    							if($today < $eventDate)
+	    								$string = $diff->format("%d")." days to go";
+	    							else
+	    								$string = "expired";
+	    							?>
+                                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div class="d-flex w-100 justify-content-between">
                                         <h5 class="mb-1"><b><?php echo $row->topic_name; ?></b></h5>
-                                        <p class="mb-1"><i class="fas fa-calendar-alt"></i>
-                                            <?php echo $topic_start_date->format('M, dS Y - H:i') ?>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-4 align-content-center text-md-right">
+                                        <!-- <small><?php echo $string; ?></small> -->
                                         <?php
-                                        // $date = '2021-07-25';
-                                        $date = date('Y-m-d');
-                                        $before = date('Y-m-d', strtotime("+1 day", strtotime($date)));
-                                        $talk_date = date('Y-m-d', strtotime($row->topic_start_date));
-                                        if($date==$talk_date) {
-                                        ?>
-                                        <a href="<?php echo $row->topic_zoom_link; ?>"
-                                            class="u-btn join-link bg-white text-dark"
-                                            style="text-decoration:none;">Join
-                                            Talks</a>
-                                        <?php } else if ($before<=$talk_date){ ?>
-                                        <button class="u-btn cancel-booking-topic"
-                                            data-topic="<?php echo rtrim(strtr(base64_encode($row->topic_id), '+/', '-_'), '='); ?>">Cancel</button>
-
-                                        <?php } else { ?>
-                                        <button class="u-btn bg-dark text-white">Expired</button>
-                                        <?php }  ?>
+												if($diff->format("%d") > 1) {
+													?>
+                                        <small>
+                                            <button class="u-btn cancel-booking-topic"
+                                                data-topic="<?php echo rtrim(strtr(base64_encode($row->topic_id), '+/', '-_'), '='); ?>">Cancel</button>
+                                        </small>
+                                        <?php
+												} else {
+													?>
+                                        <small>
+                                            <button data-link="<?php echo $row->topic_zoom_link; ?>"
+                                                class="u-btn join-link">Join Talks</button>
+                                        </small>
+                                        <?php
+												}	
+												?>
                                     </div>
-
+                                    <p class="mb-1"><i class="fas fa-calendar-alt"></i>
+                                        <?php echo $topic_start_date->format('M, dS Y - H:i') ?></p>
 
                                 </div>
                                 <?php
@@ -374,8 +372,16 @@ body {
                             <p>You have no university talk scheduled. Click <a
                                     href="<?php echo base_url(); ?>?section=talks">here</a> to book.</p>
                             <?php
-								}
-							?>
+									}
+								?>
+                            <!-- <div class="tab-content">
+	    							<div class="tab-pane fade show active" id="list-topic" role="tabpanel" aria-labelledby="topic-schedule">
+	    								
+									</div>
+									<div class="tab-pane fade" id="list-consult" role="tabpanel" aria-labelledby="consult-schedule">
+										
+									</div>
+								</div> -->
                         </div>
                     </div>
                 </div>
@@ -386,34 +392,44 @@ body {
                         <div class="card-body ml-3">
                             <?php if( (isset($dataConsult)) && (count($dataConsult) > 0) ) { ?>
                             <div class="list-group mt-4">
+                                <h4>Scheduled Consultations</h4>
                                 <?php
 								foreach($dataConsult as $row) {
-                                    $consult_date = new DateTime($row->uni_dtl_t_start_time);
-									?>
-                                <div class="row mb-3">
-                                    <div class="col-md-8 mb-2">
-                                        <h5 class="mb-1"><b><?php echo $row->uni_name; ?></b></h5>
-                                        <p class="mb-1"><i class="fas fa-calendar-alt"></i>
-                                            <?php echo $consult_date->format('M, dS Y - H:i') ?></p>
-                                    </div>
+									$topic_start_date = new DateTime($row->uni_dtl_t_start_time);
+									$today = date_create(date('Y-m-d'));
+	    							$eventDate = date_create($row->uni_dtl_t_start_time);
+	    							$diff = date_diff($today, $eventDate);
 
-                                    <div class="col-md-4 align-content-center text-md-right">
+	    							if($today < $eventDate)
+	    								$string = $diff->format("%d")." days to go";
+	    							else
+	    								$string = "expired";
+									?>
+                                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <!-- <img src="<?php echo base_url()."assets/uni/banner/".$row->uni_photo_banner; ?>" alt="" width="100px"> -->
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1"><b><?php echo $row->uni_name; ?></b></h5>
+                                        <!-- <small><?php echo $string; ?></small> -->
                                         <?php
-                                        $before = date('Y-m-d', strtotime("+1 day", strtotime($date)));
-                                        $consult_date = date('Y-m-d', strtotime($row->uni_dtl_t_start_time));
-                                        if($date==$consult_date) {
-                                        ?>
-                                        <a href="<?php echo $row->uni_dtl_zoom_link; ?>"
-                                            class="u-btn join-link bg-white text-dark"
-                                            style="text-decoration:none;">Join
-                                            Consultation</a>
-                                        <?php } else if ($before<=$consult_date){ ?>
-                                        <button class="u-btn cancel-booking-consult"
-                                            data-consultation="<?php echo rtrim(strtr(base64_encode($row->uni_detail_time_id), '+/', '-_'), '='); ?>">Cancel</button>
-                                        <?php } else { ?>
-                                        <button class="u-btn bg-dark text-white">Expired</button>
-                                        <?php }  ?>
+											if($diff->format("%d") > 1) {
+												?>
+                                        <small>
+                                            <button class="u-btn cancel-booking-consult"
+                                                data-consultation="<?php echo rtrim(strtr(base64_encode($row->uni_detail_time_id), '+/', '-_'), '='); ?>">Cancel</button>
+                                        </small>
+                                        <?php
+											} else {
+												?>
+                                        <small>
+                                            <button data-link="<?php echo $row->uni_dtl_zoom_link; ?>"
+                                                class="u-btn join-link">Join Consultation</button>
+                                        </small>
+                                        <?php
+											}	
+											?>
                                     </div>
+                                    <p class="mb-1"><i class="fas fa-calendar-alt"></i>
+                                        <?php echo $topic_start_date->format('M, dS Y - H:i') ?></p>
 
                                 </div>
                                 <?php
