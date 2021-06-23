@@ -46,8 +46,12 @@
 }
 
 @media screen and (max-width: 576px) and (min-width: 375px) {
+    .btn-book {
+        letter-spacing: 0.5px;
+        font-size: 16px;
+    }
 
-    .btn-book,
+
     .btn-not {
         letter-spacing: 0.5px;
     }
