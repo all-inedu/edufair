@@ -350,8 +350,8 @@ $(".notify-me").each(function() {
                 if (msg == "01") {
                     Swal.fire({
                         icon: 'info',
-                        title: 'Thank You',
-                        text: 'You have been registered on the waiting list '
+                        title: 'Spot Secured!',
+                        text: 'Thank you for registering!'
                     });
                 } else if (msg == "02") {
                     Swal.fire({

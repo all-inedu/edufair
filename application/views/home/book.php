@@ -339,7 +339,7 @@
                                                     // check if uni status fullbook is fully booked
                                                     }  else {
                                                     ?>
-                                                        <div class="text-center pb-5">
+                                                        <div class="text-center pb-5 px-3">
                                                             <div class="swal2-icon swal2-question swal2-icon-show"
                                                                 style="display: flex;">
                                                                 <div class="swal2-icon-content">?</div>
@@ -531,26 +531,24 @@
                                                     // check if uni status fullbook is fully booked
                                                     }  else {
                                                     ?>
-                                                        <div class="text-center pb-5">
+                                                        <div class="text-center pb-5 px-3">
                                                             <div class="swal2-icon swal2-question swal2-icon-show"
                                                                 style="display: flex;">
                                                                 <div class="swal2-icon-content">?</div>
                                                             </div>
                                                             <h5 class="text-dark text-center">
-                                                                <b>Hello!</b> <br>
+                                                                <b>Be on the list for this consultation?</b> <br>
                                                             </h5>
                                                             <p class="text-dark text-center" style="font-weight:200;">
-                                                                if you want to book consultation at this university,
-                                                                please
-                                                                click the notify me button
+                                                                Click "YES" to secure your spot and be notified on the
+                                                                available schedule!
                                                             </p>
 
                                                             <button data-dismiss="modal"
                                                                 class="btn btn-warning text-dark mt-3 mr-2">Close</button>
 
                                                             <button data-uniid="<?php echo $uniInfo['uni_id']; ?>"
-                                                                class="btn btn-primary mt-3 notify-me ml-2">Notify
-                                                                Me</button>
+                                                                class="btn btn-primary mt-3 notify-me ml-2">Yes</button>
                                                         </div>
                                                         <?php
                                                     }
