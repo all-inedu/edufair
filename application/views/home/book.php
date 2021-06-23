@@ -44,6 +44,14 @@
     color: #595959;
     letter-spacing: 0.8px;
 }
+
+@media screen and (max-width: 576px) and (min-width: 375px) {
+
+    .btn-book,
+    .btn-not {
+        letter-spacing: 0.5px;
+    }
+}
 </style>
 
 <!-- if u want to book, please login first  -->
