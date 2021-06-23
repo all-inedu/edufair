@@ -28,7 +28,7 @@ class UniModel extends CI_Model {
 		return $this->db->get('tb_uni')->result_array();
 	}
 
-	function showAllUniData() {
+	function showAllUniData($s) {
 		$this->db->select('
 			tb_uni.*,
 			tb_uni_detail.uni_dtl_id,
@@ -39,7 +39,7 @@ class UniModel extends CI_Model {
 			tb_uni_detail.uni_dtl_password,
 			tb_uni_detail_time.*
 		');
-		$this->db->where('tb_uni.uni_id !=',21);
+		$this->db->where('tb_uni.uni_status',$s);
 		$this->db->order_by('tb_uni.uni_name', 'asc');
 		$this->db->join('tb_uni_detail','tb_uni_detail.uni_id=tb_uni.uni_id','left');
 		$this->db->join('tb_uni_detail_time','tb_uni_detail_time.uni_dtl_id=tb_uni_detail.uni_dtl_id','left');

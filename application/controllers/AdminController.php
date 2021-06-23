@@ -329,7 +329,6 @@ class AdminController extends CI_Controller {
 			'uni_description' => $this->input->post('uni_description'),
 			'uni_country' => $this->input->post('uni_country'),
 			'uni_detail_country' => $this->input->post('uni_detail_country'),
-			'uni_status' => 1,
 			'uni_photo_banner' => $filesname
 		];
 

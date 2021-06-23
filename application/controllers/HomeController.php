@@ -21,7 +21,8 @@ class HomeController extends CI_Controller {
 		$data['talk_day1']  = $topicData_day1;
 		$data['talk_day2']  = $topicData_day2;
 		// $data['uniData']    = $this->UniModel->getUniData();
-		$data['uniData']    = $this->UniModel->showAllUniData();
+		$data['uniData']    = $this->UniModel->showAllUniData(1); 
+		$data['uniUpcoming']    = $this->UniModel->showAllUniData(2); 
 		$data['uniCountry'] = $this->UniModel->getUniCountry();
 
 		if ($this->session->has_userdata('user_id')) {
