@@ -262,13 +262,6 @@
         background: #f7ead7
     }
 
-    .img-topic {
-        display: block;
-        width: 100%;
-        min-height: 200px;
-        border-radius: 25px
-    }
-
     .talk-button {
         cursor: pointer
     }

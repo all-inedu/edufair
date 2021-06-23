@@ -194,7 +194,8 @@
                                 <img src="<?php echo base_url()."assets/uni/banner/".$uniInfo['uni_photo_banner']; ?>"
                                     alt="" width="100%">
                                 <div class="card-body pl-4 p-1">
-                                    <h4 class="m-0 pt-2 pb-2" style="color: #000">
+                                    <h4 class="m-0 pt-2 pb-2 font-weight-bold"
+                                        style="color: #3d3d3d; letter-spacing:0.8px;">
                                         <?php echo strtoupper($uniInfo['uni_name']); ?></h4>
                                 </div>
                                 <?php
@@ -399,7 +400,8 @@
                                 <img src="<?php echo base_url()."assets/uni/banner/".$uniInfo['uni_photo_banner']; ?>"
                                     alt="" width="100%">
                                 <div class="card-body pl-4 p-1">
-                                    <h4 class="m-0 pt-2 pb-2" style="color: #000">
+                                    <h4 class="m-0 pt-2 pb-2 font-weight-bold"
+                                        style="color: #3d3d3d; letter-spacing:0.8px;">
                                         <?php echo strtoupper($uniInfo['uni_name']); ?></h4>
                                 </div>
                                 <?php

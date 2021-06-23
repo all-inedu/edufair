@@ -1,11 +1,55 @@
 <style>
+.img-box {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.img-box img {
+    margin: -75px 0 0 0;
+}
+
 .img-topic {
     cursor: pointer;
+    width: 100%;
 }
 
 .badge-allin {
     background: #0D2F7F;
+    font-weight: 200;
     scroll-margin-top: 350px;
+    font-size: 14px;
+    padding: 5px 8px;
+    letter-spacing: 1px;
+}
+
+h4 {
+    letter-spacing: 0.8px;
+}
+
+@media screen and (max-width: 576px) and (min-width: 375px) {
+    h4 {
+        font-size: 18px;
+    }
+
+    h5 {
+        font-size: 15px;
+    }
+
+    .img-box {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .badge-allin {
+        font-size: 12px;
+        margin-bottom: 3px;
+        text-align: left;
+        white-space: normal;
+    }
 }
 </style>
 <section class="container-fluid" id="talks-section">
@@ -13,11 +57,6 @@
     <div class="p-4 mb-4 day1talks">
         <div class="row" style="padding-top: 1em">
             <?php
-            if(count($talk_day1)%2==1) {
-                $col = "col-md-4";
-            } else {
-               $col = "col-md-6"; 
-            }
         foreach($talk_day1 as $row) {
             $topic_start_date = new DateTime($row['topic_start_date']);
             $topic_id = $row['topic_id'];
@@ -29,14 +68,16 @@
                 );
             $arrTopic = base64_encode(json_encode($arrTopic));
             ?>
-            <div class="<?=$col;?> mb-3">
-                <div class="card card-topic">
+            <div class="col-md-6 mb-3">
+                <div class="card card-topic shadow">
                     <div class="card-body">
-                        <img src="<?=base_url('assets/topic/'.$row['topic_banner']);?>" class="img-topic" width="100%">
+                        <div class="img-box">
+                            <img src="<?=base_url('assets/topic/'.$row['topic_banner']);?>" class="img-topic">
+                        </div>
                         <div class="row px-2 pt-2 no-gutters talk-button">
                             <div class="col-11">
-                                <small><?php echo $topic_start_date->format('M, dS Y - H:i') ?></small>
-                                <h6 class="font-weight-bold"><?php echo $topic_name; ?></h6>
+                                <p class="m-0"><?php echo $topic_start_date->format('M, dS Y - H:i') ?></p>
+                                <h4 class="font-weight-bold text-dark"><?php echo $topic_name; ?></h4>
                                 <?php
                         foreach($row['uni_detail'] as $uniDetail){
                         ?>
@@ -52,7 +93,7 @@
                         </div>
                         <div class="hidden px-2">
                             <hr class="m-0 my-2">
-                            <p><?php echo $row['topic_desc']; ?></p>
+                            <h5><?php echo $row['topic_desc']; ?></h5>
                             <?php
                     if(!$this->session->has_userdata('user_id')){
                         $props = "data-target='#signUp' data-toggle='modal'";
@@ -81,11 +122,6 @@
     <div class="p-4 day2talks" style="margin-top: 5em">
         <div class="row" style="padding-top: 1em">
             <?php
-            if(count($talk_day2)%2==1) {
-                $col = "col-md-4";
-            } else {
-               $col = "col-md-3"; 
-            }
         foreach($talk_day2 as $row) {
             $topic_start_date = new DateTime($row['topic_start_date']);
             $topic_id = $row['topic_id'];
@@ -97,14 +133,16 @@
                 );
             $arrTopic = base64_encode(json_encode($arrTopic));
         ?>
-            <div class="<?=$col;?> mb-3">
+            <div class="col-md-6 mb-3">
                 <div class="card card-topic">
                     <div class="card-body">
-                        <img src="<?=base_url('assets/topic/'.$row['topic_banner']);?>" class="img-topic" width="100%">
+                        <div class="img-box">
+                            <img src="<?=base_url('assets/topic/'.$row['topic_banner']);?>" class="img-topic">
+                        </div>
                         <div class="row px-2 pt-2 no-gutters talk-button">
                             <div class="col-11">
-                                <small><?php echo $topic_start_date->format('M, dS Y - H:i') ?></small>
-                                <h6 class="font-weight-bold"><?php echo $topic_name; ?></h6>
+                                <p class="m-0"><?php echo $topic_start_date->format('M, dS Y - H:i') ?></p>
+                                <h4 class="font-weight-bold text-dark"><?php echo $topic_name; ?></h4>
                                 <?php
                         foreach($row['uni_detail'] as $uniDetail){
                         ?>
@@ -120,7 +158,7 @@
                         </div>
                         <div class="hidden px-2">
                             <hr class="m-0 my-2">
-                            <p><?php echo $row['topic_desc']; ?></p>
+                            <h5><?php echo $row['topic_desc']; ?></h5>
                             <?php
                     if(!$this->session->has_userdata('user_id')){
                         $props = "data-target='#signUp' data-toggle='modal'";
@@ -156,7 +194,7 @@
 <script>
 $(".hidden").hide()
 
-$(".img-topic").click(function() {
+$(".img-box").click(function() {
     $(this).next(".talk-button").next(".hidden").toggle("slow")
 });
 
