@@ -536,7 +536,8 @@
                                                                 <b>Hello!</b> <br>
                                                             </h5>
                                                             <p class="text-dark text-center" style="font-weight:200;">
-                                                                if you want to book consultatin in this uni, please
+                                                                if you want to book consultation at this university,
+                                                                please
                                                                 click the notify me button
                                                             </p>
 
