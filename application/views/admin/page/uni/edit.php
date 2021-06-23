@@ -87,6 +87,20 @@
                                                 rows="5" required><?=$uni['uni_description'];?></textarea>
                                         </div>
 
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <select class="form-control form-control-sm" name="uni_status">
+                                                <option value="1"
+                                                    <?=$uni['uni_status'] == 1 ? ' selected="selected"' : '';?>>
+                                                    Active</option>
+                                                <option value="0"
+                                                    <?=$uni['uni_status'] == 0 ? ' selected="selected"' : '';?>>Inactive
+                                                </option>
+                                                <option value="2"
+                                                    <?=$uni['uni_status'] == 2 ? ' selected="selected"' : '';?>>Upcoming
+                                                    Session</option>
+                                            </select>
+                                        </div>
 
                                         <div class="form-group">
                                             <label>Photo Banner</label>

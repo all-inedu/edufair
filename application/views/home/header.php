@@ -116,6 +116,9 @@
                         <div class="card-headers">
                             <img src="<?=base_url('assets/img/home/edufair/Edufair-27.png');?>" width="100%">
                         </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-39.png');?>" width="100%">
+                        </div>
                     </div>
                     <div class="col-md-4 col-4 p-1 img4">
                         <div class="card-headers">
@@ -226,6 +229,9 @@
                         </div>
                         <div class="card-headers">
                             <img src="<?=base_url('assets/img/home/edufair/Edufair-36.png');?>" width="100%">
+                        </div>
+                        <div class="card-headers">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-48.png');?>" width="100%">
                         </div>
                     </div>
                 </div>

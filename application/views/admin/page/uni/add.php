@@ -69,6 +69,18 @@
                                                 rows="5" required></textarea>
                                         </div>
 
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <select class="form-control form-control-sm" name="uni_status">
+                                                <option value="1">
+                                                    Active</option>
+                                                <option value="0">Inactive
+                                                </option>
+                                                <option value="2">Upcoming
+                                                    Session</option>
+                                            </select>
+                                        </div>
+
 
                                         <div class="form-group">
                                             <label>Photo Banner</label>
