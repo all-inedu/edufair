@@ -379,8 +379,8 @@
                             <div class="card"
                                 style="background:rgb(250,250,250); background: linear-gradient(313deg, rgba(250,250,250,1) 0%, rgba(255,255,255,0.6166841736694677) 38%);">
                                 <div class="card-body">
-                                    <h5>We have an encore with these universities! Make sure to save the date and book a
-                                        consultation! </h5>
+                                    <h5>We have an upcoming session with universities listed below scheduled after the
+                                        sessions on July 24th - 25th. Secure your spot now!</h5>
                                 </div>
                             </div>
                         </div>
