@@ -4,7 +4,8 @@
 }
 
 .btn-book {
-    border-radius: 0 !important
+    border-radius: 0 !important;
+    letter-spacing: 0.8px;
 }
 
 .box-book {
@@ -41,6 +42,7 @@
 .btn-not {
     background: #c4c4c4;
     color: #595959;
+    letter-spacing: 0.8px;
 }
 </style>
 

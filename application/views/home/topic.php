@@ -28,6 +28,11 @@ h4 {
     letter-spacing: 0.8px;
 }
 
+.btn-book {
+    letter-spacing: 0.8px;
+    font-size: 18px;
+}
+
 @media screen and (max-width: 576px) and (min-width: 375px) {
     h4 {
         font-size: 18px;
@@ -103,9 +108,14 @@ h4 {
 
                     if(!in_array($topic_id, $bookingTopic)) {
                         ?>
-                            <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book btn-<?=$topic_id;?>"
+                            <div class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book btn-<?=$topic_id;?>"
                                 data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic;?>"
-                                <?php echo $props; ?>>Join Now</a>
+                                <?php echo $props; ?>>
+                                Join Now
+                                <div class="float-right mr-2">
+                                    <i class="fas fa-arrow-alt-circle-right"></i>
+                                </div>
+                            </div>
                             <?php
                     }
                     ?>
@@ -169,9 +179,14 @@ h4 {
                     if(!in_array($topic_id, $bookingTopic)) {
                         ?>
 
-                            <a class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book btn-<?=$topic_id;?>"
+                            <div class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book btn-<?=$topic_id;?>"
                                 data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>"
-                                <?php echo $props; ?>>Join Now</a>
+                                <?php echo $props; ?>>
+                                Join Now
+                                <div class="float-right mr-2">
+                                    <i class="fas fa-arrow-alt-circle-right"></i>
+                                </div>
+                            </div>
                             <?php } ?>
                         </div>
                     </div>
