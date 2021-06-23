@@ -83,7 +83,7 @@
                             <img src="<?=base_url('assets/img/home/edufair/Edufair-01.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/edufair/Edufair-13.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/Edufair-13-n.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
                             <img src="<?=base_url('assets/img/home/edufair/Edufair-25.png');?>" width="100%">
