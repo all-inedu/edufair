@@ -84,7 +84,7 @@
             if(count($talk_day2)%2==1) {
                 $col = "col-md-4";
             } else {
-               $col = "col-md-6"; 
+               $col = "col-md-3"; 
             }
         foreach($talk_day2 as $row) {
             $topic_start_date = new DateTime($row['topic_start_date']);

@@ -359,6 +359,8 @@ $(".notify-me").each(function() {
                         title: 'Done!',
                         text: 'You will be notified if a slot opens up for a consultation.'
                     });
+                } else if (msg == "04") {
+                    $("#signUp").modal("show")
                 } else {
                     Swal.fire({
                         icon: 'error',

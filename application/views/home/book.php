@@ -43,6 +43,17 @@
     color: #595959;
 }
 </style>
+
+<!-- if u want to book, please login first  -->
+<?php 
+    if(!$this->session->has_userdata('user_id')){
+        $props = "data-target='#signUp' data-toggle='modal'";
+    } else {
+        $props= "";
+    }
+?>
+
+
 <!-- Modal -->
 <div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
@@ -189,7 +200,8 @@
                                 <?php
                                     $count_unidtl = [];
                                     foreach($uniInfo['uni_detail'] as $dtl) {
-                                        if($dtl['uni_dtl_id']!="") {
+                                        // 24 = boston 
+                                        if(($dtl['uni_dtl_id']!="") or ($uniInfo['uni_id']==24)) { 
                                             $count_unidtl[] = $dtl['uni_dtl_id'];
                                         }
                                     }
@@ -199,9 +211,9 @@
                                         $text = "BOOK YOUR CONSULTATION";
                                         $data = "";
                                     } else {
-                                        $btn = "btn-not btn-topic";
-                                        $html = 'class="col book-consultation-container" style="cursor: pointer"';
-                                        $text = "<b>JOIN TALKS</b>";
+                                        $btn = "btn-not";
+                                        $html = 'class="col book-consultation-container"';
+                                        $text = "<b>BOOK YOUR CONSULTATION</b>";
                                         $data = 'data-uniid="'.$uniInfo['uni_id'].'"';
                                     }
                                         
@@ -301,13 +313,6 @@
                                                                             WIB</button>
                                                                     </div>
                                                                     <div class="col-sm-4 col-lg-4">
-                                                                        <?php 
-                                                                            if(!$this->session->has_userdata('user_id')){
-                                                                                $props = "data-target='#signUp' data-toggle='modal'";
-                                                                            } else {
-                                                                                $props= "";
-                                                                            }
-                                                                        ?>
                                                                         <button <?=$props;?>
                                                                             class="btn btn-primary btn-block btn-book-consul btn-<?=$uni_dtl_time_id;?>"
                                                                             data-uniid="<?=$uniInfo['uni_id'];?>"
@@ -330,6 +335,25 @@
                                                         </div>
                                                         <?php
                                                     // check if uni status fullbook is fully booked
+                                                    } else if($uniInfo['uni_id'] == 24) {
+                                                    ?>
+                                                        <div class="text-center pb-5">
+                                                            <div class="swal2-icon swal2-question swal2-icon-show"
+                                                                style="display: flex;">
+                                                                <div class="swal2-icon-content">?</div>
+                                                            </div>
+                                                            <h5 class="text-dark text-center">
+                                                                if you want to book this uni, <br>
+                                                                please click the notify me button</h5>
+
+                                                            <button data-dismiss="modal"
+                                                                class="btn btn-warning text-dark mt-3 mr-2">Close</button>
+
+                                                            <button data-uniid="<?php echo $uniInfo['uni_id']; ?>"
+                                                                class="btn btn-primary mt-3 notify-me ml-2">Notify
+                                                                Me</button>
+                                                        </div>
+                                                        <?php
                                                     } else {
                                                     ?>
                                                         <div class="text-center pb-5">
