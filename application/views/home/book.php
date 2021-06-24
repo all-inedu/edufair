@@ -68,6 +68,9 @@
         font-size: 16px;
     }
 
+    .box-book {
+        height: 600px;
+    }
 
     .btn-not {
         letter-spacing: 0.5px;
