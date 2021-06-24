@@ -541,7 +541,7 @@ $(document).ready(function() {
             $(".form-change.major label").html(
                 "What is your child's intended major in university? <br> (can choose more than 1)");
             $(".form-challenge label").html(
-                "What do you think the biggest challenge for your children in preparing for university?"
+                "What is your biggest challenge in helping your children preparing for university?"
             );
 
 
@@ -556,7 +556,7 @@ $(document).ready(function() {
             $(".form-change.destination label").html(
                 "What country do your students generally interested in studying abroad?");
             $(".form-challenge label").html(
-                "What's your biggest challenge in helping your students for university preparation?"
+                "What is your biggest challenge in helping your students preparing for university?"
             );
 
         } else {

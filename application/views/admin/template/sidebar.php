@@ -29,6 +29,15 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-bookmark fa-fw"></i></div>
                     Uni Consult
                 </a>
+                <div class="sb-sidenav-menu-heading">Waiting List</div>
+                <a class="nav-link" href="<?=base_url('dashboard/admin/book/topic');?>">
+                    <div class="sb-nav-link-icon"><i class="fas fa-user-tag fa-fw"></i></div>
+                    Uni Consult
+                </a>
+                <a class="nav-link" href="<?=base_url('dashboard/admin/book/consult');?>">
+                    <div class="sb-nav-link-icon"><i class="fas fa-bookmark fa-fw"></i></div>
+                    Initial Consult
+                </a>
             </div>
         </div>
         <div class="sb-sidenav-footer">

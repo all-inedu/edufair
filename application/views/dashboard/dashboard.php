@@ -94,6 +94,10 @@ body {
         font-size: 14px;
     }
 
+    .card-body {
+        padding: 20px;
+    }
+
     #register-form {
         color: #0C2F80;
         padding: 10px;
@@ -102,127 +106,113 @@ body {
 </style>
 <div class="modal fade" id="editprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header px-4">
                 <h5 class="modal-title">Edit Profile</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <form action="#" method="post" id="personal-information-form" novalidate class="needs-validation">
-                <div class="modal-body">
+                <div class="modal-body px-4">
+                    <div class="list-group list-group-flush" id="edit-form">
+                        <div class="row pb-2">
+                            <div class="col-lg-3">First Name</div>
+                            <div class="col-lg-9 mb-2">
+                                <input type="text" name="user_first_name"
+                                    value="<?php echo $this->session->userdata('user_first_name'); ?>"
+                                    class="form-control custom-box" />
+                            </div>
+                            <div class="col-lg-3">Last Name</div>
+                            <div class="col-lg-9">
+                                <input type="text" name="user_last_name"
+                                    value="<?php echo $this->session->userdata('user_last_name'); ?>"
+                                    class="form-control custom-box" />
+                            </div>
+                        </div>
+                        <div class="row pt-2 pb-2">
+                            <div class="col-lg-3">Date of Birth</div>
+                            <div class="col-lg-9">
+                                <input type="date" name="user_dob"
+                                    value="<?php echo $this->session->userdata('user_dob'); ?>"
+                                    class="form-control custom-box">
 
-                    <ul class="list-group list-group-flush" id="edit-form">
-                        <li class="list-group-item">
-                            <div class="row pb-2">
-                                <div class="col-lg-3"><b>First Name</b></div>
-                                <div class="col-lg-3">
-                                    <input type="text" name="user_first_name"
-                                        value="<?php echo $this->session->userdata('user_first_name'); ?>"
-                                        class="form-control custom-box" />
-                                </div>
-                                <div class="col-lg-3"><b>Last Name</b></div>
-                                <div class="col-lg-3">
-                                    <input type="text" name="user_last_name"
-                                        value="<?php echo $this->session->userdata('user_last_name'); ?>"
-                                        class="form-control custom-box" />
-                                </div>
                             </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row pt-2 pb-2">
-                                <div class="col-lg-3"><b>Date of Birth</b></div>
-                                <div class="col-lg-9">
-                                    <input type="date" name="user_dob"
-                                        value="<?php echo $this->session->userdata('user_dob'); ?>"
-                                        class="form-control custom-box">
-
-                                </div>
+                        </div>
+                        <div class="row pt-2 pb-2">
+                            <div class="col-lg-3">Phone</div>
+                            <div class="col-lg-9">
+                                <input type="text" name="user_phone"
+                                    value="<?php echo $this->session->userdata('user_phone'); ?>"
+                                    class="form-control custom-box" />
                             </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row pt-2 pb-2">
-                                <div class="col-lg-3"><b>Phone</b></div>
-                                <div class="col-lg-9">
-                                    <input type="text" name="user_phone"
-                                        value="<?php echo $this->session->userdata('user_phone'); ?>"
-                                        class="form-control custom-box" />
-                                </div>
+                        </div>
+                        <div class="row pt-2 pb-2">
+                            <div class="col-lg-3">Email</div>
+                            <div class="col-lg-9">
+                                <input type="email" name="user_email"
+                                    value="<?php echo $this->session->userdata('user_email'); ?>"
+                                    class="form-control custom-box" />
                             </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row pt-2 pb-2">
-                                <div class="col-lg-3"><b>Email</b></div>
-                                <div class="col-lg-9">
-                                    <input type="email" name="user_email"
-                                        value="<?php echo $this->session->userdata('user_email'); ?>"
-                                        class="form-control custom-box" />
-                                </div>
+                        </div>
+                        <div class="row pt-2 pb-2">
+                            <div class="col-lg-3">School</div>
+                            <div class="col-lg-9">
+                                <select name="school_option" id="userSchool" onchange="checkValue('userSchool')"
+                                    required oninvalid="validation('userSchool')">
+                                    <option value="<?php echo $this->session->userdata('user_school'); ?>"
+                                        data-placeholder="true">
+                                        <?php echo $this->session->userdata('user_school'); ?></option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <input type="text" class="form-control form-control-sm mt-1" id="userSchoolNew">
+                                <input type="hidden" value="<?php echo $this->session->userdata('user_school'); ?>"
+                                    name="user_school" id="user_school">
                             </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row pt-2 pb-2">
-                                <div class="col-lg-3"><b>School</b></div>
-                                <div class="col-lg-9">
-                                    <select name="school_option" id="userSchool" onchange="checkValue('userSchool')"
-                                        required oninvalid="validation('userSchool')">
-                                        <option value="<?php echo $this->session->userdata('user_school'); ?>"
-                                            data-placeholder="true">
-                                            <?php echo $this->session->userdata('user_school'); ?></option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                    <input type="text" class="form-control form-control-sm mt-1" id="userSchoolNew">
-                                    <input type="hidden" value="<?php echo $this->session->userdata('user_school'); ?>"
-                                        name="user_school" id="user_school">
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row pt-2 pb-2">
-                                <div class="col-lg-3"><b>Destination</b></div>
-                                <div class="col-lg-9">
-                                    <select id="userDestination" onchange="checkValue('userDestination')" multiple
-                                        required oninvalid="validation('userDestination')">
-                                        <?php
+                        </div>
+                        <div class="row pt-2 pb-2">
+                            <div class="col-lg-3">Destination</div>
+                            <div class="col-lg-9">
+                                <select id="userDestination" onchange="checkValue('userDestination')" multiple required
+                                    oninvalid="validation('userDestination')">
+                                    <?php
                             for($i = 0 ; $i < count($dataCountry); $i++){ 
                             	?>
-                                        <option value="<?php echo $dataCountry[$i]; ?>"><?php echo $dataCountry[$i]; ?>
-                                        </option>
-                                        <?php
+                                    <option value="<?php echo $dataCountry[$i]; ?>"><?php echo $dataCountry[$i]; ?>
+                                    </option>
+                                    <?php
                             }
                             ?>
-                                    </select>
-                                    <input type="hidden" value="<?php echo $this->session->userdata('user_country'); ?>"
-                                        name="user_destination" id="user_destination">
-                                </div>
+                                </select>
+                                <input type="hidden" value="<?php echo $this->session->userdata('user_country'); ?>"
+                                    name="user_destination" id="user_destination">
                             </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row pt-2">
-                                <div class="col-lg-3"><b>Major</b></div>
-                                <div class="col-lg-9">
-                                    <select id="userMajor" onchange="checkValue('userMajor')" multiple required
-                                        oninvalid="validation('userMajor')">
-                                        <option value="other">Other</option>
-                                        <?php
+                        </div>
+                        <div class="row pt-2">
+                            <div class="col-lg-3">Major</div>
+                            <div class="col-lg-9">
+                                <select id="userMajor" onchange="checkValue('userMajor')" multiple required
+                                    oninvalid="validation('userMajor')">
+                                    <option value="other">Other</option>
+                                    <?php
                             for($i = 0 ; $i < count($dataMajor); $i++){ 
                             	?>
-                                        <option value="<?php echo $dataMajor[$i]; ?>"><?php echo $dataMajor[$i]; ?>
-                                        </option>
-                                        <?php
+                                    <option value="<?php echo $dataMajor[$i]; ?>"><?php echo $dataMajor[$i]; ?>
+                                    </option>
+                                    <?php
                             }
                             ?>
-                                    </select>
-                                    <input type="text" class="form-control form-control-sm mt-1 custom-box"
-                                        name="user_major_other" id="userMajorNew">
-                                    <input type="hidden" value="<?php echo $this->session->userdata('user_major'); ?>"
-                                        name="user_major" id="user_major">
-                                </div>
+                                </select>
+                                <input type="text" class="form-control form-control-sm mt-1 custom-box"
+                                    name="user_major_other" id="userMajorNew">
+                                <input type="hidden" value="<?php echo $this->session->userdata('user_major'); ?>"
+                                    name="user_major" id="user_major">
                             </div>
+                        </div>
                         </li>
 
-                    </ul>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -265,8 +255,6 @@ body {
                                         style="color: #FFF;padding:5px 2em;background: #F0AA53" id="change-information"
                                         data-toggle="modal" data-target="#editprofile">Edit
                                         Profile</button>
-                                    <a href="https://all-inedu.com/sign-me/"><button class="btn btn-danger">Initial
-                                            Consult</button></a>
                                 </div>
                             </div>
                             <hr>
@@ -317,6 +305,19 @@ body {
                                             </div>
                                         </li>
                                     </ul>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    Need a guidance for your university prep? Click the button below for a free initial
+                                    consultation with ALL-in Eduspace!
+                                    <br>
+                                    <button class="btn btn-primary mt-3 mb-3 btn-consult-allin"
+                                        style="background:#0C2F80;"
+                                        data-userid="<?=$this->session->userdata('user_id');?>">
+                                        FREE Inital Consultation
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -588,4 +589,39 @@ function checkValue(param) {
             }, false)
         })
 })()
+
+
+// Inital Consultation 
+$('.btn-consult-allin').click(function() {
+    var uniId = 21;
+    $.ajax({
+        url: "<?php echo base_url(); ?>home/waiting-list",
+        type: "post",
+        data: {
+            uniId: uniId
+        },
+        success: function(msg) {
+            // console.log(msg);
+            if (msg == "01") {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Spot Secured!',
+                    text: 'Thank you for registering!'
+                });
+            } else if (msg == "02") {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Spot Secured!',
+                    text: 'Thank you for registering!'
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong! Please try again.'
+                });
+            }
+        }
+    });
+});
 </script>
