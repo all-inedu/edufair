@@ -17,10 +17,12 @@
                     $base_url = base_url();
                     $url_talks = $base_url."?section=talks";
                     $url_unilist = $base_url."?section=booking";
+                    $url_about = $base_url."?section=about";
                 } else {
                     $base_url = "";
                     $url_talks = "#talks";
                     $url_unilist = "#booking";
+                    $url_about = "#about";
                 }
                 ?>
                     <li class="nav-item nav-menu active">
@@ -32,6 +34,9 @@
                     </li>
                     <li class="nav-item nav-menu">
                         <a class="nav-link" id="link-booking" href="<?php echo $url_unilist; ?>">University Booth</a>
+                    </li>
+                    <li class="nav-item nav-menu">
+                        <a class="nav-link" id="link-booking" href="<?php echo $url_about; ?>">About Us</a>
                     </li>
 
 
