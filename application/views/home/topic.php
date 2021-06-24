@@ -64,6 +64,7 @@ h4 {
             <?php
         foreach($talk_day1 as $row) {
             $topic_start_date = new DateTime($row['topic_start_date']);
+            $topic_end_date = new DateTime($row['topic_end_date']);
             $topic_id = $row['topic_id'];
             $topic_name = $row['topic_name'];
             $arrTopic = array(
@@ -81,12 +82,15 @@ h4 {
                         </div>
                         <div class="row px-2 pt-2 no-gutters talk-button">
                             <div class="col-11">
-                                <p class="m-0"><?php echo $topic_start_date->format('M, dS Y - H:i') ?></p>
+                                <p class="m-0">
+                                    <?=$topic_start_date->format('M, dS Y (H:i A') ?> -
+                                    <?=$topic_end_date->format('H:i A') ?>)
+                                </p>
                                 <h4 class="font-weight-bold text-dark"><?php echo $topic_name; ?></h4>
                                 <?php
                         foreach($row['uni_detail'] as $uniDetail){
                         ?>
-                                <span class="badge badge-allin text-white"
+                                <span class="badge badge-allin text-white mb-1"
                                     id="topic-<?=$uniDetail['uni_id'];?>"><?php echo $uniDetail['uni_name']; ?></span>
                                 <?php
                         }
@@ -134,6 +138,7 @@ h4 {
             <?php
         foreach($talk_day2 as $row) {
             $topic_start_date = new DateTime($row['topic_start_date']);
+            $topic_end_date = new DateTime($row['topic_end_date']);
             $topic_id = $row['topic_id'];
             $topic_name = $row['topic_name'];
             $arrTopic = array(
@@ -151,12 +156,15 @@ h4 {
                         </div>
                         <div class="row px-2 pt-2 no-gutters talk-button">
                             <div class="col-11">
-                                <p class="m-0"><?php echo $topic_start_date->format('M, dS Y - H:i') ?></p>
+                                <p class="m-0">
+                                    <?php echo $topic_start_date->format('M, dS Y (H:i A') ?> -
+                                    <?php echo $topic_end_date->format('H:i A') ?>)
+                                </p>
                                 <h4 class="font-weight-bold text-dark"><?php echo $topic_name; ?></h4>
                                 <?php
                         foreach($row['uni_detail'] as $uniDetail){
                         ?>
-                                <span class="badge badge-allin text-white"
+                                <span class="badge badge-allin text-white mb-1"
                                     id="topic-<?=$uniDetail['uni_id'];?>"><?php echo $uniDetail['uni_name']; ?></span>
                                 <?php
                         }
@@ -239,7 +247,7 @@ $(".btn-book").each(function() {
                     Swal.fire({
                         icon: 'success',
                         title: 'You’re on!',
-                        html: 'You have successfully booked this university talk. <br> We’ll remind you before the event.<br><br>Check the dashboard for your agenda.',
+                        html: 'You have successfully booked this university talk. <br> We’ll remind you by email before the event.<br><br>Check the dashboard for your agenda.',
                         confirmButtonText: 'OK',
                     }).then((result) => {
                         $('.btn-' + topicId).prop('hidden', true);

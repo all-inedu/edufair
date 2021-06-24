@@ -122,7 +122,7 @@ $(".btn-book-consul").each(function() {
                             Swal.fire({
                                 icon: 'error',
                                 title: 'You have booked at this university!',
-                                text: 'Check the dashboard for your agenda.'
+                                html: 'We’ll remind you by email before the event.<br><br>Check the dashboard for your agenda.'
                             });
                         } else if (msg == "06") {
                             Swal.fire({
