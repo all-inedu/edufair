@@ -4,7 +4,7 @@
 }
 
 .box-book {
-    height: 780px;
+    height: 870px;
     overflow-x: hidden;
     overflow-y: scroll;
 }

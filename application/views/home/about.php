@@ -1,7 +1,7 @@
 <style>
 #about {
     background: #EBF6FC;
-    padding: 5% 10%;
+    padding: 6% 10%;
 }
 
 #about h3 {
@@ -10,16 +10,19 @@
     font-weight: bold;
     font-family: Montserrat-ExtraBold;
     text-transform: uppercase;
+    margin-bottom: 20px;
+    margin-top: 30px;
 }
 
 #about h5 {
     color: #444444;
     font-size: 23px;
-    line-height: 30px;
+    line-height: 1.3;
 }
 
 .about-desc {
     padding: 0 10%;
+    margin-bottom: 50px;
 }
 
 .img-about {
