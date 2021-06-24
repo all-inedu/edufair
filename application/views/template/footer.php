@@ -110,7 +110,7 @@ $(".btn-book-consul").each(function() {
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Yay, your booking is successful!',
-                                text: 'Check the dashboard for your agenda.',
+                                html: 'We’ll remind you by email before the event.<br><br>Check the dashboard for your agenda.',
                                 confirmButtonText: 'OK',
                             }).then((result) => {
                                 $('.btn-' + unidtltimeid).html("Booked")
@@ -122,7 +122,7 @@ $(".btn-book-consul").each(function() {
                             Swal.fire({
                                 icon: 'error',
                                 title: 'You have booked at this university!',
-                                html: 'We’ll remind you by email before the event.<br><br>Check the dashboard for your agenda.'
+                                html: 'Check the dashboard for your agenda.'
                             });
                         } else if (msg == "06") {
                             Swal.fire({
