@@ -31,7 +31,7 @@
                         <a class="nav-link" id="link-talks" href="<?php echo $url_talks; ?>">Talks</a>
                     </li>
                     <li class="nav-item nav-menu">
-                        <a class="nav-link" id="link-booking" href="<?php echo $url_unilist; ?>">University List</a>
+                        <a class="nav-link" id="link-booking" href="<?php echo $url_unilist; ?>">University Booth</a>
                     </li>
 
 

@@ -156,7 +156,7 @@ body {
 	                                onchange="limit(this)" required /> -->
                         <select class="form-control form-control-sm custom-box" name="user_grade" required
                             id="userGrade" style="font-size: 1rem">
-                            <option value="">Select your grade</option>
+                            <option value="" disabled selected>Your answer</option>
                             <option value="7">7</option>
                             <option value="8">8</option>
                             <option value="9">9</option>
@@ -212,7 +212,7 @@ body {
                     <div class="form-group  form-challenge">
                         <label>Whats your biggest challenge in prepping for university?</label>
                         <textarea class="form-control custom-box" name="user_biggest_challenge"
-                            placeholder="Tell your story here" required></textarea>
+                            placeholder="Your answer" required></textarea>
                     </div>
                     <hr>
                     <div class="form-group">
@@ -238,25 +238,25 @@ body {
 new SlimSelect({
     select: '#userSchool',
     allowDeselect: true,
-    placeholder: 'Select school name',
+    placeholder: 'Your answer',
 })
 
 new SlimSelect({
     select: '#userDestination',
     allowDeselect: true,
-    placeholder: 'Select destination'
+    placeholder: 'Your answer'
 })
 
 new SlimSelect({
     select: '#userMajor',
     allowDeselect: true,
-    placeholder: 'Select major'
+    placeholder: 'Your answer'
 })
 
 new SlimSelect({
     select: '#userLead',
     allowDeselect: true,
-    placeholder: 'Select lead'
+    placeholder: 'Your answer'
 })
 
 $(document).ready(function() {
