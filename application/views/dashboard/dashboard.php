@@ -605,14 +605,14 @@ $('.btn-consult-allin').click(function() {
             if (msg == "01") {
                 Swal.fire({
                     icon: 'info',
-                    title: 'Spot Secured!',
-                    text: 'Thank you for registering!'
+                    title: 'Roger that!',
+                    text: 'We have you on our database. We will notify you for the initial consultation date.'
                 });
             } else if (msg == "02") {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Spot Secured!',
-                    text: 'Thank you for registering!'
+                    title: 'Roger that!',
+                    text: 'We have you on our database. We will notify you for the initial consultation date.'
                 });
             } else {
                 Swal.fire({

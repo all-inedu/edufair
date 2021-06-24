@@ -15,8 +15,13 @@
                         <input type="text" class="form-control" name="email" placeholder="Email" required="required">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name="password" placeholder="Password"
-                            required="required">
+                        <div class="input-group">
+                            <input type="password" class="form-control" name="password" placeholder="Password"
+                                required="required" id="password">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text" id="showPassword"><i class="fas fa-eye-slash"></i></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group text-right">
                         <a href="javascript:void(0)" id="forgot-password">Forgot Password?</a>
@@ -342,4 +347,15 @@
                 "animate__animated animate__flipInY");
         });
     }, 2000);
+
+    $("#showPassword").click(function() {
+        var x = document.getElementById('password')
+        if (x.type === "password") {
+            x.type = "text";
+            $(this).html('<i class="fas fa-eye"></i>')
+        } else {
+            x.type = "password";
+            $(this).html('<i class="fas fa-eye-slash"></i>')
+        }
+    })
     </script>
