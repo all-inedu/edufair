@@ -88,10 +88,12 @@
 <div class="container-fluid text-white pb-4" id="booking">
     <div class="pb-4">
         <div class="row pb-5">
-            <div class="col-sm-12 col-lg-7 mt-5">
-                <h2>University List</h2>
-                <h5>You have a chance to book a personal consultation with all universities listed below! Book your
-                    schedule and come prepared to ask questions for the uni reps about admissions.</h5>
+            <div class="col-sm-12 col-lg-12 mt-5">
+                <h2>University Booth</h2>
+                <h5>You have a chance to book a personal consultation and join talks with the universities listed below!
+                    <br>
+                    Book your schedule and come prepared to ask questions for the uni reps about admissions.
+                </h5>
             </div>
         </div>
         <div class="row">
