@@ -1,13 +1,13 @@
 <style>
 .img-box {
     width: 100%;
-    height: 300px;
+    height: auto;
     border-radius: 10px;
     overflow: hidden;
 }
 
 .img-box img {
-    margin: -75px 0 0 0;
+    /* margin: -75px 0 0 0; */
 }
 
 .img-topic {
@@ -25,6 +25,7 @@
 }
 
 h4 {
+    font-size: 22px;
     letter-spacing: 0.8px;
 }
 
