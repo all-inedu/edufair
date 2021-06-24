@@ -15,7 +15,7 @@
 
     .btn {
         text-decoration: none;
-        background: #0E264C;
+        background: #E78724;
         border-radius: 3px;
         border: none;
         padding: 10px 30px;
