@@ -83,8 +83,8 @@ h4 {
                         <div class="row px-2 pt-2 no-gutters talk-button">
                             <div class="col-11">
                                 <p class="m-0">
-                                    <?=$topic_start_date->format('M, dS Y (H:i A') ?> -
-                                    <?=$topic_end_date->format('H:i A') ?>)
+                                    <?=$topic_start_date->format('M, dS Y (H:i') ?> -
+                                    <?=$topic_end_date->format('H:i') ?> WIB)
                                 </p>
                                 <h4 class="font-weight-bold text-dark"><?php echo $topic_name; ?></h4>
                                 <?php
@@ -157,8 +157,8 @@ h4 {
                         <div class="row px-2 pt-2 no-gutters talk-button">
                             <div class="col-11">
                                 <p class="m-0">
-                                    <?php echo $topic_start_date->format('M, dS Y (H:i A') ?> -
-                                    <?php echo $topic_end_date->format('H:i A') ?>)
+                                    <?php echo $topic_start_date->format('M, dS Y (H:i') ?> -
+                                    <?php echo $topic_end_date->format('H:i') ?> WIB)
                                 </p>
                                 <h4 class="font-weight-bold text-dark"><?php echo $topic_name; ?></h4>
                                 <?php

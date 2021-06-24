@@ -4,8 +4,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <head>
-    <title>Global University Fair</title>
+    <title>Global University Fair | Your Study Abroad Starter Pack</title>
     <link rel="icon" href="<?=base_url('assets/img/icon.ico');?>" type="image/gif" sizes="16x16">
+    <meta name="title" content="Global University Fair | Your Study Abroad Starter Pack">
+    <meta name="description"
+        content="Get Invited to Apply to Top Universities in USA, Europe &amp; Asia. It's Easy! Have Personal Conversations with Universities that Fit Your Interests &amp; Goals. FREE Online Expo!">
+    <meta name="keywords" content="study abroad, education fair, education expo">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="language" content="English">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.css" rel="stylesheet" />
