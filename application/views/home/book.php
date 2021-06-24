@@ -589,10 +589,10 @@
                                                             </p>
 
                                                             <button data-dismiss="modal"
-                                                                class="btn btn-warning text-dark mt-3 mr-2">Close</button>
+                                                                class="btn btn-warning text-dark mt-3 mr-1">Close</button>
 
                                                             <button data-uniid="<?php echo $uniInfo['uni_id']; ?>"
-                                                                class="btn btn-primary mt-3 notify-me ml-2">Yes</button>
+                                                                class="btn btn-primary mt-3 px-4 notify-me ml-1">Yes</button>
                                                         </div>
                                                         <?php
                                                     }

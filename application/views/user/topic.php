@@ -90,7 +90,7 @@ p {
                 <hr>
             </div>
             <div class="col-sm text-center">
-                <h4>Day 1</h4>
+                <h4>24 July 2021</h4>
                 <div class="topic-card">
                     <?php
                 $count = 1;
@@ -127,7 +127,7 @@ p {
                 </div>
             </div>
             <div class="col-sm text-center">
-                <h4>Day 2</h4>
+                <h4>25 July 2021</h4>
                 <div class="topic-card">
                     <?php
                 $count = 1;
