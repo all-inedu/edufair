@@ -234,7 +234,8 @@
     }
 
     #booking h2,
-    #talks h2 {
+    #talks h2,
+    #about h2 {
         font-family: Montserrat-ExtraBold;
         text-transform: uppercase;
         color: #0d2f7f
@@ -505,7 +506,8 @@
         }
 
         #talks h2,
-        #booking h2 {
+        #booking h2,
+        #about h2 {
             font-size: 3em;
         }
 
@@ -672,8 +674,9 @@
         }
 
         #talks h2,
-        #booking h2 {
-            font-size: 5em;
+        #booking h2,
+        #about h2 {
+            font-size: 3.4em;
         }
 
         #home h3.edufair-date-year,
