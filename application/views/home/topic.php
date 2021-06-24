@@ -239,7 +239,7 @@ $(".btn-book").each(function() {
                     Swal.fire({
                         icon: 'success',
                         title: 'You’re on!',
-                        html: 'You have successfully booked this university talk. <br> We’ll remind you before the event.',
+                        html: 'You have successfully booked this university talk. <br> We’ll remind you before the event.<br><br>Check the dashboard for your agenda.',
                         confirmButtonText: 'OK',
                     }).then((result) => {
                         $('.btn-' + topicId).prop('hidden', true);

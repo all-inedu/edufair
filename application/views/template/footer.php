@@ -193,6 +193,12 @@ $("#loginForm").submit(function(event) {
 
             if (msg == "001") {
                 location.reload();
+            } else if (msg == "02") {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Hello there,',
+                    html: 'Please verify your account!'
+                });
             } else {
                 Swal.fire({
                     icon: 'error',

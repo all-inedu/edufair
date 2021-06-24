@@ -45,7 +45,7 @@
                             <a class="dropdown-item" href="<?php echo base_url(); ?>home/dashboard"
                                 style="color: #0A2F7C !important;"><i
                                     class="far fa-address-card fa-fw pr-3  float-right mt-1"></i>
-                                Profile</a>
+                                Dashboard</a>
                             <hr class="m-0">
                             <a class="dropdown-item" href="<?php echo base_url(); ?>logout"
                                 style="color: #0A2F7C !important;"><i

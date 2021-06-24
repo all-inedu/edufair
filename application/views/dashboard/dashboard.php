@@ -399,6 +399,8 @@ body {
 
                                     <div class="col-md-4 align-content-center text-md-right">
                                         <?php
+                                        // $date = '2021-07-25';
+                                        $date = date('Y-m-d');
                                         $before = date('Y-m-d', strtotime("+1 day", strtotime($date)));
                                         $consult_date = date('Y-m-d', strtotime($row->uni_dtl_t_start_time));
                                         if($date==$consult_date) {

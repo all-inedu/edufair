@@ -56,6 +56,24 @@ body {
 }
 </style>
 
+<!-- Modal -->
+<div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Description</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container mt-5 p-3 shadow" style="background:#efefef; border:1px solid #dedede; border-radius:10px;">
     <div class="row px-3">
         <div class="col-md-12 text-center mt-3 px-5">
@@ -241,12 +259,13 @@ body {
                 <div class="text-center">
                     <div class="row">
                         <div class="col text-left ml-3">
-
+                            <a href="<?php echo base_url(); ?>">
+                                <button type="button" class="btn btn-warning navigate-page-3">Join Later<i
+                                        class="fas fa-paper-plane pl-2"></i></button></a>
                         </div>
                         <div class="col text-right mr-3">
-                            <a href="<?php echo base_url(); ?>">
-                                <button type="button" class="btn btn-primary navigate-page-3">Join Later<i
-                                        class="fas fa-paper-plane pl-2"></i></button></a>
+                            <a href="<?php echo base_url('home/dashboard'); ?>">
+                                <button type="button" class="btn btn-primary navigate-page-3">Done</button></a>
                         </div>
                     </div>
                 </div>
@@ -258,6 +277,14 @@ body {
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
     crossorigin="anonymous"></script>
 <script>
+$(".inst-unilist").each(function() {
+    $(this).click(function() {
+        var uni_story = $(this).data('content');
+        // alert(uni_story);
+        $("#uni-story .modal-body").html(uni_story);
+    });
+});
+
 $(".btn-book-consul").each(function() {
     $(this).click(function() {
         var startTime = $(this).data('starttime');

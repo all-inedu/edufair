@@ -100,6 +100,7 @@ class UserModel extends CI_Model {
 				  "user_country" 	=> $row['user_country'],
 				  "user_major" 		=> $row['user_major'],
 				  "user_know_from" 	=> $row['user_know_from'],
+				  "token_status" 	=> $row['token_status'],
 				  "user_register_date" 		=> $row['user_register_date'],
 				  "user_booking_topic"  	=> [],
 				  "user_booking_consult"  	=> []
@@ -197,7 +198,7 @@ class UserModel extends CI_Model {
 				"user_phone"         => $row->user_phone,
 				"user_status"        => $row->user_status,
 				"user_gender"        => $row->user_gender,
-        "user_dob"           => $row->user_dob,
+        		"user_dob"           => $row->user_dob,
 				"user_first_time"    => $row->user_first_time,
 				"user_grade"         => $row->user_grade,
 				"user_school"        => $row->user_school,
@@ -220,7 +221,7 @@ class UserModel extends CI_Model {
   		if($query->num_rows() > 0) {
   			foreach($query->result() as $row) {
 	  			$data = array(
-					"user_id"            => $row->user_id,
+		  "user_id"            => $row->user_id,
           "user_first_name"    => $row->user_first_name,
           "user_last_name"     => $row->user_last_name,
           "user_email"         => $row->user_email,
@@ -236,7 +237,8 @@ class UserModel extends CI_Model {
           "user_major"         => $row->user_major,
           "user_know_from"     => $row->user_know_from,
           "user_register_date" => $row->user_register_date,
-          "user_last_login"    => $row->user_last_login
+		  "user_last_login"    => $row->user_last_login,
+		  "token_status"	   => $row->token_status
 	  			);
 	  		}
 			return $data; 
@@ -286,12 +288,20 @@ class UserModel extends CI_Model {
         } else {
             return false;
         }
-    }
+	}
+	
+	public function updateTokenStatus($id)
+	{
+		$this->db->set('token_status',1);
+		$this->db->where('user_id', $id);
+		$this->db->update('tb_user');
+	}
 
     public function updatePassword($post)
     {
+		$this->db->set('user_password', $post['user_password']);
         $this->db->where('user_id', $post['user_id']);
-        $this->db->update('tb_user', array('user_password' => $post['password']));
+        $this->db->update('tb_user');
         return true;
     }
 

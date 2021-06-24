@@ -36,6 +36,7 @@
                                             <th>Topic</th>
                                             <th>Consultation</th>
                                             <th>Register Date</th>
+                                            <th>#</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -86,6 +87,15 @@
                                                 <?php }} ?>
                                             </td>
                                             <td><?=date("M dS Y",strtotime($u['user_register_date']));?></td>
+                                            <td>
+                                                <?php
+                                                    if($u['token_status']==1){
+                                                        echo "Verified";
+                                                    } else {
+                                                        echo "Not Verified";
+                                                    }
+                                                ?>
+                                            </td>
                                         </tr>
                                         <?php $no++; } ?>
                                     </tbody>

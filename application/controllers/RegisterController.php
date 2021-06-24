@@ -134,6 +134,7 @@ class RegisterController extends CI_Controller {
             redirect(site_url('/'), 'refresh');
 		}
 
+		$this->UserModel->updateTokenStatus($uid);
 		$create_session = $this->login($uid);
 		if($create_session == "001") {
 			$user = $this->UserModel->getUserDataById($uid);

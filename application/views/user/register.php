@@ -101,17 +101,17 @@ body {
                                 <div class="form-control custom-box radio border-0">
                                     <div class="form-check form-check-inline">
                                         <input id="parent" class="form-check-input input-status" type="radio"
-                                            name="user_status" value="parent">
+                                            name="user_status" value="Parent">
                                         <label for="parent" class="form-check-label">Parent</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input id="student" class="form-check-input input-status" type="radio"
-                                            name="user_status" value="student" checked>
+                                            name="user_status" value="Student" checked>
                                         <label for="student" class="form-check-label">Student</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input id="teacher" class="form-check-input input-status" type="radio"
-                                            name="user_status" value="teacher_consellor">
+                                            name="user_status" value="Teacher/Consellor">
                                         <label for="teacher" class="form-check-label">Teacher/Consellor</label>
                                     </div>
                                 </div>
@@ -209,8 +209,8 @@ body {
                         <input type="text" class="form-control form-control-sm mt-1 custom-box" id="userLeadNew">
                         <input type="hidden" value="" name="user_lead" id="user_lead">
                     </div>
-                    <div class="form-group">
-                        <label>Whats your biggest challenge in prepping for uni?</label>
+                    <div class="form-group  form-challenge">
+                        <label>Whats your biggest challenge in prepping for university?</label>
                         <textarea class="form-control custom-box" name="user_biggest_challenge"
                             placeholder="Tell your story here" required></textarea>
                     </div>
@@ -461,23 +461,24 @@ $(document).ready(function() {
         var dateofbirth = $("input[name=user_dateofbirth]").val();
         var status = $("input[name=user_status]").val();
         var first_time = $("input[name=user_first_time]").val();
-        var grade = $("select[name=user_grade]").val();
-        var school = $("input[name=user_school]").val();
-        var destination = $("input[name=user_destination]").val();
-        var major = $("input[name=user_major]").val();
-        var lead = $("input[name=user_lead]").val();
-        var biggest = $("input[name=biggest-challenge]").val();
+        // var grade = $("select[name=user_grade]").val();
+        // var school = $("input[name=user_school]").val();
+        // var destination = $("input[name=user_destination]").val();
+        // var major = $("input[name=user_major]").val();
+        // var lead = $("input[name=user_lead]").val();
+        // var biggest = $("input[name=biggest-challenge]").val();
 
         if ((first_name == "") || (last_name == "") || (email == "") || (password == "") || (phone ==
                 "") || (gender == "") || (dateofbirth == "")) {
             $(".navigate-page-1").trigger("click");
             return;
-        } else if ((grade == "") || (school == "") || (destination == "") || (major == "") || (lead ==
-                "")) {
-            // alert(grade + " and " + school + " and " + destination + " and " + major + " and " + lead);
-            $(".navigate-page-2").trigger("click");
-            return;
         }
+        //  else if ((grade == "") || (school == "") || (destination == "") || (major == "") || (lead ==
+        //         "")) {
+        //     // alert(grade + " and " + school + " and " + destination + " and " + major + " and " + lead);
+        //     $(".navigate-page-2").trigger("click");
+        //     return;
+        // }
 
 
 
@@ -526,7 +527,7 @@ $(document).ready(function() {
 
     $("input[name=user_status]").click(function() {
         var val = $(this).val();
-        if (val == "parent") {
+        if (val == "Parent") {
             $(".form-group-major").show();
             $("#userMajor").prop('required', true);
 
@@ -539,8 +540,12 @@ $(document).ready(function() {
                 "In what country does he/she want to study abroad? <br> (can choose more than 1)");
             $(".form-change.major label").html(
                 "What is your child's intended major in university? <br> (can choose more than 1)");
+            $(".form-challenge label").html(
+                "What do you think the biggest challenge for your children in preparing for university?"
+            );
 
-        } else if (val == "teacher_consellor") {
+
+        } else if (val == "Teacher/Consellor") {
             $(".form-group-major").hide();
             $("#userMajor").prop('required', false);
 
@@ -550,6 +555,9 @@ $(document).ready(function() {
             $(".form-change.school label").html("What school are you from?");
             $(".form-change.destination label").html(
                 "What country do your students generally interested in studying abroad?");
+            $(".form-challenge label").html(
+                "What's your biggest challenge in helping your students for university preparation?"
+            );
 
         } else {
             $(".form-group-major").show();
@@ -563,6 +571,9 @@ $(document).ready(function() {
             $(".form-change.destination label").html(
                 "Where's your country destination to study abroad?");
             $(".form-change.major label").html("What's your intended major in university?");
+            $(".form-challenge label").html(
+                "Whats your biggest challenge in prepping for university?"
+            );
         }
     })
 });

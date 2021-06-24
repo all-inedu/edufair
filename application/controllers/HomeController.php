@@ -47,13 +47,15 @@ class HomeController extends CI_Controller {
 
 		$userInfo = $this->UserModel->getUserInfoByEmail($email);
 		$hashed = $userInfo['user_password'];
-		if (password_verify($password, $hashed)) {
+		if ((password_verify($password, $hashed)) and ($userInfo['token_status']==1)) {
 			$this->session->set_userdata($userInfo);
 			$userId = $this->session->userdata('user_id');
 			$lastLoginUpdate = $this->UserModel->lastLoginUpdate($userId);
 			echo "001";
+		} else if ((password_verify($password, $hashed)) and ($userInfo['token_status']==0)) {
+			echo "02"; // error token
 		} else {
-			echo "02"; // error login
+			echo "03"; // error login
 		}
 	}
 
@@ -255,7 +257,7 @@ class HomeController extends CI_Controller {
 
 		$data = array(
 			'title' => 'Reset Password',
-			'id' 	=> $hashed_userId,
+			'id' 	=> $user_info['user_id'],
 			'nama'  => $user_info['user_first_name']." ".$user_info['user_last_name'],
 			'email' => $user_info['user_email'],
 			'token' => $this->base64url_encode($token)
@@ -266,14 +268,18 @@ class HomeController extends CI_Controller {
 
 	public function updatePassword() // process update password on database
 	{
-		$post = $this->input->post(NULL, TRUE);
-        $cleanPost = $this->security->xss_clean($post);
-        $hashed = password_hash($cleanPost['password'], PASSWORD_DEFAULT);
-        $userId = $cleanPost['userId'];
+		// $post = $this->input->post(NULL, TRUE);
+        // $cleanPost = $this->security->xss_clean($post); 
+        // $hashed = password_hash($cleanPost['password'], PASSWORD_DEFAULT);
+		// $userId = $cleanPost['userId'];
+		$userId = $this->input->post('userId');
+		$hashed = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+		
         $data = array(
         		"user_id" => $userId,
-        		"password" => $hashed
-        	);
+        		"user_password" => $hashed
+			);
+		
         $process = $this->UserModel->updatePassword($data);
         if( $process ) {
         	echo "001";
