@@ -45,7 +45,7 @@ h4 {
 
     .img-box {
         width: 100%;
-        height: 200px;
+        height: auto;
         border-radius: 10px;
         overflow: hidden;
     }
@@ -55,6 +55,11 @@ h4 {
         margin-bottom: 3px;
         text-align: left;
         white-space: normal;
+    }
+
+    .day1talks,
+    .day2talks {
+        padding: 25px 10px !important;
     }
 }
 </style>

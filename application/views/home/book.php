@@ -31,7 +31,7 @@
 
 #booking {
     height: auto;
-    padding: 2% 10% 2% 6%;
+    padding: 5% 10% 2% 6%;
 }
 
 .btn-book {
