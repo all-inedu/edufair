@@ -3,11 +3,6 @@
     border: 3px solid #dedede;
 }
 
-.btn-book {
-    border-radius: 0 !important;
-    letter-spacing: 0.8px;
-}
-
 .box-book {
     height: 780px;
     overflow-x: hidden;
@@ -39,10 +34,32 @@
     padding: 2% 10% 2% 6%;
 }
 
+.btn-book {
+    background: #ea912c;
+    border-radius: 0 !important;
+    letter-spacing: 0.8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.btn-book:hover {
+    background: #ed912f;
+}
+
 .btn-not {
-    background: #c4c4c4;
+    background: #0D2F7F;
     color: #595959;
     letter-spacing: 0.8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.btn-not:hover {
+    background: #133584;
 }
 
 @media screen and (max-width: 576px) and (min-width: 375px) {
@@ -85,6 +102,8 @@
         </div>
     </div>
 </div>
+
+
 <div class="container-fluid text-white pb-4" id="booking">
     <div class="pb-4">
         <div class="row pb-5">
@@ -185,21 +204,6 @@
                         ?>
                         <div class="col-md-6 mb-2" id="uni-<?php echo $uniInfo['uni_id']; ?>">
                             <div class="card">
-                                <div class="live-talks">
-                                    <?php
-                                        if($uniInfo['uni_topic_reg'] == "REGISTERED") {
-                                        ?>
-                                    <div class="text-white btn-topic" style="cursor:pointer"
-                                        data-uniid="<?=$uniInfo['uni_id'];?>">
-                                        <div class="row">
-                                            <div class="col-md-2 col-2 left-string">JOIN</div>
-                                            <div class="col-md-4 col-6 right-string">UNIVERSITY TALKS</div>
-                                        </div>
-                                    </div>
-                                    <?php
-                                        }
-                                        ?>
-                                </div>
                                 <div class="inst-unilist" data-container="body" data-toggle="modal"
                                     data-content="<?php echo $uniInfo['uni_description']; ?>" data-target="#uni-story"
                                     style="cursor: pointer">
@@ -214,35 +218,58 @@
                                         style="color: #3d3d3d; letter-spacing:0.8px;">
                                         <?php echo strtoupper($uniInfo['uni_name']); ?></h4>
                                 </div>
-                                <?php
-                                    $count_unidtl = [];
-                                    foreach($uniInfo['uni_detail'] as $dtl) {
-                                        if(($dtl['uni_dtl_id']!="")) { 
-                                            $count_unidtl[] = $dtl['uni_dtl_id'];
-                                        }
-                                    }
-                                    if(count($count_unidtl)>0){
-                                        $btn = "btn-book";
-                                        $html='class="col book-consultation-container" style="cursor: pointer" data-toggle="modal" data-target="#modal-'.$uniInfo['uni_id'].'"';
-                                        $text = "BOOK YOUR CONSULTATION";
-                                        $data = "";
-                                    } else {
-                                        $btn = "btn-not";
-                                        $html = 'class="col book-consultation-container"';
-                                        $text = "<b>BOOK YOUR CONSULTATION</b>";
-                                        $data = 'data-uniid="'.$uniInfo['uni_id'].'"';
-                                    }
-                                        
-                                ?>
-                                <div class="card-footer <?=$btn;?>" <?=$data;?>>
+                                <div class="card-footer p-0">
                                     <div class="row no-gutters">
-                                        <div <?=$html;?>>
-                                            <?=$text;?>
-                                            <div class="float-right">
-                                                <i class="fas fa-arrow-circle-right"></i>
+                                        <?php 
+                                            $count_unidtl = [];
+                                            foreach($uniInfo['uni_detail'] as $dtl) {
+                                                if(($dtl['uni_dtl_id']!="")) { 
+                                                    $count_unidtl[] = $dtl['uni_dtl_id'];
+                                                }
+                                            }
+
+                                            if((count($count_unidtl)>0) and ($uniInfo['uni_topic_reg'] == "REGISTERED")) { ?>
+                                        <div class="col-md-6 btn-book book-consultation-container"
+                                            style="cursor: pointer" data-toggle="modal"
+                                            data-target="#modal-<?=$uniInfo['uni_id'];?>">
+                                            <div class="mx-3">
+                                                BOOK YOUR CONSULTATION
+                                                <div class="float-right">
+                                                    <i class="fas fa-arrow-alt-circle-right"></i>
+                                                </div>
                                             </div>
                                         </div>
-
+                                        <div class="col-md-6 btn-not btn-topic" style="cursor: pointer"
+                                            data-uniid="<?=$uniInfo['uni_id'];?>">
+                                            <div class="mx-3">
+                                                JOIN TALK
+                                                <div class="float-right">
+                                                    <i class="fas fa-arrow-alt-circle-right"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php } else if((count($count_unidtl)>0) and ($uniInfo['uni_topic_reg'] != "REGISTERED")) { ?>
+                                        <div class="col-md-12 btn-book book-consultation-container"
+                                            style="cursor: pointer" data-toggle="modal"
+                                            data-target="#modal-<?=$uniInfo['uni_id'];?>">
+                                            <div class="mx-3">
+                                                BOOK YOUR CONSULTATION
+                                                <div class="float-right">
+                                                    <i class="fas fa-arrow-alt-circle-right"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php } else { ?>
+                                        <div class="col-md-12 btn-not btn-topic" style="cursor: pointer"
+                                            data-uniid="<?=$uniInfo['uni_id'];?>">
+                                            <div class="mx-3">
+                                                JOIN TALK
+                                                <div class="float-right">
+                                                    <i class="fas fa-arrow-alt-circle-right"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php } ?>
                                         <?php
                                         if(count(($uniInfo['uni_detail']))>1) {
                                             $card = "modal-lg";
@@ -587,6 +614,7 @@
 
     </div>
     </section>
+
     <script>
     $(".inst-unilist").each(function() {
         $(this).click(function() {

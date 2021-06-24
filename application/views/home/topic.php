@@ -116,7 +116,7 @@ h4 {
                             <div class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book btn-<?=$topic_id;?>"
                                 data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic;?>"
                                 <?php echo $props; ?>>
-                                Join Now
+                                JOIN NOW
                                 <div class="float-right mr-2">
                                     <i class="fas fa-arrow-alt-circle-right"></i>
                                 </div>
@@ -191,7 +191,7 @@ h4 {
                             <div class="nav-link btn btn-sm btn-block btn-outline-primary mb-1 btn-book btn-<?=$topic_id;?>"
                                 data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>"
                                 <?php echo $props; ?>>
-                                Join Now
+                                JOIN NOW
                                 <div class="float-right mr-2">
                                     <i class="fas fa-arrow-alt-circle-right"></i>
                                 </div>
@@ -207,7 +207,7 @@ h4 {
         </div>
         <!-- <div class="row mt-3">
     <div class="col-md-12 text-center">
-        <button class="btn btn-circle btn-outline-primary px-5">Join Now</button>
+        <button class="btn btn-circle btn-outline-primary px-5">JOIN NOW</button>
     </div>
 </div> -->
 
