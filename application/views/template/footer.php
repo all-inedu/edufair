@@ -110,7 +110,7 @@ $(".btn-book-consul").each(function() {
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Yay, your booking is successful!',
-                                html: 'We’ll remind you by email before the event.<br><br>Check the dashboard for your agenda.',
+                                html: 'We’ll remind you by email before the event.<br>Check the dashboard for your agenda.',
                                 confirmButtonText: 'OK',
                             }).then((result) => {
                                 $('.btn-' + unidtltimeid).html("Booked")
