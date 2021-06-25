@@ -122,6 +122,8 @@ $route['dashboard/admin/book/export/topic'] = 'AdminController/exportBookTopic';
 
 $route['dashboard/admin/book/consult'] = 'AdminController/indexBookConsult';
 $route['dashboard/admin/book/export/consult'] = 'AdminController/exportBookConsult';
+
+$route['dashboard/admin/waiting/consult/(:any)'] = 'AdminController/waitingList/$1';
 // END FUNCTION ADMIN 
 
 // $route['welcome'] = 'ReminderController/welcome';

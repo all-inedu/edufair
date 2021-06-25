@@ -513,4 +513,11 @@ class AdminController extends CI_Controller {
 		// echo json_encode($data);
 	}
 
+	function waitingList($id)
+	{
+		$data['waiting_list'] = $this->user->getWaitingList($id);
+		$data['consult']=$id;
+		$this->load->view('admin/page/waiting-list/index', $data);
+	}
+
 }

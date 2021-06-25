@@ -419,4 +419,17 @@ class UserModel extends CI_Model {
 		$this->db->where('uni_id', $uni_id);
 		return $this->db->get('tb_waiting_list')->result_array();
 	}
+
+	public function getWaitingList($id="")
+	{
+		$this->db->select('*');
+		if($id=="uni"){
+			$this->db->where('tb_uni.uni_id !=', 21);
+		} else {
+			$this->db->where('tb_uni.uni_id=', 21);
+		}
+		$this->db->join('tb_uni','tb_uni.uni_id=tb_waiting_list.uni_id');
+		$this->db->join('tb_user','tb_user.user_id=tb_waiting_list.user_id');
+		return $this->db->get('tb_waiting_list')->result_array();
+	}
 }
