@@ -8,81 +8,101 @@
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
     <style>
     body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: 16px;
+        line-height: 25px;
     }
 
-    button {
-        background: #0E264C;
-        border-radius: 3em;
+    .btn {
+        text-decoration: none;
+        background: #E78724;
+        border-radius: 3px;
         border: none;
-        padding: .6em 1.5em;
-        font-size: 20px;
+        padding: 10px 30px;
+        font-size: 13px;
         font-weight: bold;
         color: #FFF;
     }
 
-    h3 {
-        font-size: 1.75rem;
-    }
-
-    .container-fluid {
-        width: 100%;
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-    }
-
     .container {
-        width: 50%;
+        padding: 0;
         margin-right: auto;
         margin-left: auto;
     }
 
-    .text-center {
-        text-align: center
+    .box {
+        border: 1px solid #dedede;
+        padding: 20px 10px;
+        border-radius: 3px;
+        background: #fff;
+    }
+
+    .footer {
+        margin-top: 20px;
+        border: 1px solid #dedede;
+        padding: 20px 10px;
+        border-radius: 3px;
+        background: #D0E6FB;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
     }
     </style>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="container">
-            <div class="row" style="padding-bottom: 20px">
-                <div class="col-xl-8 offset-xl-2">
-                    <img src="<?php echo base_url(); ?>assets/home/logo_normal_small-300x68-1-e1593521308518.png"
-                        alt="https://all-inedu.com/">
-                </div>
-            </div>
-            <div class="row pt-4" style="border-top: 1px solid #efefef">
-                <div class="col-xl-8 offset-xl-2 text-center border-top pt-4">
-                    <h3>Forgot your password?</h3>
-                    <img src="<?php echo base_url(); ?>assets/mail/3432677.jpg" width="50%">
-                </div>
-            </div>
-            <div class="row pt-4">
-                <div class="col-xl-8 offset-xl-2 text-center">
-                    <p>That's okay. You can create your new password here.</p>
-                </div>
-            </div>
-            <div class="row pt-4">
-                <div class="col-xl-8 offset-xl-2 text-center" style="cursor:pointer;">
-                    <a href="<?php echo $url; ?>"><button>Reset Password</button></a>
-                </div>
-            </div>
-            <div class="row pt-4">
-                <div class="col-xl-8 offset-xl-2 text-center">
-                    <p style="font-size:14px">If you didn't request to reset your password,<br>please ignore this email.
-                    </p>
-                </div>
-            </div>
-            <div class="row pt-4">
-                <div class="col-xl-8 offset-xl-2 text-center">
-                    <p style="font-size:12px">Please do not reply to this email<br><a
-                            href="https://all-inedu.com">www.All-inedu.com</a></p>
-                </div>
-            </div>
+    <div class="container">
+        <img src="https://edufair.all-inedu.com/assets/img/email-header.jpg" alt="https://edufair.all-inedu.com/"
+            width="100%">
+
+        <br>
+        <br>
+        <div class="box">
+            <h3>Forgot your password?</h3>
+            <p>That's okay. You can create your new password here.</p> <br>
+
+            <a href="<?=$url;?>" class="btn">RESET PASSWORD</a> <br>
+
+            <p>If you didn't request to reset your password,<br>please ignore this email.</p>
+
+            Best regards,<br>
+            ALL-in Eduspace Team
+
         </div>
+
+        <div class="footer">
+            Contact us and follow our social media for more info!
+
+            <table width="100%" style="margin-top:20px;">
+                <tr>
+                    <td>Phone/WA</td>
+                    <td width="1%">:</td>
+                    <td>
+                        <a href="https://wa.me/6281808081363">0818 0808 1363</a> / <a href="wa.me/6287860811413">0878
+                            6081
+                            1413</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>E-mail</td>
+                    <td>:</td>
+                    <td><a href="mailto:info@all-inedu.com">info@all-inedu.com</a></td>
+                </tr>
+                <tr>
+                    <td>Instagram</td>
+                    <td>:</td>
+                    <td><a href="https://instagram.com/allineduspace"> @allineduspace</a></td>
+                </tr>
+                <tr>
+                    <td>FB Page</td>
+                    <td>:</td>
+                    <td><a href="https://facebook.com/allineduspace">ALL-in Eduspace</a></td>
+                </tr>
+            </table>
+        </div>
+
     </div>
 </body>
 

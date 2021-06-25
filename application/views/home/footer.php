@@ -53,7 +53,7 @@
                         <a href="<?=base_url('?section=talks');?>" class="text-reset">Talks</a>
                     </p>
                     <p>
-                        <a href="<?=base_url('?section=booking');?>" class="text-reset">Uni List</a>
+                        <a href="<?=base_url('?section=booking');?>" class="text-reset">University Booth</a>
                     </p>
                     <?php if(!$this->session->userdata('user_id')) { ?>
                     <p>
@@ -71,7 +71,10 @@
                     </h6>
                     <i class="fas fa-thumbtack me-3"></i> &nbsp;Jakarta Barat 11530, Indonesia</p>
                     <p><i class="fas fa-envelope me-3"></i> info@all-inedu.com</p>
-                    <p><i class="fas fa-phone me-3"></i> +62 818 0808 1363 / +62 878 6081 1413</p>
+                    <p>
+                        <i class="fas fa-phone me-3"></i><a href="wa.me/+6281808081363" target="_blank">+62 818 0808
+                            1363</a> / <a href="wa.me/+6287860811413" target="_blank">+62 878 6081 1413</a>
+                    </p>
                 </div>
                 <!-- Grid column -->
             </div>

@@ -52,6 +52,9 @@ body {
                                 <input id="user_password" type="password"
                                     class="form-control form-control-sm custom-box" name="user_password" minlength="8"
                                     required placeholder="Min. 8 Characters">
+                                <div class="float-right px-2 btn-password" style="margin-top:-30px; cursor:pointer;">
+                                    <i class="fas fa-eye-slash"></i>
+                                </div>
                                 <div class="invalid-feedback">
                                     Minimum 8 characters.
                                 </div>
@@ -63,6 +66,10 @@ body {
                                 <input id="confirm_user_password" type="password"
                                     class="form-control form-control-sm custom-box" name="confirm_user_password"
                                     minlength="8" required placeholder="Min. 8 Characters">
+                                <div class="float-right px-2 btn-confirm-password"
+                                    style="margin-top:-30px; cursor:pointer;">
+                                    <i class="fas fa-eye-slash"></i>
+                                </div>
                                 <small id="confirmFeedback" class="text-danger" hidden>
                                     Sorry, your password doesn't match
                                 </small>
@@ -94,22 +101,22 @@ body {
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-5">
                         <div class="col-12">
                             <div class="form-group">
                                 <label>You came here as:</label>
                                 <div class="form-control custom-box radio border-0">
-                                    <div class="form-check form-check-inline">
+                                    <div class="form-check">
                                         <input id="parent" class="form-check-input input-status" type="radio"
                                             name="user_status" value="Parent">
                                         <label for="parent" class="form-check-label">Parent</label>
                                     </div>
-                                    <div class="form-check form-check-inline">
+                                    <div class="form-check">
                                         <input id="student" class="form-check-input input-status" type="radio"
                                             name="user_status" value="Student" checked>
                                         <label for="student" class="form-check-label">Student</label>
                                     </div>
-                                    <div class="form-check form-check-inline">
+                                    <div class="form-check">
                                         <input id="teacher" class="form-check-input input-status" type="radio"
                                             name="user_status" value="Teacher/Consellor">
                                         <label for="teacher" class="form-check-label">Teacher/Consellor</label>
@@ -629,4 +636,26 @@ function validation(param) {
             }, false)
         })
 })()
+
+$('.btn-password').click(function() {
+    var x = document.getElementById('user_password')
+    if (x.type === "password") {
+        x.type = "text";
+        $(this).html('<i class="fas fa-eye"></i>')
+    } else {
+        x.type = "password";
+        $(this).html('<i class="fas fa-eye-slash"></i>')
+    }
+})
+
+$('.btn-confirm-password').click(function() {
+    var x = document.getElementById('confirm_user_password')
+    if (x.type === "password") {
+        x.type = "text";
+        $(this).html('<i class="fas fa-eye"></i>')
+    } else {
+        x.type = "password";
+        $(this).html('<i class="fas fa-eye-slash"></i>')
+    }
+})
 </script>

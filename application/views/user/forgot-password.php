@@ -12,7 +12,7 @@
 }
 </style>
 <div class="container-fluid">
-    <div class="container">
+    <div class="container" style="padding-top:7%;">
         <div class="col-xl-6 offset-xl-3 allin-registration shadow">
             <h3 class="text-center" style="letter-spacing: 0.2em;margin-bottom: 1em;">RESET PASSWORD</h3>
             <hr>
@@ -27,8 +27,13 @@
                                     <input name="password" type="password"
                                         class="form-control form-control-sm custom-box" id="newPassword" required
                                         minlength="8">
+                                    <div class="float-right px-2" id="btn-password"
+                                        style="margin-top:-30px; cursor:pointer;">
+                                        <i class="fas fa-eye-slash"></i>
+                                    </div>
                                     <div class="invalid-feedback">Minimum. 8 characters</div>
                                     <div class="valid-feedback"></div>
+
                                 </div>
                             </div>
                         </div>
@@ -38,6 +43,10 @@
                                     <label>Confirmation Password: </label>
                                     <input name="passconf" type="password"
                                         class="form-control form-control-sm custom-box" id="confirmPassword" required>
+                                    <div class="float-right px-2" id="btn-confirm-password"
+                                        style="margin-top:-30px; cursor:pointer;">
+                                        <i class="fas fa-eye-slash"></i>
+                                    </div>
                                     <div class="invalid-feedback">Password doesn't match</div>
                                     <div class="valid-feedback"></div>
                                 </div>
@@ -138,5 +147,27 @@ $(document).ready(function() {
             }, false)
         })
 })()
+
+$('#btn-password').click(function() {
+    var x = document.getElementById('newPassword')
+    if (x.type === "password") {
+        x.type = "text";
+        $(this).html('<i class="fas fa-eye"></i>')
+    } else {
+        x.type = "password";
+        $(this).html('<i class="fas fa-eye-slash"></i>')
+    }
+})
+
+$('#btn-confirm-password').click(function() {
+    var x = document.getElementById('confirmPassword')
+    if (x.type === "password") {
+        x.type = "text";
+        $(this).html('<i class="fas fa-eye"></i>')
+    } else {
+        x.type = "password";
+        $(this).html('<i class="fas fa-eye-slash"></i>')
+    }
+})
 </script>
 <?php $this->load->view('template/footer'); ?>
