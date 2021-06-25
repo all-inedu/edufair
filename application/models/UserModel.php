@@ -331,7 +331,8 @@ class UserModel extends CI_Model {
     {
       $sql = "SELECT * FROM tb_booking_topic bt 
               LEFT JOIN tb_topic t ON t.topic_id = bt.topic_id 
-              WHERE bt.user_id = $user_id AND bt.booking_topic_status = 1";
+			  WHERE bt.user_id = $user_id AND bt.booking_topic_status = 1
+			  ORDER BY t.topic_start_date ASC";
       $query = $this->db->query($sql);
       return $query->result();
     }
@@ -342,7 +343,9 @@ class UserModel extends CI_Model {
               JOIN tb_uni_detail_time udt ON udt.uni_detail_time_id = bc.uni_detail_time_id
               JOIN tb_uni_detail ud ON ud.uni_dtl_id = udt.uni_dtl_id
               JOIN tb_uni u ON u.uni_id = ud.uni_id
-              WHERE bc.user_id = $user_id AND bc.booking_c_status = 1";
+			  WHERE bc.user_id = $user_id AND bc.booking_c_status = 1
+			  ORDER BY udt.uni_dtl_t_start_time ASC
+			  ";
       $query = $this->db->query($sql);
       return $query->result(); 
       // if($query->num_rows() > 0) {
