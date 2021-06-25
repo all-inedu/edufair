@@ -363,7 +363,7 @@ $(".notify-me").each(function() {
                     Swal.fire({
                         icon: 'success',
                         title: 'Done!',
-                        text: 'Thank you for registering! <br> We`ll notify the date and time soon.'
+                        html: 'Thank you for registering! <br> We`ll notify the date and time soon.'
                     });
                 } else if (msg == "04") {
                     $("#signUp").modal("show")
