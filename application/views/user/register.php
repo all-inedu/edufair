@@ -521,6 +521,7 @@ $(document).ready(function() {
                             title: 'Oops...',
                             text: 'Your email address has been used'
                         });
+                        $(".navigate-page-1").trigger("click");
                     } else {
                         Swal.fire({
                             icon: 'error',
