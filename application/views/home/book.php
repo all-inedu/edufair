@@ -206,7 +206,8 @@
                         foreach($uniData as $uniInfo) {
                             // print("<pre>".print_r($uniInfo, true)."</pre>");exit;
                         ?>
-                        <div class="col-md-6 mb-2" id="uni-<?php echo $uniInfo['uni_id']; ?>">
+                        <div class="col-md-6 mb-2 d-flex align-items-stretch"
+                            id="uni-<?php echo $uniInfo['uni_id']; ?>">
                             <div class="card">
                                 <div class="inst-unilist" data-container="body" data-toggle="modal"
                                     data-content="<?php echo $uniInfo['uni_description']; ?>" data-target="#uni-story"
@@ -435,7 +436,8 @@
                         foreach($uniUpcoming as $uniInfo) {
                             // print("<pre>".print_r($uniInfo, true)."</pre>");exit;
                         ?>
-                        <div class="col-md-6 mb-2" id="uni-<?php echo $uniInfo['uni_id']; ?>">
+                        <div class="col-md-6 mb-2 d-flex align-items-stretch"
+                            id="uni-<?php echo $uniInfo['uni_id']; ?>">
                             <div class="card">
                                 <div class="inst-unilist" data-container="body" data-toggle="modal"
                                     data-content="<?php echo $uniInfo['uni_description']; ?>" data-target="#uni-story"

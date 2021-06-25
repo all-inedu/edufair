@@ -80,7 +80,7 @@ h4 {
                 );
             $arrTopic = base64_encode(json_encode($arrTopic));
             ?>
-            <div class="col-md-6 mb-3">
+            <div class="col-md-6 mb-3 d-flex align-items-stretch">
                 <div class="card card-topic shadow">
                     <div class="card-body">
                         <div class="img-box">
@@ -154,7 +154,7 @@ h4 {
                 );
             $arrTopic = base64_encode(json_encode($arrTopic));
         ?>
-            <div class="col-md-6 mb-3">
+            <div class="col-md-6 mb-3 d-flex align-items-stretch">
                 <div class="card card-topic">
                     <div class="card-body">
                         <div class="img-box">

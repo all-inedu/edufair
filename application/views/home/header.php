@@ -247,7 +247,7 @@
                 <div class="col-md-12">
                     <div class="col-lg-5 col-sm-12 text-left pt-5 mt-4">
                         <h2>Talks</h2>
-                        <h5>Have a conversation directly with the university reps about these hot topics concerning
+                        <h5>Have a conversation directly with the university reps about these trending topics concerning
                             study
                             abroad and get information to support your university preparation strategy.</h5>
                     </div>
