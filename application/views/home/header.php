@@ -75,7 +75,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-xl-6 col-xxl-3 offset-lg-6 offset-xl-6 offset-xxl-7">
-                        <h5 class="mt-4 text-left edufair-desc"><b>Welcome to Edufair!</b><br>
+                        <h5 class="mt-4 text-left edufair-desc"><b>Welcome!</b><br>
                             Connect with the universities from all over the world and get live updates about the
                             education system abroad.</h5>
                     </div>
@@ -247,7 +247,8 @@
                 <div class="col-md-12">
                     <div class="col-lg-5 col-sm-12 text-left pt-5 mt-4">
                         <h2>Talks</h2>
-                        <h5>Have a conversation directly with the university reps about these trending topics concerning
+                        <h5>Have a conversation directly with the university representative about these trending topics
+                            concerning
                             study
                             abroad and get information to support your university preparation strategy.</h5>
                     </div>
