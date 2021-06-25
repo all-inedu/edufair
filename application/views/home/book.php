@@ -114,7 +114,8 @@
                 <h2>University Booth</h2>
                 <h5>You have a chance to book a personal consultation and join talks with the universities listed below!
                     <br>
-                    Book your schedule and come prepared to ask questions for the uni reps about admissions.
+                    Book your schedule and come prepared to ask questions for the university representative about
+                    admissions.
                 </h5>
             </div>
         </div>
