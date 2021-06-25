@@ -335,13 +335,15 @@ body {
                             <div class="list-group mt-4">
                                 <?php
 	    						foreach($dataTopic as $row) {
-	    							$topic_start_date = new DateTime($row->topic_start_date);
+                                    $topic_start_date = new DateTime($row->topic_start_date);
+                                    $topic_end_date = new DateTime($row->topic_end_date);
 	    						?>
                                 <div class="row mb-3">
                                     <div class="col-md-8 mb-2">
                                         <h5 class="mb-1"><b><?php echo $row->topic_name; ?></b></h5>
                                         <p class="mb-1"><i class="fas fa-calendar-alt"></i>
-                                            <?php echo $topic_start_date->format('M, dS Y - H:i') ?>
+                                            <?php echo $topic_start_date->format('M, dS Y (H:i') ?> -
+                                            <?php echo $topic_end_date->format('H:i') ?> WIB)
                                         </p>
                                     </div>
                                     <div class="col-md-4 align-content-center text-md-right">
@@ -390,12 +392,15 @@ body {
                                 <?php
 								foreach($dataConsult as $row) {
                                     $consult_date = new DateTime($row->uni_dtl_t_start_time);
+                                    $consult_end_date = new DateTime($row->uni_dtl_t_end_time);
 									?>
                                 <div class="row mb-3">
                                     <div class="col-md-8 mb-2">
                                         <h5 class="mb-1"><b><?php echo $row->uni_name; ?></b></h5>
                                         <p class="mb-1"><i class="fas fa-calendar-alt"></i>
-                                            <?php echo $consult_date->format('M, dS Y - H:i') ?></p>
+                                            <?php echo $consult_date->format('M, dS Y (H:i') ?> -
+                                            <?php echo $consult_end_date->format('H:i') ?> WIB)
+                                        </p>
                                     </div>
 
                                     <div class="col-md-4 align-content-center text-md-right">
