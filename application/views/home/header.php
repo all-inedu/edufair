@@ -6,7 +6,7 @@
                     <!-- <img src="<?php echo base_url(); ?>assets/home/login/avatar.png" alt="Avatar"> -->
                     <i class="fas fa-user-lock"></i>
                 </div>
-                <h5 class="modal-title">Member Login</h5>
+                <h5 class="modal-title">Member Log In</h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
