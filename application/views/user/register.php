@@ -475,7 +475,8 @@ $(document).ready(function() {
         // var lead = $("input[name=user_lead]").val();
         // var biggest = $("input[name=biggest-challenge]").val();
 
-        if ((first_name == "") || (last_name == "") || (email == "") || (password == "") || (phone ==
+        if ((first_name == "") || (last_name == "") || (email == "") || (password == "") || (password
+                .length < 8) || (phone ==
                 "") || (gender == "") || (dateofbirth == "")) {
             $(".navigate-page-1").trigger("click");
             return;
@@ -561,7 +562,7 @@ $(document).ready(function() {
 
             $(".form-change.school label").html("What school are you from?");
             $(".form-change.destination label").html(
-                "What country do your students generally interested in studying abroad?");
+                "What country are your students generally interested in studying abroad?");
             $(".form-challenge label").html(
                 "What is your biggest challenge in helping your students preparing for university?"
             );

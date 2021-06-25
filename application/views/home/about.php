@@ -22,16 +22,19 @@
 
 .about-desc {
     padding: 0 10%;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .img-about {
-    height: 90px;
+    height: 75px;
+    padding: 10% 44%;
+    margin-bottom: 34px;
+    vertical-align: center;
 }
 
-.img-about img {
-    width: 15%;
-}
+/* .img-about img {
+    width: 100%;
+} */
 
 .p-icon {
     color: #444444;
@@ -58,7 +61,8 @@
     }
 
     .img-about {
-        height: 70px;
+        height: 40px;
+        padding: 0% 0%;
     }
 
     .img-about img {
@@ -81,40 +85,40 @@
             </div>
         </div>
     </div>
-    <div class="row text-center mt-4">
+    <div class="row text-center mt-2">
         <div class="col-md-4 col-6 mb-2">
             <div class="img-about">
-                <img src="<?=base_url('assets/img/home/about/icons_1.png');?>">
+                <img width="100%" src="<?=base_url('assets/img/home/about/icons_1.png');?>">
             </div>
             <p class="p-icon">100% students <br> accepted at target universities</p>
         </div>
         <div class="col-md-4 col-6 mb-2">
             <div class="img-about">
-                <img src="<?=base_url('assets/img/home/about/icons_2.png');?>">
+                <img width="100%" src="<?=base_url('assets/img/home/about/icons_2.png');?>">
             </div>
             <p class="p-icon">More than 50 <br> school clients</p>
         </div>
         <div class="col-md-4 col-6 mb-2">
             <div class="img-about">
-                <img src="<?=base_url('assets/img/home/about/icons_3.png');?>">
+                <img width="100%" src="<?=base_url('assets/img/home/about/icons_3.png');?>">
             </div>
             <p class="p-icon">More than 1,000 <br> Essays Reviewed</p>
         </div>
         <div class="col-md-4 col-6 mb-2">
             <div class="img-about">
-                <img src="<?=base_url('assets/img/home/about/icons_4.png');?>">
+                <img width="100%" src="<?=base_url('assets/img/home/about/icons_4.png');?>">
             </div>
             <p class="p-icon">More than 50 <br> corporate partners</p>
         </div>
         <div class="col-md-4 col-6 mb-2">
-            <div class="img-about">
-                <img src="<?=base_url('assets/img/home/about/icons_5.png');?>">
+            <div class="img-about pb-3">
+                <img width="80%" src="<?=base_url('assets/img/home/about/icons_5.png');?>">
             </div>
             <p class="p-icon">150+ point <br> SAT score improvement</p>
         </div>
         <div class="col-md-4 col-6 mb-2">
             <div class="img-about">
-                <img src="<?=base_url('assets/img/home/about/icons_6.png');?>">
+                <img width="100%" src="<?=base_url('assets/img/home/about/icons_6.png');?>">
             </div>
             <p class="p-icon">More than 1,500 <br> Event Participants</p>
         </div>
