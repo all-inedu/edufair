@@ -357,13 +357,13 @@ $(".notify-me").each(function() {
                     Swal.fire({
                         icon: 'info',
                         title: 'Spot Secured!',
-                        text: 'Thank you for registering!'
+                        html: 'Thank you for registering! <br> We`ll notify the date and time soon.'
                     });
                 } else if (msg == "02") {
                     Swal.fire({
                         icon: 'success',
                         title: 'Done!',
-                        text: 'You will be notified if a slot opens up for a consultation.'
+                        text: 'Thank you for registering! <br> We`ll notify the date and time soon.'
                     });
                 } else if (msg == "04") {
                     $("#signUp").modal("show")
