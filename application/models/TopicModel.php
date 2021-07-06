@@ -133,19 +133,27 @@ class TopicModel extends CI_Model {
       $error_found = 0;
       // insert from day 1
       foreach($day1bookingTopicId as $key => $topicId) {
-        $sql = "INSERT INTO `tb_booking_topic`(`topic_id`, `user_id`, `booking_topic_date`, `booking_topic_status`) VALUES (".$topicId.",".$userId.",now(), 1)";
-        $query = $this->db->query($sql);
-        if(!$query) {
-          $error_found++; // +1 error if insert can't be done
+        $sql_cek = "select * from tb_booking_topic where topic_id=".$topicId." and user_id=".$userId;
+        $cek = $this->db->query($sql_cek);
+        if($cek->num_rows()==0) {
+          $sql = "INSERT INTO `tb_booking_topic`(`topic_id`, `user_id`, `booking_topic_date`, `booking_topic_status`) VALUES (".$topicId.",".$userId.",now(), 1)";
+          $query = $this->db->query($sql);
+          if(!$query) {
+            $error_found++; // +1 error if insert can't be done
+          }
         }
       }
 
       // insert from day 2
       foreach($day2bookingTopicId as $key => $topicId) {
-        $sql = "INSERT INTO `tb_booking_topic`(`topic_id`, `user_id`, `booking_topic_date`, `booking_topic_status`) VALUES (".$topicId.",".$userId.",now(), 1)";
-        $query = $this->db->query($sql);
-        if(!$query) {
-          $error_found++; // +1 error if insert can't be done
+        $sql_cek = "select * from tb_booking_topic where topic_id=".$topicId." and user_id=".$userId;
+        $cek = $this->db->query($sql_cek);
+        if($cek->num_rows()==0) {
+          $sql = "INSERT INTO `tb_booking_topic`(`topic_id`, `user_id`, `booking_topic_date`, `booking_topic_status`) VALUES (".$topicId.",".$userId.",now(), 1)";
+          $query = $this->db->query($sql);
+          if(!$query) {
+            $error_found++; // +1 error if insert can't be done
+          }
         }
       }
 
