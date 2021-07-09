@@ -116,6 +116,7 @@ $route['dashboard/admin/uni/consult/delete/(:num)'] = 'AdminController/deleteUni
 
 $route['dashboard/admin/user/(:any)'] = 'AdminController/indexUser/$1';
 // $route['dashboard/admin/user/view/(:any)'] = 'AdminController/editUser/$1';
+$route['dashboard/admin/user/export/excel'] = 'AdminController/exportUser';
 
 $route['dashboard/admin/book/topic'] = 'AdminController/indexBookTopic';
 $route['dashboard/admin/book/export/topic'] = 'AdminController/exportBookTopic';

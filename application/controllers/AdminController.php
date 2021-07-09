@@ -480,6 +480,13 @@ class AdminController extends CI_Controller {
 		$this->load->view('admin/page/user/index', $data);
 	}
 
+	function exportUser()
+	{
+		$this->checkAuth();
+		$data['user'] = $this->user->getUserData($id="all");
+		$this->load->view('admin/page/user/export/index', $data);
+	}
+
 	function indexBookTopic()
 	{
 		$this->checkAuth();

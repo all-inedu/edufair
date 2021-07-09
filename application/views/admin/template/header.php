@@ -25,6 +25,10 @@ body {
     opacity: 0.9;
 }
 
+.dataTables_wrapper .dataTables_length select {
+    padding: 4px 25px 4px 10px !important;
+}
+
 .cke_editable {
     cursor: text;
     border: 1px solid #dedede;

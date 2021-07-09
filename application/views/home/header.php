@@ -85,7 +85,7 @@
                 <div class="row">
                     <div class="col-md-4 col-4 p-1 img1">
                         <div class="card-headers">
-                            <img src="<?=base_url('assets/img/home/edufair/Edufair-01.png');?>" width="100%">
+                            <img src="<?=base_url('assets/img/home/edufair/25+.png');?>" width="100%">
                         </div>
                         <div class="card-headers">
                             <img src="<?=base_url('assets/img/home/edufair/Edufair-13-n.png');?>" width="100%">
@@ -235,9 +235,9 @@
                         <div class="card-headers">
                             <img src="<?=base_url('assets/img/home/edufair/Edufair-36.png');?>" width="100%">
                         </div>
-                        <div class="card-headers">
+                        <!-- <div class="card-headers">
                             <img src="<?=base_url('assets/img/home/edufair/Edufair-48.png');?>" width="100%">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

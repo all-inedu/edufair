@@ -207,7 +207,7 @@ class RegisterController extends CI_Controller {
 	}
 
 	/* PROCESS FUNCTION START HERE */
-	public function bookingTopic()
+	public function bookingTopic() 
 	{
 		$userId = $this->session->userdata('user_id'); //get user id from session login
 		$day1bookingTopicId = $this->input->post('day[1]');
