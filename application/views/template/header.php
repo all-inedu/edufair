@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <head>
@@ -387,6 +386,110 @@
         background-attachment: fixed;
     }
 
+    @media screen and (max-width: 375px) and (min-width: 250px) {
+        .container-fluid {
+            margin: 0 !important;
+            padding: 0px !important;
+        }
+
+        .navbar {
+            background: #fff !important;
+        }
+
+        .navbar-brand {
+            margin-right: 0px !important;
+        }
+
+        .navbar-brand img {
+            width: 70% !important;
+        }
+
+        .navbar-allin {
+            padding: 0px !important;
+        }
+
+        #edufair-title-container {
+            padding: 15vh 10% 5vh 10%;
+            background-repeat: no-repeat;
+            background-size: 80% auto;
+            background-position: center 13%;
+        }
+
+        #home h5.edufair-desc {
+            font-size: 1.2em;
+            color: #27387a;
+        }
+
+        .flip-photo {
+            padding: 0 50px !important;
+        }
+
+        h2 {
+            font-size: 1.4em;
+        }
+
+        h5 {
+            font-size: 1em !important;
+        }
+
+        p {
+            font-size: 0.7em !important;
+        }
+
+        h4 {
+            font-size: 0.9em !important;
+        }
+
+        .badge-allin {
+            font-size: 0.5em !important;
+            white-space: normal !important;
+            text-align: left !important;
+        }
+
+        .btn-book {
+            font-size: 12px !important;
+        }
+
+        .day1talks,
+        .day2talks {
+            margin: 20px 10px;
+        }
+
+        #booking {
+            padding: 10px 30px !important;
+        }
+
+        .navbar-collapse {
+            margin-top: 20px;
+            border-top: 2px solid #dedede;
+        }
+
+        #btn-login {
+            text-align: center;
+            border-radius: 0;
+            margin-top: 20px;
+            width: 100%;
+            margin-left: -16px;
+        }
+
+        #btn-signup {
+            border-radius: 0;
+            margin-right: 16px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        #home {
+            background: #EBF6FC;
+            padding-top: 18vh;
+            height: auto;
+        }
+
+        #talks .row div {
+            padding: auto 1em;
+        }
+    }
+
     @media screen and (max-width: 576px) and (min-width: 375px) {
         .navbar-brand {
             margin-right: 0 !important;
@@ -397,7 +500,7 @@
         }
 
         #edufair-title-container {
-            padding: 0 8%;
+            padding: 1 8%;
         }
 
         #home h5.edufair-desc {
@@ -606,6 +709,10 @@
 
         .navbar.scrolled {
             padding-top: 30px;
+        }
+
+        .talk-button {
+            float: right;
         }
     }
 
