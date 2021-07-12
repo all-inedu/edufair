@@ -387,6 +387,40 @@
         background-attachment: fixed;
     }
 
+    @media screen and (max-width:  320px) {
+        .navbar {
+            margin: 0px -15px;
+            padding: 20px 20px;
+            background-color: #FFF !important;
+        }
+        .navbar-allin {
+            padding: 0 !important;
+        }
+        #home {
+            background: #EBF6FC;
+            padding-top: 18vh;
+            height: auto;
+        }
+        #home h5.edufair-desc {
+            font-size: 1.3em;
+        }
+        .flip-photo {
+            margin-top: 30px;
+            padding: 0 40px;
+        }
+        #booking h5, #talks h5 {
+            font-size: 1.2em;
+        }
+        h4 {
+            font-size: 15px !important;
+        }
+        .badge-allin {
+            font-size: 12px !important;
+            margin-bottom: 3px !important;
+            text-align: left !important;
+            white-space: normal !important;
+        }
+    }
     @media screen and (max-width: 576px) and (min-width: 375px) {
         .navbar-brand {
             margin-right: 0 !important;
