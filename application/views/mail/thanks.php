@@ -45,6 +45,12 @@
         background: #D0E6FB;
     }
 
+    .flyer {
+        padding: 0 10%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
     a {
         text-decoration: none;
         color: #000;
@@ -60,18 +66,37 @@
         <br>
         <br>
         <div class="box">
-            How was your experience?
+            Thank you for joining the ALL-in Global University Fair! How was your experience?
+
+            <p>We are determined to bring you even better events in the future! To help us get there, please do fill out
+                the feedback form below:
+            </p>
+
+            <a href="https://bit.ly/GlobalUniFair2021-feedback" class="btn">Fill Out Feedback Form</a> <br>
 
             <p>
-                We are happy to bring you even better events in the future! <br>
-                To help us get there, please do fill out the
-                feedback form below:</p>
-
-            <a href="#" class="btn">Fill Out Feedback Form</a> <br>
+                <b>We have encore sessions with other universities. Check out our Global University Fair website once
+                    more.</b>
+            </p>
+            <a href="https://edufair.all-inedu.com/?utm_source=reminder%20website&utm_medium=banner" class="btn"> Book
+                your schedule now!</a>
 
             <p>
-                Thank you for joining ALL-in Edufair! <br>
-                We love to see you again in our next event.
+                Still not sure about your application? Don’t worry, we are offering various programs tailored to their
+                needs, from <b>University Application Bootcamp, IB Writing course, to SAT Prep!</b>
+
+            </p>
+
+            <div class="flyer">
+                <img src="<?=base_url('assets/img/bootcamp.jpeg');?>" width="100%">
+                <br><br>
+                <img src="<?=base_url('assets/img/ib.jpeg');?>" width="100%">
+                <br><br>
+                <img src="<?=base_url('assets/img/sat-prep.jpeg');?>" width="100%">
+            </div>
+
+            <p>
+                We love to see you again at our next event.
             </p>
 
 

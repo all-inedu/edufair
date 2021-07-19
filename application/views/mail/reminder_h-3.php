@@ -35,6 +35,8 @@
         padding: 20px 10px;
         border-radius: 3px;
         background: #fff;
+        margin-right: auto;
+        margin-left: auto;
     }
 
     .footer {
@@ -43,6 +45,12 @@
         padding: 20px 10px;
         border-radius: 3px;
         background: #D0E6FB;
+    }
+
+    .flyer {
+        padding: 0 10%;
+        margin-right: auto;
+        margin-left: auto;
     }
 
     a {
@@ -60,15 +68,45 @@
         <br>
         <br>
         <div class="box">
-            Book your talks and consultation now! <br>
-            You can learn about the countries’ different university systems and
-            requirements directly from the representatives.
+            Book your talks and private consultation now! You can learn about the countries’ different university
+            systems and requirements directly from the representatives. Once you register, you will be able to book an
+            exclusive 1-on-1 consultation with <b>University of Warwick, Miami University, Coventry University,
+                Maastricht
+                University, SUTD, Lasalle Singapore, and many more! </b>
 
             <p>See the schedule here:</p>
 
             <a href="https://edufair.all-inedu.com/" class="btn">Visit our website here! </a>
 
             <p>Load up your university prep with accurate insights and ace your admissions!</p>
+
+            <p>
+                Also, have you checked the latest SAT test dates? The next one will be on Aug 28! <br>
+                <b>However, with the
+                    Test-Optional policy this year, do you still need to take the test? </b> <br> Let’s find out
+                directly from the admission officers during the Global University Fair 2021!
+            </p>
+
+            <p>
+                See the full schedule for upcoming SAT tests below: <br>
+            </p>
+
+            <div class="flyer">
+                <img src="<?=base_url('assets/img/sat.jpeg');?>" width="100%">
+            </div>
+
+            <p>If you need to take it, fret not! We have a proven <b>SAT Prep Course</b> ready for you.</p>
+
+            <p>Apart from standardized test requirements, other aspects of the applications are equally important to
+                your application. Did you know that most universities applied changes to their admissions system due to
+                the pandemic? </p>
+
+            <p>If you want to work on your application strategy, check out <b>Application Bootcamp 2021 </b> for more
+                information regarding your application. </p>
+            <p>Book your schedule to make sure that your questions are answered with accurate insights for your
+                admission!
+            </p>
+
 
             Best regards,<br>
             ALL-in Eduspace Team

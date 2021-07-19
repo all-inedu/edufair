@@ -17,6 +17,17 @@ class Mail_smtp
             'charset' => 'utf-8',
             'newline' => "\r\n",
         ];
+
+        // $config = Array(
+        //     'protocol' => 'smtp',
+        //     'smtp_host' => 'smtp.mailtrap.io',
+        //     'smtp_port' => 2525,
+        //     'smtp_user' => 'ba166cfb1cb261',
+        //     'smtp_pass' => 'df0491febf2d35',
+        //     'mailtype' => 'html',
+        //     'charset' => 'utf-8',
+        //     'newline' => "\r\n",
+        // );
         
         return $config;
     }

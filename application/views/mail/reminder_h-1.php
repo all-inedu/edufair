@@ -70,15 +70,12 @@
         <br>
         <br>
         <div class="box">
-            Hello, <?=$user_name;?>!<br>
-            Are you ready for the fair tomorrow?
+            Hello, <?=ucwords($user_name);?>!<br>
+            Are you ready for the <b> Global University Fair 2021</b> tomorrow?
 
-            <p>Here’s your scheduled university talks and consultations. <br>
-                Don’t forget to be prompt tomorrow and
-                prepare
-                your list of questions for the universities.</p>
+            <p>Here are your scheduled university talks and consultations. Be prompt tomorrow and prepare your list of
+                questions for the universities. </p>
 
-            <p>See you tomorrow! </p>
             <?php
                 if(!empty($topic)) {
             ?>
@@ -136,7 +133,11 @@
             <?php
                 }
             ?>
-            <br>
+            <p>Good writing allows you to communicate your ideas clearly. This skill can be beneficial for more than
+                your school-work, it can also broaden your knowledge and increase your career opportunities! </p>
+            <p>Join <b>ALL-in Eduspace IB Writing Course</b> to improve your writing skills and help you channel your
+                creativity!</p>
+            <p>See you tomorrow! </p>
 
             Best regards,<br>
             ALL-in Eduspace Team

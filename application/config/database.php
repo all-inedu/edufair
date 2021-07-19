@@ -126,7 +126,7 @@ $db['default']['database'] = 'u5332263_edufair';
 // $db['default']['hostname'] = 'localhost';
 // $db['default']['username'] = 'root';
 // $db['default']['password'] = '';
-// $db['default']['database'] = 'edufair_db';
+// $db['default']['database'] = 'db_edufair';
 
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';

@@ -52,7 +52,7 @@ class ReminderController extends CI_Controller {
     }
 
     public function reminderh3() {
-        $date_reminder = "2021-07-21"; // ganti 2021-07-21
+        $date_reminder = "2021-07-20"; // ganti 2021-07-21
         $date = date("Y-m-d");
 
         if($date_reminder==$date) {
@@ -72,10 +72,12 @@ class ReminderController extends CI_Controller {
                 $this->email->send();
             }
         }
+
+        // return $this->load->view('mail/reminder_h-3');
     }
 
     public function reminderh1() {
-        // $date = "2021-07-23";
+        // $dates = "2021-07-23";
         $date = date("Y-m-d");
         
         if($date=="2021-07-23") {
@@ -228,7 +230,7 @@ class ReminderController extends CI_Controller {
                     $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
                     $this->email->to($email);
                     // $this->email->to('hafidz.fanany@all-inedu.com');
-                    $this->email->subject('See you next time!');
+                    $this->email->subject('One Last Thing!');
                     $bodyMail = $this->load->view('mail/thanks', $d, true);
                     $this->email->message($bodyMail);
                     $this->email->send();
@@ -237,6 +239,7 @@ class ReminderController extends CI_Controller {
                 } 
             }
         }    
+        // $this->load->view('mail/thanks');
     }
     
 }
