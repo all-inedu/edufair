@@ -368,33 +368,33 @@ class AdminController extends CI_Controller {
 			'uni_id' => $this->input->post('uni_id'),
 			'uni_dtl_start_date' => $this->input->post('uni_dtl_start_date'),
 			'uni_dtl_end_date' => $this->input->post('uni_dtl_end_date'),
-			'uni_dtl_duration' => $this->input->post('uni_dtl_duration'),
+			// 'uni_dtl_duration' => $this->input->post('uni_dtl_duration'),
 			'uni_dtl_zoom_link' => $this->input->post('uni_dtl_zoom_link'),
 			'uni_dtl_password' => $this->input->post('uni_dtl_password')
 		];	
 		$process = $this->uni->insertUniDetail($data);
 
-		$start_time = date('Y-m-d H:i', strtotime($this->input->post('uni_dtl_start_date')));
-		$end_time = date('Y-m-d H:i', strtotime($this->input->post('uni_dtl_end_date')));
-		$duration = $this->input->post('uni_dtl_duration');
-		$diff 			= strtotime($end_time) - strtotime($start_time);
-		$jam  			= $diff / (60 * 60);
-		$menit    		= $jam * 60;
-		$jumlah_sesi 	= $menit/$duration;
+		// $start_time = date('Y-m-d H:i', strtotime($this->input->post('uni_dtl_start_date')));
+		// $end_time = date('Y-m-d H:i', strtotime($this->input->post('uni_dtl_end_date')));
+		// $duration = $this->input->post('uni_dtl_duration');
+		// $diff 			= strtotime($end_time) - strtotime($start_time);
+		// $jam  			= $diff / (60 * 60);
+		// $menit    		= $jam * 60;
+		// $jumlah_sesi 	= $menit/$duration;
 
-		$datas = [];
-		for($i = 1; $i<=$jumlah_sesi ; $i++){
-			$starttime = strtotime("+".$duration*$i-$duration."minutes", strtotime($start_time));
-			$endtime = strtotime("+".$duration*$i."minutes", strtotime($start_time));
-			$datas[$i] = [
-				'uni_dtl_id' => $newid,
-				'uni_dtl_t_start_time' => date('Y-m-d H:i:s', $starttime),
-				'uni_dtl_t_end_time' => date('Y-m-d H:i:s', $endtime),
-				'uni_dtl_t_status' => 1
+		// $datas = [];
+		// for($i = 1; $i<=$jumlah_sesi ; $i++){
+		// 	$starttime = strtotime("+".$duration*$i-$duration."minutes", strtotime($start_time));
+		// 	$endtime = strtotime("+".$duration*$i."minutes", strtotime($start_time));
+		// 	$datas[$i] = [
+		// 		'uni_dtl_id' => $newid,
+		// 		'uni_dtl_t_start_time' => date('Y-m-d H:i:s', $starttime),
+		// 		'uni_dtl_t_end_time' => date('Y-m-d H:i:s', $endtime),
+		// 		'uni_dtl_t_status' => 1
 				
-			];
-			$this->uni->insertUniDetailTime($datas[$i]);
-		}
+		// 	];
+		// 	$this->uni->insertUniDetailTime($datas[$i]);
+		// }
 
 		if($process){
 			echo $this->input->post('uni_id');
@@ -418,38 +418,38 @@ class AdminController extends CI_Controller {
 		$start_old =  $this->input->post('uni_dtl_start_date_old');
 		$end = $this->input->post('uni_dtl_end_date');
 		$end_old = $this->input->post('uni_dtl_end_date_old');
-		$duration 	= $this->input->post('uni_dtl_duration');
-		$duration_old 	= $this->input->post('uni_dtl_duration_old');
+		// $duration 	= $this->input->post('uni_dtl_duration');
+		// $duration_old 	= $this->input->post('uni_dtl_duration_old');
 
-		if(($start!=$start_old) or ($end!=$end_old) or ($duration!=$duration_old)){
-			$this->uni->deleteUniDetailTime($dtl_id);
+		// if(($start!=$start_old) or ($end!=$end_old) or ($duration!=$duration_old)){
+		// 	$this->uni->deleteUniDetailTime($dtl_id);
 			
-			$start_time 	= date('Y-m-d H:i', strtotime($start));
-			$end_time 		= date('Y-m-d H:i', strtotime($end));
-			$diff 			= strtotime($end_time) - strtotime($start_time);
-			$jam  			= $diff / (60 * 60);
-			$menit    		= $jam * 60;
-			$jumlah_sesi 	= $menit/$duration;
+		// 	$start_time 	= date('Y-m-d H:i', strtotime($start));
+		// 	$end_time 		= date('Y-m-d H:i', strtotime($end));
+		// 	$diff 			= strtotime($end_time) - strtotime($start_time);
+		// 	$jam  			= $diff / (60 * 60);
+		// 	$menit    		= $jam * 60;
+		// 	$jumlah_sesi 	= $menit/$duration;
 
-			$datas = [];
-			for($i = 1; $i<=$jumlah_sesi ; $i++){
-				$starttime = strtotime("+".$duration*$i-$duration."minutes", strtotime($start_time));
-				$endtime = strtotime("+".$duration*$i."minutes", strtotime($start_time));
-				$datas[$i] = [
-					'uni_dtl_id' => $dtl_id,
-					'uni_dtl_t_start_time' => date('Y-m-d H:i:s', $starttime),
-					'uni_dtl_t_end_time' => date('Y-m-d H:i:s', $endtime),
-					'uni_dtl_t_status' => 1
+		// 	$datas = [];
+		// 	for($i = 1; $i<=$jumlah_sesi ; $i++){
+		// 		$starttime = strtotime("+".$duration*$i-$duration."minutes", strtotime($start_time));
+		// 		$endtime = strtotime("+".$duration*$i."minutes", strtotime($start_time));
+		// 		$datas[$i] = [
+		// 			'uni_dtl_id' => $dtl_id,
+		// 			'uni_dtl_t_start_time' => date('Y-m-d H:i:s', $starttime),
+		// 			'uni_dtl_t_end_time' => date('Y-m-d H:i:s', $endtime),
+		// 			'uni_dtl_t_status' => 1
 					
-				];
-				$this->uni->insertUniDetailTime($datas[$i]);
-			}
-		}
+		// 		];
+		// 		$this->uni->insertUniDetailTime($datas[$i]);
+		// 	}
+		// }
 
 		$data = [
 			'uni_dtl_start_date' => $this->input->post('uni_dtl_start_date'),
 			'uni_dtl_end_date' => $this->input->post('uni_dtl_end_date'),
-			'uni_dtl_duration' => $this->input->post('uni_dtl_duration'),
+			// 'uni_dtl_duration' => $this->input->post('uni_dtl_duration'),
 			'uni_dtl_zoom_link' => $this->input->post('uni_dtl_zoom_link'),
 			'uni_dtl_password' => $this->input->post('uni_dtl_password'),
 		];

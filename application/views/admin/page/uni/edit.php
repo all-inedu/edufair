@@ -140,8 +140,8 @@
                                         <th width="2%">No</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
-                                        <th>Duration</th>
-                                        <th>Slots</th>
+                                        <!-- <th>Duration</th> -->
+                                        <!-- <th>Slots</th> -->
                                         <th>Zoom Link</th>
                                         <th>Password</th>
                                         <th>#</th>
@@ -157,21 +157,22 @@
                                             data-target="#editConsult">
                                             <?=date('M dS Y - H:i', strtotime($dtl['uni_dtl_start_date']));?></td>
                                         <td class="text-center">
-                                            <?=date('M dS Y - H:i', strtotime($dtl['uni_dtl_end_date']));?></td>
-                                        <td class="text-center"><?=$dtl['uni_dtl_duration'];?> <sup> Minutes</sup></td>
-                                        <td class="text-center">
-                                            <?php
-                                                $start_time = date('Y-m-d H:i', strtotime($dtl['uni_dtl_start_date']));
-                                                $end_time = date('Y-m-d H:i', strtotime($dtl['uni_dtl_end_date']));
-                                                $duration = $dtl['uni_dtl_duration'];
-                                                $diff = strtotime($end_time) - strtotime($start_time);
-                                                $jam  = $diff / (60 * 60);
-                                                $menit = $jam * 60;
-                                                $jumlah_sesi = $menit/$duration;
-
-                                                echo $jumlah_sesi;
-                                            ?>
+                                            <?=date('M dS Y - H:i', strtotime($dtl['uni_dtl_end_date']));?>
                                         </td>
+                                        <!-- <td class="text-center"><?=$dtl['uni_dtl_duration'];?> <sup> Minutes</sup></td> -->
+                                        <!-- <td class="text-center">
+                                            <?php
+                                                // $start_time = date('Y-m-d H:i', strtotime($dtl['uni_dtl_start_date']));
+                                                // $end_time = date('Y-m-d H:i', strtotime($dtl['uni_dtl_end_date']));
+                                                // $duration = $dtl['uni_dtl_duration'];
+                                                // $diff = strtotime($end_time) - strtotime($start_time);
+                                                // $jam  = $diff / (60 * 60);
+                                                // $menit = $jam * 60;
+                                                // $jumlah_sesi = $menit/$duration;
+
+                                                // echo $jumlah_sesi;
+                                            ?>
+                                        </td> -->
                                         <td class="text-center"><?=$dtl['uni_dtl_zoom_link'];?></td>
                                         <td class="text-center"><?=$dtl['uni_dtl_password'];?></td>
                                         <td class="text-center pointer"><span class="uni-dtl"
@@ -218,7 +219,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Duration</label>
@@ -226,7 +227,7 @@
                                         max="60" required>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label>Zoom Link</label>
                             <input type="text" class="form-control form-control-sm" name="uni_dtl_zoom_link"
@@ -283,7 +284,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Duration</label>
@@ -292,7 +293,7 @@
                                     <input type="number" name="uni_dtl_duration_old" id="uni_dtl_duration_old" hidden>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label>Zoom Link</label>
                             <input type="text" class="form-control form-control-sm" name="uni_dtl_zoom_link"
@@ -585,8 +586,8 @@
                 $("#uni_dtl_end_date").val(end)
                 $("#uni_dtl_start_date_old").val(start)
                 $("#uni_dtl_end_date_old").val(end)
-                $("#uni_dtl_duration").val(datas.uni_dtl_duration)
-                $("#uni_dtl_duration_old").val(datas.uni_dtl_duration)
+                // $("#uni_dtl_duration").val(datas.uni_dtl_duration)
+                // $("#uni_dtl_duration_old").val(datas.uni_dtl_duration)
                 $("#uni_dtl_zoom_link").val(datas.uni_dtl_zoom_link)
                 $("#uni_dtl_password").val(datas.uni_dtl_password)
             }

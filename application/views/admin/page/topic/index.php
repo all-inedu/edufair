@@ -46,8 +46,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php
-                                        $i=1;
+                                    <?php
+                                    $i=1;
+                                    if ($topic != null){
                                     foreach ($topic as $t) { 
                                     ?>
                                         <tr>
@@ -92,6 +93,7 @@
                                         </tr>
                                         <?php 
                                         $i++;
+                                    }
                                     }
                                     ?>
                                     </tbody>

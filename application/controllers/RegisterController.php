@@ -72,20 +72,22 @@ class RegisterController extends CI_Controller {
 		// add other major into selected major end
 
 		$data = array(
-			"user_fullname" => $this->input->post('user_fullname'),
-			"user_email"      => $this->input->post('user_email'),
-			"user_password"   => password_hash($this->input->post('user_password'), PASSWORD_DEFAULT),
-			"user_phone"      => $this->input->post('user_phone'),
-			"user_status"     => $this->input->post('user_status'),
-			"user_gender"     => $this->input->post('user_gender'),
-			"user_dob"	      => $this->input->post('user_dateofbirth'),
-			"user_first_time" => $this->input->post('user_first_time'),
-			"user_grade"      => $this->input->post('user_grade'),
-			"user_school"     => $this->input->post('user_school'),
-			"user_country"    => $this->input->post('user_destination'),
-			"user_major"      => $user_major,
-			"user_lead"       => str_replace("'", "\'", $this->input->post('user_lead')),
-			"user_biggest"	  => $this->input->post('user_biggest_challenge')
+			"user_fullname"          => $this->input->post('user_fullname'),
+			"user_email"             => $this->input->post('user_email'),
+			"user_password"          => password_hash($this->input->post('user_password'), PASSWORD_DEFAULT),
+			"user_phone"             => $this->input->post('user_phone'),
+			"user_status"            => $this->input->post('user_status'),
+			"user_gender"            => $this->input->post('user_gender'),
+			"user_dob"               => $this->input->post('user_dateofbirth'),
+			"user_first_time"        => $this->input->post('user_first_time'),
+			"user_grade"             => $this->input->post('user_grade'),
+			"user_school"            => $this->input->post('user_school'),
+			"user_country"           => $this->input->post('user_destination'),
+			"user_major"             => $user_major,
+			"user_know_from"         => str_replace("'", "\'", $this->input->post('user_lead')),
+			"user_register_date"     => date('Y-m-d H:i:s'),
+			"user_last_login"        => '',
+			"user_biggest_challenge" => $this->input->post('user_biggest_challenge')
 		);
 
 
@@ -145,11 +147,13 @@ class RegisterController extends CI_Controller {
 			$this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
 			$this->email->to($email);
 			// $this->email->cc('manuel.eric@all-inedu.com');
-			$this->email->subject('Welcome to ALL-in Global University Fair 2021!');
+			$this->email->subject('Welcome to ALL-in Global University Fair 2022!');
 			$bodyMail = $this->load->view('mail/welcome', '', true);
 			$this->email->message($bodyMail);
 			$this->email->send();
 
+			//! update 2022
+			//! you need to replace this one
 			redirect('/registration/topic');
 		} else {
 			echo "Server Timeout";

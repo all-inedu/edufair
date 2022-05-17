@@ -452,7 +452,7 @@ function limit() {
 $(document).ready(function() {
     $("#registerForm").submit(function(event) {
         event.preventDefault();
-        var first_name = $("input[name=user_fullname]").val();
+        var fullname = $("input[name=user_fullname]").val();
         var email = $("input[name=user_email]").val();
         var password = $("input[name=user_password]").val();
         var phone = $("input[name=user_phone]").val();
@@ -467,7 +467,7 @@ $(document).ready(function() {
         // var lead = $("input[name=user_lead]").val();
         // var biggest = $("input[name=biggest-challenge]").val();
 
-        if ((first_name == "") || (last_name == "") || (email == "") || (password == "") || (password
+        if ((fullname == "") || (email == "") || (password == "") || (password
                 .length < 8) || (phone ==
                 "") || (gender == "") || (dateofbirth == "")) {
             $(".navigate-page-1").trigger("click");

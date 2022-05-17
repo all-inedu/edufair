@@ -204,9 +204,11 @@
                         $i = 0;
                         $count = 1;
                         foreach($uniData as $uniInfo) {
+                            $no_image = base_url().'assets/uni/banner/default.jpeg';
                             // print("<pre>".print_r($uniInfo, true)."</pre>");exit;
                         ?>
-                        <div class="col-md-6 mb-2 d-flex align-items-stretch"
+                        <!-- <div class="col-md-6 mb-2 d-flex align-items-stretch" -->
+                        <div class="col-md-6 mb-2 align-items-stretch"
                             id="uni-<?php echo $uniInfo['uni_id']; ?>">
                             <div class="card">
                                 <div class="inst-unilist" data-container="body" data-toggle="modal"
@@ -216,8 +218,11 @@
                                 </div>
 
                                 <!-- <div style="border: 3px solid #cfcfcf;position: absolute;z-index: 1;right:0;padding:.5em 1.5em;font-weight: bold;margin:2em; color: #CFCFCF; letter-spacing: .2em;transform: rotate(20deg);top: 20px">FULLY BOOKED</div> -->
-                                <img src="<?php echo base_url()."assets/uni/banner/".$uniInfo['uni_photo_banner']; ?>"
-                                    alt="" width="100%">
+                                <div style="max-width:100%;">
+                                    <img src="<?php echo base_url()."assets/uni/banner/".$uniInfo['uni_photo_banner']; ?>" onerror="this.onerror=null;this.src='<?=$no_image?>';"
+                                        alt="" width="100%">
+                                </div>
+                                
                                 <div class="card-body pl-4 p-1">
                                     <h4 class="m-0 pt-2 pb-2 font-weight-bold"
                                         style="color: #3d3d3d; letter-spacing:0.8px;">
@@ -234,7 +239,7 @@
                                             }
 
                                             if((count($count_unidtl)>0) and ($uniInfo['uni_topic_reg'] == "REGISTERED")) { ?>
-                                        <div class="col-md-6 btn-book book-consultation-container"
+                                        <div class="col-md-12 btn-book book-consultation-container"
                                             style="cursor: pointer" data-toggle="modal"
                                             data-target="#modal-<?=$uniInfo['uni_id'];?>">
                                             <div class="mx-3">
@@ -244,7 +249,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 btn-not btn-topic" style="cursor: pointer"
+                                        <!-- <div class="col-md-6 btn-not btn-topic" style="cursor: pointer"
                                             data-uniid="<?=$uniInfo['uni_id'];?>">
                                             <div class="mx-3">
                                                 JOIN TALK
@@ -252,7 +257,7 @@
                                                     <i class="fas fa-arrow-alt-circle-right"></i>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <?php } else if((count($count_unidtl)>0) and ($uniInfo['uni_topic_reg'] != "REGISTERED")) { ?>
                                         <div class="col-md-12 btn-book book-consultation-container"
                                             style="cursor: pointer" data-toggle="modal"
@@ -265,7 +270,7 @@
                                             </div>
                                         </div>
                                         <?php } else { ?>
-                                        <div class="col-md-12 btn-not btn-topic" style="cursor: pointer"
+                                        <!-- <div class="col-md-12 btn-not btn-topic" style="cursor: pointer"
                                             data-uniid="<?=$uniInfo['uni_id'];?>">
                                             <div class="mx-3">
                                                 JOIN TALK
@@ -273,7 +278,7 @@
                                                     <i class="fas fa-arrow-alt-circle-right"></i>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <?php } ?>
                                         <?php
                                         if(count(($uniInfo['uni_detail']))>1) {
@@ -293,7 +298,7 @@
                                                 if($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
                                                 ?>
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">Time</h5>
+                                                        <h5 class="modal-title">Please fill the booking form</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
@@ -307,51 +312,66 @@
                                                     // check if uni status fullbook is not full
                                                     if($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
                                                     ?>
-                                                        <div class="row">
-                                                            <?php
-                                                        $day = 1;
-                                                        foreach($uniInfo['uni_detail'] as $key => $row) {
-                                                            $uni_dtl_id = $row['uni_dtl_id'];
-                                                            $assigned_time  = $row['uni_dtl_start_date'];
-                                                            $start = explode(" ", $assigned_time);
-                                                            $start_time = substr($start[1], 0, 5);
+                                                        <div class="container row">
+                                                            <div class="col">
+                                                            <form method="POST" >
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1" class="text-dark">Email address</label>
+                                                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                                                </div>
+                                                                <div class="form-check">
+                                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                                                </div>
+                                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                            </form>
+                                                            </div>
+                                                        
+                                                        <?php
+                                                        // $day = 1;
+                                                        // foreach($uniInfo['uni_detail'] as $key => $row) {
+                                                        //     $uni_dtl_id = $row['uni_dtl_id'];
+                                                        //     $assigned_time  = $row['uni_dtl_start_date'];
+                                                        //     $start = explode(" ", $assigned_time);
+                                                        //     $start_time = substr($start[1], 0, 5);
 
-                                                            $completed_time  = $row['uni_dtl_end_date'];
-                                                            $end = explode(" ", $completed_time );
-                                                            $end_time = substr($end[1], 0, 5);
+                                                        //     $completed_time  = $row['uni_dtl_end_date'];
+                                                        //     $end = explode(" ", $completed_time );
+                                                        //     $end_time = substr($end[1], 0, 5);
 
-                                                            $d1 = new DateTime($assigned_time);
-                                                            $d2 = new DateTime($completed_time);
+                                                        //     $d1 = new DateTime($assigned_time);
+                                                        //     $d2 = new DateTime($completed_time);
 
-                                                            $interval = $d2->diff($d1);
-                                                            $time = $interval->format('%H');
-                                                            $disabled = "";
+                                                        //     $interval = $d2->diff($d1);
+                                                        //     $time = $interval->format('%H');
+                                                        //     $disabled = "";
                                                             ?>
-                                                            <div class="<?=$col;?>">
+                                                            <!-- <div class="<?=$col;?>">
                                                                 <div class="row">
                                                                     <div class="col text-center pt-4 pb-4"
                                                                         style="color: #000">
                                                                         <h4><?php echo date('d M Y', strtotime($assigned_time)); ?>
                                                                         </h4>
                                                                     </div>
-                                                                </div>
+                                                                </div> -->
                                                                 <?php
-                                                            foreach($row['uni_dtl_time'] as $detailTime){
-                                                                $uni_dtl_time_id = $detailTime['uni_detail_time_id'];
-                                                                $startTimeData = explode(" ", $detailTime['uni_dtl_t_start_time']);
-                                                                $uni_dtl_t_start_time = substr($startTimeData[1], 0, 5);
-                                                                $endTimeData = explode(" ", $detailTime['uni_dtl_t_end_time']);
-                                                                $uni_dtl_t_end_time = substr($endTimeData[1], 0, 5);
-                                                                $uni_dtl_t_status = $detailTime['uni_dtl_t_status'];
-                                                                $disabled = "";
-                                                                $booked = "Book";
-                                                                if($uni_dtl_t_status != 1) {
-                                                                    $disabled = "disabled";
-                                                                    $booked = "Booked";
-                                                                }
+                                                            // foreach($row['uni_dtl_time'] as $detailTime){
+                                                            //     $uni_dtl_time_id = $detailTime['uni_detail_time_id'];
+                                                            //     $startTimeData = explode(" ", $detailTime['uni_dtl_t_start_time']);
+                                                            //     $uni_dtl_t_start_time = substr($startTimeData[1], 0, 5);
+                                                            //     $endTimeData = explode(" ", $detailTime['uni_dtl_t_end_time']);
+                                                            //     $uni_dtl_t_end_time = substr($endTimeData[1], 0, 5);
+                                                            //     $uni_dtl_t_status = $detailTime['uni_dtl_t_status'];
+                                                            //     $disabled = "";
+                                                            //     $booked = "Book";
+                                                            //     if($uni_dtl_t_status != 1) {
+                                                            //         $disabled = "disabled";
+                                                            //         $booked = "Booked";
+                                                            //     }
                                                                 ?>
 
-                                                                <div class="row mb-2">
+                                                                <!-- <div class="row mb-2">
                                                                     <div class="col-sm-8 col-lg-8 pr-0">
                                                                         <button
                                                                             class="btn btn-outline-info btn-disabled btn-block"
@@ -371,14 +391,14 @@
                                                                             <?php echo $booked; ?>
                                                                         </button>
                                                                     </div>
-                                                                </div>
+                                                                </div> -->
                                                                 <?php
-                                                            }
+                                                            // }
                                                             ?>
-                                                            </div>
+                                                            <!-- </div> -->
                                                             <?php
-                                                        $day++;
-                                                        }
+                                                        // $day++;
+                                                        // }
                                                         ?>
                                                         </div>
                                                         <?php

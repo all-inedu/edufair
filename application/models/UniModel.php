@@ -34,7 +34,6 @@ class UniModel extends CI_Model {
 			tb_uni_detail.uni_dtl_id,
 			tb_uni_detail.uni_dtl_start_date,
 			tb_uni_detail.uni_dtl_end_date,
-			tb_uni_detail.uni_dtl_duration,
 			tb_uni_detail.uni_dtl_zoom_link,
 			tb_uni_detail.uni_dtl_password,
 			tb_uni_detail_time.*
@@ -83,7 +82,6 @@ class UniModel extends CI_Model {
 				  "uni_dtl_id"   			=> $queryData->uni_dtl_id,
 				  "uni_dtl_start_date" 		=> $queryData->uni_dtl_start_date,
 				  "uni_dtl_end_date" 		=> $queryData->uni_dtl_end_date,
-				  "uni_dtl_duration" 		=> $queryData->uni_dtl_duration,
 				  "uni_dtl_zoom_link"   	=> $queryData->uni_dtl_zoom_link,
 				  "uni_dtl_password"   		=> $queryData->uni_dtl_password,
 				  "uni_dtl_time"			=> []
@@ -121,7 +119,6 @@ class UniModel extends CI_Model {
 			tb_uni_detail.uni_dtl_id,
 			tb_uni_detail.uni_dtl_start_date,
 			tb_uni_detail.uni_dtl_end_date,
-			tb_uni_detail.uni_dtl_duration,
 			tb_uni_detail.uni_dtl_zoom_link,
 			tb_uni_detail.uni_dtl_password,
 		');
@@ -150,7 +147,6 @@ class UniModel extends CI_Model {
 				  "uni_dtl_id"   			=> $queryData->uni_dtl_id,
 				  "uni_dtl_start_date" 		=> $queryData->uni_dtl_start_date,
 				  "uni_dtl_end_date" 		=> $queryData->uni_dtl_end_date,
-				  "uni_dtl_duration" 		=> $queryData->uni_dtl_duration,
 				  "uni_dtl_zoom_link"   	=> $queryData->uni_dtl_zoom_link,
 				  "uni_dtl_password"   		=> $queryData->uni_dtl_password,
                 );
@@ -219,7 +215,6 @@ class UniModel extends CI_Model {
 						"uni_dtl_id"         => $row->uni_dtl_id,
 						"uni_dtl_start_date" => $row->uni_dtl_start_date,
 						"uni_dtl_end_date"   => $row->uni_dtl_end_date,
-						"uni_dtl_duration" 	 => $row->uni_dtl_duration,
 						"uni_dtl_zoom_link"  => $row->uni_dtl_zoom_link,
 						"uni_dtl_time"       => array()
 					);

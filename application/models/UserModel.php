@@ -134,51 +134,69 @@ class UserModel extends CI_Model {
 
   	function insertUser($data)
   	{
-      $sql = "SELECT * FROM tb_user WHERE user_email = '".$data['user_email']."'";
-      $query = $this->db->query($sql);
-      if($query->num_rows() > 0 ) {
-        // error email already exist
-        $array = array(
-          "code" => "09",
-          "msg"  => "Email already exist",
-          "val"  => false
-        );
-        return $array;
-      }
+		$sql = "SELECT * FROM tb_user WHERE user_email = '".$data['user_email']."'";
+		$query = $this->db->query($sql);
+		if($query->num_rows() > 0 ) {
+			// error email already exist
+			$array = array(
+			"code" => "09",
+			"msg"  => "Email already exist",
+			"val"  => false
+			);
+			return $array;
+		}
 
-	    $sql    = "INSERT INTO `tb_user`(`user_fullname`, `user_email`, `user_password`, `user_phone`, `user_status`, `user_gender`, `user_dob`, `user_first_time`, `user_grade`, `user_school`, `user_country`, `user_major`, `user_know_from`, `user_register_date`, `user_last_login`, `user_biggest_challenge`) 
-	    		VALUES ('".$data['user_fullname']."',
-	    				'".$data['user_email']."',
-	    				'".$data['user_password']."',
-	    				'".$data['user_phone']."',
-	    				'".$data['user_status']."',
-	    				'".$data['user_gender']."',
-              '".$data['user_dob']."',
-	    				'".$data['user_first_time']."',
-	    				'".$data['user_grade']."',
-	    				'".$data['user_school']."',
-	    				'".$data['user_country']."',
-	    				'".$data['user_major']."',
-	    				'".$data['user_lead']."',
-	    				now(),
-	    				'',
-	    				'".$data['user_biggest']."')";
-	    $query = $this->db->query($sql);
-	    if($query) {
-        $array = array(
-          "code" => "001",
-          "msg"  => "Registration Success",
-          "val"  => $this->db->insert_id()
-        );
-	    	return $array;
-	    } else {
-        $array = array(
-          "code" => "01",
-          "msg"  => "Registration Failed",
-          "val"  => false
-        );
-	    	return $array;
-	    }
+	  	try {
+			  
+			// $this->db->trans_begin();
+			// $sql    = "INSERT INTO `tb_user`(`user_fullname`, `user_email`, `user_password`, `user_phone`, `user_status`, `user_gender`, `user_dob`, `user_first_time`, `user_grade`, `user_school`, `user_country`, `user_major`, `user_know_from`, `user_register_date`, `user_last_login`, `user_biggest_challenge`) 
+			// 		VALUES ('".$data['user_fullname']."',
+			// 				'".$data['user_email']."',
+			// 				'".$data['user_password']."',
+			// 				'".$data['user_phone']."',
+			// 				'".$data['user_status']."',
+			// 				'".$data['user_gender']."',
+			// 				'".$data['user_dob']."',
+			// 				'".$data['user_first_time']."',
+			// 				'".$data['user_grade']."',
+			// 				'".$data['user_school']."',
+			// 				'".$data['user_country']."',
+			// 				'".$data['user_major']."',
+			// 				'".$data['user_lead']."',
+			// 				now(),
+			// 				'',
+			// 				'".$data['user_biggest']."')";
+			// $query = $this->db->query($sql);
+			$this->db->insert('tb_user', $data);
+			// $this->db->trans_commit();
+			// $this->db->trans_complete();
+			// $db_error = $this->db->error();
+			// if ($db_error != "") {
+			// 	throw new Exception('Database error! Error Code [' . $db_error['code'] . '] Error: ' . $db_error['message']);
+			// 	// return false; // unreachable retrun statement !!!
+				// return array(
+				// 	"code" => "01",
+				// 	"msg"  => "Registration Failed",
+				// 	"val"  => false
+				// 	);
+			// }
+
+			return array(
+			"code" => "001",
+			"msg"  => "Registration Success",
+			"val"  => $this->db->insert_id()
+			);
+					
+		} catch (Exception $e) {
+			
+			// $this->db->trans_rollback();
+			log_message('error', $e->getMessage());
+        	return array(
+				"code" => "01",
+				"msg"  => "Registration Failed",
+				"val"  => false
+				);
+		}
   	}
 
   	public function getUserDataById($inserted_id)
