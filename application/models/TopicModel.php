@@ -199,8 +199,7 @@ class TopicModel extends CI_Model {
           tb_booking_topic.user_id,
           tb_booking_topic.booking_topic_status,
           tb_booking_topic.booking_topic_date,
-          tb_user.user_first_name,
-          tb_user.user_last_name,
+          tb_user.user_fullname,
           tb_user.user_status,
           tb_user.user_email,
           tb_user.user_school,
@@ -212,7 +211,7 @@ class TopicModel extends CI_Model {
       $this->db->from('tb_topic');
       $this->db->order_by('tb_topic.topic_start_date','ASC');
       $this->db->order_by('tb_booking_topic.booking_topic_status','DESC');
-       $this->db->order_by('tb_user.user_first_name','ASC');
+       $this->db->order_by('tb_user.user_fullname','ASC');
       $this->db->order_by('tb_user.user_status','ASC');
       $this->db->where('tb_topic.topic_status', 1);
       $this->db->join('tb_booking_topic', 'tb_booking_topic.topic_id=tb_topic.topic_id','left');
@@ -232,8 +231,7 @@ class TopicModel extends CI_Model {
         }
         $data[$row['topic_id']]['user'][] = [
             "user_id"               => $row['user_id'],
-            "user_first_name"       => $row['user_first_name'],
-            "user_last_name"        => $row['user_last_name'],
+            "user_fullname"         => $row['user_fullname'],
             "user_status"           => $row['user_status'],
             "user_email"            => $row['user_email'],
             "user_school"           => $row['user_school'],

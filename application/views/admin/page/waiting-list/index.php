@@ -57,8 +57,7 @@
                                         <tr class="my-auto">
                                             <td class="text-center"><?=$i;?></td>
                                             <td>
-                                                <?=$u['user_first_name'];?>
-                                                <?=$u['user_last_name'];?>
+                                                <?=$u['user_fullname'];?>
                                             </td>
                                             <td class="text-center"><?=$u['user_email'];?></td>
                                             <td class="text-center">

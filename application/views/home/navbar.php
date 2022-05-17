@@ -44,7 +44,7 @@
                     <li class="nav-item nav-menu dropdown nav-block">
                         <a class="nav-link dropdown-toggle" href="#" id="userMenuLink" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Welcome, <?php echo $this->session->userdata('user_first_name'); ?>
+                            Welcome, <?php echo $this->session->userdata('user_fullname'); ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right text-left w-100" aria-labelledby="userMenuLink">
                             <a class="dropdown-item" href="<?php echo base_url(); ?>home/dashboard"

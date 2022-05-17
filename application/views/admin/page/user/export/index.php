@@ -41,7 +41,7 @@
             <tr class="text-center">
                 <td><?=$no;?></td>
                 <td class="text-left pointer">
-                    <?=$u['user_first_name']." ".$u['user_last_name'];?>
+                    <?=$u['user_fullname'];?>
                 </td>
                 <td><?=ucfirst($u['user_status']);?></td>
                 <td><?=$u['user_email'];?></td>

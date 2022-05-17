@@ -14,18 +14,11 @@ body {
             <div class="row mt-4">
                 <div class="col" data-page="1">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
-                                <label>First Name</label>
-                                <input name="user_first_name" type="text"
-                                    class="form-control form-control-sm custom-box" placeholder="Mikhael" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Last Name</label>
-                                <input name="user_last_name" type="text" class="form-control form-control-sm custom-box"
-                                    placeholder="Jackdad" required>
+                                <label>Full Name</label>
+                                <input name="user_fullname" type="text"
+                                    class="form-control form-control-sm custom-box" placeholder="John Doe" required>
                             </div>
                         </div>
                     </div>
@@ -459,8 +452,7 @@ function limit() {
 $(document).ready(function() {
     $("#registerForm").submit(function(event) {
         event.preventDefault();
-        var first_name = $("input[name=user_first_name]").val();
-        var last_name = $("input[name=user_last_name]").val();
+        var first_name = $("input[name=user_fullname]").val();
         var email = $("input[name=user_email]").val();
         var password = $("input[name=user_password]").val();
         var phone = $("input[name=user_phone]").val();

@@ -72,8 +72,7 @@ class RegisterController extends CI_Controller {
 		// add other major into selected major end
 
 		$data = array(
-			"user_first_name" => $this->input->post('user_first_name'),
-			"user_last_name"  => $this->input->post('user_last_name'),
+			"user_fullname" => $this->input->post('user_fullname'),
 			"user_email"      => $this->input->post('user_email'),
 			"user_password"   => password_hash($this->input->post('user_password'), PASSWORD_DEFAULT),
 			"user_phone"      => $this->input->post('user_phone'),

@@ -293,8 +293,7 @@ class UniModel extends CI_Model {
 
 			$data[$c['uni_id']]['user'][] = [
 				"user_id" => $c['user_id'],
-				"user_first_name" => $c['user_first_name'],
-				"user_last_name" => $c['user_last_name'],
+				"user_fullname" => $c['user_fullname'],
 				"user_email" => $c['user_email'],
 				"user_status" => $c['user_status'],
 				"user_school" => $c['user_school'],

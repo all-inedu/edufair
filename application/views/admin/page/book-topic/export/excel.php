@@ -82,7 +82,7 @@
                                     }
                             ?>
                         <tr>
-                            <td NOWRAP><?=$u['user_first_name']." ".$u['user_last_name'];?></td>
+                            <td NOWRAP><?=$u['user_fullname'];?></td>
                             <td NOWRAP><?=$u['user_email'];?></td>
                             <td><?=ucfirst($u['user_status']);?></td>
                             <td NOWRAP><?=$u['user_school'];?></td>

@@ -118,16 +118,10 @@ body {
                 <div class="modal-body px-4">
                     <div class="list-group list-group-flush" id="edit-form">
                         <div class="row pb-2">
-                            <div class="col-lg-3">First Name</div>
+                            <div class="col-lg-3">Full Name</div>
                             <div class="col-lg-9 mb-2">
-                                <input type="text" name="user_first_name"
-                                    value="<?php echo $this->session->userdata('user_first_name'); ?>"
-                                    class="form-control custom-box" />
-                            </div>
-                            <div class="col-lg-3">Last Name</div>
-                            <div class="col-lg-9">
-                                <input type="text" name="user_last_name"
-                                    value="<?php echo $this->session->userdata('user_last_name'); ?>"
+                                <input type="text" name="user_fullname"
+                                    value="<?php echo $this->session->userdata('user_fullname'); ?>"
                                     class="form-control custom-box" />
                             </div>
                         </div>
@@ -243,7 +237,7 @@ body {
                                         style="padding:0 30%">
                                 </div>
                                 <div class="col-lg-12 pt-3 pb-1">
-                                    <h4><?php echo $this->session->userdata('user_first_name')." ".$this->session->userdata('user_last_name'); ?>
+                                    <h4><?php echo $this->session->userdata('user_fullname'); ?>
                                     </h4>
                                 </div>
                                 <div class="col-lg-12">

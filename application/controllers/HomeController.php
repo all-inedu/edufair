@@ -172,8 +172,7 @@ class HomeController extends CI_Controller {
 		// add other major into selected major end
 
 		$data = array(
-			"user_first_name" => $this->input->post('user_first_name'),
-			"user_last_name"  => $this->input->post('user_last_name'),
+			"user_fullname" => $this->input->post('user_fullname'),
 			"user_email"      => $this->input->post('user_email'),
 			"user_phone"      => $this->input->post('user_phone'),
 			"user_dob"	      => $this->input->post('user_dob'),
@@ -258,7 +257,7 @@ class HomeController extends CI_Controller {
 		$data = array(
 			'title' => 'Reset Password',
 			'id' 	=> $user_info['user_id'],
-			'nama'  => $user_info['user_first_name']." ".$user_info['user_last_name'],
+			'nama'  => $user_info['user_fullname'],
 			'email' => $user_info['user_email'],
 			'token' => $this->base64url_encode($token)
 		);

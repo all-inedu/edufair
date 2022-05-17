@@ -88,8 +88,7 @@ class UserModel extends CI_Model {
 			if(!isset($data[$row['user_id']])) {
 				$data[$row['user_id']] = [
 				  "user_id" 		=> $row['user_id'],
-				  "user_first_name"	=> $row['user_first_name'],
-				  "user_last_name" 	=> $row['user_last_name'],
+				  "user_fullname"   => $row['user_fullname'],
 				  "user_email" 		=> $row['user_email'],
 				  "user_phone" 		=> $row['user_phone'],
 				  "user_status" 	=> $row['user_status'],
@@ -147,9 +146,8 @@ class UserModel extends CI_Model {
         return $array;
       }
 
-	    $sql    = "INSERT INTO `tb_user`(`user_first_name`, `user_last_name`, `user_email`, `user_password`, `user_phone`, `user_status`, `user_gender`, `user_dob`, `user_first_time`, `user_grade`, `user_school`, `user_country`, `user_major`, `user_know_from`, `user_register_date`, `user_last_login`, `user_biggest_challenge`) 
-	    		VALUES ('".$data['user_first_name']."',
-	    				'".$data['user_last_name']."',
+	    $sql    = "INSERT INTO `tb_user`(`user_fullname`, `user_email`, `user_password`, `user_phone`, `user_status`, `user_gender`, `user_dob`, `user_first_time`, `user_grade`, `user_school`, `user_country`, `user_major`, `user_know_from`, `user_register_date`, `user_last_login`, `user_biggest_challenge`) 
+	    		VALUES ('".$data['user_fullname']."',
 	    				'".$data['user_email']."',
 	    				'".$data['user_password']."',
 	    				'".$data['user_phone']."',
@@ -191,8 +189,7 @@ class UserModel extends CI_Model {
   		if(isset($row)) {
   			$data = array(
 				"user_id"            => $row->user_id,
-				"user_first_name"    => $row->user_first_name,
-				"user_last_name"     => $row->user_last_name,
+				"user_fullname"      => $row->user_fullname,
 				"user_email"         => $row->user_email,
 				"user_password"      => $row->user_password,
 				"user_phone"         => $row->user_phone,
@@ -222,8 +219,7 @@ class UserModel extends CI_Model {
   			foreach($query->result() as $row) {
 	  			$data = array(
 		  "user_id"            => $row->user_id,
-          "user_first_name"    => $row->user_first_name,
-          "user_last_name"     => $row->user_last_name,
+		  "user_fullname"      => $row->user_fullname,
           "user_email"         => $row->user_email,
           "user_password"      => $row->user_password,
           "user_phone"         => $row->user_phone,

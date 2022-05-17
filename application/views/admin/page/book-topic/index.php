@@ -102,7 +102,7 @@
                                                     ?>
                                                     <tr class="<?=$status;?>" data-toggle="tooltip" data-placement="top"
                                                         title="<?=$title;?>">
-                                                        <td><?=$u['user_first_name']." ".$u['user_last_name'];?></td>
+                                                        <td><?=$u['user_fullname'];?></td>
                                                         <td><?=$u['user_email'];?></td>
                                                         <td><?=ucfirst($u['user_status']);?></td>
                                                         <td><?=$u['user_school'];?></td>

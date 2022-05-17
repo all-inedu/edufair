@@ -89,7 +89,7 @@ class ReminderController extends CI_Controller {
                 $bookConsult = $this->uni->getBookingConsultById($u['user_id'], $tomorrow);
                 if(!isset($data[$u['user_id']])) {
                     $data[$u['user_id']] = [
-                        'user_name' => $u['user_first_name']." ".$u['user_last_name'],
+                        'user_name' => $u['user_fullname'],
                         'user_email' => $u['user_email'],
                         'topic' => $bookTopic,
                         'consult' => $bookConsult,
@@ -129,7 +129,7 @@ class ReminderController extends CI_Controller {
                 $bookConsult = $this->uni->getBookingConsultById($u['user_id'], $date);
                 if(!isset($data[$u['user_id']])) {
                     $data[$u['user_id']] = [
-                        'user_name' => $u['user_first_name']." ".$u['user_last_name'],
+                        'user_name' => $u['user_fullname'],
                         'user_email' => $u['user_email'],
                         'topic' => $bookTopic,
                         'consult' => $bookConsult,
@@ -171,7 +171,7 @@ class ReminderController extends CI_Controller {
                 $bookConsult = $this->uni->getBookingConsultById($u['user_id'], $date);
                 if(!isset($data[$u['user_id']])) {
                     $data[$u['user_id']] = [
-                        'user_name' => $u['user_first_name']." ".$u['user_last_name'],
+                        'user_name' => $u['user_fullname'],
                         'user_email' => $u['user_email'],
                         'topic' => $bookTopic,
                         'consult' => $bookConsult,
@@ -212,7 +212,7 @@ class ReminderController extends CI_Controller {
                 $bookConsult = $this->uni->getBookingConsultById($u['user_id']);
                 if(!isset($data[$u['user_id']])) {
                     $data[$u['user_id']] = [
-                        'user_name' => $u['user_first_name']." ".$u['user_last_name'],
+                        'user_name' => $u['user_fullname'],
                         'user_email' => $u['user_email'],
                         'topic' => $bookTopic,
                         'consult' => $bookConsult,

@@ -66,8 +66,7 @@
                                                             <?=date('M dS Y, H:i', strtotime($user['uni_dtl_t_start_time']));?>
                                                             <?=date('- H:i A', strtotime($user['uni_dtl_t_end_time']));?>
                                                         </td>
-                                                        <td><?=$user['user_first_name']." ".$user['user_last_name'];?>
-                                                        </td>
+                                                        <td><?=$user['user_fullname'];?></td>
                                                         <td><?=$user['user_email'];?></td>
                                                         <td><?=ucfirst($user['user_status']);?></td>
                                                         <td><?=$user['user_school'];?></td>
