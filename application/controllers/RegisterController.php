@@ -127,6 +127,11 @@ class RegisterController extends CI_Controller {
 	public function resendVerificationLink()
 	{
 		$data = $this->session->flashdata('user_temp');
+		//build token
+		$token = $this->UserModel->insertToken($data['user_id']);
+		$qstring = $this->base64url_encode($token);
+		$data = array( "url" => base_url() . '/verify/token/' . $qstring );
+
 		if($this->sendingEmail($data, $data['user_email'])) {
 			// send mail success
 			$array = array(
