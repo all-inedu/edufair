@@ -269,10 +269,11 @@ class UniModel extends CI_Model {
 		$this->db->from('tb_booking_consult');
 		$this->db->order_by('tb_uni.uni_name','ASC');
 		$this->db->order_by('tb_booking_consult.booking_c_status','DESC');
-		$this->db->order_by('tb_uni_detail_time.uni_dtl_t_start_time','ASC');
+		// $this->db->order_by('tb_uni_detail_time.uni_dtl_t_start_time','ASC');
 		$this->db->join('tb_user','tb_user.user_id=tb_booking_consult.user_id');
-		$this->db->join('tb_uni_detail_time','tb_uni_detail_time.uni_detail_time_id=tb_booking_consult.uni_detail_time_id');
-		$this->db->join('tb_uni_detail','tb_uni_detail.uni_dtl_id=tb_uni_detail_time.uni_dtl_id');
+		// $this->db->join('tb_uni_detail_time','tb_uni_detail_time.uni_detail_time_id=tb_booking_consult.uni_detail_time_id');
+		$this->db->join('tb_uni_detail','tb_uni_detail.uni_dtl_id=tb_booking_consult.uni_dtl_id');
+		// $this->db->join('tb_uni_detail','tb_uni_detail.uni_dtl_id=tb_uni_detail_time.uni_dtl_id');
 		$this->db->join('tb_uni','tb_uni.uni_id=tb_uni_detail.uni_id');
 		$query = $this->db->get()->result_array();
 
@@ -295,9 +296,9 @@ class UniModel extends CI_Model {
 				"user_grade" => $c['user_grade'],
 				"user_know_from" => $c['user_know_from'],
 				"user_dob" => $c['user_dob'],
-				"uni_detail_time_id" => $c['uni_detail_time_id'],
-				"uni_dtl_t_start_time" => $c['uni_dtl_t_start_time'],
-				"uni_dtl_t_end_time" => $c['uni_dtl_t_end_time'],
+				// "uni_detail_time_id" => $c['uni_detail_time_id'],
+				// "uni_dtl_t_start_time" => $c['uni_dtl_t_start_time'],
+				// "uni_dtl_t_end_time" => $c['uni_dtl_t_end_time'],
 				"booking_c_date" => $c['booking_c_date'],
 				"booking_c_status" => $c['booking_c_status'],
 			];

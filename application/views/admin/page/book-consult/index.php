@@ -97,7 +97,7 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 var tables = $('#dataTopic').DataTable({
-    "scrollX": true,
+    "scrollX": false,
     // dom: 'Bfrtip',
     // buttons: [{
     //     extend: 'excel',
