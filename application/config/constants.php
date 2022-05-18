@@ -87,3 +87,8 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 //* VARIABLES
 defined('TALK_DAY_1') OR define('TALK_DAY_1', '2022-05-17');
 defined('TALK_DAY_2') OR define('TALK_DAY_2', '2022-05-18');
+defined('REMINDER_H7') OR define('REMINDER_H7', '2022-05-10');
+defined('REMINDER_H3') OR define('REMINDER_H3', '2022-05-14');
+defined('REMINDER_H1') OR define('REMINDER_H1', '2022-05-16');
+defined('REMINDER_D1') OR define('REMINDER_D1', '2022-05-17');
+defined('REMINDER_D2') OR define('REMINDER_D2', '2022-05-18');

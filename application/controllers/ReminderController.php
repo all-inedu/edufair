@@ -29,7 +29,7 @@ class ReminderController extends CI_Controller {
     }
 
     public function reminderh7() {
-        $date_reminder = "2021-07-17"; // ganti 2021-07-17
+        $date_reminder = REMINDER_H7; // ganti 2021-07-17
         $date = date("Y-m-d");
 
         if($date_reminder==$date) {
@@ -52,7 +52,7 @@ class ReminderController extends CI_Controller {
     }
 
     public function reminderh3() {
-        $date_reminder = "2021-07-20"; // ganti 2021-07-21
+        $date_reminder = REMINDER_H3; // ganti 2021-07-21
         $date = date("Y-m-d");
 
         if($date_reminder==$date) {
@@ -77,10 +77,10 @@ class ReminderController extends CI_Controller {
     }
 
     public function reminderh1() {
-        // $dates = "2021-07-23";
+        $date_reminder = REMINDER_H1; // ganti 2021-07-21
         $date = date("Y-m-d");
-        
-        if($date=="2021-07-23") {
+
+        if($date_reminder==$date) {
             $tomorrow = date("Y-m-d",strtotime('+1 days', strtotime($date))); 
             $user = $this->user->getUserData("all");
             $data = [];
@@ -118,10 +118,10 @@ class ReminderController extends CI_Controller {
     }
 
     public function reminderd1() {
-        // $date = "2021-07-24";
+        $date_reminder = REMINDER_D1; // ganti 2021-07-21
         $date = date("Y-m-d");
 
-        if($date=="2021-07-24") {   
+        if($date_reminder==$date) {   
             $user = $this->user->getUserData("all");
             $data = [];
             foreach ($user as $u) {
@@ -160,10 +160,10 @@ class ReminderController extends CI_Controller {
     }
 
     public function reminderd2() {
-        // $date = "2021-07-25";
+        $date_reminder = REMINDER_D2; // ganti 2021-07-21
         $date = date("Y-m-d");
-        
-        if($date=="2021-07-25") {
+
+        if($date_reminder==$date) {
             $user = $this->user->getUserData("all");
             $data = [];
             foreach ($user as $u) {
@@ -201,10 +201,10 @@ class ReminderController extends CI_Controller {
     }
 
     public function thanks() {
-        // $date = "2021-07-26";
+        $date_reminder = REMINDER_D2; // ganti 2021-07-21
         $date = date("Y-m-d");
-        
-        if($date=="2021-07-26") {
+
+        if($date_reminder==$date) {
             $user = $this->user->getUserData("all");
             $data = [];
             foreach ($user as $u) {

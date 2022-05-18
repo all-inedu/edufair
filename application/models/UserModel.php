@@ -62,10 +62,8 @@ class UserModel extends CI_Model {
 			tb_topic.topic_name,
 
 			tb_booking_consult.booking_c_id,
-			tb_booking_consult.uni_detail_time_id,
+			tb_booking_consult.uni_dtl_id,
 			tb_booking_consult.booking_c_date,
-			tb_uni_detail_time.	uni_dtl_t_start_time,
-			tb_uni_detail_time.	uni_dtl_t_end_time,
 			tb_uni.	uni_id,
 			tb_uni.	uni_name,
 			');
@@ -75,12 +73,11 @@ class UserModel extends CI_Model {
 		}
 		$this->db->order_by('tb_user.user_register_date','DESC');
 		$this->db->order_by('tb_topic.topic_start_date','ASC');
-		$this->db->order_by('tb_uni_detail_time.uni_dtl_t_start_time','ASC');
 		$this->db->join('tb_booking_topic','tb_booking_topic.user_id=tb_user.user_id','left');
 		$this->db->join('tb_topic','tb_topic.topic_id=tb_booking_topic.topic_id','left');
 		$this->db->join('tb_booking_consult','tb_booking_consult.user_id=tb_user.user_id','left');
-		$this->db->join('tb_uni_detail_time','tb_uni_detail_time.uni_detail_time_id=tb_booking_consult.uni_detail_time_id','left');
-		$this->db->join('tb_uni_detail','tb_uni_detail.uni_dtl_id=tb_uni_detail_time.uni_dtl_id','left');
+		$this->db->join('tb_uni_detail','tb_uni_detail.uni_dtl_id=tb_booking_consult.uni_dtl_id','left');
+		// $this->db->join('tb_uni_detail','tb_uni_detail.uni_dtl_id=tb_uni_detail_time.uni_dtl_id','left');
 		$this->db->join('tb_uni','tb_uni.uni_id=tb_uni_detail.uni_id','left');
 		$query = $this->db->get()->result_array();
 		$data = [];
@@ -122,9 +119,9 @@ class UserModel extends CI_Model {
 					"booking_c_id" 			=> $row['booking_c_id'],
 					"uni_id" 				=> $row['uni_id'],
 					"uni_name" 				=> $row['uni_name'],
-					"uni_detail_time_id"	=> $row['uni_detail_time_id'],
-					"uni_dtl_t_start_time"	=> $row['uni_dtl_t_start_time'],
-					"uni_dtl_t_end_time"	=> $row['uni_dtl_t_end_time'],
+					// "uni_detail_time_id"	=> $row['uni_detail_time_id'],
+					// "uni_dtl_t_start_time"	=> $row['uni_dtl_t_start_time'],
+					// "uni_dtl_t_end_time"	=> $row['uni_dtl_t_end_time'],
 					"booking_c_date" 		=> $row['booking_c_date'],
 				];
 			}
