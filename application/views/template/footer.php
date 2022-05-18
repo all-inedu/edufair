@@ -239,6 +239,7 @@ $("#loginForm").submit(function(event) {
 
 function resendVerificationLink()
 {
+    Swal.showLoading();
     $.ajax({
         url: "<?php echo base_url(); ?>resend/verification-link",
         type: "POST",
