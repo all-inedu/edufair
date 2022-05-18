@@ -1,12 +1,29 @@
-<script src="https://unpkg.com/notie"></script>
+
 <script>
+    $(document).ready(function(){
     <?php
     if ($this->session->flashdata('sukses')) {
     ?>
-    notie.alert({ type: 'error', text: '<?=$this->session->flashdata('sukses');?>' })
+     
+    const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+    })
+
+    Toast.fire({
+    icon: 'error',
+    title: '<?=$this->session->flashdata('sukses');?>'
+    })
     <?php
     }
-    ?>
+    ?>});
 </script>
 </body>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"

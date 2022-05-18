@@ -498,7 +498,7 @@ $(document).ready(function() {
                         Swal.fire({
                             title: 'Welcome to ALL-in Edufair',
                             html: "Please verify your email to continue <br>" +
-                                "Verification link will expire in 2 hours ",
+                                "Verification link will expired in 24 hours ",
                             icon: 'success',
                             confirmButtonColor: '#3085d6',
                             confirmButtonText: 'Dismiss'

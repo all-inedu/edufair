@@ -13,7 +13,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <meta name="language" content="English">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.css" rel="stylesheet" />
@@ -24,11 +24,11 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style type="text/css">
     /* override styles here */
-    .notie-container {
+    /* .notie-container {
       box-shadow: none;
       background-color: #ff3d3d !important;
       z-index: 9999;
-    }
+    } */
     @font-face {
         font-family: 'SF-Pro-Display-Regular';
         src: url('<?php echo base_url(); ?>assets/font/SF-Pro-Display-Regular.otf');
