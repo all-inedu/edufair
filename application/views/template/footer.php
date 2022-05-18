@@ -246,7 +246,7 @@ function resendVerificationLink()
             msg = JSON.parse(msg);
             
             if (msg.code == "001") {
-                Swal.fire('We\'ve sent verification link to your email', '', 'success');
+                Swal.fire('We\'ve sent verification link to your email.\n Please check your inbox.', '', 'success');
             } else {
                 Swal.fire('Something went wrong. Please try again or contact the administrator', '', 'info');
             }
