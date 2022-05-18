@@ -224,7 +224,7 @@ $("#loginForm").submit(function(event) {
                 Swal.fire({
                     icon: 'info',
                     title: 'Hello there,',
-                    html: 'Please verify your account!'
+                    html: 'Check your email to verify your account.<br> <small>If you are not receiving the verification link, you can resend it <a href="#resend-verification-link" onclick="resendVerificationLink()">here</a></small>',
                 });
             } else {
                 Swal.fire({
@@ -236,6 +236,21 @@ $("#loginForm").submit(function(event) {
         }
     });
 });
+
+function resendVerificationLink()
+{
+    $.ajax({
+        url: "<?php echo base_url(); ?>resend/verification-link",
+        type: "POST",
+        success: function(msg) {
+            if (msg.code == "001") {
+                Swal.fire('We\'ve sent verification link to your email', '', 'success');
+            } else {
+                Swal.fire('Something went wrong. Please try again or contact the administrator', 'info');
+            }
+        }
+    });
+}
 </script>
 <script>
 $("#change-information").click(function() {

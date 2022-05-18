@@ -97,6 +97,7 @@ $route['dashboard/admin'] = 'AdminController/index';
 
 //* New */
 $route['dashboard/admin/faq'] = 'AdminController/indexFaq';
+$route['resend/verification-link'] = 'RegisterController/resendVerificationLink';
 
 $route['dashboard/admin/topic'] = 'AdminController/indexTopic';
 $route['dashboard/admin/topic/add'] = 'AdminController/addTopic';

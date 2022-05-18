@@ -53,6 +53,8 @@ class HomeController extends CI_Controller {
 			$lastLoginUpdate = $this->UserModel->lastLoginUpdate($userId);
 			echo "001";
 		} else if ((password_verify($password, $hashed)) and ($userInfo['token_status']==0)) {
+			
+			$this->session->set_flashdata('user_temp', $userInfo);
 			echo "02"; // error token
 		} else {
 			echo "03"; // error login

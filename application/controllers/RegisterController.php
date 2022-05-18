@@ -124,6 +124,28 @@ class RegisterController extends CI_Controller {
 		}
 	}
 
+	public function resendVerificationLink()
+	{
+		$data = $this->session->flashdata('user_temp');
+		if($this->sendingEmail($data, $data['user_email'])) {
+			// send mail success
+			$array = array(
+			  "code" => "001",
+			  "msg"  => "Email has been sent",
+			  "val"  => true
+			);
+			echo json_encode($array);
+		} else {
+			//error send email verify;
+			$array = array(
+			  "code" => "08",
+			  "msg"  => "Email verify failed to send",
+			  "val"  => false
+			);
+			echo json_encode($array);
+		}
+	}
+
 	public function getTokenVerifyEmail()
 	{
 		$token = $this->base64url_decode($this->uri->segment(3));
@@ -178,8 +200,8 @@ class RegisterController extends CI_Controller {
 			redirect('/');
 		}
 
-		$topicData_day1 = $this->TopicModel->getTopicData('2021-07-24'); // change with edufair start date
-		$topicData_day2 = $this->TopicModel->getTopicData('2021-07-25'); // change iwth edufair start date
+		$topicData_day1 = $this->TopicModel->getTopicData(TALK_DAY_1); // change with edufair start date
+		$topicData_day2 = $this->TopicModel->getTopicData(TALK_DAY_2); // change iwth edufair start date
         // print("<pre>".print_r($topicData_day1, true)."</pre>");exit;
 
 		$topicData = array(
