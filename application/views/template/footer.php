@@ -243,10 +243,11 @@ function resendVerificationLink()
         url: "<?php echo base_url(); ?>resend/verification-link",
         type: "POST",
         success: function(msg) {
+            console.log(msg);
             if (msg.code == "001") {
                 Swal.fire('We\'ve sent verification link to your email', '', 'success');
             } else {
-                Swal.fire('Something went wrong. Please try again or contact the administrator', 'info');
+                Swal.fire('Something went wrong. Please try again or contact the administrator', '', 'info');
             }
         }
     });
