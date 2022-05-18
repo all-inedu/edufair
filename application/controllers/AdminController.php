@@ -10,6 +10,7 @@ class AdminController extends CI_Controller {
 		$this->load->model('TopicModel','topic');
 		$this->load->model('UniModel','uni');
 		$this->load->model('UserModel', 'user');
+		$this->load->model('FAQModel', 'faq');
 		$this->load->library('session');
 	}
 
@@ -50,6 +51,14 @@ class AdminController extends CI_Controller {
 	{
 		$this->session->unset_userdata('auth');
 		redirect('admin');
+	}
+
+	//* New 
+	public function indexFaq()
+	{
+		$this->checkAuth();
+		$data['faq'] = $this->faq->getQuestions();
+		$this->load->view('admin/page/faq/index', $data);
 	}
 
 

@@ -15,6 +15,10 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-university fa-fw"></i></div>
                     Uni List
                 </a>
+                <a class="nav-link" href="<?=base_url('dashboard/admin/faq');?>">
+                    <div class="sb-nav-link-icon"><i class="fas fa-question fa-fw"></i></div>
+                    FAQ
+                </a>
                 <div class="sb-sidenav-menu-heading">Registrant</div>
                 <a class="nav-link" href="<?=base_url('dashboard/admin/user/all');?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-users fa-fw"></i></div>

@@ -95,6 +95,9 @@ $route['admin/logout'] = 'AdminController/logout';
 
 $route['dashboard/admin'] = 'AdminController/index';
 
+//* New */
+$route['dashboard/admin/faq'] = 'AdminController/indexFaq';
+
 $route['dashboard/admin/topic'] = 'AdminController/indexTopic';
 $route['dashboard/admin/topic/add'] = 'AdminController/addTopic';
 $route['dashboard/admin/topic/submit'] = 'AdminController/saveTopic';

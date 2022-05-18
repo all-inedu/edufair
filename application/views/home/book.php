@@ -313,48 +313,34 @@
                                                     if($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
                                                     ?>
                                                         <div class="container row">
-                                                            <div class="col">
-                                                            <form method="POST" >
-                                                                <div class="form-group">
-                                                                    <label for="exampleInputEmail1" class="text-dark">Email address</label>
-                                                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                                                </div>
-                                                                <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                                                </div>
-                                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                                            </form>
-                                                            </div>
                                                         
                                                         <?php
-                                                        // $day = 1;
-                                                        // foreach($uniInfo['uni_detail'] as $key => $row) {
-                                                        //     $uni_dtl_id = $row['uni_dtl_id'];
-                                                        //     $assigned_time  = $row['uni_dtl_start_date'];
-                                                        //     $start = explode(" ", $assigned_time);
-                                                        //     $start_time = substr($start[1], 0, 5);
+                                                        $day = 1;
+                                                        foreach($uniInfo['uni_detail'] as $key => $row) {
+                                                            $uni_dtl_id = $row['uni_dtl_id'];
+                                                            $assigned_time  = $row['uni_dtl_start_date'];
+                                                            $start = explode(" ", $assigned_time);
+                                                            $start_time = substr($start[1], 0, 5);
 
-                                                        //     $completed_time  = $row['uni_dtl_end_date'];
-                                                        //     $end = explode(" ", $completed_time );
-                                                        //     $end_time = substr($end[1], 0, 5);
+                                                            $completed_time  = $row['uni_dtl_end_date'];
+                                                            $end = explode(" ", $completed_time );
+                                                            $end_time = substr($end[1], 0, 5);
 
-                                                        //     $d1 = new DateTime($assigned_time);
-                                                        //     $d2 = new DateTime($completed_time);
+                                                            $d1 = new DateTime($assigned_time);
+                                                            $d2 = new DateTime($completed_time);
 
-                                                        //     $interval = $d2->diff($d1);
-                                                        //     $time = $interval->format('%H');
-                                                        //     $disabled = "";
+                                                            $interval = $d2->diff($d1);
+                                                            $time = $interval->format('%H');
+                                                            $disabled = "";
                                                             ?>
-                                                            <!-- <div class="<?=$col;?>">
+                                                            <div class="<?=$col;?>">
                                                                 <div class="row">
                                                                     <div class="col text-center pt-4 pb-4"
                                                                         style="color: #000">
                                                                         <h4><?php echo date('d M Y', strtotime($assigned_time)); ?>
                                                                         </h4>
                                                                     </div>
-                                                                </div> -->
+                                                                </div>
                                                                 <?php
                                                             // foreach($row['uni_dtl_time'] as $detailTime){
                                                             //     $uni_dtl_time_id = $detailTime['uni_detail_time_id'];
@@ -395,10 +381,10 @@
                                                                 <?php
                                                             // }
                                                             ?>
-                                                            <!-- </div> -->
+                                                            </div>
                                                             <?php
-                                                        // $day++;
-                                                        // }
+                                                        $day++;
+                                                        }
                                                         ?>
                                                         </div>
                                                         <?php
