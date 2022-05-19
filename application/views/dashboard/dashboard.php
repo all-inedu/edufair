@@ -304,6 +304,21 @@ body {
                             <hr>
                             <div class="row">
                                 <div class="col-md-12 text-center">
+                                    Upload CV here
+                                    <br>
+                                    <form action="<?php echo base_url(); ?>upload/resume" method="POST">
+                                        <input type="file" name="uploaded_resume">
+                                        <button class="btn btn-primary mt-3 mb-3 btn-consult-allin"
+                                            style="background:#0C2F80;"
+                                            data-userid="<?=$this->session->userdata('user_id');?>" type="submit">
+                                            Upload CV
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-12 text-center">
                                     Need a guidance for your university prep? Click the button below for a free initial
                                     consultation with ALL-in Eduspace!
                                     <br>

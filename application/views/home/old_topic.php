@@ -102,8 +102,11 @@ h4 {
                         }
                         ?>
                             </div>
+                            <div class="col-1 pl-3 align-self-end">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
                         </div>
-                        <div class="px-2">
+                        <div class="hidden px-2">
                             <hr class="m-0 my-2">
                             <h5><?php echo $row['topic_desc']; ?></h5>
                             <?php
@@ -173,8 +176,11 @@ h4 {
                         }
                         ?>
                             </div>
+                            <div class="col-1 pl-3 align-self-end">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
                         </div>
-                        <div class=" px-2">
+                        <div class="hidden px-2">
                             <hr class="m-0 my-2">
                             <h5><?php echo $row['topic_desc']; ?></h5>
                             <?php

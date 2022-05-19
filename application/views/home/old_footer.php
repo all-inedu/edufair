@@ -33,8 +33,8 @@
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
                     <h6 class="text-uppercase fw-bold mb-4">
-                        <img src="<?php echo base_url(); ?>assets/home/ALLIN-LOGO-LONG-NEW.png"
-                            alt="" width="80%">
+                        <img src="<?php echo base_url(); ?>assets/home/logo_normal_small-300x68-1-e1593521308518.png"
+                            alt="">
                     </h6>
                     <p>
                         Connect with the universities from all over the world and get live updates about the education
@@ -67,8 +67,7 @@
                 <div class="col-md-5 col-lg-4 col-xl-4 mx-auto mb-md-0 mb-4">
                     <!-- Links -->
                     <h6 class="text-uppercase fw-bold mb-4">
-                    Jl Jeruk Kembar Blok Q9 No. 15
-                    Srengseng, Kembangan
+                        5th Floor, Jl. Panjang no. 36
                     </h6>
                     <i class="fas fa-thumbtack me-3"></i> &nbsp;Jakarta Barat 11530, Indonesia</p>
                     <p><i class="fas fa-envelope me-3"></i> info@all-inedu.com</p>

@@ -30,6 +30,10 @@
                             </div> -->
                         </div>
                         <div class="card-body">
+                            <a href="<?=base_url('dashboard/admin/book/export/question');?>" target="_blank"
+                                class="btn btn-sm btn-dark float-right mb-3"><i class="fas fa-file-excel"></i> &nbsp;
+                                Export to
+                                Excel</a>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover" id="dataTable" width="100%"
                                     cellspacing="0">

@@ -350,12 +350,13 @@ class UserModel extends CI_Model {
 
     public function getUserConsult($user_id)
     {
-      $sql = "SELECT udt.uni_dtl_t_start_time, udt.uni_dtl_t_end_time, udt.uni_dtl_t_status, udt.uni_detail_time_id, ud.uni_dtl_zoom_link, u.uni_id, u.uni_name, u.uni_photo_banner FROM tb_booking_consult bc
-              JOIN tb_uni_detail_time udt ON udt.uni_detail_time_id = bc.uni_detail_time_id
-              JOIN tb_uni_detail ud ON ud.uni_dtl_id = udt.uni_dtl_id
+      $sql = "SELECT ud.uni_dtl_start_date, ud.uni_dtl_end_date, ud.uni_dtl_id, ud.uni_dtl_zoom_link, u.uni_id, u.uni_name, u.uni_photo_banner FROM tb_booking_consult bc
+            --   JOIN tb_uni_detail_time udt ON udt.uni_detail_time_id = bc.uni_detail_time_id
+              JOIN tb_uni_detail ud ON ud.uni_dtl_id = bc.uni_dtl_id
               JOIN tb_uni u ON u.uni_id = ud.uni_id
 			  WHERE bc.user_id = $user_id AND bc.booking_c_status = 1
-			  ORDER BY udt.uni_dtl_t_start_time ASC
+			--   ORDER BY udt.uni_dtl_t_start_time ASC
+			ORDER BY ud.uni_dtl_start_date ASC
 			  ";
       $query = $this->db->query($sql);
       return $query->result(); 

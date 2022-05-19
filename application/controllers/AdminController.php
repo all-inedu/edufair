@@ -536,4 +536,11 @@ class AdminController extends CI_Controller {
 		$this->load->view('admin/page/waiting-list/index', $data);
 	}
 
+	//* New
+	function exportQuestions()
+	{
+		$this->checkAuth();
+		$data['faq'] = $this->faq->getQuestions();
+		$this->load->view('admin/page/faq/export/excel', $data);
+	}
 }
