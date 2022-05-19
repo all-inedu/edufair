@@ -85,5 +85,5 @@ defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 //* VARIABLES
-defined('TALK_DAY_1') OR define('TALK_DAY_1', '2022-05-17');
-defined('TALK_DAY_2') OR define('TALK_DAY_2', '2022-05-18');
+defined('TALK_DAY_1') OR define('TALK_DAY_1', '2021-07-24');
+defined('TALK_DAY_2') OR define('TALK_DAY_2', '2021-07-25');

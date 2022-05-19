@@ -1,4 +1,36 @@
+
 <style>
+.checkbok{
+    clip :rect(0,0,0,0);
+    position: absolute;
+}
+
+.tombol{
+    width: 100% !important
+}
+
+.items-collection{
+    margin:20px 0 0 0;
+}
+.items-collection label.btn-default.active{
+    background-color:#007ba7;
+    color:#FFF;
+}
+.items-collection label.btn-default{
+    width:90%;
+    border:1px solid #305891;
+    margin:5px; 
+    border-radius: 17px;
+    color: #305891;
+}
+.items-collection label .itemcontent{
+    width:100%;
+}
+.items-collection .btn-group{
+    width:90%
+}
+
+
 .card-book:hover {
     border: 3px solid #dedede;
 }
@@ -315,15 +347,51 @@
                                                         <div class="container row">
                                                             <div class="col">
                                                             <form method="POST" >
+                                                            <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="items-collection d-flex">
+                                                                            <div class="items w-50">
+                                                                                <div class="info-block block-info clearfix">
+                                                                                    <div data-toggle="buttons" class="btn-group bizmoduleselect tombol">
+                                                                                        <label class="btn btn-default">
+                                                                                            <div class="itemcontent">
+                                                                                                <input class="checkbok" type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                                                                <span class="fa fa-calendar fa-2x"></span>
+                                                                                                <h5 style="text-align: center;padding-top: 0.5rem">23 July 2022</h5>
+                                                                                            </div>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="items w-50">
+                                                                                <div class="info-block block-info clearfix">
+                                                                                    <div data-toggle="buttons" class="btn-group itemcontent tombol">
+                                                                                        <label class="btn btn-default">
+                                                                                            <div class="itemcontent">
+                                                                                                <input class="checkbok align-items-center" type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                                                                <span class="fa fa-calendar fa-2x"></span>
+                                                                                                <h5 style="text-align: center;padding-top: 0.5rem">24 July 2022</h5>
+                                                                                            </div>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                                 <div class="form-group">
-                                                                    <label for="exampleInputEmail1" class="text-dark">Email address</label>
-                                                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                                                    <label for="exampleInputEmail1" class="text-dark">Write your questions</label>
+                                                                    <textarea type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="type your questions here"></textarea>
                                                                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                                                 </div>
-                                                                <div class="form-check">
+                                                                
+                                                                        
+                                                                            
+
+                                                                <!-- <div class="form-check">
                                                                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                                                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                                                </div>
+                                                                </div> -->
                                                                 <button type="submit" class="btn btn-primary">Submit</button>
                                                             </form>
                                                             </div>
@@ -661,4 +729,4 @@
             });
         });
     });
-    </script>
+    </>

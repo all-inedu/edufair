@@ -278,11 +278,27 @@
         margin-top: 3em
     }
 
+    .preedu,
     .day1talks,
     .day2talks {
         border: 3px solid #12116e;
         border-radius: .5em;
         position: relative
+    }
+
+    .preedu::before {
+        content: "Pre Edufair";
+        border: 3px solid #12116e;
+        border-radius: 1.5em;
+        padding: .2em 1.5em;
+        position: absolute;
+        top: 0;
+        margin-top: -1.2em;
+        z-index: 2;
+        background: #fff;
+        font-size: 1.2em;
+        color: #12116e;
+        font-weight: 700
     }
 
     .day1talks::before {
@@ -449,7 +465,7 @@
         .btn-book {
             font-size: 12px !important;
         }
-
+        .preedu,
         .day1talks,
         .day2talks {
             margin: 20px 10px;

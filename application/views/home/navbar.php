@@ -2,7 +2,7 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-transparent">
         <div class="container-fluid navbar-allin">
             <a class="navbar-brand" href="<?php echo base_url(); ?>">
-                <img src="<?php echo base_url(); ?>assets/home/logo_normal_small-300x68-1-e1593521308518.png" alt="">
+                <img src="<?php echo base_url(); ?>assets/home/ALLIN-LOGO-LONG-NEW.png" alt="" style="width: 250px;">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,9 +35,9 @@
                     <li class="nav-item nav-menu">
                         <a class="nav-link" id="link-booking" href="<?php echo $url_unilist; ?>">University Booth</a>
                     </li>
-                    <li class="nav-item nav-menu">
+                    <!-- <li class="nav-item nav-menu">
                         <a class="nav-link" id="link-booking" href="<?php echo $url_about; ?>">About Us</a>
-                    </li>
+                    </li> -->
 
 
                     <?php if($this->session->userdata('user_id')) { ?>
