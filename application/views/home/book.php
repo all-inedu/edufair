@@ -291,7 +291,7 @@
                                             </div>
                                         </div> -->
                                         <?php /*} else*/ if((count($count_unidtl)>0) and ($uniInfo['uni_topic_reg'] != "REGISTERED")) { ?>
-                                        <div class="col-md-12 btn-book book-consultation-container"
+                                        <div class="col-md-6 btn-book book-consultation-container"
                                             style="cursor: pointer" data-toggle="modal"
                                             data-target="#modal-<?=$uniInfo['uni_id'];?>"><?php //echo count($count_unidtl); ?>
                                             <div class="mx-3">
@@ -301,17 +301,26 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <?php } //else { ?>
-                                        <!-- <div class="col-md-12 btn-not btn-topic" style="cursor: pointer"
+                                        <div class="col-md-6 btn-not btn-topic" style="cursor: pointer"
                                             data-uniid="<?=$uniInfo['uni_id'];?>">
                                             <div class="mx-3">
-                                                JOIN TALK
+                                                TELL ME MORE
                                                 <div class="float-right">
                                                     <i class="fas fa-arrow-alt-circle-right"></i>
                                                 </div>
                                             </div>
-                                        </div> -->
-                                        <?php //} ?>
+                                        </div>
+                                        <?php } else { ?>
+                                        <div class="col-md-12 btn-not btn-topic" style="cursor: pointer"
+                                            data-uniid="<?=$uniInfo['uni_id'];?>">
+                                            <div class="mx-3">
+                                                TELL ME MORE
+                                                <div class="float-right">
+                                                    <i class="fas fa-arrow-alt-circle-right"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php } ?>
                                         <?php
                                         if(count(($uniInfo['uni_detail']))>1) {
                                             $card = "modal-lg";
@@ -344,90 +353,93 @@
                                                     // check if uni status fullbook is not full
                                                     if($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
                                                     ?>
-                                                        <div class="container row">
-                                                            <div class="col">
-                                                            <form method="POST" >
+                                                        <div class="container">
                                                             <div class="row">
-                                                                    <div class="col-md-12">
-                                                                        <div class="items-collection d-flex">
-                                                                            <div class="items w-50">
-                                                                                <div class="info-block block-info clearfix">
-                                                                                    <div data-toggle="buttons" class="btn-group bizmoduleselect tombol">
-                                                                                        <label class="btn btn-default">
-                                                                                            <div class="itemcontent">
-                                                                                                <input class="checkbok" type="checkbox" name="var_id[]" autocomplete="off" value="">
-                                                                                                <span class="fa fa-calendar fa-2x"></span>
-                                                                                                <h5 style="text-align: center;padding-top: 0.5rem">23 July 2022</h5>
+                                                                <div class="col">
+                                                                    <form method="POST" >
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="items-collection d-flex">
+                                                                                <?php
+                                                                                $day = 1;
+                                                                                foreach($uniInfo['uni_detail'] as $key => $row) {
+                                                                                    $uni_dtl_id = $row['uni_dtl_id'];
+                                                                                    $assigned_time  = $row['uni_dtl_start_date'];
+                                                                                    $start = explode(" ", $assigned_time);
+                                                                                    $start_time = substr($start[1], 0, 5);
+
+                                                                                    $completed_time  = $row['uni_dtl_end_date'];
+                                                                                    $end = explode(" ", $completed_time );
+                                                                                    $end_time = substr($end[1], 0, 5);
+
+                                                                                    $d1 = new DateTime($assigned_time);
+                                                                                    $d2 = new DateTime($completed_time);
+
+                                                                                    $interval = $d2->diff($d1);
+                                                                                    $time = $interval->format('%H');
+                                                                                    $disabled = "";
+                                                                                    ?>
+                                                                                    <!-- <div class="<?=$col;?>">
+                                                                                        <div class="row">
+                                                                                            <div class="col text-center pt-4 pb-4"
+                                                                                                style="color: #000">
+                                                                                                <h4><?php //echo date('d M Y', strtotime($assigned_time)); ?>
+                                                                                                </h4>
                                                                                             </div>
-                                                                                        </label>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="items w-50">
-                                                                                <div class="info-block block-info clearfix">
-                                                                                    <div data-toggle="buttons" class="btn-group itemcontent tombol">
-                                                                                        <label class="btn btn-default">
-                                                                                            <div class="itemcontent">
-                                                                                                <input class="checkbok align-items-center" type="checkbox" name="var_id[]" autocomplete="off" value="">
-                                                                                                <span class="fa fa-calendar fa-2x"></span>
-                                                                                                <h5 style="text-align: center;padding-top: 0.5rem">24 July 2022</h5>
+                                                                                        </div>
+                                                                                    </div> -->
+                                                                                    <div class="items w-50">
+                                                                                        <div class="info-block block-info clearfix">
+                                                                                            <div data-toggle="buttons" class="btn-group bizmoduleselect tombol">
+                                                                                                <label class="btn btn-default">
+                                                                                                    <div class="itemcontent">
+                                                                                                        <input class="checkbok" type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                                                                        <span class="fa fa-calendar fa-2x"></span>
+                                                                                                        <h5 style="text-align: center;padding-top: 0.5rem"><?php echo date('d M Y', strtotime($assigned_time)); ?></h5>
+                                                                                                    </div>
+                                                                                                </label>
                                                                                             </div>
-                                                                                        </label>
+                                                                                        </div>
                                                                                     </div>
+                                                                                    <?php
+                                                                                $day++;
+                                                                                }
+                                                                                ?>
+                                                                                    
+                                                                                    <!-- <div class="items w-50">
+                                                                                        <div class="info-block block-info clearfix">
+                                                                                            <div data-toggle="buttons" class="btn-group itemcontent tombol">
+                                                                                                <label class="btn btn-default">
+                                                                                                    <div class="itemcontent">
+                                                                                                        <input class="checkbok align-items-center" type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                                                                        <span class="fa fa-calendar fa-2x"></span>
+                                                                                                        <h5 style="text-align: center;padding-top: 0.5rem">24 July 2022</h5>
+                                                                                                    </div>
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div> -->
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label for="exampleInputEmail1" class="text-dark">Write your questions</label>
-                                                                    <textarea type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="type your questions here"></textarea>
-                                                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                                                </div>
-                                                                
-                                                                        
+                                                                        <div class="form-group">
+                                                                            <label for="exampleInputEmail1" class="text-dark">Write your questions</label>
+                                                                            <textarea type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="type your questions here"></textarea>
+                                                                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                                                        </div>
                                                                             
+                                                                                    
+                                                                                        
 
-                                                                <!-- <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                                                </div> -->
-                                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                                            </form>
+                                                                            <!-- <div class="form-check">
+                                                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                                                            </div> -->
+                                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                                    </form>
+                                                                </div>
                                                             </div>
                                                         
-                                                        <?php
-                                                        $day = 1;
-                                                        foreach($uniInfo['uni_detail'] as $key => $row) {
-                                                            $uni_dtl_id = $row['uni_dtl_id'];
-                                                            $assigned_time  = $row['uni_dtl_start_date'];
-                                                            $start = explode(" ", $assigned_time);
-                                                            $start_time = substr($start[1], 0, 5);
-
-                                                            $completed_time  = $row['uni_dtl_end_date'];
-                                                            $end = explode(" ", $completed_time );
-                                                            $end_time = substr($end[1], 0, 5);
-
-                                                            $d1 = new DateTime($assigned_time);
-                                                            $d2 = new DateTime($completed_time);
-
-                                                            $interval = $d2->diff($d1);
-                                                            $time = $interval->format('%H');
-                                                            $disabled = "";
-                                                            ?>
-                                                            <div class="<?=$col;?>">
-                                                                <div class="row">
-                                                                    <div class="col text-center pt-4 pb-4"
-                                                                        style="color: #000">
-                                                                        <h4><?php echo date('d M Y', strtotime($assigned_time)); ?>
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <?php
-                                                        $day++;
-                                                        }
-                                                        ?>
                                                         </div>
                                                         <?php
                                                     // check if uni status fullbook is fully booked
@@ -688,4 +700,4 @@
             });
         });
     });
-    </>
+    </script>

@@ -306,11 +306,13 @@ body {
                                 <div class="col-md-12 text-center">
                                     Upload CV here
                                     <br>
-                                    <form action="<?php echo base_url(); ?>upload/resume" method="POST">
+                                    <form action="<?php echo base_url(); ?>upload/resume" method="POST" enctype="multipart/form-data" id="upload-form">
+                                    <div>
                                         <input type="file" name="uploaded_resume">
-                                        <button class="btn btn-primary mt-3 mb-3 btn-consult-allin"
-                                            style="background:#0C2F80;"
-                                            data-userid="<?=$this->session->userdata('user_id');?>" type="submit">
+                                        <label for="files"><?=$this->session->userdata('user_resume');?></label>
+                                    </div>
+                                        <button class="btn btn-primary mt-3 mb-3"
+                                            style="background:#0C2F80;" type="submit">
                                             Upload CV
                                         </button>
                                     </form>
@@ -507,6 +509,36 @@ $(document).ready(function() {
         var val = $(this).val();
         $("#user_destination").val(val);
     });
+
+    //** New 2022 */
+    $("#upload-form").submit(function(e) {
+        e.preventDefault();
+        Swal.showLoading();
+
+        $.ajax({
+            url: $(this).attr('action'),
+            type: $(this).attr('method'),
+            dataType: "JSON",
+            data: new FormData(this),
+            // cache : false,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                console.log(response);
+                if (response.success == true) {
+                    Swal.fire({
+                        title: '',
+                        text: response.message,
+                        icon: 'success'
+                    }).then((result) => {
+                        location.reload();
+                    });
+                } else {
+                    Swal.fire(response.error, '', 'error');
+                }
+            }
+        })
+    })
 })
 
 new SlimSelect({

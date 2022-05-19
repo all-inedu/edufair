@@ -360,4 +360,66 @@ class HomeController extends CI_Controller {
 	// ******** FORGOT PASSWORD FUNCTION END ************** //
 	// **************************************************** //
 	// **************************************************** //
+
+	// **************************************************** //
+	// **************************************************** //
+	// ************** UPLOAD RESUME CV START ************** //
+	// **************************************************** //
+	// **************************************************** //
+
+	public function uploadResume()
+	{
+		$this->db->trans_begin();
+		$user_id = $this->session->userdata('user_id');
+		$user_fullname = $this->session->userdata('user_fullname');	
+		$file_path = $_FILES['uploaded_resume']['name'];
+		$config['upload_path']          = './assets/user/uploads/';
+		$config['allowed_types']        = 'jpg|png|pdf|doc|docx';
+		$config['max_size']             = 5000000;
+		$config['file_name']  			= strtolower($user_fullname).'-resume.'.pathinfo($file_path, PATHINFO_EXTENSION);
+		$config['file_ext_tolower']     = true;
+		$config['overwrite']			= true;
+		// $config['max_width']            = 1024;
+		// $config['max_height']           = 768;
+		$this->load->library('upload'); 
+		$this->upload->initialize($config);
+
+		if ( ! $this->upload->do_upload('uploaded_resume'))
+		{
+			$error = array('error' => $this->upload->display_errors());
+			echo json_encode(array(
+				'success' => false,
+				'error' => $this->upload->display_errors()
+			));
+		}
+		else
+		{
+			$file_name = str_replace(' ', '_', strtolower($user_fullname)).'-resume.'.pathinfo($file_path, PATHINFO_EXTENSION);
+			try {
+				$this->UserModel->updateResume($user_id, $file_name);
+				$this->session->set_userdata('user_resume', $file_name);
+				$this->db->trans_commit();
+
+				echo json_encode(array(
+					'success' => true,
+					'message' => "Your resume or cv has been uploaded"
+				));
+			} catch (Exception $e) {
+				$this->db->trans_rollback();
+
+				echo json_encode(array(
+					'success' => false,
+					'message' => "Something went wrong. Please contact the administrator for further information"
+				));
+			}
+
+			
+		}
+	}
+
+	// **************************************************** //
+	// **************************************************** //
+	// ************** UPLOAD RESUME CV END **************** //
+	// **************************************************** //
+	// **************************************************** //
 }

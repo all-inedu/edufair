@@ -345,6 +345,13 @@ class UserModel extends CI_Model {
 			  WHERE bt.user_id = $user_id AND bt.booking_topic_status = 1
 			  ORDER BY t.topic_start_date ASC";
       $query = $this->db->query($sql);
+	//   $this->db->select('*');
+	//   $this->db->from('tb_booking_topic');
+	//   $this->db->join('tb_topic', 'topic_id', 'left');
+	//   $this->db->where('tb_booking_topic.user_id', $user_id);
+	//   $this->db->where('tb_booking_topic.booking_topic_status', 1);
+	//   $this->db->order_by('tb_topic.topic_start_date', 'ASC');
+	//   return $this->db->get();
       return $query->result();
     }
 
@@ -443,5 +450,13 @@ class UserModel extends CI_Model {
 		$this->db->join('tb_uni','tb_uni.uni_id=tb_waiting_list.uni_id');
 		$this->db->join('tb_user','tb_user.user_id=tb_waiting_list.user_id');
 		return $this->db->get('tb_waiting_list')->result_array();
+	}
+
+	//* New 2022
+	public function updateResume($user_id, $file_name)
+	{	
+		$this->db->set('resume', $file_name);
+		$this->db->where('user_id', $user_id);
+		return $this->db->update('tb_user');
 	}
 }

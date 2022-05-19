@@ -94,7 +94,6 @@ class TopicModel extends CI_Model {
               LEFT JOIN tb_uni u ON u.uni_id = td.uni_id
               ORDER BY t.topic_start_date ASC";
       }
-      
       $query = $this->db->query($sql);
       if($query->num_rows() > 0) {
         $data = array();
