@@ -155,9 +155,9 @@
                                         <td class="text-center pointer" style="cursor:pointer;"
                                             onclick='editDetail(<?=$dtl["uni_dtl_id"];?>)' data-toggle="modal"
                                             data-target="#editConsult">
-                                            <?=date('M dS Y - H:i', strtotime($dtl['uni_dtl_start_date']));?></td>
+                                            <?=date('M dS Y', strtotime($dtl['uni_dtl_start_date']));?></td>
                                         <td class="text-center">
-                                            <?=date('M dS Y - H:i', strtotime($dtl['uni_dtl_end_date']));?>
+                                            <?=date('M dS Y', strtotime($dtl['uni_dtl_end_date']));?>
                                         </td>
                                         <!-- <td class="text-center"><?=$dtl['uni_dtl_duration'];?> <sup> Minutes</sup></td> -->
                                         <!-- <td class="text-center">
@@ -207,14 +207,14 @@
                                 <div class="form-group">
                                     <label>Start Date</label>
                                     <input type="text" name="uni_id" value="<?=$uni['uni_id'];?>" hidden>
-                                    <input type="datetime-local" class="form-control form-control-sm"
+                                    <input type="date" class="form-control form-control-sm"
                                         name="uni_dtl_start_date" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>End Date</label>
-                                    <input type="datetime-local" class="form-control form-control-sm"
+                                    <input type="date" class="form-control form-control-sm"
                                         name="uni_dtl_end_date" required>
                                 </div>
                             </div>
@@ -268,18 +268,18 @@
                                     <label>Start Date</label>
                                     <input type="text" name="uni_id" value="<?=$uni['uni_id'];?>" hidden>
                                     <input type="text" name="uni_dtl_id" id="uni_dtl_id" hidden>
-                                    <input type="datetime-local" class="form-control form-control-sm"
+                                    <input type="date" class="form-control form-control-sm"
                                         name="uni_dtl_start_date" id="uni_dtl_start_date" required>
-                                    <input type="datetime-local" name="uni_dtl_start_date_old"
+                                    <input type="date" name="uni_dtl_start_date_old"
                                         id="uni_dtl_start_date_old" hidden>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>End Date</label>
-                                    <input type="datetime-local" class="form-control form-control-sm"
+                                    <input type="date" class="form-control form-control-sm"
                                         name="uni_dtl_end_date" id="uni_dtl_end_date" required>
-                                    <input type="datetime-local" name="uni_dtl_end_date_old" id="uni_dtl_end_date_old"
+                                    <input type="date" name="uni_dtl_end_date_old" id="uni_dtl_end_date_old"
                                         hidden>
                                 </div>
                             </div>
@@ -579,8 +579,25 @@
             type: "POST",
             dataType: 'JSON',
             success: function(datas) {
-                var start = dateTimeLocal(datas.uni_dtl_start_date)
-                var end = dateTimeLocal(datas.uni_dtl_end_date)
+                var r_start = new Date(datas.uni_dtl_start_date)
+                var r_start_date = r_start.getDate();
+                var r_start_month = r_start.getMonth();
+                var r_start_year = r_start.getFullYear();
+                if (r_start_month < 10) {
+                    r_start_month = "0" + r_start_month
+                }
+                var start = r_start_year + "-" + r_start_month + "-" + r_start_date;
+
+                var r_end = new Date(datas.uni_dtl_end_date)
+                var r_end_date = r_end.getDate();
+                var r_end_month = r_end.getMonth();
+                if (r_end_month < 10) {
+                    r_end_month = "0" + r_end_month
+                }
+                var r_end_year = r_end.getFullYear();
+                var end = r_end_year + "-" + r_end_month + "-" + r_end_date;
+                // var start = dateTimeLocal(datas.uni_dtl_start_date)
+                // var end = dateTimeLocal(datas.uni_dtl_end_date)
                 $("#uni_dtl_id").val(datas.uni_dtl_id)
                 $("#uni_dtl_start_date").val(start)
                 $("#uni_dtl_end_date").val(end)
@@ -590,6 +607,8 @@
                 // $("#uni_dtl_duration_old").val(datas.uni_dtl_duration)
                 $("#uni_dtl_zoom_link").val(datas.uni_dtl_zoom_link)
                 $("#uni_dtl_password").val(datas.uni_dtl_password)
+                // var start = dateTimeLocal(datas.uni_dtl_start_date)
+                // var end = dateTimeLocal(datas.uni_dtl_end_date)
             }
         });
     }

@@ -238,8 +238,8 @@
                                                 }
                                             }
 
-                                            if((count($count_unidtl)>0) and ($uniInfo['uni_topic_reg'] == "REGISTERED")) { ?>
-                                        <div class="col-md-12 btn-book book-consultation-container"
+                                            //if((count($count_unidtl)>0) and ($uniInfo['uni_topic_reg'] == "REGISTERED")) { ?>
+                                        <!-- <div class="col-md-6 btn-book book-consultation-container"
                                             style="cursor: pointer" data-toggle="modal"
                                             data-target="#modal-<?=$uniInfo['uni_id'];?>">
                                             <div class="mx-3">
@@ -249,7 +249,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-md-6 btn-not btn-topic" style="cursor: pointer"
+                                        <div class="col-md-6 btn-not btn-topic" style="cursor: pointer"
                                             data-uniid="<?=$uniInfo['uni_id'];?>">
                                             <div class="mx-3">
                                                 JOIN TALK
@@ -258,10 +258,10 @@
                                                 </div>
                                             </div>
                                         </div> -->
-                                        <?php } else if((count($count_unidtl)>0) and ($uniInfo['uni_topic_reg'] != "REGISTERED")) { ?>
+                                        <?php /*} else*/ if((count($count_unidtl)>0) and ($uniInfo['uni_topic_reg'] != "REGISTERED")) { ?>
                                         <div class="col-md-12 btn-book book-consultation-container"
                                             style="cursor: pointer" data-toggle="modal"
-                                            data-target="#modal-<?=$uniInfo['uni_id'];?>">
+                                            data-target="#modal-<?=$uniInfo['uni_id'];?>"><?php //echo count($count_unidtl); ?>
                                             <div class="mx-3">
                                                 BOOK YOUR CONSULTATION
                                                 <div class="float-right">
@@ -269,7 +269,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <?php } else { ?>
+                                        <?php } //else { ?>
                                         <!-- <div class="col-md-12 btn-not btn-topic" style="cursor: pointer"
                                             data-uniid="<?=$uniInfo['uni_id'];?>">
                                             <div class="mx-3">
@@ -279,7 +279,7 @@
                                                 </div>
                                             </div>
                                         </div> -->
-                                        <?php } ?>
+                                        <?php //} ?>
                                         <?php
                                         if(count(($uniInfo['uni_detail']))>1) {
                                             $card = "modal-lg";

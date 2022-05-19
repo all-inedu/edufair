@@ -36,28 +36,28 @@
                                     <thead class="text-center">
                                         <tr>
                                             <th width="5%">No</th>
-                                            <th>User</th>
+                                            <th>University Name</th>
+                                            <th>User Name</th>
                                             <th>Questions</th>
                                             <th width="15%">Date</th>
-                                            <th width="10%">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         $i=1;
                                     foreach ($faq as $f) {
-                                        $status = $f->question_status == 1 ? 'Answered' : 'Not Answered';
+                                        // $status = $f->question_status == 1 ? 'Answered' : 'Not Answered';
                                     ?>
-                                        <tr class="my-auto <?php echo $f->question_status == 1 ? 'bg-success' : 'bg-danger text-light';?>">
+                                        <tr class="my-auto <?php //echo $f->question_status == 1 ? 'bg-success' : 'bg-danger text-light';?>">
                                             <td class="text-center"><?=$i;?></td>
+                                            <td><?=$f->uni_name?></td>
                                             <td class="pointer" style="cursor:pointer;">
                                                 <?=$f->user_fullname;?>
                                             </td>
-                                            <td><?=$f->question;?></td>
+                                            <td><?=$f->q_question;?></td>
                                             <td class="text-center">
-                                                <?=date('d M Y H:i:s', strtotime($f->booking_c_date));?>
+                                                <?=date('d M Y H:i:s', strtotime($f->created_at));?>
                                             </td>
-                                            <td><?=$status?></td>
                                         </tr>
                                         <?php 
                                         $i++;

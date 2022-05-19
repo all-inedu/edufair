@@ -35,13 +35,12 @@ class UniModel extends CI_Model {
 			tb_uni_detail.uni_dtl_start_date,
 			tb_uni_detail.uni_dtl_end_date,
 			tb_uni_detail.uni_dtl_zoom_link,
-			tb_uni_detail.uni_dtl_password,
-			tb_uni_detail_time.*
+			tb_uni_detail.uni_dtl_password
 		');
 		$this->db->where('tb_uni.uni_status',$s);
 		$this->db->order_by('tb_uni.uni_name', 'asc');
 		$this->db->join('tb_uni_detail','tb_uni_detail.uni_id=tb_uni.uni_id','left');
-		$this->db->join('tb_uni_detail_time','tb_uni_detail_time.uni_dtl_id=tb_uni_detail.uni_dtl_id','left');
+		// $this->db->join('tb_uni_detail_time','tb_uni_detail_time.uni_dtl_id=tb_uni_detail.uni_dtl_id','left');
 		$query = $this->db->get('tb_uni')->result();
 
 		$data = array();
@@ -56,12 +55,12 @@ class UniModel extends CI_Model {
 				}
 				
 				// Check full
-				$checkFull = $this->checkBooking($queryData->uni_dtl_id);
-				if($checkFull['jml']==0){
-					$is_full = "FULL";
-				} else {
-					$is_full = "NOT_FULL";
-				}
+				// $checkFull = $this->checkBooking($queryData->uni_dtl_id);
+				// if($checkFull['jml']==0){
+				// 	$is_full = "FULL";
+				// } else {
+				// 	$is_full = "NOT_FULL";
+				// }
 
             	$data[$queryData->uni_id] = [
                   "uni_id"         		=> $queryData->uni_id,
@@ -72,7 +71,7 @@ class UniModel extends CI_Model {
                   "uni_photo_banner" 	=> $queryData->uni_photo_banner,
 				  "uni_status"    		=> $queryData->uni_status,
 				  "uni_topic_reg"		=> $is_registered,
-				  "uni_status_fullbooked" => $is_full,
+				  "uni_status_fullbooked" => "NOT_FULL",
                   "uni_detail"       	=> []
 				];
 			}
@@ -84,16 +83,16 @@ class UniModel extends CI_Model {
 				  "uni_dtl_end_date" 		=> $queryData->uni_dtl_end_date,
 				  "uni_dtl_zoom_link"   	=> $queryData->uni_dtl_zoom_link,
 				  "uni_dtl_password"   		=> $queryData->uni_dtl_password,
-				  "uni_dtl_time"			=> []
+				//   "uni_dtl_time"			=> []
 				];
 			}
 
-			$data[$queryData->uni_id]['uni_detail'][$queryData->uni_dtl_id]['uni_dtl_time'][] = [
-				"uni_detail_time_id" => $queryData->uni_detail_time_id,
-				"uni_dtl_t_start_time"   => $queryData->uni_dtl_t_start_time,
-				"uni_dtl_t_end_time" => $queryData->uni_dtl_t_end_time,
-				"uni_dtl_t_status" => $queryData->uni_dtl_t_status
-			];
+			// $data[$queryData->uni_id]['uni_detail'][$queryData->uni_dtl_id]['uni_dtl_time'][] = [
+			// 	"uni_detail_time_id" => $queryData->uni_detail_time_id,
+			// 	"uni_dtl_t_start_time"   => $queryData->uni_dtl_t_start_time,
+			// 	"uni_dtl_t_end_time" => $queryData->uni_dtl_t_end_time,
+			// 	"uni_dtl_t_status" => $queryData->uni_dtl_t_status
+			// ];
 
         }
         return $data;
