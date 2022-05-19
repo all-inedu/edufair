@@ -235,6 +235,9 @@ switch (ENVIRONMENT)
 	// Name of the "system" directory
 	define('SYSDIR', basename(BASEPATH));
 
+	
+	define('PUBPATH',str_replace(SELF,'',FCPATH)); // added
+
 	// The path to the "application" directory
 	if (is_dir($application_folder))
 	{

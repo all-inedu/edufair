@@ -384,6 +384,7 @@ class HomeController extends CI_Controller {
 		$this->load->library('upload'); 
 		$this->upload->initialize($config);
 
+		unlink(PUBPATH . 'assets/user/uploads/'.$this->session->userdata('user_resume'));
 		if ( ! $this->upload->do_upload('uploaded_resume'))
 		{
 			$error = array('error' => $this->upload->display_errors());

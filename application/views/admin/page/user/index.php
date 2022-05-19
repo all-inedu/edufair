@@ -36,6 +36,7 @@
                                             <th>Topic</th>
                                             <th>Consultation</th>
                                             <th>Register Date</th>
+                                            <th>Resume</th>
                                             <th>#</th>
                                         </tr>
                                     </thead>
@@ -87,6 +88,7 @@
                                                 <?php }} ?>
                                             </td>
                                             <td><?=date("M dS Y",strtotime($u['user_register_date']));?></td>
+                                            <td><a target="_blank" href="<?= base_url().'assets/user/uploads/'.$u['user_resume']; ?>">View here</a></td>
                                             <td>
                                                 <?php
                                                     if($u['token_status']==1){

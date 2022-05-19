@@ -98,6 +98,7 @@ class UserModel extends CI_Model {
 				  "user_know_from" 	=> $row['user_know_from'],
 				  "token_status" 	=> $row['token_status'],
 				  "user_register_date" 		=> $row['user_register_date'],
+				  "user_resume"				=> $row['resume'],
 				  "user_booking_topic"  	=> [],
 				  "user_booking_consult"  	=> []
 				];
@@ -248,6 +249,7 @@ class UserModel extends CI_Model {
           "user_major"         => $row->user_major,
           "user_know_from"     => $row->user_know_from,
           "user_register_date" => $row->user_register_date,
+		  "user_resume"		   => $row->resume,
 		  "user_last_login"    => $row->user_last_login,
 		  "token_status"	   => $row->token_status
 	  			);
