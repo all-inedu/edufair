@@ -1,3 +1,4 @@
+
 <style>
 .checkbok{
     clip :rect(0,0,0,0);
@@ -344,6 +345,56 @@
                                                     if($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
                                                     ?>
                                                         <div class="container row">
+                                                            <div class="col">
+                                                            <form method="POST" >
+                                                            <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="items-collection d-flex">
+                                                                            <div class="items w-50">
+                                                                                <div class="info-block block-info clearfix">
+                                                                                    <div data-toggle="buttons" class="btn-group bizmoduleselect tombol">
+                                                                                        <label class="btn btn-default">
+                                                                                            <div class="itemcontent">
+                                                                                                <input class="checkbok" type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                                                                <span class="fa fa-calendar fa-2x"></span>
+                                                                                                <h5 style="text-align: center;padding-top: 0.5rem">23 July 2022</h5>
+                                                                                            </div>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="items w-50">
+                                                                                <div class="info-block block-info clearfix">
+                                                                                    <div data-toggle="buttons" class="btn-group itemcontent tombol">
+                                                                                        <label class="btn btn-default">
+                                                                                            <div class="itemcontent">
+                                                                                                <input class="checkbok align-items-center" type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                                                                <span class="fa fa-calendar fa-2x"></span>
+                                                                                                <h5 style="text-align: center;padding-top: 0.5rem">24 July 2022</h5>
+                                                                                            </div>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1" class="text-dark">Write your questions</label>
+                                                                    <textarea type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="type your questions here"></textarea>
+                                                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                                                </div>
+                                                                
+                                                                        
+                                                                            
+
+                                                                <!-- <div class="form-check">
+                                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                                                </div> -->
+                                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                            </form>
+                                                            </div>
                                                         
                                                         <?php
                                                         $day = 1;
@@ -372,46 +423,6 @@
                                                                         </h4>
                                                                     </div>
                                                                 </div>
-                                                                <?php
-                                                            // foreach($row['uni_dtl_time'] as $detailTime){
-                                                            //     $uni_dtl_time_id = $detailTime['uni_detail_time_id'];
-                                                            //     $startTimeData = explode(" ", $detailTime['uni_dtl_t_start_time']);
-                                                            //     $uni_dtl_t_start_time = substr($startTimeData[1], 0, 5);
-                                                            //     $endTimeData = explode(" ", $detailTime['uni_dtl_t_end_time']);
-                                                            //     $uni_dtl_t_end_time = substr($endTimeData[1], 0, 5);
-                                                            //     $uni_dtl_t_status = $detailTime['uni_dtl_t_status'];
-                                                            //     $disabled = "";
-                                                            //     $booked = "Book";
-                                                            //     if($uni_dtl_t_status != 1) {
-                                                            //         $disabled = "disabled";
-                                                            //         $booked = "Booked";
-                                                            //     }
-                                                                ?>
-
-                                                                <!-- <div class="row mb-2">
-                                                                    <div class="col-sm-8 col-lg-8 pr-0">
-                                                                        <button
-                                                                            class="btn btn-outline-info btn-disabled btn-block"
-                                                                            disabled><?php echo $uni_dtl_t_start_time; ?>
-                                                                            -
-                                                                            <?php echo $uni_dtl_t_end_time; ?>
-                                                                            WIB</button>
-                                                                    </div>
-                                                                    <div class="col-sm-4 col-lg-4">
-                                                                        <button <?=$props;?>
-                                                                            class="btn btn-primary btn-block btn-book-consul btn-<?=$uni_dtl_time_id;?>"
-                                                                            data-uniid="<?=$uniInfo['uni_id'];?>"
-                                                                            data-starttime="<?php echo $detailTime['uni_dtl_t_start_time']?>"
-                                                                            data-endtime="<?php echo $detailTime['uni_dtl_t_end_time']; ?>"
-                                                                            data-unidtltimeid="<?php echo $uni_dtl_time_id; ?>"
-                                                                            <?php echo $disabled; ?>>
-                                                                            <?php echo $booked; ?>
-                                                                        </button>
-                                                                    </div>
-                                                                </div> -->
-                                                                <?php
-                                                            // }
-                                                            ?>
                                                             </div>
                                                             <?php
                                                         $day++;
@@ -428,8 +439,7 @@
                                                                 <div class="swal2-icon-content">?</div>
                                                             </div>
                                                             <h5 class="text-dark text-center">
-                                                                Hello this consultation is closed because
-                                                                full booked.</h5>
+                                                                Hello this consultation is closed because full booked.</h5>
 
                                                             <button data-dismiss="modal"
                                                                 class="btn btn-warning text-dark mt-3 mr-2">Close</button>
@@ -678,4 +688,4 @@
             });
         });
     });
-    </script>
+    </>

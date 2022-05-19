@@ -85,6 +85,7 @@ defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 //* VARIABLES
+<<<<<<< HEAD
 defined('TALK_DAY_1') OR define('TALK_DAY_1', '2022-05-17');
 defined('TALK_DAY_2') OR define('TALK_DAY_2', '2022-05-18');
 defined('REMINDER_H7') OR define('REMINDER_H7', '2022-05-10');
@@ -92,3 +93,7 @@ defined('REMINDER_H3') OR define('REMINDER_H3', '2022-05-14');
 defined('REMINDER_H1') OR define('REMINDER_H1', '2022-05-16');
 defined('REMINDER_D1') OR define('REMINDER_D1', '2022-05-17');
 defined('REMINDER_D2') OR define('REMINDER_D2', '2022-05-18');
+=======
+defined('TALK_DAY_1') OR define('TALK_DAY_1', '2021-07-24');
+defined('TALK_DAY_2') OR define('TALK_DAY_2', '2021-07-25');
+>>>>>>> fa11572bc451f2bd12d113995648cab8afc1e602
