@@ -1,6 +1,6 @@
 <?php
     header("Content-type: application/vnd-ms-excel");
-	header("Content-Disposition: attachment; filename=User List.xlsx");
+	header("Content-Disposition: attachment; filename=User List.xls");
 ?>
 
 <!DOCTYPE html>
@@ -30,14 +30,15 @@
                 <th>Topic</th>
                 <th>Consultation</th>
                 <th>Register Date</th>
+                <th>Resume</th>
                 <th>#</th>
             </tr>
         </thead>
         <tbody>
             <?php
-                                        $no=1;
-                                        foreach ($user as $u) {
-                                        ?>
+            $no=1;
+            foreach ($user as $u) {
+            ?>
             <tr class="text-center">
                 <td><?=$no;?></td>
                 <td class="text-left pointer">
@@ -54,36 +55,42 @@
                 <td><?=$u['user_know_from'];?></td>
                 <td>
                     <?php
-                                                    foreach ($u['user_booking_topic'] as $topic) { 
-                                                        if($topic['topic_name']=="") {
-                                                            echo "<small class='text-danger'>-</small>";
-                                                        } else {
-                                                ?>
-                    <?=$topic['topic_name'];?>,
-                    <?php }} ?>
+                    foreach ($u['user_booking_topic'] as $topic) { 
+                        if($topic['topic_name']=="") {
+                            echo "<small class='text-danger'>-</small>";
+                        } else {
+                            echo $topic['topic_name'].',';
+                        }
+                    }
+                    ?>
                 </td>
                 <td>
                     <?php
-                                                    foreach ($u['user_booking_consult'] as $consult) {
-                                                        if($consult['uni_name']=="") {
-                                                            echo "<small class='text-danger'>-</small>";
-                                                        } else {
-                                                ?>
-                    <?=$consult['uni_name'];?>,
-                    <?php }} ?>
+                    foreach ($u['user_booking_consult'] as $consult) {
+                        if($consult['uni_name']=="") {
+                            echo "<small class='text-danger'>-</small>";
+                        } else {
+                            echo $consult['uni_name'].',';
+                        }
+                    }
+                    ?>
                 </td>
                 <td><?=date("M dS Y",strtotime($u['user_register_date']));?></td>
+                <td><a target="_blank" href="<?= base_url().'assets/user/uploads/'.$u['user_resume']; ?>">View here</a></td>
                 <td>
                     <?php
-                                                    if($u['token_status']==1){
-                                                        echo "Verified";
-                                                    } else {
-                                                        echo "Not Verified";
-                                                    }
-                                                ?>
+                    if($u['token_status']==1){
+                        echo "Verified";
+                    } else {
+                        echo "Not Verified";
+                    }
+                    ?>
                 </td>
             </tr>
-            <?php $no++; } ?>
+            <?php 
+            $no++; 
+            } 
+            ?>
         </tbody>
     </table>
 </body>

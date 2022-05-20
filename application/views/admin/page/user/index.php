@@ -18,6 +18,10 @@
                     </ol>
                     <div class="card mb-4">
                         <div class="card-body">
+                            <a href="<?=base_url('dashboard/admin/user/export/excel');?>" target="_blank"
+                                class="btn btn-sm btn-dark float-right mb-3"><i class="fas fa-file-excel"></i> &nbsp;
+                                Export to
+                                Excel</a>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover nowrap" id="dataTable" cellspacing="0">
                                     <thead class="text-center">
@@ -66,7 +70,7 @@
                                                             echo "<small class='text-danger'>-</small>";
                                                         } else {
                                                 ?>
-                                                <div class='badge badge-info' data-toggle="tooltip" data-placement="top"
+                                                <div class='badge badge-info' data-toggle="tooltip" data-placement="left"
                                                     style="cursor:pointer;"
                                                     title="<?=date("M dS Y | H:i A", strtotime($topic['topic_start_date']));?>">
                                                     <?=$topic['topic_name'];?>
@@ -81,8 +85,8 @@
                                                         } else {
                                                 ?>
                                                 <div class='badge badge-warning' data-toggle="tooltip"
-                                                    data-placement="top" style="cursor:pointer;" title="<?=date("M dS Y | H:i", strtotime($consult['uni_dtl_t_start_time']));?> - 
-                                                    <?=date("H:i A", strtotime($consult['uni_dtl_t_end_time']));?>">
+                                                    data-placement="left" style="cursor:pointer;" title="<?=date("M dS Y | H:i", strtotime($consult['uni_dtl_start_date']));?> - 
+                                                    <?=date("H:i A", strtotime($consult['uni_dtl_end_date']));?>">
                                                     <?=$consult['uni_name'];?>
                                                 </div><br>
                                                 <?php }} ?>

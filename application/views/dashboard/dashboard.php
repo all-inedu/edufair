@@ -402,8 +402,8 @@ body {
                             <div class="list-group mt-4">
                                 <?php
 								foreach($dataConsult as $row) {
-                                    $consult_date = new DateTime($row->uni_dtl_t_start_time);
-                                    $consult_end_date = new DateTime($row->uni_dtl_t_end_time);
+                                    $consult_date = new DateTime($row->uni_dtl_start_date);
+                                    $consult_end_date = new DateTime($row->uni_dtl_end_date);
 									?>
                                 <div class="row mb-3">
                                     <div class="col-md-8 mb-2">
@@ -419,7 +419,7 @@ body {
                                         // $date = '2021-07-25';
                                         $date = date('Y-m-d');
                                         $before = date('Y-m-d', strtotime("+1 day", strtotime($date)));
-                                        $consult_date = date('Y-m-d', strtotime($row->uni_dtl_t_start_time));
+                                        $consult_date = date('Y-m-d', strtotime($row->uni_dtl_start_date));
                                         if($date==$consult_date) {
                                         ?>
                                         <a href="<?php echo $row->uni_dtl_zoom_link; ?>"
@@ -428,7 +428,7 @@ body {
                                             Consultation</a>
                                         <?php } else if ($before<=$consult_date){ ?>
                                         <button class="u-btn cancel-booking-consult"
-                                            data-consultation="<?php echo rtrim(strtr(base64_encode($row->uni_detail_time_id), '+/', '-_'), '='); ?>">Cancel</button>
+                                            data-consultation="<?php echo rtrim(strtr(base64_encode($row->booking_c_id), '+/', '-_'), '='); ?>">Cancel</button>
                                         <?php } else { ?>
                                         <button class="u-btn bg-dark text-white">Expired</button>
                                         <?php }  ?>

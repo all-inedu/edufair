@@ -394,7 +394,7 @@
                                                                                                 <label class="btn btn-default">
                                                                                                     <div class="itemcontent">
                                                                                                         <!-- <input type="text" value="<?php echo $uni_dtl_id?>"> -->
-                                                                                                        <input class="checkbok" type="checkbox" name="var_id[]" autocomplete="off" value="<?php echo $uni_dtl_id; ?>" <?php echo (array_search($uni_dtl_id, array_column($bookingConsult, 'uni_dtl_id')) != "") ? "checked" : ""; ?>>
+                                                                                                        <input class="checkbok" type="checkbox" name="var_id[]" autocomplete="off" value="<?php echo $uni_dtl_id; ?>" <?php echo (array_search($uni_dtl_id, array_column($bookingConsult, 'uni_dtl_id')) != "") ? "checked disabled" : ""; ?>>
                                                                                                         <span class="fa fa-calendar fa-2x"></span>
                                                                                                         <h5 style="text-align: center;padding-top: 0.5rem"><?php echo date('d M Y H:i', strtotime($assigned_time)); ?></h5>
                                                                                                     </div>

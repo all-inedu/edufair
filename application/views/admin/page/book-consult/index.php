@@ -63,8 +63,8 @@
                                                     <tr class="<?=$status;?>" data-toggle="tooltip" data-placement="top"
                                                         title="<?=$title;?>">
                                                         <td>
-                                                            <?=date('M dS Y, H:i', strtotime($user['uni_dtl_t_start_time']));?>
-                                                            <?=date('- H:i A', strtotime($user['uni_dtl_t_end_time']));?>
+                                                            <?=date('M dS Y, H:i', strtotime($user['uni_dtl_start_date']));?>
+                                                            <?=date('- H:i A', strtotime($user['uni_dtl_end_date']));?>
                                                         </td>
                                                         <td><?=$user['user_fullname'];?></td>
                                                         <td><?=$user['user_email'];?></td>

@@ -87,18 +87,8 @@ class AdminController extends CI_Controller {
 
 	public function saveTopic() 
 	{
+		$this->db->trans_begin();
 		$topic = $this->topic->getId();
-		$newid = $topic['topic_id'] + 1;
-
-		if($this->input->post('uni_id')) {
-			foreach ($this->input->post('uni_id') as $uni) {
-				$data_topic_dtl = [
-					'topic_id' => $newid,
-					'uni_id' => $uni
-				];
-				$this->topic->insertTopicDetail($data_topic_dtl);
-			} 
-		}
 
 		$config['upload_path'] = './assets/topic';
         $config['allowed_types'] = 'gif|jpg|png';
@@ -120,7 +110,7 @@ class AdminController extends CI_Controller {
 		}	
 
 		$data = [
-			'topic_id' => $newid,
+			// 'topic_id' => $newid,
 			'topic_name' => $this->input->post('topic_name'),
 			'topic_desc' => $this->input->post('topic_desc'),
 			'topic_start_date' => $this->input->post('topic_start_date'),
@@ -131,10 +121,25 @@ class AdminController extends CI_Controller {
 			'topic_banner' => $filesname
 		];
 		$process = $this->topic->insertTopic($data);
+		
+		//* insert into topic detail after
+		$newid = $process;
+
+		if($this->input->post('uni_id')) {
+			foreach ($this->input->post('uni_id') as $uni) {
+				$data_topic_dtl = [
+					'topic_id' => $newid,
+					'uni_id' => $uni
+				];
+				$this->topic->insertTopicDetail($data_topic_dtl);
+			} 
+		}
 			
 		if($process){
+			$this->db->trans_commit();
 			echo '001';
 		} else {
+			$this->db->trans_rollback();
 			echo '02';
 		}
 	}

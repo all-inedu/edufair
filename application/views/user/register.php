@@ -69,7 +69,7 @@ body {
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>You are a:</label>
@@ -93,7 +93,7 @@ body {
                                 <input type="date" name="user_dateofbirth" class="form-control custom-box" required>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="row mb-5">
                         <div class="col-12">
                             <div class="form-group">

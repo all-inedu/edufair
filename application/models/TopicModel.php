@@ -245,13 +245,23 @@ class TopicModel extends CI_Model {
 
     function insertTopic($data) 
     {
-        $query = $this->db->insert('tb_topic', $data);
-        return $query;
+        $this->db->insert('tb_topic', $data);
+        return $this->db->insert_id();
     }
 
     function insertTopicDetail($data) 
     {
         $query = $this->db->insert('tb_topic_detail', $data);
+        // $db_error = $this->db->error();
+        // if ($db_error != "") {
+        //   throw new Exception('Database error! Error Code [' . $db_error['code'] . '] Error: ' . $db_error['message']);
+        //   // return false; // unreachable retrun statement !!!
+        //   return array(
+        //     "code" => "01",
+        //     "msg"  => "Registration Failed",
+        //     "val"  => false
+        //     );
+        // }
         return $query;
     }
 

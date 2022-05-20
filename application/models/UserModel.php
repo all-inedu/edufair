@@ -52,7 +52,6 @@ class UserModel extends CI_Model {
 	{
 		$this->db->select('
 			tb_user.*,
-
 			tb_booking_topic.booking_topic_id,
 			tb_booking_topic.topic_id,
 			tb_booking_topic.booking_topic_date,
@@ -64,8 +63,10 @@ class UserModel extends CI_Model {
 			tb_booking_consult.booking_c_id,
 			tb_booking_consult.uni_dtl_id,
 			tb_booking_consult.booking_c_date,
-			tb_uni.	uni_id,
-			tb_uni.	uni_name,
+			tb_uni.uni_id,
+			tb_uni.uni_name,
+			tb_uni_detail.uni_dtl_start_date,
+			tb_uni_detail.uni_dtl_end_date
 			');
 		$this->db->from('tb_user');
 		if(($id!="all")) {
@@ -120,6 +121,8 @@ class UserModel extends CI_Model {
 					"booking_c_id" 			=> $row['booking_c_id'],
 					"uni_id" 				=> $row['uni_id'],
 					"uni_name" 				=> $row['uni_name'],
+					"uni_dtl_start_date"    => $row['uni_dtl_start_date'],
+					"uni_dtl_end_date"		=> $row['uni_dtl_end_date'],
 					// "uni_detail_time_id"	=> $row['uni_detail_time_id'],
 					// "uni_dtl_t_start_time"	=> $row['uni_dtl_t_start_time'],
 					// "uni_dtl_t_end_time"	=> $row['uni_dtl_t_end_time'],
@@ -359,7 +362,7 @@ class UserModel extends CI_Model {
 
     public function getUserConsult($user_id)
     {
-      $sql = "SELECT ud.uni_dtl_start_date, ud.uni_dtl_end_date, ud.uni_dtl_id, ud.uni_dtl_zoom_link, u.uni_id, u.uni_name, u.uni_photo_banner FROM tb_booking_consult bc
+      $sql = "SELECT bc.booking_c_id, ud.uni_dtl_start_date, ud.uni_dtl_end_date, ud.uni_dtl_id, ud.uni_dtl_zoom_link, u.uni_id, u.uni_name, u.uni_photo_banner FROM tb_booking_consult bc
             --   JOIN tb_uni_detail_time udt ON udt.uni_detail_time_id = bc.uni_detail_time_id
               JOIN tb_uni_detail ud ON ud.uni_dtl_id = bc.uni_dtl_id
               JOIN tb_uni u ON u.uni_id = ud.uni_id
@@ -404,15 +407,16 @@ class UserModel extends CI_Model {
       } else if ($type == "consult") {
         /* change booking c status on tb_booking_consult to 0 */
         $this->db->where('user_id', $user_id);
-        $this->db->where('uni_detail_time_id', $id);
-        $process = $this->db->update('tb_booking_consult', array("booking_c_status" => 0));
-        if($process) {
-          /* change uni dtl t status on tb_uni_detail_time to 1 */
-          $this->db->where('uni_detail_time_id', $id);
-          return $this->db->update('tb_uni_detail_time', array("uni_dtl_t_status" => 1));
-        } else {
-          return false;
-        }
+        // $this->db->where('uni_detail_time_id', $id);
+		$this->db->where('booking_c_id', $id);
+        return $this->db->update('tb_booking_consult', array("booking_c_status" => 0));
+        // if($process) {
+        //   /* change uni dtl t status on tb_uni_detail_time to 1 */
+        //   $this->db->where('uni_detail_time_id', $id);
+        //   return $this->db->update('tb_uni_detail_time', array("uni_dtl_t_status" => 1));
+        // } else {
+        //   return false;
+        // }
       }
     }
 
