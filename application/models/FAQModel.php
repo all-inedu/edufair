@@ -10,7 +10,8 @@ class FAQModel extends CI_Model {
         $this->db->join('tb_uni', 'uni_id');
         // $this->db->from('tb_booking_consult');
         // $this->db->join('tb_user', 'user_id');
-        $this->db->order_by("created_at asc, q_question asc");
+        $this->db->order_by("created_at desc, q_question asc");
+        // $this->db->order_by("created_at desc");
         $query = $this->db->get();
         return $query->result();
     }

@@ -24,17 +24,22 @@ class HomeController extends CI_Controller {
 		$data['uniData']    = $this->UniModel->showAllUniData(1); 
 		$data['uniUpcoming']    = $this->UniModel->showAllUniData(2); 
 		$data['uniCountry'] = $this->UniModel->getUniCountry();
+		$data['bookingTopic'] = [];
+		$data['bookingConsult'] = [];
 
 		if ($this->session->has_userdata('user_id')) {
 			$bookingTopic = $this->TopicModel->getBookingTopicData($this->session->userdata('user_id')); 
 			if(isset($bookingTopic)) {
 				$data['bookingTopic'] = $bookingTopic;
-			} else {
-				$data['bookingTopic'] = [];
 			}
-		} else {
-			$data['bookingTopic'] = []; // set null if user id session doesn't exitst
+
+			$bookingConsult = $this->ConsultModel->getBookingConsultData($this->session->userdata('user_id'));
+			if (isset($bookingConsult)) {
+				$data['bookingConsult'] = $bookingConsult;
+			}
+
 		}
+		
 
 		// echo json_encode($data['uniData']);
 		$this->load->view('home/home', $data);
@@ -367,6 +372,39 @@ class HomeController extends CI_Controller {
 	// **************************************************** //
 	// **************************************************** //
 
+	public function bookingConsultation()
+	{
+		$selected_consult_schedule = $this->input->post('var_id');
+		try {
+			for ($i = 0; $i < count($this->input->post('var_id')) ; $i++) {
+				
+				$data = array(
+					'uni_dtl_id' => $selected_consult_schedule[$i],
+					// 'question' => $this->input->post('question'),
+					'user_id' => $this->session->userdata('user_id'),
+					'booking_c_date' => date('Y-m-d H:i:s'),
+					'booking_c_status' => 1
+				);
+
+				if ($this->ConsultModel->checkExistingConsultation($data) == 0) {
+					$this->ConsultModel->bookingConsult($data);
+				} 
+			}
+			$this->ConsultModel->insertQuestion($this->session->userdata('user_id'), $this->input->post('uni_id'), $this->input->post('question'));
+		} catch (Exception $e) {
+			echo json_encode(array(
+				"code" => "000",
+				"error" => $e->getMessage()	
+			));
+		}
+
+		echo json_encode(array(
+			"code" => "001",
+			"value" => $selected_consult_schedule
+		));
+		
+	}
+
 	public function uploadResume()
 	{
 		$this->db->trans_begin();
@@ -423,4 +461,5 @@ class HomeController extends CI_Controller {
 	// ************** UPLOAD RESUME CV END **************** //
 	// **************************************************** //
 	// **************************************************** //
+	
 }

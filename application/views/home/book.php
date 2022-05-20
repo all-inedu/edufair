@@ -356,7 +356,7 @@
                                                         <div class="container">
                                                             <div class="row">
                                                                 <div class="col">
-                                                                    <form method="POST" >
+                                                                    <form method="POST" class="booking-form" action="<?php echo base_url(); ?>booking/consult">
                                                                         <div class="row">
                                                                             <div class="col-md-12">
                                                                                 <div class="items-collection d-flex">
@@ -393,9 +393,10 @@
                                                                                             <div data-toggle="buttons" class="btn-group bizmoduleselect tombol">
                                                                                                 <label class="btn btn-default">
                                                                                                     <div class="itemcontent">
-                                                                                                        <input class="checkbok" type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                                                                        <!-- <input type="text" value="<?php echo $uni_dtl_id?>"> -->
+                                                                                                        <input class="checkbok" type="checkbox" name="var_id[]" autocomplete="off" value="<?php echo $uni_dtl_id; ?>" <?php echo (array_search($uni_dtl_id, array_column($bookingConsult, 'uni_dtl_id')) != "") ? "checked" : ""; ?>>
                                                                                                         <span class="fa fa-calendar fa-2x"></span>
-                                                                                                        <h5 style="text-align: center;padding-top: 0.5rem"><?php echo date('d M Y', strtotime($assigned_time)); ?></h5>
+                                                                                                        <h5 style="text-align: center;padding-top: 0.5rem"><?php echo date('d M Y H:i', strtotime($assigned_time)); ?></h5>
                                                                                                     </div>
                                                                                                 </label>
                                                                                             </div>
@@ -405,37 +406,15 @@
                                                                                 $day++;
                                                                                 }
                                                                                 ?>
-                                                                                    
-                                                                                    <!-- <div class="items w-50">
-                                                                                        <div class="info-block block-info clearfix">
-                                                                                            <div data-toggle="buttons" class="btn-group itemcontent tombol">
-                                                                                                <label class="btn btn-default">
-                                                                                                    <div class="itemcontent">
-                                                                                                        <input class="checkbok align-items-center" type="checkbox" name="var_id[]" autocomplete="off" value="">
-                                                                                                        <span class="fa fa-calendar fa-2x"></span>
-                                                                                                        <h5 style="text-align: center;padding-top: 0.5rem">24 July 2022</h5>
-                                                                                                    </div>
-                                                                                                </label>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div> -->
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="exampleInputEmail1" class="text-dark">Write your questions</label>
-                                                                            <textarea type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="type your questions here"></textarea>
-                                                                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                                                            <textarea type="text" class="form-control" aria-describedby="emailHelp" placeholder="type your questions here" name="question"></textarea>
                                                                         </div>
-                                                                            
-                                                                                    
-                                                                                        
-
-                                                                            <!-- <div class="form-check">
-                                                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                                                            </div> -->
-                                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                                        <input type="hidden" name="uni_id" value="<?=$uniInfo['uni_id'];?>">
+                                                                        <button type="submit" class="btn btn-primary">Submit</button>
                                                                     </form>
                                                                 </div>
                                                             </div>

@@ -88,7 +88,73 @@ $(".navigate-page-2").on('click', function() {
     });
 });
 
-$(".btn-book-consul").each(function() {
+$(".booking-form").each(function(e) {
+    $(this).submit(function(event) {
+        event.preventDefault();
+        var user_id = "<?php echo $this->session->userdata('user_id'); ?>";
+        if (user_id == "") {
+            var parent = $(this).closest(".modal").attr('id');
+            $("#" + parent + " .close").click(); // close booking consult modal
+            $("#btn-login").click(); // show login modal
+            
+            return;
+        }
+        // return;
+        swal.fire({
+            icon: 'question',
+            title: 'You\'re about to book a consultation',
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
+            cancelButtonText: 'Wait!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '<?php echo base_url(); ?>booking/consult',
+                    type: 'post',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        var msg = JSON.parse(response);
+                        if (msg.code == "001") {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Yay, your booking is successful!',
+                                html: 'We’ll remind you by email before the event.<br>Check the dashboard for your agenda.',
+                                confirmButtonText: 'OK',
+                            }).then((result) => {
+                                for (i = 0; i < msg.value.length; i++) {
+                                    $("input[type=checkbox][value="+msg.value[i]+"]").prop("checked", true);
+                                }
+                            });
+
+                            
+                        } else if (msg.code == "05") {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'You have booked at this university!',
+                                html: 'Check the dashboard for your agenda.'
+                            });
+                        } else if (msg.code == "06") {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'You have booked at another university at the same time',
+                                text: 'Check the dashboard for your agenda.'
+                            });
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong! Please try again.'
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    });
+});
+
+$(".old_btn-book-consul").each(function() {
     $(this).click(function() {
         var user_id = "<?php echo $this->session->userdata('user_id'); ?>";
         if ((user_id == "")) {
