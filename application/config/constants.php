@@ -95,3 +95,4 @@ defined('REMINDER_H3') OR define('REMINDER_H3', '2022-05-14');
 defined('REMINDER_H1') OR define('REMINDER_H1', '2022-05-16');
 defined('REMINDER_D1') OR define('REMINDER_D1', '2022-05-17');
 defined('REMINDER_D2') OR define('REMINDER_D2', '2022-05-18');
+defined('PERSONAL_TEST_LINK') OR define('PERSONAL_TEST_LINK', '');

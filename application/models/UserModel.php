@@ -237,24 +237,26 @@ class UserModel extends CI_Model {
   		if($query->num_rows() > 0) {
   			foreach($query->result() as $row) {
 	  			$data = array(
-		  "user_id"            => $row->user_id,
-		  "user_fullname"      => $row->user_fullname,
-          "user_email"         => $row->user_email,
-          "user_password"      => $row->user_password,
-          "user_phone"         => $row->user_phone,
-          "user_status"        => $row->user_status,
-          "user_gender"        => $row->user_gender,
-          "user_dob"           => $row->user_dob,
-          "user_first_time"    => $row->user_first_time,
-          "user_grade"         => $row->user_grade,
-          "user_school"        => $row->user_school,
-          "user_country"       => $row->user_country,
-          "user_major"         => $row->user_major,
-          "user_know_from"     => $row->user_know_from,
-          "user_register_date" => $row->user_register_date,
-		  "user_resume"		   => $row->resume,
-		  "user_last_login"    => $row->user_last_login,
-		  "token_status"	   => $row->token_status
+					"user_id"            => $row->user_id,
+					"user_fullname"      => $row->user_fullname,
+					"user_email"         => $row->user_email,
+					"user_password"      => $row->user_password,
+					"user_phone"         => $row->user_phone,
+					"user_status"        => $row->user_status,
+					"user_gender"        => $row->user_gender,
+					"user_dob"           => $row->user_dob,
+					"user_first_time"    => $row->user_first_time,
+					"user_grade"         => $row->user_grade,
+					"user_school"        => $row->user_school,
+					"user_country"       => $row->user_country,
+					"user_major"         => $row->user_major,
+					"user_know_from"     => $row->user_know_from,
+					"user_register_date" => $row->user_register_date,
+					"user_resume"		   => $row->resume,
+					"user_last_login"    => $row->user_last_login,
+					"token_status"	   => $row->token_status,
+					"resume"			=> $row->resume,
+					"came_from"			=> $row->came_from
 	  			);
 	  		}
 			return $data; 

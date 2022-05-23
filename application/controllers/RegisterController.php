@@ -87,7 +87,8 @@ class RegisterController extends CI_Controller {
 			"user_know_from"         => str_replace("'", "\'", $this->input->post('user_lead')),
 			"user_register_date"     => date('Y-m-d H:i:s'),
 			"user_last_login"        => '',
-			"user_biggest_challenge" => $this->input->post('user_biggest_challenge')
+			"user_biggest_challenge" => $this->input->post('user_biggest_challenge'),
+			"came_from"              => ($this->input->post('param') != "") ? 1 : 0, // 1 personality test, 0 dashboard
 		);
 
 
@@ -100,6 +101,7 @@ class RegisterController extends CI_Controller {
 			$token = $this->UserModel->insertToken($inserted_id);
 			$qstring = $this->base64url_encode($token);
 
+			//buat redirect link sesuai parameter
 			$add_on = '';
 			if ($redirect_clue = $this->input->post('param')) {
 				$add_on = "?param=".$redirect_clue;
@@ -136,7 +138,12 @@ class RegisterController extends CI_Controller {
 		//build token
 		$token = $this->UserModel->insertToken($data['user_id']);
 		$qstring = $this->base64url_encode($token);
-		$data['url'] = base_url() . '/verify/token/' . $qstring;
+		$add_on = '';
+		if ($data['came_from'] == 1) {
+			$add_on = "?param=personal-test";
+		}
+
+		$data['url'] = base_url() . '/verify/token/' . $qstring . $add_on;
 
 		if($this->sendingEmail($data, $data['user_email'])) {
 			// send mail success
@@ -187,7 +194,13 @@ class RegisterController extends CI_Controller {
 
 			//! update 2022
 			//! you need to replace this one
-			redirect('/registration/topic');
+			$param = $this->input->get('param');
+			if ($param == "personal-test") {
+				redirect(PERSONAL_TEST_LINK);
+			} else {
+				redirect('/');
+			}
+			// redirect('/registration/topic');
 		} else {
 			echo "Server Timeout";
 		}
