@@ -191,10 +191,11 @@
 
     #btn-login {
         background: #0D2F7F;
-        padding: 5px 15px 5px 30px;
+        padding: 5px 35px 5px 35px;
         /* border: 1px solid #27387A; */
-        border-radius: 20px 0px 0px 20px;
+        /* border-radius: 20px 0px 0px 20px; */
         color: #fff;
+        align-items: center;
     }
 
     #btn-login:hover {
@@ -236,7 +237,7 @@
     }
 
     .talks-header {
-        padding: 2% 0px 4% 4% !important;
+        padding: 2% 0px 1% 4% !important;
     }
 
     #booking h2,
@@ -254,6 +255,24 @@
         border-radius: 12px;
         font-size: 17px;
         margin-bottom: 10px;
+    }
+
+    .btn-tellme {
+        background: #FFFFFF;
+        /* padding-left: 1.5rem; */
+        text-align: center;
+        /* text-align: left; */
+        font-size: 1rem;
+        padding: 8px;
+        border: 3px solid #12116e;
+        font-weight: 700;
+        color: #0D3C9C;
+        width: 100%
+    }
+
+    .btn-tellme a {
+        color: #fff;
+        text-decoration: none
     }
 
     .btn-book {
@@ -288,9 +307,33 @@
     .preedu,
     .day1talks,
     .day2talks {
+        /* border: 3px solid #12116e;
+        border-radius: .5em; */
+        position: relative;
+    }
+
+    
+    .eventpre{
+        padding: 2% 0px 1% 3% !important;
+    }
+
+    .preevent{
+        /* border: 3px solid #12116e; */
+        /* border-radius: .5em; */
+        position: relative;
+    }
+
+    .preevent::before {
+        content: "PRE-EVENT";
         border: 3px solid #12116e;
-        border-radius: .5em;
-        position: relative
+        /* border-radius: 1.5em; */
+        padding: .2em 1.5em;
+        top: 0;
+        z-index: 2;
+        background: #fff;
+        font-size: 1.2em;
+        color: #12116e;
+        font-weight: 700;
     }
 
     .preedu::before {
@@ -309,9 +352,9 @@
     }
 
     .day1talks::before {
-        content: "DAY 1";
+        content: "23 JULY";
         border: 3px solid #12116e;
-        border-radius: 1.5em;
+        /* border-radius: 1.5em; */
         padding: .2em 1.5em;
         position: absolute;
         top: 0;
@@ -324,9 +367,9 @@
     }
 
     .day2talks::before {
-        content: "DAY 2";
+        content: "24 JULY";
         border: 3px solid #12116e;
-        border-radius: 1.5em;
+        /* border-radius: 1.5em; */
         padding: .2em 1.5em;
         position: absolute;
         top: 0;
@@ -343,16 +386,26 @@
         padding: 0px 0 50px 0
     }
 
-    #booking h5,
+    ,
     #talks h5 {
         color: #061f51;
         font-size: 1.6em;
         text-align: justify
     }
 
+    .title-booking-blue{
+        background: #FFFFFF;
+        /* padding-left: 1.5rem; */
+        text-align: center;
+        /* text-align: left; */
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0D3C9C;
+    }
+
     #booking {
         background: #EBF6FC;
-        background-image: url('assets/img/home/bg-unilist.webp');
+        /* background-image: url('assets/img/home/bg-unilist.webp'); */
         background-size: cover auto;
         background-position: top;
         background-repeat: no-repeat;
@@ -365,14 +418,19 @@
         padding: .3em .8em
     }
 
+    .background-lp{
+        background-image: url('assets/img/home/edufair-background.webp');
+        background-size: cover auto;
+    }
+
     #talks-section {
-        background: #EBF6FC;
+        /* background: #EBF6FC; */
         /* background-image: url('assets/img/home/compressed/header-bg-3.webp'); */
         background-position: top;
         background-size: 100%;
         background-repeat: no-repeat;
-        padding-left: 6%;
-        padding-right: 10%;
+        padding-left: 1%;
+        padding-right: 1%;
     }
 
     #register-form .card {
@@ -398,7 +456,7 @@
     }
 
     .navbar-allin {
-        padding: 0 140px 0 80px !important;
+        padding: 0 40px 0 40px;
     }
 
     #register-form {
@@ -424,11 +482,11 @@
         }
 
         .navbar-brand img {
-            width: 70% !important;
+            width: 150px !important;
         }
 
         .navbar-allin {
-            padding: 0px !important;
+            padding: 0 20px 0 20px !important;
         }
 
         #edufair-title-container {
@@ -519,7 +577,7 @@
         }
 
         .navbar-brand img {
-            width: 80% !important;
+            width: 150px !important;
         }
 
         #edufair-title-container {

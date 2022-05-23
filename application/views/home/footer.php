@@ -33,8 +33,8 @@
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
                     <h6 class="text-uppercase fw-bold mb-4">
-                        <img src="<?php echo base_url(); ?>assets/home/ALLIN-LOGO-LONG-NEW.png"
-                            alt="" width="80%">
+                        <img src="<?php echo base_url(); ?>assets/home/ALLIN-LOGO-NEW.webp"
+                            alt="" style="width: 120px">
                     </h6>
                     <p>
                         Connect with the universities from all over the world and get live updates about the education

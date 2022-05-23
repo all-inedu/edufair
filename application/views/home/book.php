@@ -5,6 +5,15 @@
     position: absolute;
 }
 
+.textarea-red{
+    border: 3px solid #F43636;
+}
+
+.btn-submit-uni{
+    background: #F1D100;
+    color: #0D3C9C;
+}
+
 .tombol{
     width: 100% !important
 }
@@ -23,6 +32,31 @@
     border-radius: 17px;
     color: #305891;
 }
+
+/* .text-booking-uni{
+    color : #0D3C9C;
+    font-size: 1.6em;
+    text-align: justify
+} */
+
+.btn-booking-uni{
+    width:90%;
+    border:4px solid #F43636;
+    margin:5px; 
+    font-weight: 900 !important;
+    /* border-radius: 17px; */
+    color: #F43636;
+}
+.btn-booking-uni.active{
+    background-color:#F43636;
+    color:#FFFFFF !important;
+}
+
+.btn-booking-uni:hover{
+    background-color:#F43636;
+    color:#FFFFFF !important;
+}
+
 .items-collection label .itemcontent{
     width:100%;
 }
@@ -59,6 +93,21 @@
 
 .box-book::-webkit-scrollbar-thumb:hover {
     background: #eda436;
+}
+
+.btn-book-uni {
+    background: #ea912c;
+    border-radius: 0 !important;
+    letter-spacing: 0.8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.btn-book-uni:hover {
+    background: #ed912f;
 }
 
 #booking {
@@ -240,14 +289,14 @@
                             // print("<pre>".print_r($uniInfo, true)."</pre>");exit;
                         ?>
                         <!-- <div class="col-md-6 mb-2 d-flex align-items-stretch" -->
-                        <div class="col-md-6 mb-2 align-items-stretch"
+                        <div class="col-md-4 mb-2 align-items-stretch"
                             id="uni-<?php echo $uniInfo['uni_id']; ?>">
                             <div class="card">
-                                <div class="inst-unilist" data-container="body" data-toggle="modal"
+                                <!-- <div class="inst-unilist" data-container="body" data-toggle="modal"
                                     data-content="<?php echo $uniInfo['uni_description']; ?>" data-target="#uni-story"
                                     style="cursor: pointer">
                                     <img src="<?php echo base_url(); ?>assets/home/information-13.png" alt="">
-                                </div>
+                                </div> -->
 
                                 <!-- <div style="border: 3px solid #cfcfcf;position: absolute;z-index: 1;right:0;padding:.5em 1.5em;font-weight: bold;margin:2em; color: #CFCFCF; letter-spacing: .2em;transform: rotate(20deg);top: 20px">FULLY BOOKED</div> -->
                                 <div style="max-width:100%;">
@@ -258,10 +307,11 @@
                                 <div class="card-body pl-4 p-1">
                                     <h4 class="m-0 pt-2 pb-2 font-weight-bold"
                                         style="color: #3d3d3d; letter-spacing:0.8px;">
-                                        <?php echo strtoupper($uniInfo['uni_name']); ?></h4>
+                                        <!-- <?php echo strtoupper($uniInfo['uni_name']); ?></h4> -->
                                 </div>
                                 <div class="card-footer p-0">
-                                    <div class="row no-gutters">
+                                <div class="col-md-12 p-2">
+                                    <div class="">
                                         <?php 
                                             $count_unidtl = [];
                                             foreach($uniInfo['uni_detail'] as $dtl) {
@@ -291,34 +341,33 @@
                                             </div>
                                         </div> -->
                                         <?php /*} else*/ if((count($count_unidtl)>0) and ($uniInfo['uni_topic_reg'] != "REGISTERED")) { ?>
-                                        <div class="col-md-6 btn-book book-consultation-container"
+                                        <div class="col-md-6 d-inline btn-book-uni book-consultation-container"
                                             style="cursor: pointer" data-toggle="modal"
                                             data-target="#modal-<?=$uniInfo['uni_id'];?>"><?php //echo count($count_unidtl); ?>
-                                            <div class="mx-3">
-                                                BOOK YOUR CONSULTATION
-                                                <div class="float-right">
+                                            
+                                                Join Now
+                                                <!-- <div class="float-right">
                                                     <i class="fas fa-arrow-alt-circle-right"></i>
-                                                </div>
-                                            </div>
+                                                </div> -->
+                                            
                                         </div>
-                                        <div class="col-md-6 btn-not btn-topic" style="cursor: pointer"
+                                        <div class="col-md-6 desc-uni btn-outline-primary d-inline ml-2 mb-1 btn-tellme btn-topic" style="cursor: pointer"
                                             data-uniid="<?=$uniInfo['uni_id'];?>">
-                                            <div class="mx-3">
                                                 TELL ME MORE
-                                                <div class="float-right">
+                                                <!-- <div class="float-right">
                                                     <i class="fas fa-arrow-alt-circle-right"></i>
-                                                </div>
-                                            </div>
+                                                </div> -->
+                                            
                                         </div>
                                         <?php } else { ?>
-                                        <div class="col-md-12 btn-not btn-topic" style="cursor: pointer"
+                                        <div class="col-md-10 desc-uni btn-outline-primary d-inline mb-1 btn-tellme btn-topic" style="cursor: pointer"
                                             data-uniid="<?=$uniInfo['uni_id'];?>">
-                                            <div class="mx-3">
+                                            
                                                 TELL ME MORE
-                                                <div class="float-right">
+                                                <!-- <div class="float-right">
                                                     <i class="fas fa-arrow-alt-circle-right"></i>
-                                                </div>
-                                            </div>
+                                                </div> -->
+                                            
                                         </div>
                                         <?php } ?>
                                         <?php
@@ -339,7 +388,7 @@
                                                 if($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
                                                 ?>
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">Please fill the booking form</h5>
+                                                        <h5 class="modal-title title-booking-blue">Choose Your Schedule</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
@@ -391,12 +440,12 @@
                                                                                     <div class="items w-50">
                                                                                         <div class="info-block block-info clearfix">
                                                                                             <div data-toggle="buttons" class="btn-group bizmoduleselect tombol">
-                                                                                                <label class="btn btn-default">
+                                                                                                <label class="btn btn-booking-uni">
                                                                                                     <div class="itemcontent">
                                                                                                         <!-- <input type="text" value="<?php echo $uni_dtl_id?>"> -->
-                                                                                                        <input class="checkbok" type="checkbox" name="var_id[]" autocomplete="off" value="<?php echo $uni_dtl_id; ?>" <?php echo (array_search($uni_dtl_id, array_column($bookingConsult, 'uni_dtl_id')) != "") ? "checked disabled" : ""; ?>>
-                                                                                                        <span class="fa fa-calendar fa-2x"></span>
-                                                                                                        <h5 style="text-align: center;padding-top: 0.5rem"><?php echo date('d M Y H:i', strtotime($assigned_time)); ?></h5>
+                                                                                                        <input class="checkbok booking-red" type="checkbox" name="var_id[]" autocomplete="off" value="<?php echo $uni_dtl_id; ?>" <?php echo (array_search($uni_dtl_id, array_column($bookingConsult, 'uni_dtl_id')) != "") ? "checked disabled" : ""; ?>>
+                                                                                                        <!-- <span class="fa fa-calendar fa-2x"></span> -->
+                                                                                                        <h5 class="text-booking-uni" style="text-align: center;padding-top: 0.5rem"><?php echo date('d M Y H:i', strtotime($assigned_time)); ?></h5>
                                                                                                     </div>
                                                                                                 </label>
                                                                                             </div>
@@ -411,10 +460,10 @@
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="exampleInputEmail1" class="text-dark">Write your questions</label>
-                                                                            <textarea type="text" class="form-control" aria-describedby="emailHelp" placeholder="type your questions here" name="question"></textarea>
+                                                                            <textarea type="text" class="form-control textarea-red" aria-describedby="emailHelp" placeholder="type your questions here" name="question"></textarea>
                                                                         </div>
                                                                         <input type="hidden" name="uni_id" value="<?=$uniInfo['uni_id'];?>">
-                                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                                        <button type="submit" class="btn btn-submit-uni">Submit</button>
                                                                     </form>
                                                                 </div>
                                                             </div>
@@ -448,6 +497,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             </div>
                         </div>
                         <?php 
@@ -501,9 +551,9 @@
                                     <div class="row no-gutters">
                                         <div <?=$html;?>>
                                             <?=$text;?>
-                                            <div class="float-right">
+                                            <!-- <div class="float-right">
                                                 <i class="fas fa-arrow-circle-right"></i>
-                                            </div>
+                                            </div> -->
                                         </div>
 
                                         <?php
@@ -667,6 +717,15 @@
             $("#uni-story .modal-body").html(uni_story);
         });
     });
+
+    $(".desc-uni").each(function() {
+        $(this).click(function() {
+            var uni_story = $(this).data('content');
+            // alert(uni_story);
+            $("#uni-story .modal-body").html(uni_story);
+        });
+    });
+
 
     $(".btn-topic").each(function() {
         $(this).click(function() {

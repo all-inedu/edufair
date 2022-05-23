@@ -33,7 +33,7 @@
 }
 
 .badge-allin {
-    background: #0D2F7F;
+    background: #F43636;
     font-weight: 200;
     scroll-margin-top: 350px;
     font-size: 14px;

@@ -242,7 +242,7 @@
                 </div>
             </div>
         </div>
-        <div class="talks-header" id="talks">
+        <!-- <div class="talks-header" id="talks">
             <div class="row">
                 <div class="col-md-12">
                     <div class="col-lg-5 col-sm-12 text-left pt-5 mt-4">
@@ -254,7 +254,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
 
