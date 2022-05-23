@@ -86,7 +86,14 @@ h4 {
 </style>
 <section class="bg-gambar d-flex align-middle mt-5">
     <div class="p-4 mb-4">
-        <marquee class="py-3 running">
+        <?php
+        if(!$this->session->has_userdata('user_id')){
+            $props = "data-target='#signUp' data-toggle='modal'";
+        } else {
+            $props = "";
+        }
+        ?>
+        <marquee class="py-3 running" <?php echo $props; ?> class="btn-personal-test" onclick="setRedirectLink('personal-test')">
             Selamat datang di website kami teknologi.visitklaten.com - Sharing Teknologi - Berbagi Ilmu Tentang Teknologi
         </marquee>
     </div>

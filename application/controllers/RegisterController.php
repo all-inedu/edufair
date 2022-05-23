@@ -99,7 +99,13 @@ class RegisterController extends CI_Controller {
 			//build token
 			$token = $this->UserModel->insertToken($inserted_id);
 			$qstring = $this->base64url_encode($token);
-			$data = array( "url" => base_url() . '/verify/token/' . $qstring );
+
+			$add_on = '';
+			if ($redirect_clue = $this->input->post('param')) {
+				$add_on = "?param=".$redirect_clue;
+			}
+
+			$data = array( "url" => base_url() . '/verify/token/' . $qstring . $add_on );
 			// send verification mail
 			if($this->sendingEmail($data, $email)) {
 				// send mail success

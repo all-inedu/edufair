@@ -32,7 +32,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                New here ?<a href="<?php echo base_url(); ?>registration">Join Us</a>
+                New here ?<a href="<?php echo base_url(); ?>registration" id="join-link">Join Us</a>
             </div>
         </div>
     </div>
@@ -265,6 +265,7 @@
         integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 
     <script>
+
     $(document).ready(function() {
         //Callback works only with direction = "down"
         $('.flipTimer').flipTimer({
@@ -358,5 +359,13 @@
             x.type = "password";
             $(this).html('<i class="fas fa-eye-slash"></i>')
         }
-    })
+    });
+
+    function setRedirectLink(data_param) {
+        if (data_param == "personal-test") {
+            $("#join-link").prop('href', "<?php echo base_url(); ?>registration?param=" + data_param);
+        } else {
+            $("#join-link").prop('href', "<?php echo base_url(); ?>registration");
+        }
+    }
     </script>

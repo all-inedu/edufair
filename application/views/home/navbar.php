@@ -97,7 +97,7 @@
                             <?php } else { ?>
                                 
                             <div class="nav-item ml-3">
-                                <a class="nav-link" id="btn-login" data-target="#signUp" data-toggle="modal"
+                                <a class="nav-link" id="btn-login" onclick="$('#join-link').prop('href', '<?=base_url()?>registration')" data-target="#signUp" data-toggle="modal"
                                     style="cursor:pointer;">Log In</a>
                             </div>
                             <!-- <div class="nav-item">

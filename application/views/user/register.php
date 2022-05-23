@@ -11,6 +11,7 @@ body {
         <h3 class="text-center" style="letter-spacing: 0.2em;margin-bottom: 1em;">REGISTRATION</h3>
         <hr>
         <form method="get" id="registerForm" novalidate class="needs-validation">
+            <input type="hidden" name="param" value="<?php isset($_GET['param']) ? $_GET['param'] : ''?>">
             <div class="row mt-4">
                 <div class="col" data-page="1">
                     <div class="row">
@@ -547,6 +548,8 @@ $(document).ready(function() {
                 type: "POST",
                 data: $("#registerForm").serialize(),
                 success: function(msg) {
+                    alert(msg);
+                    return;
                     msg = JSON.parse(msg);
 
                     if (msg.code == "001") {

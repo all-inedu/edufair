@@ -120,7 +120,7 @@ h4 {
                                 <!-- <h5><?php echo $row['topic_desc']; ?></h5> -->
                                 <?php
                                     if(!$this->session->has_userdata('user_id')){
-                                        $props = "data-target='#signUp' data-toggle='modal'";
+                                        $props = "data-target='#signUp' data-param='personal-test' data-toggle='modal'";
                                     } else {
                                         $props = "id='bookTopic'";
                                     }
@@ -181,7 +181,6 @@ h4 {
 
 
 <script>
-
 $(".desc-topic").each(function() {
         $(this).click(function() {
             var uni_story = $(this).data('content');

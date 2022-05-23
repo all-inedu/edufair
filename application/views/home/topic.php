@@ -292,6 +292,14 @@ $(".talk-button").click(function() {
 
 $(".btn-book").each(function() {
     $(this).click(function() {
+
+        var data_param = $(this).data('param');
+        if (data_param == "personal-test") {
+            $("#join-link").prop('href', "<?php echo base_url(); ?>registration?param=" + data_param);
+        } else {
+            $("#join-link").prop('href', "<?php echo base_url(); ?>registration");
+        }
+
         var topicId = $(this).data('topicid');
         $.ajax({
             url: "<?php echo base_url(); ?>home/book/topic",
