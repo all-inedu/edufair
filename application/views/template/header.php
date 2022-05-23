@@ -248,6 +248,10 @@
         color: #0d2f7f
     }
 
+    .tanggal{
+        color: #F43636;
+        font-weight: 600;
+    }
 
     .edufair-uni-region {
         /* border: 3px solid #efaa52; */
@@ -392,6 +396,20 @@
         color: #061f51;
         font-size: 1.6em;
         text-align: justify
+    }
+
+    .modal-title-desc{
+        font-weight: 700;
+    }
+
+    .title-desc-blue{
+        background: #FFFFFF;
+        /* padding-left: 1.5rem; */
+        text-align: center;
+        /* text-align: left; */
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0D3C9C;
     }
 
     .title-booking-blue{

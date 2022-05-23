@@ -33,6 +33,7 @@ h4 {
     font-size: 18px;
 }
 
+
 @media screen and (max-width: 576px) and (min-width: 375px) {
     h4 {
         font-size: 18px;
@@ -86,7 +87,7 @@ h4 {
                         </div>
                         <div class="row px-2 pt-2 no-gutters talk-button">
                             <div class="col-11">
-                                <p class="m-0">
+                                <p class="m-0 tanggal">
                                     <?=$topic_start_date->format('M, dS Y (H:i') ?> -
                                     <?=$topic_end_date->format('H:i') ?> WIB)
                                 </p>
@@ -246,12 +247,12 @@ h4 {
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Description</h5>
+                <h5 class="modal-title title-desc-blue" id="exampleModalLabel">Description</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body modal-title-desc">
 
             </div>
         </div>
