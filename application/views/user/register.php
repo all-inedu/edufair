@@ -548,8 +548,6 @@ $(document).ready(function() {
                 type: "POST",
                 data: $("#registerForm").serialize(),
                 success: function(msg) {
-                    alert(msg);
-                    return;
                     msg = JSON.parse(msg);
 
                     if (msg.code == "001") {
