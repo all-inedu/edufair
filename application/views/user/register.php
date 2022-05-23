@@ -211,8 +211,14 @@ body {
                     </div>
                     <div class="form-group  form-challenge">
                         <label>Whats your biggest challenge in prepping for university?</label>
+                        <select id="userChallenge" onchange="checkValue('userChallenge')" required oninvalid="validation('userChallenge')">
+                            <option data-placeholder="true"></option>
+                            <option value="other">Other</option>
+                        </select>
+                        <textarea class="form-control custom-box"
+                            placeholder="Your answer" required id="userChallengeNew"></textarea>
                         <textarea class="form-control custom-box" name="user_biggest_challenge"
-                            placeholder="Your answer" required></textarea>
+                            placeholder="Your answer" required hidden id="user_biggest_challenge"></textarea>
                     </div>
                     <hr>
                     <div class="form-group">
@@ -259,10 +265,17 @@ new SlimSelect({
     placeholder: 'Your answer'
 })
 
+new SlimSelect({
+    select: '#userChallenge',
+    allowDeselect: true,
+    placeholder: 'Your answer'
+})
+
 $(document).ready(function() {
     $('#userSchoolNew').hide();
     $('#userMajorNew').hide();
     $('#userLeadNew').hide();
+    $('#userChallengeNew').hide();
 
     // school 
     $.ajax({
@@ -319,6 +332,21 @@ $(document).ready(function() {
             $.each(datas, function(index, data) {
                 $('#userLead').append(
                     '<option value="' + data.lead_name + '">' + data.lead_name +
+                    '</option>'
+                )
+            });
+        }
+    });
+
+    // challenge
+    $.ajax({
+        type: 'post',
+        dataType: "json",
+        url: "<?php echo base_url(); ?>request/getAllDataChallenge",
+        success: function(datas) {
+            $.each(datas, function(index, data) {
+                $('#userChallenge').append(
+                    '<option value="' + data.name + '">' + data.name +
                     '</option>'
                 )
             });
@@ -401,7 +429,24 @@ function checkValue(param) {
                 });
             }
             break;
-
+        case "userChallenge":
+            // challenge 
+            if ($('#userChallenge').val() == 'other') {
+                $('#userChallengeNew').show();
+                $('#userChallengeNew').focus();
+                $('#userChallengeNew').prop('required', true);
+            } else {
+                $('#userChallengeNew').hide();
+                $('#userChallengeNew').prop('required', false);
+            }
+            var is_filled = $("#userChallenge").siblings(".ss-main").has('.ss-single-selected').has('.placeholder').html();
+            if (is_filled) {
+                $("#userChallenge").siblings(".ss-main").has(".ss-single-selected").css({
+                    "border": "1px solid #28a745",
+                    "border-radius": ".2rem"
+                });
+            }
+            break;
 
     }
 }
@@ -443,6 +488,16 @@ $("#userLead").change(function() {
 $("#userDestination").change(function() {
     var val = $(this).val();
     $("#user_destination").val(val);
+});
+
+//* set user_challenge to hidden input end */
+$("#userChallengeNew").keyup(function() {
+    $("#user_biggest_challenge").val($(this).val());
+});
+
+$("#userChallenge").change(function() {
+    var val = $(this).val();
+    $("#user_biggest_challenge").val(val);
 });
 
 function limit() {
