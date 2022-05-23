@@ -8,7 +8,13 @@ $this->load->view('home/header');
 <?php
 $this->load->view('home/pre_edufair');
 $this->load->view('home/topic');
+?>
+    </div>
+<?php
 $this->load->view('home/personality');
+?>
+<div class="container">
+<?php
 $this->load->view('home/book');
 ?>
     </div>
