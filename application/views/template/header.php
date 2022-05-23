@@ -250,9 +250,10 @@
 
 
     .edufair-uni-region {
-        border: 3px solid #efaa52;
-        background: 0 0;
-        border-radius: 12px;
+        /* border: 3px solid #efaa52; */
+        background: #F43636;
+        color : #FFFFFF;
+        /* border-radius: 12px; */
         font-size: 17px;
         margin-bottom: 10px;
     }
@@ -404,7 +405,7 @@
     }
 
     #booking {
-        background: #EBF6FC;
+        /* background: #EBF6FC; */
         /* background-image: url('assets/img/home/bg-unilist.webp'); */
         background-size: cover auto;
         background-position: top;

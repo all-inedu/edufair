@@ -143,6 +143,15 @@
     background: #133584;
 }
 
+.uni-book-header-desc{
+    color: #343A40;
+}
+
+.region-of-origin{
+    color: #0D2F7F;
+    font-weight: 700;
+}
+
 @media screen and (max-width: 576px) and (min-width: 375px) {
     .btn-book {
         letter-spacing: 0.5px;
@@ -188,12 +197,12 @@
 </div>
 
 
-<div class="container-fluid text-white pb-4" id="booking">
+<div class="container-fluid pb-4" id="booking">
     <div class="pb-4">
         <div class="row pb-5">
-            <div class="col-sm-12 col-lg-12 mt-5">
-                <h2>University Booth</h2>
-                <h5>You have a chance to book a personal consultation and join talks with the universities listed below!
+            <div class="col-lg-5 col-sm-12 text-left pt-5 mt-4 ">
+                <h2>UNIVERSITY LIST</h2>
+                <h5 class="uni-book-header-desc">You have a chance to book a personal consultation and join talks with the universities listed below!
                     <br>
                     Book your schedule and come prepared to ask questions for the university representative about
                     admissions.
@@ -202,7 +211,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <h5>Region of origin:</h5>
+                <h5 class="region-of-origin">Region of origin:</h5>
             </div>
         </div>
         <div class="row">
@@ -211,7 +220,7 @@
                     foreach($uniCountry as $key => $val) {
                     ?>
                 <div class="dropdown show d-inline">
-                    <button class="btn bg-white text-muted btn-sm mx-1 dropdown-toggle edufair-uni-region"
+                    <button class="btn btn-sm mx-1 dropdown-toggle edufair-uni-region"
                         data-toggle="dropdown">
                         <?php echo $key; ?>
                     </button>
@@ -351,19 +360,21 @@
                                                 </div> -->
                                             
                                         </div>
-                                        <div class="col-md-6 desc-uni btn-outline-primary d-inline ml-2 mb-1 btn-tellme btn-topic" style="cursor: pointer"
-                                            data-uniid="<?=$uniInfo['uni_id'];?>">
-                                                TELL ME MORE
+                                        <div class="col-md-6 desc-uni btn-outline-primary d-inline ml-2 mb-1 btn-tellme btn-topic" class="inst-unilist" data-container="body" data-toggle="modal"
+                                    data-content="<?php echo $uniInfo['uni_description']; ?>" data-target="#uni-story"
+                                    style="cursor: pointer">
+                                                Tell Me More
                                                 <!-- <div class="float-right">
                                                     <i class="fas fa-arrow-alt-circle-right"></i>
                                                 </div> -->
                                             
                                         </div>
                                         <?php } else { ?>
-                                        <div class="col-md-10 desc-uni btn-outline-primary d-inline mb-1 btn-tellme btn-topic" style="cursor: pointer"
-                                            data-uniid="<?=$uniInfo['uni_id'];?>">
+                                        <div class="col-md-10 desc-uni btn-outline-primary d-inline mb-1 btn-tellme btn-topic" class="inst-unilist" data-container="body" data-toggle="modal"
+                                        data-content="<?php echo $uniInfo['uni_description']; ?>" data-target="#uni-story"
+                                        style="cursor: pointer">
                                             
-                                                TELL ME MORE
+                                                Tell Me More
                                                 <!-- <div class="float-right">
                                                     <i class="fas fa-arrow-alt-circle-right"></i>
                                                 </div> -->
