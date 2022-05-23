@@ -15,16 +15,15 @@ class HomeController extends CI_Controller {
 
 	public function index()
 	{
-		$data['title']      = "Edufair";
-		$topicData_day1     = $this->TopicModel->getTopicData(TALK_DAY_1); // change with edufair start date
-		$topicData_day2     = $this->TopicModel->getTopicData(TALK_DAY_2); // change iwth edufair start date
-		$data['talk_day1']  = $topicData_day1;
-		$data['talk_day2']  = $topicData_day2;
+		$data['title']     = "Edufair";
+		$data['pre_event'] = $this->TopicModel->getTopicData(PRE_EVENT);
+		$data['talk_day1'] = $this->TopicModel->getTopicData(TALK_DAY_1);  // change with edufair start date
+		$data['talk_day2'] = $this->TopicModel->getTopicData(TALK_DAY_2);  // change iwth edufair start date
 		// $data['uniData']    = $this->UniModel->getUniData();
-		$data['uniData']    = $this->UniModel->showAllUniData(1); 
-		$data['uniUpcoming']    = $this->UniModel->showAllUniData(2); 
-		$data['uniCountry'] = $this->UniModel->getUniCountry();
-		$data['bookingTopic'] = [];
+		$data['uniData']        = $this->UniModel->showAllUniData(1);
+		$data['uniUpcoming']    = $this->UniModel->showAllUniData(2);
+		$data['uniCountry']     = $this->UniModel->getUniCountry();
+		$data['bookingTopic']   = [];
 		$data['bookingConsult'] = [];
 
 		if ($this->session->has_userdata('user_id')) {

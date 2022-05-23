@@ -77,11 +77,11 @@ h4 {
             </div>
         </div>
     </div>
-    <?php if ($talk_day1 != "" ) {?>
+    <?php if ($pre_event != "" ) {?>
         <div class="eventpre p-4 mb-4 preevent">
             <div class="row" style="padding-top: 1em">
                 <?php
-            foreach($talk_day1 as $row) {
+            foreach($pre_event as $row) {
                 $topic_start_date = new DateTime($row['topic_start_date']);
                 $topic_end_date = new DateTime($row['topic_end_date']);
                 $topic_id = $row['topic_id'];
