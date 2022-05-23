@@ -350,7 +350,7 @@
                                             </div>
                                         </div> -->
                                         <?php /*} else*/ if((count($count_unidtl)>0) and ($uniInfo['uni_topic_reg'] != "REGISTERED")) { ?>
-                                        <div class="col-md-6 d-inline btn-book-uni book-consultation-container"
+                                        <div class="col-md-6 d-inline btn-book-uni book-consultation-container px-2"
                                             style="cursor: pointer" data-toggle="modal"
                                             data-target="#modal-<?=$uniInfo['uni_id'];?>"><?php //echo count($count_unidtl); ?>
                                             
