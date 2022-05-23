@@ -196,7 +196,8 @@ class RegisterController extends CI_Controller {
 			//! you need to replace this one
 			$param = $this->input->get('param');
 			if ($param == "personal-test") {
-				redirect(PERSONAL_TEST_LINK);
+				// redirect(PERSONAL_TEST_LINK);
+				header("Location: ".PERSONAL_TEST_LINK);
 			} else {
 				redirect('/');
 			}
