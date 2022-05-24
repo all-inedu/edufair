@@ -38,7 +38,7 @@
 <div class="bg-primary" id="topheader">
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-transparent">
         <div class="container">
-            <div class="container navbar-allin  mx-3">
+            <div class="container navbar-allin  mx-md-3">
                 <div class="container">
                     <a class="navbar-brand" href="<?php echo base_url(); ?>">
                         <img src="<?php echo base_url(); ?>assets/home/ALLIN-LOGO-NEW.webp" alt=""

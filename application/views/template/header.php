@@ -563,6 +563,10 @@
             padding: 0 20px 0 20px !important;
         }
 
+        .navbar-nav .nav-item {
+            width: 100% !important;
+        }
+
         #edufair-title-container {
             padding: 15vh 10% 5vh 10%;
             background-repeat: no-repeat;
@@ -666,6 +670,10 @@
 
         .navbar-brand img {
             width: 150px !important;
+        }
+
+        .navbar-nav .nav-item {
+            width: 100% !important;
         }
 
         #edufair-title-container {
