@@ -52,7 +52,7 @@ h4 {
 
     .img-box {
         width: 100%;
-        height: auto;
+        height: 130px !important;
         overflow: hidden;
     }
 
@@ -71,8 +71,8 @@ h4 {
 </style>
 <section id="talks-section">
     <?php if ($talk_day1 != "") { ?>
-    <div class="p-4 mb-4 day1talks eventpre">
-        <div class="row" style="padding-top: 1em">
+    <div class="px-md-4 mb-4 day1talks eventpre">
+        <div class="row px-0 pt-2">
             <?php
                 foreach ($talk_day1 as $row) {
                     $topic_start_date = new DateTime($row['topic_start_date']);
@@ -86,14 +86,14 @@ h4 {
                     );
                     $arrTopic = base64_encode(json_encode($arrTopic));
                 ?>
-            <div class="col-md-6 mb-3 d-flex align-items-stretch">
+            <div class="col-md-6 mb-3 p-md-3 p-0 d-flex align-items-stretch">
                 <div class="card bg-white">
-                    <div class="card-body p-0">
+                    <div class="card-body p-1">
                         <div class="img-box">
                             <img src="<?= base_url('assets/topic/' . $row['topic_banner']); ?>" class="img-topic">
                         </div>
-                        <div class="row px-2 pt-2 no-gutters talk-button">
-                            <div class="col-11">
+                        <div class="row px-0 pt-2 no-gutters talk-button">
+                            <div class="col-12">
                                 <p class="m-0 tanggal">
                                     <?= $topic_start_date->format('M, dS Y (H:i') ?> -
                                     <?= $topic_end_date->format('H:i') ?> WIB)
@@ -110,8 +110,7 @@ h4 {
                                         ?>
                             </div>
                         </div>
-                        <div class="px-2">
-                            <hr class="m-0 my-2">
+                        <div class="px-0">
                             <?php
                                     if (!$this->session->has_userdata('user_id')) {
                                         $props = "data-target='#signUp' data-toggle='modal'";
@@ -119,29 +118,27 @@ h4 {
                                         $props = "id='bookTopic'";
                                     }
                                     ?>
-                            <div class="col-md-12 p-0">
-                                <div class="row">
-                                    <div class="col-md-12 mt-3">
-                                        <?php
-                                                if (!in_array($topic_id, $bookingTopic)) {
-                                                ?>
-                                        <div class="nav-link btn btn-sm btn-outline-primary d-inline mb-1 btn-book btn-<?= $topic_id; ?>"
-                                            data-topicid="<?php echo $topic_id; ?>"
-                                            data-topicinfo="<?php echo $arrTopic; ?>" <?php echo $props; ?>>
-                                            Join Now
-                                        </div>
-                                        <?php
-                                                }
-                                                ?>
-                                        <div div
-                                            class=" desc-topic nav-link btn btn-sm btn-outline-primary d-inline ml-2 mb-1 btn-tellme"
-                                            data-container="body" data-toggle="modal"
-                                            data-content="<?php echo $row['topic_desc']; ?>" data-target="#uni-story">
-                                            Tell Me More
-                                            <!-- <div class="float-right mr-2">
+                            <div class="row">
+                                <div class="col-md-12 mt-3">
+                                    <?php
+                                            if (!in_array($topic_id, $bookingTopic)) {
+                                            ?>
+                                    <div class="nav-link btn btn-sm btn-outline-primary d-inline mb-1 mr-2 btn-book btn-<?= $topic_id; ?>"
+                                        data-topicid="<?php echo $topic_id; ?>"
+                                        data-topicinfo="<?php echo $arrTopic; ?>" <?php echo $props; ?>>
+                                        Join Now
+                                    </div>
+                                    <?php
+                                            }
+                                            ?>
+                                    <div div
+                                        class=" desc-topic nav-link btn btn-sm btn-outline-primary d-inline mb-1 btn-tellme"
+                                        data-container="body" data-toggle="modal"
+                                        data-content="<?php echo $row['topic_desc']; ?>" data-target="#uni-story">
+                                        Tell Me More
+                                        <!-- <div class="float-right mr-2">
                                                 <i class="fas fa-arrow-alt-circle-right"></i>
                                             </div> -->
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -157,8 +154,8 @@ h4 {
     <?php }
 
     if ($talk_day2 != "") { ?>
-    <div class="p-4 day2talks eventpre" style="margin-top: 5em">
-        <div class="row" style="padding-top: 1em">
+    <div class="px-md-4 mb-4 mt-md-5 mt-3 day2talks eventpre">
+        <div class="row px-0 pt-2">
             <?php
                 foreach ($talk_day2 as $row) {
                     $topic_start_date = new DateTime($row['topic_start_date']);
@@ -172,14 +169,14 @@ h4 {
                     );
                     $arrTopic = base64_encode(json_encode($arrTopic));
                 ?>
-            <div class="col-md-6 mb-3 d-flex align-items-stretch">
+            <div class="col-md-6 mb-3 p-md-3 p-0 d-flex align-items-stretch">
                 <div class="card bg-white">
-                    <div class="card-body  p-0">
+                    <div class="card-body  p-1">
                         <div class="img-box">
                             <img src="<?= base_url('assets/topic/' . $row['topic_banner']); ?>" class="img-topic">
                         </div>
-                        <div class="row px-2 pt-2 no-gutters talk-button">
-                            <div class="col-11">
+                        <div class="row px-0 pt-2 no-gutters talk-button">
+                            <div class="col-12">
                                 <p class="m-0 tanggal">
                                     <?= $topic_start_date->format('M, dS Y (H:i') ?> -
                                     <?= $topic_end_date->format('H:i') ?> WIB)
@@ -195,7 +192,7 @@ h4 {
                                         ?>
                             </div>
                         </div>
-                        <div class="px-2">
+                        <div class="px-0">
                             <?php
                                     if (!$this->session->has_userdata('user_id')) {
                                         $props = "data-target='#signUp' data-toggle='modal'";
@@ -203,25 +200,23 @@ h4 {
                                         $props = "id='bookTopic'";
                                     }
                                     ?>
-                            <div class="col-md-12 p-0">
-                                <div class="row">
-                                    <div class="col-md-12 mt-3">
-                                        <?php
-                                                if (!in_array($topic_id, $bookingTopic)) {
-                                                ?>
-                                        <div class="nav-link btn btn-sm btn-outline-primary d-inline mb-1 mr-2 btn-book btn-<?= $topic_id; ?>"
-                                            data-topicid="<?php echo $topic_id; ?>"
-                                            data-topicinfo="<?php echo $arrTopic; ?>" <?php echo $props; ?>>
-                                            Join Now
-                                        </div>
-                                        <?php
-                                                }
-                                                ?>
-                                        <div class="desc-topic nav-link btn btn-sm btn-outline-primary d-inline mb-1 btn-tellme"
-                                            data-container="body" data-toggle="modal"
-                                            data-content="<?php echo $row['topic_desc']; ?>" data-target="#uni-story">
-                                            Tell Me More
-                                        </div>
+                            <div class="row">
+                                <div class="col-md-12 mt-3">
+                                    <?php
+                                            if (!in_array($topic_id, $bookingTopic)) {
+                                            ?>
+                                    <div class="nav-link btn btn-sm btn-outline-primary d-inline mb-1 mr-2 btn-book btn-<?= $topic_id; ?>"
+                                        data-topicid="<?php echo $topic_id; ?>"
+                                        data-topicinfo="<?php echo $arrTopic; ?>" <?php echo $props; ?>>
+                                        Join Now
+                                    </div>
+                                    <?php
+                                            }
+                                            ?>
+                                    <div class="desc-topic nav-link btn btn-sm btn-outline-primary d-inline mb-1 btn-tellme"
+                                        data-container="body" data-toggle="modal"
+                                        data-content="<?php echo $row['topic_desc']; ?>" data-target="#uni-story">
+                                        Tell Me More
                                     </div>
                                 </div>
                             </div>
