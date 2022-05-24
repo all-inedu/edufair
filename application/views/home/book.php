@@ -360,7 +360,7 @@
                                                 </div> -->
                                             
                                         </div>
-                                        <div class="col-md-6 desc-uni btn-outline-primary d-inline ml-2 mb-1 btn-tellme btn-topic" class="inst-unilist" data-container="body" data-toggle="modal"
+                                        <div class="col-md-6 desc-uni btn-outline-primary d-inline ml-2 mb-1 btn-tellme btn-topic px-2" class="inst-unilist" data-container="body" data-toggle="modal"
                                     data-content="<?php echo $uniInfo['uni_description']; ?>" data-target="#uni-story"
                                     style="cursor: pointer">
                                                 Tell Me More

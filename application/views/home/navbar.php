@@ -12,7 +12,7 @@
 }
 
 .navbar-nav > li{
-    margin-left:45px;
+    margin-left:15px;
     margin-right:45px;
 }
 

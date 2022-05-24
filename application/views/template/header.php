@@ -439,7 +439,7 @@
 
     .background-lp{
         background-image: url('assets/img/home/edufair-background.webp');
-        background-size: cover auto;
+        background-size: cover;
     }
 
     #talks-section {
@@ -479,7 +479,7 @@
     }
 
     #register-form {
-        background-image: url('<?php echo base_url(); ?>assets/img/BG.webp');
+        /* background-image: url('<?php echo base_url(); ?>assets/img/BG.webp'); */
         background-size: cover;
         background-repeat: no-repeat;
         background-position: bottom;
@@ -929,7 +929,7 @@
     .nav-block {
         background: #0D2F7F;
         padding: 5px 1em;
-        border-radius: 20px;
+        /* border-radius: 20px; */
     }
 
     .nav-block a {

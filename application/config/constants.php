@@ -84,11 +84,11 @@ defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
-//* VARIABLES
-defined('TALK_DAY_1') OR define('TALK_DAY_1', '2021-07-24');
-defined('TALK_DAY_2') OR define('TALK_DAY_2', '2021-07-25');
-// defined('TALK_DAY_1') OR define('TALK_DAY_1', '2022-05-17');
-// defined('TALK_DAY_2') OR define('TALK_DAY_2', '2022-05-18');
+// //* VARIABLES
+// defined('TALK_DAY_1') OR define('TALK_DAY_1', '2021-07-24');
+// defined('TALK_DAY_2') OR define('TALK_DAY_2', '2021-07-25');
+defined('TALK_DAY_1') OR define('TALK_DAY_1', '2022-05-17');
+defined('TALK_DAY_2') OR define('TALK_DAY_2', '2022-05-18');
 defined('REMINDER_H7') OR define('REMINDER_H7', '2022-05-10');
 defined('REMINDER_H3') OR define('REMINDER_H3', '2022-05-14');
 defined('REMINDER_H1') OR define('REMINDER_H1', '2022-05-16');
