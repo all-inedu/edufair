@@ -311,7 +311,8 @@ body {
                                         <!-- <label class="sr-only" for="inlineFormInputGroup">Upload your CV / Resume here</label> -->
                                         <div class="input-group mb-2 upload-cv-field">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text"><i class="fas fa-file"></i></div>
+                                                <div class="input-group-text file-logo"><i class="fas fa-file"></i></div>
+                                                <div class="input-group-text file-close" hidden style="cursor:pointer"><i class="fas fa-times" style="color: red;"></i></div>
                                             </div>
                                             <input type="file" hidden name="uploaded_resume" id="upload-resume" onchange="save_file(this.value)">
                                             <input type="text" readonly class="form-control upload-filename" value="<?=$this->session->userdata('user_resume');?>" placeholder="Your resume">
@@ -604,10 +605,22 @@ function save_file(value) {
     var split = value.split('\\');
     var file_name = split[split.length - 1];
 
+    $(".file-logo").prop('hidden', true);
+    $(".file-close").prop('hidden', false);
     $(".btn-browse").prop('hidden', true);
     $(".btn-upload").prop('hidden', false);
     $(".upload-filename").val(file_name);
 }
+
+$(".file-close").click(function() {
+    $(".file-logo").prop('hidden', false);
+    $(".file-close").prop('hidden', true);
+    $(".btn-browse").prop('hidden', false);
+    $(".btn-upload").prop('hidden', true);
+    $(".upload-filename").val('');
+});
+
+//* New 2022 end */
 
 function checkValue(param) {
     switch (param) {
