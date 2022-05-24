@@ -60,13 +60,15 @@
         <br>
         <br>
         <div class="box">
-            Heads up, you’re in for insightful sessions with global universities to talk about important topics that
-            will help you prepare for admissions! <br><br>
+            Heads up, you’re in for insightful sessions with our top-notch speakers on important topics that will help you prepare for your top university application! <br><br>
 
-            You can also book a consultation and have a 1-on-1 talk with the university rep to ask away your burning
-            questions. See the schedule on our website! <br><br>
+            You are welcome to book a consultation and have a 1-on-1 talk with the university rep to ask away your burning questions. <br><br>
 
-            <a href="https://edufair.all-inedu.com/" class="btn">Visit our website here! </a> <br><br>
+            Don’t forget to take <b>free</b> Online Talent and Personality Test, powered by Life Talk Asia to help your self-exploration process, available now at our website! <br><br>
+
+            Book your consultation, sign up for insightful talk shows, and take your FREE Talent & Personality Test here: <br><br>
+
+            <a href="https://edufair.all-inedu.com/" class="btn">Visit Global University Fair 2022 Website </a> <br><br>
 
             Best regards,<br>
             ALL-in Eduspace Team

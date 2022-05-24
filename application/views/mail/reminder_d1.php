@@ -73,7 +73,7 @@
             Good morning, <?=$user_name;?>!<br>
 
             <p>Ready to take on the day? <br>
-                Here is your consultation and university talks schedule on July 24th:</p>
+                Here is your consultation and university talks schedule on July 23rd:</p>
             <?php
                 if(!empty($topic)) {
             ?>

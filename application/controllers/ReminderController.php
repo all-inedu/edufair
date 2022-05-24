@@ -43,7 +43,7 @@ class ReminderController extends CI_Controller {
                 $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
                 // $this->email->to('hafidz.bdt@gmail.com');
                 $this->email->to($email);
-                $this->email->subject('Did you book your 1-on-1 consultation yet?');
+                $this->email->subject(SUBJECT_REMINDER_H7);
                 $bodyMail = $this->load->view('mail/reminder_h-7', '', true);
                 $this->email->message($bodyMail);
                 $this->email->send();
@@ -66,7 +66,7 @@ class ReminderController extends CI_Controller {
                 $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
                 // $this->email->to('hafidz.bdt@gmail.com');
                 $this->email->to($email);
-                $this->email->subject('Quick! Secure your spot now!');
+                $this->email->subject(SUBJECT_REMINDER_H3);
                 $bodyMail = $this->load->view('mail/reminder_h-3', '', true);
                 $this->email->message($bodyMail);
                 $this->email->send();
@@ -107,7 +107,7 @@ class ReminderController extends CI_Controller {
                     $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
                     $this->email->to($email);
                     // $this->email->to('hafidz.fanany@all-inedu.com');
-                    $this->email->subject('These universities are expecting you!');
+                    $this->email->subject(SUBJECT_REMINDER_H1);
                     $bodyMail = $this->load->view('mail/reminder_h-1', $d, true);
                     $this->email->message($bodyMail);
                     $this->email->send();

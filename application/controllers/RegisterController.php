@@ -187,7 +187,7 @@ class RegisterController extends CI_Controller {
 			$this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
 			$this->email->to($email);
 			// $this->email->cc('manuel.eric@all-inedu.com');
-			$this->email->subject('Welcome to ALL-in Global University Fair 2022!');
+			$this->email->subject(SUBJECT_WELCOME_EMAIL);
 			$bodyMail = $this->load->view('mail/welcome', '', true);
 			$this->email->message($bodyMail);
 			$this->email->send();
@@ -349,7 +349,7 @@ class RegisterController extends CI_Controller {
         $this->email->to($email);
         // $this->email->cc('manuel.eric@all-inedu.com');
 
-        $this->email->subject('Let’s get you verified!');
+        $this->email->subject(SUBJECT_VERIFY_EMAIL);
 
         $bodyMail = $this->load->view('mail/verify_email', $data, true);
         $this->email->message($bodyMail);

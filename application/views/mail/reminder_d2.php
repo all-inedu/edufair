@@ -74,7 +74,7 @@
 
             <p>Don’t forget your appointment on this last day! <br>
                 Here is your consultation and university talks schedule
-                on July 25th:</p>
+                on July 24th:</p>
             <?php
                 if(!empty($topic)) {
             ?>
