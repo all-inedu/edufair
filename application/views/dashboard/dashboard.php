@@ -1,5 +1,6 @@
 <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
 <style>
+.introjs-helperLayer { height: 95px !important}
 #register-form {
     color: #0C2F80;
     padding: 10% 10% 10% 6%;
@@ -259,44 +260,44 @@ body {
                                     <ul class="list-group list-group-flush" id="view-form">
                                         <li class="list-group-item py-2">
                                             <div class="row pt-2 pb-2">
-                                                <div class="col-lg-5"><b>Date of Birth</b></div>
-                                                <div class="col-lg-7">
+                                                <div class="col-lg-4"><b>Date of Birth</b></div>
+                                                <div class="col-lg-8">
                                                     <?php echo date('d M Y', strtotime($this->session->userdata('user_dob'))); ?>
                                                 </div>
                                             </div>
                                         </li>
                                         <li class="list-group-item py-2">
                                             <div class="row">
-                                                <div class="col-lg-5"><b>Phone</b></div>
-                                                <div class="col-lg-7">
+                                                <div class="col-lg-4"><b>Phone</b></div>
+                                                <div class="col-lg-8">
                                                     <?php echo $this->session->userdata('user_phone'); ?></div>
                                             </div>
                                         </li>
                                         <li class="list-group-item py-2">
                                             <div class="row">
-                                                <div class="col-lg-5"><b>Email</b></div>
-                                                <div class="col-lg-7">
+                                                <div class="col-lg-4"><b>Email</b></div>
+                                                <div class="col-lg-8">
                                                     <?php echo $this->session->userdata('user_email'); ?></div>
                                             </div>
                                         </li>
                                         <li class="list-group-item py-2">
                                             <div class="row">
-                                                <div class="col-lg-5"><b>School</b></div>
-                                                <div class="col-lg-7">
+                                                <div class="col-lg-4"><b>School</b></div>
+                                                <div class="col-lg-8">
                                                     <?php echo $this->session->userdata('user_school'); ?></div>
                                             </div>
                                         </li>
                                         <li class="list-group-item py-2">
                                             <div class="row">
-                                                <div class="col-lg-5"><b>Destination</b></div>
-                                                <div class="col-lg-7">
+                                                <div class="col-lg-4"><b>Destination</b></div>
+                                                <div class="col-lg-8">
                                                     <?php echo $this->session->userdata('user_country'); ?></div>
                                             </div>
                                         </li>
                                         <li class="list-group-item py-2">
                                             <div class="row">
-                                                <div class="col-lg-5"><b>Major</b></div>
-                                                <div class="col-lg-7">
+                                                <div class="col-lg-4"><b>Major</b></div>
+                                                <div class="col-lg-8">
                                                     <?php echo $this->session->userdata('user_major'); ?></div>
                                             </div>
                                         </li>
@@ -304,19 +305,28 @@ body {
                                 </div>
                             </div>
                             <hr>
-                            <div class="row">
-                                <div class="col-md-12 text-center" data-title="Hallo" data-intro="Kamu bisa upload CV kamu disini">
-                                    Upload CV here
-                                    <br>
+                            <div class="row" data-title="Hallo" data-intro="Kamu bisa upload CV kamu disini">
+                                <div class="col-md-12 text-center">
                                     <form action="<?php echo base_url(); ?>upload/resume" method="POST" enctype="multipart/form-data" id="upload-form">
-                                    <div>
-                                        <input type="file" name="uploaded_resume">
+                                        <!-- <label class="sr-only" for="inlineFormInputGroup">Upload your CV / Resume here</label> -->
+                                        <div class="input-group mb-2 upload-cv-field">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text"><i class="fas fa-file"></i></div>
+                                            </div>
+                                            <input type="file" hidden name="uploaded_resume" id="upload-resume" onchange="save_file(this.value)">
+                                            <input type="text" readonly class="form-control upload-filename" value="<?=$this->session->userdata('user_resume');?>" placeholder="Your resume">
+                                            <div class="input-group-append">
+                                                <button onclick="browse()" class="btn btn-primary btn-browse" style="background:#0C2F80;" type="button">Browse</button>
+                                                <button class="btn btn-primary btn-upload" style="background:#0C2F80;" hidden type="submit">Upload CV</button>
+                                            </div>
+                                        </div>
+                                        <!-- <input type="file" name="uploaded_resume">
                                         <label for="files"><?=$this->session->userdata('user_resume');?></label>
                                     </div>
                                         <button  class="btn btn-primary mt-3 mb-3"
                                             style="background:#0C2F80;" type="submit">
                                             Upload CV
-                                        </button>
+                                        </button> -->
                                     </form>
                                 </div>
                             </div>
@@ -462,7 +472,13 @@ body {
 <script>
     <?php if ($this->session->userdata('user_resume') == ''){
     ?> 
-        introJs().start();
+        introJs().setOptions({
+            steps: [{
+                element: document.querySelector('.upload-cv-field'),
+                title: 'Welcome!',
+                intro: 'Before getting started, please upload your CV / resume because you can win a chance to have your CV / resume checked by our mentor.'
+            }]
+        }).start();
     <?php
     }?> 
 
@@ -578,6 +594,20 @@ new SlimSelect({
     placeholder: 'Select major'
 }).set(array_userMajor)
 /* major end */
+
+//* New 2022 */
+function browse() {
+    $("#upload-resume").click();
+}
+
+function save_file(value) {
+    var split = value.split('\\');
+    var file_name = split[split.length - 1];
+
+    $(".btn-browse").prop('hidden', true);
+    $(".btn-upload").prop('hidden', false);
+    $(".upload-filename").val(file_name);
+}
 
 function checkValue(param) {
     switch (param) {
