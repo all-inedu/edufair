@@ -5,12 +5,18 @@
 }
 
 .textarea-red {
-    border: 3px solid #F43636;
+    border-radius: 0 !important;
+    border: 2px solid #dedede;
 }
 
 .btn-submit-uni {
-    background: #0D3C9C;
-    color: #0D3C9C;
+    background: #F1D202;
+    color: #255896;
+}
+
+.btn-submit-uni:hover {
+    color: #F1D202;
+    background: #255896;
 }
 
 .tombol {
@@ -31,7 +37,6 @@
     border: 1px solid #305891;
     margin: 5px;
     border-radius: 17px;
-    color: #305891;
 }
 
     .items-collection label.btn-default {
@@ -49,22 +54,23 @@
 } */
 
 .btn-booking-uni {
-    background: red;
     width: 90%;
-    border: 4px solid #0D3C9C;
+    border: 2px solid #dedede;
     margin: 5px;
     font-weight: 100 !important;
-    /* border-radius: 17px; */
-    color: #F43636;
+    font-size: 1.3em;
+    border-radius: 0;
+    padding: 15px 0 20px 0;
+    color: #255896;
 }
 
 .btn-booking-uni.active {
-    background-color: #0D3C9C;
+    background: #255896;
     color: #FFFFFF !important;
 }
 
 .btn-booking-uni:hover {
-    background-color: #0D3C9C;
+    background: #255896;
     color: #FFFFFF !important;
 }
 
@@ -197,8 +203,9 @@ if (!$this->session->has_userdata('user_id')) {
 
 
 <!-- Modal -->
-<div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+<!-- <div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title title-desc-blue" id="exampleModalLabel">Description</h5>
@@ -211,7 +218,7 @@ if (!$this->session->has_userdata('user_id')) {
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 <div class="container-fluid pb-4" id="booking">
@@ -381,8 +388,6 @@ if (!$this->session->has_userdata('user_id')) {
                                                             if ($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
                                                             ?>
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title title-booking-blue">Choose Your
-                                                                Schedule</h5>
                                                             <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
@@ -392,6 +397,8 @@ if (!$this->session->has_userdata('user_id')) {
                                                             }
                                                             ?>
                                                         <div class="modal-body">
+                                                            <h5 class="modal-title title-booking-blue">Choose Your
+                                                                Schedule</h5>
                                                             <?php
                                                                 // check if uni status fullbook is not full
                                                                 if ($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
@@ -442,10 +449,10 @@ if (!$this->session->has_userdata('user_id')) {
                                                                                                                 value="<?php echo $uni_dtl_id; ?>"
                                                                                                                 <?php echo (array_search($uni_dtl_id, array_column($bookingConsult, 'uni_dtl_id')) != "") ? "checked disabled" : ""; ?>>
                                                                                                             <!-- <span class="fa fa-calendar fa-2x"></span> -->
-                                                                                                            <h5 class="text-booking-uni"
+                                                                                                            <div class="text-booking-uni"
                                                                                                                 style="text-align: center;padding-top: 0.5rem">
                                                                                                                 <?php echo date('d M Y H:i', strtotime($assigned_time)); ?>
-                                                                                                            </h5>
+                                                                                                            </div>
                                                                                                         </div>
                                                                                                     </label>
                                                                                                 </div>
@@ -458,20 +465,23 @@ if (!$this->session->has_userdata('user_id')) {
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="form-group">
+                                                                            <div class="form-group px-1 pt-3">
                                                                                 <label for="exampleInputEmail1"
-                                                                                    class="text-dark">Write your
-                                                                                    questions</label>
+                                                                                    class="text-dark mb-0">Question for
+                                                                                    the
+                                                                                    University</label>
                                                                                 <textarea type="text"
                                                                                     class="form-control textarea-red"
                                                                                     aria-describedby="emailHelp"
                                                                                     placeholder="type your questions here"
-                                                                                    name="question"></textarea>
+                                                                                    name="question" rows="5"></textarea>
                                                                             </div>
                                                                             <input type="hidden" name="uni_id"
                                                                                 value="<?= $uniInfo['uni_id']; ?>">
-                                                                            <button type="submit"
-                                                                                class="btn btn-submit-uni">Submit</button>
+                                                                            <div class="text-right mx-1">
+                                                                                <button type="submit"
+                                                                                    class="btn btn-submit-uni">Submit</button>
+                                                                            </div>
                                                                         </form>
                                                                     </div>
                                                                 </div>
