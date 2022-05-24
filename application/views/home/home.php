@@ -5,18 +5,18 @@ $this->load->view('home/header');
 ?>
 <section class=" background-lp">
     <div class="container">
-<?php
-$this->load->view('home/pre_edufair');
-$this->load->view('home/topic');
-?>
+        <?php
+        $this->load->view('home/pre_edufair');
+        $this->load->view('home/topic');
+        ?>
     </div>
-<?php
-$this->load->view('home/personality');
-?>
-<div class="container">
-<?php
-$this->load->view('home/book');
-?>
+    <?php
+    $this->load->view('home/personality');
+    ?>
+    <div class="container">
+        <?php
+        $this->load->view('home/book');
+        ?>
     </div>
 </section>
 <?php
