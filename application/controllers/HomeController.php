@@ -373,9 +373,13 @@ class HomeController extends CI_Controller {
 
 	public function bookingConsultation()
 	{
+		$value_of_selected_consult = $this->input->post('var_id_value');
 		$selected_consult_schedule = $this->input->post('var_id');
+		if ($selected_consult_schedule == null) {
+			$selected_consult_schedule = $value_of_selected_consult;
+		}
 		try {
-			for ($i = 0; $i < count($this->input->post('var_id')) ; $i++) {
+			for ($i = 0; $i < count($selected_consult_schedule) ; $i++) {
 				
 				$data = array(
 					'uni_dtl_id' => $selected_consult_schedule[$i],
@@ -387,9 +391,11 @@ class HomeController extends CI_Controller {
 
 				if ($this->ConsultModel->checkExistingConsultation($data) == 0) {
 					$this->ConsultModel->bookingConsult($data);
+					$code = "001";
 				} 
 			}
 			$this->ConsultModel->insertQuestion($this->session->userdata('user_id'), $this->input->post('uni_id'), $this->input->post('question'));
+			$code = "201";
 		} catch (Exception $e) {
 			echo json_encode(array(
 				"code" => "000",
@@ -398,7 +404,7 @@ class HomeController extends CI_Controller {
 		}
 
 		echo json_encode(array(
-			"code" => "001",
+			"code" => $code,
 			"value" => $selected_consult_schedule
 		));
 		

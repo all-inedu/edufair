@@ -99,10 +99,21 @@ $(".booking-form").each(function(e) {
             
             return;
         }
+
+        var select_question = $(this).find('textarea');
+        var question = select_question.val();
+        if (question == null || question == "" || (typeof question == "undefined")) {
+            Swal.fire(
+                '',
+                'Please write your question.',
+                'info'
+            );
+            return;
+        }
         // return;
         swal.fire({
             icon: 'question',
-            title: 'You\'re about to book a consultation',
+            title: 'You\'re about to book a consultation / ask a question',
             showCancelButton: true,
             focusConfirm: false,
             confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',
@@ -125,8 +136,18 @@ $(".booking-form").each(function(e) {
                                 for (i = 0; i < msg.value.length; i++) {
                                     $("input[type=checkbox][value="+msg.value[i]+"]").prop("checked", true);
                                 }
+                                select_question.val('');
                             });
-
+                        } else if (msg.code == "201") {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Thank you!',
+                                html: 'We have noted your question.',
+                                confirmButtonText: 'OK',
+                            }).then((result) => {
+                                
+                                select_question.val('');
+                            });
                             
                         } else if (msg.code == "05") {
                             Swal.fire({
@@ -134,6 +155,7 @@ $(".booking-form").each(function(e) {
                                 title: 'You have booked at this university!',
                                 html: 'Check the dashboard for your agenda.'
                             });
+
                         } else if (msg.code == "06") {
                             Swal.fire({
                                 icon: 'error',
