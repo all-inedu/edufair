@@ -39,7 +39,7 @@
     color: #FFF;
     margin-top: -1.2em;
     left: 1.5em;
-    border-radius: .5em;
+    /* border-radius: .5em; */
 }
 
 .card-consult::before {

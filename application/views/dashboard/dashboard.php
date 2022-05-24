@@ -1,3 +1,4 @@
+<link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
 <style>
 #register-form {
     color: #0C2F80;
@@ -5,9 +6,10 @@
 }
 
 #register-form .card {
-    background: transparent;
-    border: 1px solid #0C2F80;
-    border-radius: 10px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* border: 1px solid #0C2F80; */
+    /* border-radius: 10px; */
 }
 
 #register-form .card h5,
@@ -39,7 +41,7 @@
     color: #FFF;
     margin-top: -1.2em;
     left: 1.5em;
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 .card-consult::before {
@@ -51,7 +53,7 @@
     color: #FFF;
     margin-top: -1.2em;
     left: 1.5em;
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 #register-form .u-btn {
@@ -303,7 +305,7 @@ body {
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col-md-12 text-center">
+                                <div class="col-md-12 text-center" data-title="Hallo" data-intro="Kamu bisa upload CV kamu disini">
                                     Upload CV here
                                     <br>
                                     <form action="<?php echo base_url(); ?>upload/resume" method="POST" enctype="multipart/form-data" id="upload-form">
@@ -311,7 +313,7 @@ body {
                                         <input type="file" name="uploaded_resume">
                                         <label for="files"><?=$this->session->userdata('user_resume');?></label>
                                     </div>
-                                        <button class="btn btn-primary mt-3 mb-3"
+                                        <button  class="btn btn-primary mt-3 mb-3"
                                             style="background:#0C2F80;" type="submit">
                                             Upload CV
                                         </button>
@@ -443,7 +445,7 @@ body {
                             <p>You have no consultation scheduled. Click <a
                                     href="<?php echo base_url(); ?>?section=booking">here</a> to book.</p>
                             <?php
-							 	}	?>
+							    }	?>
                         </div>
                     </div>
                 </div>
@@ -451,11 +453,19 @@ body {
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/5.1.0/intro.min.js"></script>
+<script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
     crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.js"></script>
 <script>
+    <?php if ($this->session->userdata('user_resume') == ''){
+    ?> 
+        introJs().start();
+    <?php
+    }?> 
+
 $(document).ready(function() {
     $('#userSchoolNew').hide();
     $('#userMajorNew').hide();
