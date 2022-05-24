@@ -347,7 +347,7 @@
 
 
     .eventpre {
-        padding: 2% 0px 1% 3% !important;
+        padding: 0;
     }
 
     .preevent {
@@ -363,6 +363,7 @@
         padding: .2em 1.5em;
         top: 0;
         z-index: 2;
+        margin-left: 10px;
         background: #fff;
         font-size: 1.2em;
         color: #255896;
@@ -393,6 +394,7 @@
         top: 0;
         margin-top: -1.2em;
         z-index: 2;
+        margin-left: 10px;
         background: #fff;
         font-size: 1.2em;
         color: #255896;
@@ -403,6 +405,7 @@
         content: "24 JULY";
         border: 2px solid #255896;
         /* border-radius: 1.5em; */
+        margin-left: 10px;
         padding: .2em 1.5em;
         position: absolute;
         top: 0;
@@ -515,6 +518,7 @@
     }
 
     @media screen and (max-width: 375px) and (min-width: 250px) {
+
         .container-fluid {
             margin: 0 !important;
             padding: 0px !important;
@@ -616,11 +620,23 @@
         }
 
         #talks .row div {
-            padding: auto 1em;
+            padding: 0;
         }
     }
 
     @media screen and (max-width: 576px) and (min-width: 375px) {
+        .preevent::before {
+            margin-left: -10px !important;
+        }
+
+        .day1talks::before {
+            margin-left: -10px !important;
+        }
+
+        .day2talks::before {
+            margin-left: -10px !important;
+        }
+
         .navbar-brand {
             margin-right: 0 !important;
         }
@@ -732,7 +748,7 @@
         }
 
         #talks .row div {
-            padding: auto 1em;
+            padding: 0;
         }
 
         #home h3.edufair-date {
@@ -976,6 +992,8 @@
 
     .nav-block a {
         color: #FFF !important;
+
+
     }
     </style>
 </head>

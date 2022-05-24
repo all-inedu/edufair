@@ -217,7 +217,7 @@ if (!$this->session->has_userdata('user_id')) {
 <div class="container-fluid pb-4" id="booking">
     <div class="pb-4">
         <div class="row pb-5">
-            <div class="col-lg-8 col-sm-12 text-left">
+            <div class="col-lg-8 col-sm-12 text-left px-md-3 px-0">
                 <h2>UNIVERSITY LIST</h2>
                 <h5 class="uni-book-header-desc">You have a chance to book a personal consultation and join talks with
                     the universities listed below!
@@ -227,12 +227,12 @@ if (!$this->session->has_userdata('user_id')) {
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col-12 px-md-4 px-0">
                 <h5 class="region-of-origin">Region of origin:</h5>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 text-left">
+            <div class="col-md-10 col-12 text-left px-md-3 px-0">
                 <?php
                 foreach ($uniCountry as $key => $val) {
                 ?>
@@ -304,7 +304,7 @@ if (!$this->session->has_userdata('user_id')) {
                 }
             </style>
             <div class="row p-4">
-                <div class="mt-3 p-2 box-book">
+                <div class="mt-3 px-md-2 px-0 box-book">
                     <div class="row my-0" id="consult-container">
                         <?php
                         $i = 0;

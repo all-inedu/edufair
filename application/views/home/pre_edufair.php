@@ -67,7 +67,7 @@ h4 {
 </style>
 <section id="talks-section">
     <div class="talks-header" id="talks">
-        <div class="row">
+        <div class="row px-md-1 px-2">
             <div class="col-lg-9 col-sm-12 text-left mt-md-0 mt-3 pl-0">
                 <h2>MAIN STAGE SESSIONS</h2>
                 <h5>Have a conversation directly with the university representative about these trending topics
@@ -80,16 +80,16 @@ h4 {
 
 
     <!-- PRE-EVENTS  -->
-    <div class="eventpre p-4 mb-4 preevent">
-        <div class="row" style="padding-top: 1em">
-            <div class="col-md-6 mb-3">
+    <div class="eventpre px-md-4 preevent mt-4 mb-4">
+        <div class="row px-0 pt-2">
+            <div class="col-md-6 mb-3 p-md-3 p-0">
                 <div class="card">
-                    <div class="card-body bg-white p-0">
+                    <div class="card-body bg-white p-1">
                         <div class="img-box">
                             <img src="https://picsum.photos/400/200" class="img-topic">
                         </div>
-                        <div class="row px-2 pt-2 no-gutters talk-button">
-                            <div class="col-11">
+                        <div class="row px-0 pt-2 no-gutters talk-button">
+                            <div class="col-12">
                                 <p class="m-0 tanggal">
                                     10:00 AM WIB | 16 July 2022
                                 </p>
@@ -98,18 +98,15 @@ h4 {
                                 </span>
                             </div>
                         </div>
-                        <div class="px-2">
-                            <div class="col-md-12 p-0">
-                                <div class="row">
-                                    <div class="col-md-12 mt-3">
-                                        <div
-                                            class="nav-link btn btn-sm btn-outline-primary d-inline mb-1 mr-2 btn-book">
-                                            Join Now
-                                        </div>
-                                        <div class=" desc-topic nav-link btn btn-sm btn-outline-primary d-inline mb-1 btn-tellme"
-                                            data-container="body" data-toggle="modal">
-                                            Tell Me More
-                                        </div>
+                        <div class="px-0">
+                            <div class="row">
+                                <div class="col-md-12 mt-3">
+                                    <div class="nav-link btn btn-sm btn-outline-primary d-inline mb-1 mr-2 btn-book">
+                                        Join Now
+                                    </div>
+                                    <div class=" desc-topic nav-link btn btn-sm btn-outline-primary d-inline mb-1 btn-tellme"
+                                        data-container="body" data-toggle="modal">
+                                        Tell Me More
                                     </div>
                                 </div>
                             </div>
