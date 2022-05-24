@@ -1,5 +1,6 @@
 <style>
 body {
+    background-image: url("<?php echo base_url(); ?>assets/img/home/edufair-background.webp");
     background-size: 100%;
     background-attachment: fixed;
 }
