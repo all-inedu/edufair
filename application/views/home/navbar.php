@@ -13,7 +13,7 @@
 
 .navbar-nav > li{
     margin-left:15px;
-    margin-right:45px;
+    margin-right:25px;
 }
 
 .navbar-nav{
