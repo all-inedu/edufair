@@ -1,7 +1,7 @@
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-light text-muted">
     <!-- Section: Social media -->
-    <section class="container">
+    <section class="container-fluid" style="background: #F0D202;">
         <div class="row py-3">
             <div class="col text-center">
                 <span>Get connected with us on social networks: &nbsp;&nbsp;</span>
@@ -33,8 +33,7 @@
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
                     <h6 class="text-uppercase fw-bold mb-4">
-                        <img src="<?php echo base_url(); ?>assets/home/ALLIN-LOGO-NEW.webp"
-                            alt="" style="width: 120px">
+                        <img src="<?php echo base_url(); ?>assets/home/ALLIN-LOGO-NEW.webp" alt="" style="width: 120px">
                     </h6>
                     <p>
                         Connect with the universities from all over the world and get live updates about the education
@@ -50,12 +49,12 @@
                         Navigation
                     </h6>
                     <p>
-                        <a href="<?=base_url('?section=talks');?>" class="text-reset">Talks</a>
+                        <a href="<?= base_url('?section=talks'); ?>" class="text-reset">Talks</a>
                     </p>
                     <p>
-                        <a href="<?=base_url('?section=booking');?>" class="text-reset">University Booth</a>
+                        <a href="<?= base_url('?section=booking'); ?>" class="text-reset">University Booth</a>
                     </p>
-                    <?php if(!$this->session->userdata('user_id')) { ?>
+                    <?php if (!$this->session->userdata('user_id')) { ?>
                     <p>
                         <a class="text-reset" data-target="#signUp" data-toggle="modal">Sign Up</a>
                     </p>
@@ -67,8 +66,8 @@
                 <div class="col-md-5 col-lg-4 col-xl-4 mx-auto mb-md-0 mb-4">
                     <!-- Links -->
                     <h6 class="text-uppercase fw-bold mb-4">
-                    Jl Jeruk Kembar Blok Q9 No. 15
-                    Srengseng, Kembangan
+                        Jl Jeruk Kembar Blok Q9 No. 15
+                        Srengseng, Kembangan
                     </h6>
                     <i class="fas fa-thumbtack me-3"></i> &nbsp;Jakarta Barat 11530, Indonesia</p>
                     <p><i class="fas fa-envelope me-3"></i> info@all-inedu.com</p>
@@ -85,7 +84,7 @@
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div class="text-center p-4" id="footer-copy">
+    <div class="text-center p-4" id="footer-copy" style="background: #235788; color: #fff;">
         © 2021 Copyright:
         <a class="text-reset fw-bold" href="https://all-inedu.com">All-in Eduspace. All rights reserved.</a>
     </div>
