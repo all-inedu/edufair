@@ -233,7 +233,7 @@ h4 {
     }
     ?>
     <!-- Modal -->
-    <div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    <!-- <div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -248,7 +248,7 @@ h4 {
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </section>
 
 

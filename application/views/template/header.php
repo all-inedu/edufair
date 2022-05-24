@@ -45,6 +45,29 @@
         overflow: hidden;
     }
 
+    .modal-content {
+        border-radius: 0 !important;
+        border: 0 !important;
+    }
+
+    .modal-header {
+        border-bottom: none !important;
+        padding: 5px 1rem !important;
+    }
+
+    .modal-header .close {
+        padding: 5px 5px;
+        margin: -5px -1rem -1rem auto;
+        background: red;
+        color: #fff;
+    }
+
+    .modal-header h5,
+    .modal-body h5 {
+        color: #235787 !important;
+        font-size: 1.3em;
+    }
+
     .btn {
         border-radius: 0 !important;
     }
@@ -203,7 +226,7 @@
     }
 
     #btn-login {
-        background: #0D2F7F;
+        background: #235788;
         padding: 5px 35px 5px 35px;
         /* border: 1px solid #27387A; */
         /* border-radius: 20px 0px 0px 20px; */
@@ -212,8 +235,8 @@
     }
 
     #btn-login:hover {
-        background: #9FC2CB;
-        color: #1F1F1F;
+        background: #F0D202;
+        color: #235788;
     }
 
     #btn-signup {
@@ -992,8 +1015,6 @@
 
     .nav-block a {
         color: #FFF !important;
-
-
     }
     </style>
 </head>
