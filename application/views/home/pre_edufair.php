@@ -78,48 +78,94 @@ h4 {
         </div>
     </div>
 
-
     <!-- PRE-EVENTS  -->
-    <div class="eventpre px-md-4 preevent mt-4 mb-4">
-        <div class="row px-0 pt-2">
-            <div class="col-md-6 mb-3 p-md-3 p-0">
-                <div class="card">
-                    <div class="card-body bg-white p-1">
-                        <div class="img-box">
-                            <img src="https://picsum.photos/400/200" class="img-topic">
-                        </div>
-                        <div class="row px-0 pt-2 no-gutters talk-button">
-                            <div class="col-12">
-                                <p class="m-0 tanggal">
-                                    10:00 AM WIB | 16 July 2022
-                                </p>
-                                <h4 class="deskripsi">PRE EDUFAIR</h4>
-                                <span class="badge badge-allin text-white mb-1">ALL-in Eduspace</span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="px-0">
-                            <div class="row">
-                                <div class="col-md-12 mt-3">
-                                    <div class="nav-link btn btn-sm btn-outline-primary d-inline mb-1 mr-2 btn-book">
-                                        Join Now
+    <?php 
+    if ($pre_event != "" ) {
+        ?>
+        <div class="eventpre px-md-4 preevent mt-4 mb-4">
+            <div class="row px-0 pt-2">
+                <?php
+                foreach($pre_event as $row) {
+                    $topic_start_date = new DateTime($row['topic_start_date']);
+                    $topic_end_date = new DateTime($row['topic_end_date']);
+                    $topic_id = $row['topic_id'];
+                    $topic_name = $row['topic_name'];
+                    $arrTopic = array(
+                            "topic_id"   => $topic_id,
+                            "topic_name" => $topic_name,
+                            "topic_date" => $topic_start_date
+                        );
+                    $arrTopic = base64_encode(json_encode($arrTopic));
+                    ?>
+                    <div class="col-md-6 mb-3 p-md-3 p-0">
+                        <div class="card">
+                            <div class="card-body bg-white p-1">
+                                <div class="img-box">
+                                    <img src="<?=base_url('assets/topic/'.$row['topic_banner']);?>" class="img-topic">
+                                </div>
+                                <div class="row px-0 pt-2 no-gutters talk-button">
+                                    <div class="col-12">
+                                        <p class="m-0 tanggal">
+                                            <?=$topic_start_date->format('M, dS Y (H:i') ?> -
+                                            <?=$topic_end_date->format('H:i') ?> WIB)
+                                        </p>
+                                        <h4 class="deskripsi"><?php echo $topic_name; ?></h4>
+                                        <?php
+                                        foreach($row['uni_detail'] as $uniDetail){
+                                            ?>
+                                            <span class="badge badge-allin text-white mb-1"
+                                                id="topic-<?=$uniDetail['uni_id'];?>"><?php echo $uniDetail['uni_name']; ?>
+                                            </span>
+                                            <?php
+                                        }
+                                        ?>
                                     </div>
-                                    <div class=" desc-topic nav-link btn btn-sm btn-outline-primary d-inline mb-1 btn-tellme"
-                                        data-container="body" data-toggle="modal">
-                                        Tell Me More
-                                    </div>
+                                </div>
+                                <div class="px-0">
+                                    <!-- <h5><?php echo $row['topic_desc']; ?></h5> -->
+                                    <?php
+                                    if(!$this->session->has_userdata('user_id')){
+                                        $props = "data-target='#signUp' data-param='personal-test' data-toggle='modal'";
+                                    } else {
+                                        $props = "id='bookTopic-".$topic_id."'";
+                                    }
+                                    ?>
+                                    <!-- <div class="col-md-12 p-0"> -->
+                                        <div class="row">
+                                            <div class="col-md-12 mt-3">
+                                                <?php
+                                                if(!in_array($topic_id, $bookingTopic)) {
+                                                    ?>
+                                                    <div class="nav-link btn btn-sm btn-outline-primary d-inline mb-1 btn-book btn-<?=$topic_id;?>"
+                                                        data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic;?>"
+                                                        <?php echo $props; ?>>
+                                                        Join Now
+                                                    </div>
+                                                    <?php
+                                                }
+                                                ?>
+                                                <div class=" desc-topic nav-link btn btn-sm btn-outline-primary d-inline ml-2 mb-1 btn-tellme" data-container="body" data-toggle="modal"
+                                                    data-content="<?php echo $row['topic_desc']; ?>" data-target="#uni-story">
+                                                        Tell Me More
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <!-- </div> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                <?php 
+            }
+            ?>
             </div>
         </div>
-    </div>
-
+        <?php 
+    }
+    ?>
 
     <!-- Modal -->
-    <div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    <!-- <div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
@@ -134,7 +180,7 @@ h4 {
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </section>
 
 

@@ -280,41 +280,45 @@ $(".talk-button").click(function() {
     $(this).next(".hidden").toggle("slow");
 });
 
-$(".btn-book").each(function() {
-    $(this).click(function() {
+$(document).ready(function() {
+    $(".btn-book").each(function() {
+        $(this).click(function() {
 
-        var data_param = $(this).data('param');
-        if (data_param == "personal-test") {
-            $("#join-link").prop('href', "<?php echo base_url(); ?>registration?param=" + data_param);
-        } else {
-            $("#join-link").prop('href', "<?php echo base_url(); ?>registration");
-        }
-
-        var topicId = $(this).data('topicid');
-        $.ajax({
-            url: "<?php echo base_url(); ?>home/book/topic",
-            type: "POST",
-            data: {
-                topic_id: topicId
-            },
-            success: function(msg) {
-                if (msg == "001") {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'You’re on!',
-                        html: 'You have successfully booked this university talk. <br> We’ll remind you by email before the event.<br><br>Check the dashboard for your agenda.',
-                        confirmButtonText: 'OK',
-                    }).then((result) => {
-                        $('.btn-' + topicId).prop('hidden', true);
-                    });
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Something went wrong! Please try again.'
-                    });
-                }
+            var data_param = $(this).data('param');
+            if (data_param == "personal-test") {
+                $("#join-link").prop('href', "<?php echo base_url(); ?>registration?param=" + data_param);
+            } else {
+                $("#join-link").prop('href', "<?php echo base_url(); ?>registration");
             }
+
+            var topicId = $(this).data('topicid');
+            $.ajax({
+                url: "<?php echo base_url(); ?>home/book/topic",
+                type: "POST",
+                data: {
+                    topic_id: topicId
+                },
+                success: function(msg) {
+                    
+                    if (msg == "001") {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'You’re on!',
+                            html: 'You have successfully booked this university talk. <br> We’ll remind you by email before the event.<br><br>Check the dashboard for your agenda.',
+                            confirmButtonText: 'OK',
+                        }).then((result) => {
+                            $("#bookTopic-"+topicId).removeClass('d-inline');
+                            $("#bookTopic-"+topicId).prop('hidden', true);
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong! Please try again.'
+                        });
+                    }
+                }
+            });
         });
     });
 });
