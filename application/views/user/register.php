@@ -34,7 +34,7 @@ body {
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Phone Number</label>
-                                <input type="number" class="form-control form-control-sm custom-box"
+                                <input type="text" class="form-control form-control-sm custom-box"
                                     placeholder="08xx xxxx xxxx" name="user_phone" required>
                             </div>
                         </div>
@@ -283,7 +283,7 @@ $(document).ready(function() {
     $.ajax({
         type: 'post',
         dataType: "json",
-        url: "https://www.bigdata.crm-allinedu.com/api/school",
+        url: "https://www.bigdata.crm-allinedu.com/api/school2",
         success: function(datas) {
             $.each(datas, function(index, data) {
                 $('#userSchool').append(
