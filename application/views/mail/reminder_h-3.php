@@ -31,7 +31,7 @@
     }
 
     .box {
-        border: 1px solid #dedede;
+        /* border: 1px solid #dedede; */
         padding: 20px 10px;
         border-radius: 3px;
         background: #fff;
@@ -56,6 +56,16 @@
     a {
         text-decoration: none;
         color: #000;
+    }
+
+    .table {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .table tr td {
+        padding: 10px;
+        border: 1px solid #dedede;
     }
     </style>
 </head>
@@ -135,7 +145,7 @@
 
             <p>Load up your university prep with accurate insights and ace your admissions!</p>
 
-            <a href="https://edufair.all-inedu.com/" class="btn">Secure your spot now</a>
+            <a href="https://edufair.all-inedu.com/" class="btn">Secure your spot now</a><br><br>
 
 
             Best regards,<br>

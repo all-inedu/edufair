@@ -31,7 +31,7 @@
     }
 
     .box {
-        border: 1px solid #dedede;
+        /* border: 1px solid #dedede; */
         padding: 20px 10px;
         border-radius: 3px;
         background: #fff;
