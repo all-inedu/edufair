@@ -75,6 +75,63 @@
             <p>See the schedule here:</p>
 
             <!-- banner here -->
+            <?php
+                if(!empty($topic)) {
+            ?>
+            <div style="margin-left:10px; font-weight:bold;">University Talks:</div>
+            <table class="table">
+                <?php
+                $no=1;
+                foreach($topic as $t):
+            ?>
+                <tr>
+                    <td width="1%"><?=$no;?></td>
+                    <td>
+                        <?=$t['topic_name'];?><br>
+                        <small>
+                            <?=date("D, M dS Y,", strtotime($t['topic_start_date']));?>
+                            at
+                            <?=date("H:i a", strtotime($t['topic_start_date']));?>
+                        </small>
+                    </td>
+                </tr>
+                <?php
+                $no++;
+            endforeach;
+            ?>
+            </table>
+            <?php
+                } 
+            ?>
+
+            <?php
+                if(!empty($consult)) {
+            ?>
+            <div style="margin-top:20px; margin-left:10px; font-weight:bold;">Consultations:</div>
+            <table class="table">
+                <?php
+                $no=1;
+                foreach($consult as $c):
+            ?>
+                <tr>
+                    <td width="1%"><?=$no;?></td>
+                    <td>
+                        <?=$c['uni_name'];?><br>
+                        <small>
+                            <?=date("D, M dS Y,", strtotime($c['uni_dtl_start_date']));?>
+                            at
+                            <?=date("H:i a", strtotime($c['uni_dtl_start_date']));?>
+                        </small>
+                    </td>
+                </tr>
+                <?php
+                $no++;
+                endforeach;
+            ?>
+            </table>
+            <?php
+                }
+            ?>
 
             <p>Load up your university prep with accurate insights and ace your admissions!</p>
 
