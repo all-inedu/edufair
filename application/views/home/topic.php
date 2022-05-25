@@ -121,7 +121,7 @@ h4 {
                                     if (!$this->session->has_userdata('user_id')) {
                                         $props = "data-target='#signUp' data-toggle='modal'";
                                     } else {
-                                        $props = "id='bookTopic'";
+                                        $props = "id='bookTopic-".$topic_id."'";
                                     }
                                     ?>
                             <div class="row">
@@ -203,7 +203,7 @@ h4 {
                                     if (!$this->session->has_userdata('user_id')) {
                                         $props = "data-target='#signUp' data-toggle='modal'";
                                     } else {
-                                        $props = "id='bookTopic'";
+                                        $props = "id='bookTopic-".$topic_id."'";
                                     }
                                     ?>
                             <div class="row">
