@@ -90,6 +90,10 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 defined('PRE_EVENT') OR define('PRE_EVENT', '2022-07-16');
 defined('TALK_DAY_1') OR define('TALK_DAY_1', '2022-07-23');
 defined('TALK_DAY_2') OR define('TALK_DAY_2', '2022-07-24');
+//* validate
+defined('TALK_DAY_1_VALIDATE') OR define('TALK_DAY_1_VALIDATE', '2022-07-23T00:00');
+defined('TALK_DAY_2_VALIDATE') OR define('TALK_DAY_2_VALIDATE', '2022-07-24T23:59');
+
 defined('REMINDER_H7') OR define('REMINDER_H7', '2022-05-10');
 defined('REMINDER_H3') OR define('REMINDER_H3', '2022-05-14');
 defined('REMINDER_H1') OR define('REMINDER_H1', '2022-05-16');
