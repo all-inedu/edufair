@@ -45,6 +45,11 @@
         overflow: hidden;
     }
 
+    //* new 2022 */
+    .card-event-talk {
+        overflow: hidden;
+    }
+
     .modal-content {
         border-radius: 0 !important;
         border: 0 !important;
@@ -160,7 +165,7 @@
     }
 
     .card {
-        border: 3px solid transparent
+        border: 3px solid transparent;
     }
 
     #photo-banner .card {

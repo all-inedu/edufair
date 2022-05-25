@@ -97,7 +97,7 @@ h4 {
                         );
                     $arrTopic = base64_encode(json_encode($arrTopic));
                     ?>
-                    <div class="col-md-6 mb-3 p-md-3 p-0">
+                    <div class="col-md-6 mb-3 p-md-3 p-0 card-event-talk">
                         <div class="card">
                             <div class="card-body bg-white p-1">
                                 <div class="img-box">
