@@ -84,7 +84,7 @@ class ReminderController extends CI_Controller {
                     $this->email->to($email);
                     // $this->email->to('hafidz.fanany@all-inedu.com');
                     $this->email->subject(SUBJECT_REMINDER_H3);
-                    $bodyMail = $this->load->view('mail/reminder_h-1', $d, true);
+                    $bodyMail = $this->load->view('mail/reminder_h-3', $d, true);
                     $this->email->message($bodyMail);
                     $this->email->send();
                 }
