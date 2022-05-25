@@ -8,7 +8,7 @@
     background: #EA912C;
     background-size: contain;
     background-repeat: no-repeat;
-    height: 350px !important;
+    /* height: 350px !important; */
     background-position: center;
     background-color: #EA912C;
     width: "80%";
@@ -84,10 +84,10 @@ h4 {
     }
 }
 </style>
-<section class="bg-gambar d-flex align-middle mt-5">
-    <div class="p-4 mb-4">
+<section class="d-flex align-middle mt-5">
+    <div class="mb-4">
         <marquee class="py-3 running">
-            Selamat datang di website kami teknologi.visitklaten.com - Sharing Teknologi - Berbagi Ilmu Tentang Teknologi
+        <img src="assets/home/banner.webp" width="100%"/>
         </marquee>
     </div>
 </section>

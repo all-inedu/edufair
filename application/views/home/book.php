@@ -200,7 +200,7 @@
 <div class="container-fluid pb-4" id="booking">
     <div class="pb-4">
         <div class="row pb-5">
-            <div class="col-lg-5 col-sm-12 text-left pt-5 mt-4 ">
+            <div class="bg-white col-lg-5 col-sm-12 text-left pt-5 mt-4 ">
                 <h2>UNIVERSITY LIST</h2>
                 <h5 class="uni-book-header-desc">You have a chance to book a personal consultation and join talks with the universities listed below!
                     <br>

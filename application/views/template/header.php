@@ -46,11 +46,11 @@
     }
 
     #home-section {
-        background: url('assets/img/home/header-bg.webp');
+        /* background: url('assets/img/home/header-bg.webp'); */
         background-repeat: no-repeat;
         background-position: top;
         background-size: 100% auto;
-        background-color: #EBF6FC;
+        /* background-color: #FFFFFF; */
     }
 
     #home h1,
