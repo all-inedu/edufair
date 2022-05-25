@@ -57,7 +57,7 @@ class ReminderController extends CI_Controller {
         $date = date("Y-m-d");
 
         if($date_reminder==$date) {
-            $tomorrow = date("Y-m-d",strtotime('+1 days', strtotime($date))); 
+            $tomorrow = date("Y-m-d",strtotime('+3 days', strtotime($date))); 
             $user = $this->user->getUserData("all");
             $data = [];
             foreach($user as $u) {
