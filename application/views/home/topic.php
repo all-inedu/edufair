@@ -1,4 +1,10 @@
 <style>
+
+.card-event-talk
+{
+    padding-bottom: 5px;
+    overflow: hidden;
+}
 .img-box {
     width: 100%;
     height: 250px !important;
@@ -86,8 +92,8 @@ h4 {
                     );
                     $arrTopic = base64_encode(json_encode($arrTopic));
                 ?>
-            <div class="col-md-6 mb-3 p-md-3 p-0 d-flex align-items-stretch card-event-talk">
-                <div class="card bg-white">
+            <div class="col-md-6 mb-3 p-md-3 p-0 d-flex align-items-stretch">
+                <div class="card bg-white card-event-talk">
                     <div class="card-body p-1">
                         <div class="img-box">
                             <img src="<?= base_url('assets/topic/' . $row['topic_banner']); ?>" class="img-topic">
@@ -169,8 +175,8 @@ h4 {
                     );
                     $arrTopic = base64_encode(json_encode($arrTopic));
                 ?>
-            <div class="col-md-6 mb-3 p-md-3 p-0 d-flex align-items-stretch card-event-talk">
-                <div class="card bg-white">
+            <div class="col-md-6 mb-3 p-md-3 p-0 d-flex align-items-stretch">
+                <div class="card bg-white card-event-talk">
                     <div class="card-body  p-1">
                         <div class="img-box">
                             <img src="<?= base_url('assets/topic/' . $row['topic_banner']); ?>" class="img-topic">
