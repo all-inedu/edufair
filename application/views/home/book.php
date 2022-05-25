@@ -203,7 +203,7 @@ if (!$this->session->has_userdata('user_id')) {
 
 
 <!-- Modal -->
-<!-- <div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+<div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
     <div class="modal-dialog  modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -214,11 +214,11 @@ if (!$this->session->has_userdata('user_id')) {
                 </button>
             </div>
             <div class="modal-body modal-title-desc">
-
+            
             </div>
         </div>
     </div>
-</div> -->
+</div>
 
 
 <div class="container-fluid pb-4" id="booking">
