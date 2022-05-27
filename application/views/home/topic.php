@@ -81,6 +81,7 @@ h4 {
         <div class="row px-0 pt-2">
             <?php
                 foreach ($talk_day1 as $row) {
+                    $no_image = base_url() . 'assets/uni/banner/default.jpeg';
                     $topic_start_date = new DateTime($row['topic_start_date']);
                     $topic_end_date = new DateTime($row['topic_end_date']);
                     $topic_id = $row['topic_id'];
@@ -96,7 +97,7 @@ h4 {
                 <div class="card bg-white card-event-talk">
                     <div class="card-body p-1">
                         <div class="img-box">
-                            <img src="<?= base_url('assets/topic/' . $row['topic_banner']); ?>" class="img-topic">
+                            <img src="<?= base_url('assets/topic/' . $row['topic_banner']); ?>" class="img-topic" onerror="this.onerror=null;this.src='<?= $no_image ?>';" >
                         </div>
                         <div class="row px-0 pt-2 no-gutters talk-button">
                             <div class="col-12">
@@ -164,6 +165,7 @@ h4 {
         <div class="row px-0 pt-2">
             <?php
                 foreach ($talk_day2 as $row) {
+                    $no_image = base_url() . 'assets/uni/banner/default.jpeg';
                     $topic_start_date = new DateTime($row['topic_start_date']);
                     $topic_end_date = new DateTime($row['topic_end_date']);
                     $topic_id = $row['topic_id'];
@@ -179,7 +181,7 @@ h4 {
                 <div class="card bg-white card-event-talk">
                     <div class="card-body  p-1">
                         <div class="img-box">
-                            <img src="<?= base_url('assets/topic/' . $row['topic_banner']); ?>" class="img-topic">
+                            <img src="<?= base_url('assets/topic/' . $row['topic_banner']); ?>" class="img-topic" onerror="this.onerror=null;this.src='<?= $no_image ?>';" >
                         </div>
                         <div class="row px-0 pt-2 no-gutters talk-button">
                             <div class="col-12">

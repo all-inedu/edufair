@@ -79,11 +79,9 @@ h4 {
     </div>
 
     <!-- PRE-EVENTS  -->
-    <div class="row">
     <?php 
     if ($pre_event != "" ) {
         ?>
-    <div class="col-md-6">
         <div class="eventpre px-md-4 preevent mt-4 mb-4">
             <div class="row px-0 pt-2">
                 <?php
@@ -99,7 +97,7 @@ h4 {
                         );
                     $arrTopic = base64_encode(json_encode($arrTopic));
                     ?>
-                    <div class="col-md-12 mb-3 p-md-1 p-0">
+                    <div class="col-md-6 mb-3 p-md-3 p-0">
                         <div class="card">
                             <div class="card-body bg-white p-1">
                                 <div class="img-box">
@@ -162,36 +160,10 @@ h4 {
             ?>
             </div>
         </div>
-    </div>
-        
         <?php 
     }
     ?>
-    <div class="col-md-6">
-    <div class="eventpre px-md-2 precv mt-4 mb-4">
-            <div class="row px-0 pt-2">
-                <div class="talks-header" id="bannercv">
-                    <div class="row px-md-1 px-4">
-                        <div class="col-lg-9 col-sm-12 text-left mt-md-0 mt-3 pl-0">
-                            <h3>WANT TO GET A TASTE OF A UC APPLICATION?</h3>
-                            <h5>Drop your application CV and attend our pre-edufair event to win a 1-on-1 profile review with UC's former admission officer!</h5>
-                            <p>Submit before 20 July 2022.</p>
-                            <div class="nav-link btn btn-sm btn-outline-primary mb-2 btn-submitcv btn-<?=$topic_id;?>"
-                                                        data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic;?>"
-                                                        <?php echo $props; ?>>
-                                                        Submit CV
-                                                    </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-        
-    </div>
-    
 
-       
     <!-- Modal -->
     <!-- <div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
         aria-hidden="true">
