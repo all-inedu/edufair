@@ -306,13 +306,17 @@ $("#loginForm").submit(function(event) {
     Swal.showLoading();
 
     $.ajax({
-        url: "<?php echo base_url(); ?>login",
+        url: $(this).prop("action"),
         type: "POST",
         data: $("#loginForm").serialize(),
         success: function(msg) {
 
             if (msg == "001") {
+                
                 location.reload();
+            } else if (msg == "0001") {
+
+                window.location = "<?=base_url()?>home/dashboard";
             } else if (msg == "02") {
                 Swal.fire({
                     icon: 'info',

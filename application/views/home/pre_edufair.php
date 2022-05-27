@@ -185,7 +185,7 @@ h4 {
                         UC's former admission officer!</h5>
                     <p>Submit before 20 July 2022.</p>
                     <div class="nav-link btn btn-sm btn-outline-primary mb-2 btn-submit-cv btn-<?= $topic_id; ?>"
-                        data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>"
+                        data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>" data-param="submit-cv"
                         <?php echo $props; ?>>
                         Submit CV
                     </div>

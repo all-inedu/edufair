@@ -427,7 +427,8 @@ if (!$this->session->has_userdata('user_id')) {
                                                                                                                         <input class="checkbok booking-red" type="checkbox" name="var_id[]" autocomplete="off" value="<?php echo $uni_dtl_id; ?>" <?php echo (array_search($uni_dtl_id, array_column($bookingConsult, 'uni_dtl_id')) != "") ? "checked disabled" : ""; ?>>
                                                                                                                         <!-- <span class="fa fa-calendar fa-2x"></span> -->
                                                                                                                         <div class="text-booking-uni" style="text-align: center;padding-top: 0.5rem">
-                                                                                                                            <?php echo date('d M Y H:i', strtotime($assigned_time)); ?>
+                                                                                                                            <?php echo date('d F Y', strtotime($assigned_time)); ?><br>
+                                                                                                                            <small><?php echo $start_time.' - '.$end_time;?></small>
                                                                                                                         </div>
                                                                                                                     </div>
                                                                                                                 </label>

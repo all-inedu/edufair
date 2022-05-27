@@ -287,6 +287,10 @@ $(".talk-button").click(function() {
 });
 
 $(document).ready(function() {
+    $(".btn-submit-cv").click(function(event) {
+        $("#loginForm").prop('action', '<?= base_url(); ?>login?param=cv');
+    });
+
     $(".btn-book").each(function() {
         $(this).click(function() {
 

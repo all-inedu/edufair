@@ -80,6 +80,16 @@
     cursor: pointer;
 }
 
+.btn-consult-allin {
+    border: 2px solid #0C2F80; background: transparent; color:#0C2F80;
+    transition: all .2s ease-in-out;
+}
+
+.btn-consult-allin:hover {
+    background: #F0D202;
+    color: #0C2F80;
+}
+
 body {
     font-family: 'Montserrat';
 }
@@ -337,7 +347,6 @@ body {
                                     consultation with ALL-in Eduspace!
                                     <br>
                                     <button class="btn btn-primary mt-3 mb-3 btn-consult-allin"
-                                        style="background:#0C2F80;"
                                         data-userid="<?=$this->session->userdata('user_id');?>">
                                         FREE Inital Consultation
                                     </button>

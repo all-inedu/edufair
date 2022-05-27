@@ -46,6 +46,8 @@ class HomeController extends CI_Controller {
 
 	public function login()
 	{
+		
+
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 
@@ -55,7 +57,13 @@ class HomeController extends CI_Controller {
 			$this->session->set_userdata($userInfo);
 			$userId = $this->session->userdata('user_id');
 			$lastLoginUpdate = $this->UserModel->lastLoginUpdate($userId);
-			echo "001";
+			if ((isset($_GET['param'])) && ($_GET['param'] == "cv") ) {
+				
+				echo "0001";
+			} else {
+				
+				echo "001";
+			}
 		} else if ((password_verify($password, $hashed)) and ($userInfo['token_status']==0)) {
 			
 			$this->session->set_flashdata('user_temp', $userInfo);

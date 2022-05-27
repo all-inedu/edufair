@@ -10,7 +10,7 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <form id="loginForm" method="post">
+                <form id="loginForm" method="post" action="<?php echo base_url(); ?>login">
                     <div class="form-group">
                         <input type="text" class="form-control" name="email" placeholder="Email" required="required">
                     </div>
