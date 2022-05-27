@@ -37,13 +37,11 @@
     content: "Scheduled Talks";
     position: absolute;
     top: 0;
-    font-size: 21px;
-    font-weight: 700;
-    /* background: #0C2F80; */
+    background: #0C2F80;
     padding: 7px 10px;
-    /* color: #FFF; */
-    /* margin-top: -1.2em; */
-    left: 1.2em;
+    color: #FFF;
+    margin-top: -1.2em;
+    left: 1.5em;
     /* border-radius: 10px; */
 }
 
@@ -51,13 +49,11 @@
     content: "Scheduled University Consultation";
     position: absolute;
     top: 0;
-    font-size: 21px;
-    font-weight: 700;
-    /* background: #0C2F80; */
+    background: #0C2F80;
     padding: 7px 10px;
-    /* color: #FFF; */
-    /* margin-top: -1.2em; */
-    left: 1.2em;
+    color: #FFF;
+    margin-top: -1.2em;
+    left: 1.5em;
     /* border-radius: 10px; */
 }
 
@@ -154,7 +150,7 @@ body {
                             <div class="col-lg-9">
                                 <input type="email" name="user_email"
                                     value="<?php echo $this->session->userdata('user_email'); ?>"
-                                    class="form-control custom-box" />
+                                    class="form-control custom-box" disabled />
                             </div>
                         </div>
                         <div class="row pt-2 pb-2">
@@ -234,9 +230,14 @@ body {
                         <div class="card-body">
                             <div class="row text-center">
                                 <div class="col-lg-12">
-                                    
-                                    <img src="<?php echo base_url(); ?>assets/img/avatar-default.webp" width="100%"
-                                        style="padding:0 35%">
+                                    <?php
+				    					if($this->session->userdata('user_gender') == "male")
+				    						$img = "avatar-profile-b.png";
+				    					else
+				    						$img = "avatar-profile-g.png";
+				    					?>
+                                    <img src="<?php echo base_url(); ?>assets/img/<?php echo $img; ?>" width="100%"
+                                        style="padding:0 30%">
                                 </div>
                                 <div class="col-lg-12 pt-3 pb-1">
                                     <h4><?php echo $this->session->userdata('user_fullname'); ?>
@@ -261,7 +262,7 @@ body {
                                             <div class="row pt-2 pb-2">
                                                 <div class="col-lg-4"><b>Date of Birth</b></div>
                                                 <div class="col-lg-8">
-                                                    <?php echo date('d M Y', strtotime($this->session->userdata('user_dob'))); ?>
+                                                    <?php echo ($this->session->userdata('user_dob') != NULL) ? date('d M Y', strtotime($this->session->userdata('user_dob'))) : '<a href="#" data-toggle="modal" data-target="#editprofile">n/a</a>' ; ?>
                                                 </div>
                                             </div>
                                         </li> -->
@@ -350,7 +351,7 @@ body {
         </div>
 
         <div class="col-lg-8">
-            <div class="row">
+            <div class="row mt-3">
                 <div class="col-lg-12">
                     <div class="card card-topic">
                         <div class="card-body ml-3">
