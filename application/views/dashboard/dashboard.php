@@ -37,12 +37,13 @@
     content: "Scheduled Talks";
     position: absolute;
     top: 0;
-    font-weight: 600;
+    font-size: 21px;
+    font-weight: 700;
     /* background: #0C2F80; */
     padding: 7px 10px;
     /* color: #FFF; */
     /* margin-top: -1.2em; */
-    left: 1.5em;
+    left: 1.2em;
     /* border-radius: 10px; */
 }
 
@@ -50,12 +51,13 @@
     content: "Scheduled University Consultation";
     position: absolute;
     top: 0;
-    font-weight: 600;
+    font-size: 21px;
+    font-weight: 700;
     /* background: #0C2F80; */
     padding: 7px 10px;
     /* color: #FFF; */
     /* margin-top: -1.2em; */
-    left: 1.5em;
+    left: 1.2em;
     /* border-radius: 10px; */
 }
 
