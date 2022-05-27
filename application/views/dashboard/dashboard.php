@@ -234,14 +234,9 @@ body {
                         <div class="card-body">
                             <div class="row text-center">
                                 <div class="col-lg-12">
-                                    <?php
-				    					if($this->session->userdata('user_gender') == "male")
-				    						$img = "avatar-profile-b.png";
-				    					else
-				    						$img = "avatar-profile-g.png";
-				    					?>
-                                    <img src="<?php echo base_url(); ?>assets/img/<?php echo $img; ?>" width="100%"
-                                        style="padding:0 30%">
+                                    
+                                    <img src="<?php echo base_url(); ?>assets/img/avatar-default.webp" width="100%"
+                                        style="padding:0 35%">
                                 </div>
                                 <div class="col-lg-12 pt-3 pb-1">
                                     <h4><?php echo $this->session->userdata('user_fullname'); ?>
