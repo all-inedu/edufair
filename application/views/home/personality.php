@@ -16,80 +16,49 @@
 
 }
 
+.train {
+    position: absolute;
+}
 .img-box {
+    position: absolute;
     width: 100%;
-    height: auto;
-    border-radius: 10px;
-    overflow: hidden;
+    margin-top: 50px;
 }
 
-.img-box img {
-    /* margin: -75px 0 0 0; */
+hr {
+    border: 2px solid #dedede;
 }
 
-.img-topic {
-    cursor: pointer;
-    width: 100%;
+marquee img {
+    height: 130px;
 }
 
-.badge-allin {
-    background: #F43636;
-    font-weight: 200;
-    scroll-margin-top: 350px;
-    font-size: 14px;
-    padding: 5px 8px;
-    letter-spacing: 1px;
-}
-
-h4 {
-    font-size: 22px;
-    letter-spacing: 0.8px;
-}
-
-.btn-book {
-    letter-spacing: 0.8px;
-    font-size: 18px;
-}
-
-@media screen and (max-width: 576px) and (min-width: 375px) {
-    .running{
-    font-size: 18px;
+@media screen and (max-width: 750px) and (min-width: 250px) {
+    .train {
+        display: none;
     }
 
-    h4 {
-        font-size: 18px;
-    }
-
-    h5 {
-        font-size: 15px;
-    }
-
-    .img-box {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-
-    .badge-allin {
-        font-size: 12px;
-        margin-bottom: 3px;
-        text-align: left;
-        white-space: normal;
-    }
-    .preedu,
-    .day1talks,
-    .day2talks {
-        padding: 25px 10px !important;
+    marquee img {
+        height: 80px;
     }
 }
 </style>
-<section class="d-flex align-middle mt-5">
-    <div class="mb-4">
-        <marquee class="py-3 running">
-        <img src="assets/home/banner.webp" width="100%"/>
+<section id="personality">
+    <div class="container-fluid p-0 w-100">
+        <?php
+        if (!$this->session->has_userdata('user_id')) {
+            $props = "data-target='#signUp' data-toggle='modal'";
+        } else {
+            $props = "";
+        }
+        ?>
+        <div class="train">
+            <hr class="mb-5">
+            <hr class="mt-5">
+        </div>
+        <marquee class="py-3" <?php echo $props; ?> class="btn-personal-test" scrollamount="20" loop="infinite"
+            onclick="setRedirectLink('personal-test')" onmouseover="this.stop();" onmouseout="this.start();">
+            <img src="<?php echo base_url(); ?>assets/img/banner.webp" alt="Global University Edufair">
         </marquee>
     </div>
 </section>
-
-

@@ -87,7 +87,8 @@ class RegisterController extends CI_Controller {
 			"user_know_from"         => str_replace("'", "\'", $this->input->post('user_lead')),
 			"user_register_date"     => date('Y-m-d H:i:s'),
 			"user_last_login"        => '',
-			"user_biggest_challenge" => $this->input->post('user_biggest_challenge')
+			"user_biggest_challenge" => $this->input->post('user_biggest_challenge'),
+			"came_from"              => ($this->input->post('param') != "") ? 1 : 0, // 1 personality test, 0 dashboard
 		);
 
 
@@ -99,7 +100,14 @@ class RegisterController extends CI_Controller {
 			//build token
 			$token = $this->UserModel->insertToken($inserted_id);
 			$qstring = $this->base64url_encode($token);
-			$data = array( "url" => base_url() . '/verify/token/' . $qstring );
+
+			//buat redirect link sesuai parameter
+			$add_on = '';
+			if ($redirect_clue = $this->input->post('param')) {
+				$add_on = "?param=".$redirect_clue;
+			}
+
+			$data = array( "url" => base_url() . '/verify/token/' . $qstring . $add_on );
 			// send verification mail
 			if($this->sendingEmail($data, $email)) {
 				// send mail success
@@ -130,7 +138,12 @@ class RegisterController extends CI_Controller {
 		//build token
 		$token = $this->UserModel->insertToken($data['user_id']);
 		$qstring = $this->base64url_encode($token);
-		$data['url'] = base_url() . '/verify/token/' . $qstring;
+		$add_on = '';
+		if ($data['came_from'] == 1) {
+			$add_on = "?param=personal-test";
+		}
+
+		$data['url'] = base_url() . '/verify/token/' . $qstring . $add_on;
 
 		if($this->sendingEmail($data, $data['user_email'])) {
 			// send mail success
@@ -174,14 +187,21 @@ class RegisterController extends CI_Controller {
 			$this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
 			$this->email->to($email);
 			// $this->email->cc('manuel.eric@all-inedu.com');
-			$this->email->subject('Welcome to ALL-in Global University Fair 2022!');
+			$this->email->subject(SUBJECT_WELCOME_EMAIL);
 			$bodyMail = $this->load->view('mail/welcome', '', true);
 			$this->email->message($bodyMail);
 			$this->email->send();
 
 			//! update 2022
 			//! you need to replace this one
-			redirect('/registration/topic');
+			$param = $this->input->get('param');
+			if ($param == "personal-test") {
+				// redirect(PERSONAL_TEST_LINK);
+				header("Location: ".PERSONAL_TEST_LINK);
+			} else {
+				redirect('/');
+			}
+			// redirect('/registration/topic');
 		} else {
 			echo "Server Timeout";
 		}
@@ -287,6 +307,39 @@ class RegisterController extends CI_Controller {
 		echo json_encode($this->LeadModel->getAllDataLead());
 	}
 
+	//* New 2022
+	public function getAllDataChallenge()
+	{
+		$data = array(
+			array(
+				'name' => 'Exploring my interest & passion',
+			),
+			array(
+				'name' => 'Deciding what major & university to apply',
+			),
+			array(
+				'name' => 'Building my CV or portfolio',
+			),
+			array(
+				'name' => 'Writing university essay application',
+			),
+			array(
+				'name' => 'Preparing for standardized tests (SAT, ACT, TOEFL, IELTS, etc)',
+			),
+			array(
+				'name' => 'Improving my grades',
+			),
+			array(
+				'name' => 'Creating a unique application profile',
+			),
+			array(
+				'name' => 'Improving my writing skill',
+			)
+		);
+
+		echo json_encode($data);
+	}
+
 	public function sendingEmail($data, $email)
 	{
 		$config = $this->mail_smtp->smtp();
@@ -296,7 +349,7 @@ class RegisterController extends CI_Controller {
         $this->email->to($email);
         // $this->email->cc('manuel.eric@all-inedu.com');
 
-        $this->email->subject('Let’s get you verified!');
+        $this->email->subject(SUBJECT_VERIFY_EMAIL);
 
         $bodyMail = $this->load->view('mail/verify_email', $data, true);
         $this->email->message($bodyMail);

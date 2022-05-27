@@ -1,6 +1,6 @@
 <style>
 body {
-    background-image: url("<?php echo base_url(); ?>assets/img/home/header-bg.webp");
+    background-image: url("<?php echo base_url(); ?>assets/img/home/edufair-background.webp");
     background-size: 100%;
     background-attachment: fixed;
 }
@@ -11,14 +11,15 @@ body {
         <h3 class="text-center" style="letter-spacing: 0.2em;margin-bottom: 1em;">REGISTRATION</h3>
         <hr>
         <form method="get" id="registerForm" novalidate class="needs-validation">
+            <input type="hidden" name="param" value="<?php echo isset($_GET['param']) ? $_GET['param'] : '' ?>">
             <div class="row mt-4">
                 <div class="col" data-page="1">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Full Name</label>
-                                <input name="user_fullname" type="text"
-                                    class="form-control form-control-sm custom-box" placeholder="John Doe" required>
+                                <input name="user_fullname" type="text" class="form-control form-control-sm custom-box"
+                                    placeholder="John Doe" required>
                             </div>
                         </div>
                     </div>
@@ -139,7 +140,7 @@ body {
                     </div>
                     <hr>
                     <div class="form-group float-left">
-                        <a href="<?=base_url();?>" class="btn btn-warning"><i class="fas fa-arrow-left pr-2"> </i>
+                        <a href="<?= base_url(); ?>" class="btn btn-warning"><i class="fas fa-arrow-left pr-2"> </i>
                             Back
                             to
                             Home</a>
@@ -211,8 +212,15 @@ body {
                     </div>
                     <div class="form-group  form-challenge">
                         <label>Whats your biggest challenge in prepping for university?</label>
+                        <select id="userChallenge" onchange="checkValue('userChallenge')" required
+                            oninvalid="validation('userChallenge')">
+                            <option data-placeholder="true"></option>
+                            <option value="other">Other</option>
+                        </select>
+                        <textarea class="form-control custom-box" placeholder="Your answer" required
+                            id="userChallengeNew"></textarea>
                         <textarea class="form-control custom-box" name="user_biggest_challenge"
-                            placeholder="Your answer" required></textarea>
+                            placeholder="Your answer" required hidden id="user_biggest_challenge"></textarea>
                     </div>
                     <hr>
                     <div class="form-group">
@@ -259,10 +267,17 @@ new SlimSelect({
     placeholder: 'Your answer'
 })
 
+new SlimSelect({
+    select: '#userChallenge',
+    allowDeselect: true,
+    placeholder: 'Your answer'
+})
+
 $(document).ready(function() {
     $('#userSchoolNew').hide();
     $('#userMajorNew').hide();
     $('#userLeadNew').hide();
+    $('#userChallengeNew').hide();
 
     // school 
     $.ajax({
@@ -319,6 +334,21 @@ $(document).ready(function() {
             $.each(datas, function(index, data) {
                 $('#userLead').append(
                     '<option value="' + data.lead_name + '">' + data.lead_name +
+                    '</option>'
+                )
+            });
+        }
+    });
+
+    // challenge
+    $.ajax({
+        type: 'post',
+        dataType: "json",
+        url: "<?php echo base_url(); ?>request/getAllDataChallenge",
+        success: function(datas) {
+            $.each(datas, function(index, data) {
+                $('#userChallenge').append(
+                    '<option value="' + data.name + '">' + data.name +
                     '</option>'
                 )
             });
@@ -401,7 +431,25 @@ function checkValue(param) {
                 });
             }
             break;
-
+        case "userChallenge":
+            // challenge 
+            if ($('#userChallenge').val() == 'other') {
+                $('#userChallengeNew').show();
+                $('#userChallengeNew').focus();
+                $('#userChallengeNew').prop('required', true);
+            } else {
+                $('#userChallengeNew').hide();
+                $('#userChallengeNew').prop('required', false);
+            }
+            var is_filled = $("#userChallenge").siblings(".ss-main").has('.ss-single-selected').has('.placeholder')
+                .html();
+            if (is_filled) {
+                $("#userChallenge").siblings(".ss-main").has(".ss-single-selected").css({
+                    "border": "1px solid #28a745",
+                    "border-radius": ".2rem"
+                });
+            }
+            break;
 
     }
 }
@@ -443,6 +491,16 @@ $("#userLead").change(function() {
 $("#userDestination").change(function() {
     var val = $(this).val();
     $("#user_destination").val(val);
+});
+
+//* set user_challenge to hidden input end */
+$("#userChallengeNew").keyup(function() {
+    $("#user_biggest_challenge").val($(this).val());
+});
+
+$("#userChallenge").change(function() {
+    var val = $(this).val();
+    $("#user_biggest_challenge").val(val);
 });
 
 function limit() {

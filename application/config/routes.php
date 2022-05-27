@@ -82,6 +82,7 @@ $route['logout'] = 'HomeController/logout';
 $route['home/book/topic'] = 'HomeController/bookingTopic';
 $route['home/cancel/(:any)'] = 'HomeController/cancelBooking';
 $route['request/getAllDataLead'] = 'RegisterController/getAllDataLead';
+$route['request/getAllDataChallenge'] = 'RegisterController/getAllDataChallenge';
 $route['home/dashboard/update/information'] = 'HomeController/updateInformation';
 $route['home/waiting-list'] = 'HomeController/insertToWaitingList';
 $route['verify/token/(:any)'] = 'RegisterController/getTokenVerifyEmail';

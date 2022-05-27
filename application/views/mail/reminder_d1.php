@@ -64,7 +64,7 @@
 
 <body>
     <div class="container">
-        <img src="https://edufair.all-inedu.com/assets/img/email-header.jpg" alt="https://edufair.all-inedu.com/"
+        <img src="<?=BANNER_EMAIL?>" alt="https://edufair.all-inedu.com/"
             width="100%">
 
         <br>
@@ -73,7 +73,7 @@
             Good morning, <?=$user_name;?>!<br>
 
             <p>Ready to take on the day? <br>
-                Here is your consultation and university talks schedule on July 24th:</p>
+                Here is your consultation and university talks schedule on July 23rd:</p>
             <?php
                 if(!empty($topic)) {
             ?>

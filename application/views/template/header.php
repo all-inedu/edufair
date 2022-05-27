@@ -4,7 +4,7 @@
 
 <head>
     <title>Global University Fair | Your Study Abroad Starter Pack</title>
-    <link rel="icon" href="<?=base_url('assets/img/icon.ico');?>" type="image/gif" sizes="16x16">
+    <link rel="icon" href="<?= base_url('assets/img/icon.ico'); ?>" type="image/gif" sizes="16x16">
     <meta name="title" content="Global University Fair | Your Study Abroad Starter Pack">
     <meta name="description"
         content="Get Invited to Apply to Top Universities in USA, Europe &amp; Asia. It's Easy! Have Personal Conversations with Universities that Fit Your Interests &amp; Goals. FREE Online Expo!">
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link rel="stylesheet" href="<?=base_url('assets/css/flipTimerss.css');?>" />
+    <link rel="stylesheet" href="<?= base_url('assets/css/flipTimerss.css'); ?>" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style type="text/css">
     /* override styles here */
@@ -43,6 +43,33 @@
         font-family: SF-Pro-Display-Regular;
         padding: 0;
         overflow: hidden;
+    }
+
+    .modal-content {
+        border-radius: 0 !important;
+        border: 0 !important;
+    }
+
+    .modal-header {
+        border-bottom: none !important;
+        padding: 5px 1rem !important;
+    }
+
+    .modal-header .close {
+        padding: 5px 5px;
+        margin: -5px -1rem -1rem auto;
+        background: red;
+        color: #fff;
+    }
+
+    .modal-header h5,
+    .modal-body h5 {
+        color: #235787 !important;
+        font-size: 1.3em;
+    }
+
+    .btn {
+        border-radius: 0 !important;
     }
 
     #home-section {
@@ -79,6 +106,19 @@
     #home h5.edufair-desc {
         font-size: 1.6em;
         color: #27387a
+    }
+
+    .home-header {
+        width: 100%;
+        display: flex;
+    }
+
+    .home-maps {
+        width: 65%;
+    }
+
+    .home-title {
+        width: 30%;
     }
 
     .flip-photo {
@@ -124,7 +164,7 @@
     }
 
     .card {
-        border: 3px solid transparent
+        border: 3px solid transparent;
     }
 
     #photo-banner .card {
@@ -190,7 +230,7 @@
     }
 
     #btn-login {
-        background: #0D2F7F;
+        background: #235788;
         padding: 5px 35px 5px 35px;
         /* border: 1px solid #27387A; */
         /* border-radius: 20px 0px 0px 20px; */
@@ -199,8 +239,8 @@
     }
 
     #btn-login:hover {
-        background: #9FC2CB;
-        color: #1F1F1F;
+        background: #F0D202;
+        color: #235788;
     }
 
     #btn-signup {
@@ -245,10 +285,10 @@
     #about h2 {
         font-family: Montserrat-ExtraBold;
         text-transform: uppercase;
-        color: #0d2f7f
+        color: #255896;
     }
 
-    .tanggal{
+    .tanggal {
         color: #F43636;
         font-weight: 600;
     }
@@ -256,20 +296,20 @@
     .edufair-uni-region {
         /* border: 3px solid #efaa52; */
         background: #F43636;
-        color : #FFFFFF;
+        color: #FFFFFF;
         /* border-radius: 12px; */
         font-size: 17px;
         margin-bottom: 10px;
     }
 
     .btn-tellme {
+        font-weight: normal !important;
         background: #FFFFFF;
-        /* padding-left: 1.5rem; */
+        border-radius: 0 !important;
         text-align: center;
-        /* text-align: left; */
         font-size: 1rem;
         padding: 8px;
-        border: 3px solid #12116e;
+        border: 1px solid #12116e;
         font-weight: 700;
         color: #0D3C9C;
         width: 100%
@@ -280,19 +320,34 @@
         text-decoration: none
     }
 
+    .btn-tellme:hover {
+        background: #235788;
+    }
+
+
+
     .btn-book {
-        background: #e78724;
+        background: #F1D202 !important;
+        text-transform: capitalize !important;
+        color: #0D3C9C !important;
         padding-left: 1.5rem;
         text-align: left;
         font-size: 1rem;
         border: none;
-        font-weight: 700;
+        font-weight: normal !important;
         color: #fff;
-        width: 100%
+        width: 100%;
+        border: 1px solid #F1D202;
+        padding: 8px !important;
+    }
+
+    .btn-book:hover {
+        background: #fff !important;
+        border: 1px solid #F1D202;
     }
 
     .btn-book a {
-        color: #fff;
+        color: #0D3C9C;
         text-decoration: none
     }
 
@@ -317,12 +372,12 @@
         position: relative;
     }
 
-    
-    .eventpre{
-        padding: 2% 0px 1% 3% !important;
+
+    .eventpre {
+        padding: 0;
     }
 
-    .preevent{
+    .preevent {
         /* border: 3px solid #12116e; */
         /* border-radius: .5em; */
         position: relative;
@@ -330,20 +385,21 @@
 
     .preevent::before {
         content: "PRE-EVENT";
-        border: 3px solid #12116e;
+        border: 2px solid #255896;
         /* border-radius: 1.5em; */
         padding: .2em 1.5em;
         top: 0;
         z-index: 2;
+        margin-left: 10px;
         background: #fff;
         font-size: 1.2em;
-        color: #12116e;
+        color: #255896;
         font-weight: 700;
     }
 
     .preedu::before {
         content: "Pre Edufair";
-        border: 3px solid #12116e;
+        border: 2px solid #255896;
         border-radius: 1.5em;
         padding: .2em 1.5em;
         position: absolute;
@@ -352,29 +408,31 @@
         z-index: 2;
         background: #fff;
         font-size: 1.2em;
-        color: #12116e;
+        color: #255896;
         font-weight: 700
     }
 
     .day1talks::before {
         content: "23 JULY";
-        border: 3px solid #12116e;
+        border: 2px solid #255896;
         /* border-radius: 1.5em; */
         padding: .2em 1.5em;
         position: absolute;
         top: 0;
         margin-top: -1.2em;
         z-index: 2;
+        margin-left: 10px;
         background: #fff;
         font-size: 1.2em;
-        color: #12116e;
+        color: #255896;
         font-weight: 700
     }
 
     .day2talks::before {
         content: "24 JULY";
-        border: 3px solid #12116e;
+        border: 2px solid #255896;
         /* border-radius: 1.5em; */
+        margin-left: 10px;
         padding: .2em 1.5em;
         position: absolute;
         top: 0;
@@ -382,7 +440,7 @@
         z-index: 2;
         background: #fff;
         font-size: 1.2em;
-        color: #12116e;
+        color: #255896;
         font-weight: 700
     }
 
@@ -391,18 +449,17 @@
         padding: 0px 0 50px 0
     }
 
-    ,
     #talks h5 {
-        color: #061f51;
+        color: #235788;
         font-size: 1.6em;
         text-align: justify
     }
 
-    .modal-title-desc{
+    .modal-title-desc {
         font-weight: 700;
     }
 
-    .title-desc-blue{
+    .title-desc-blue {
         background: #FFFFFF;
         /* padding-left: 1.5rem; */
         text-align: center;
@@ -412,7 +469,7 @@
         color: #0D3C9C;
     }
 
-    .title-booking-blue{
+    .title-booking-blue {
         background: #FFFFFF;
         /* padding-left: 1.5rem; */
         text-align: center;
@@ -437,9 +494,10 @@
         padding: .3em .8em
     }
 
-    .background-lp{
+    .background-lp {
         background-image: url('assets/img/home/edufair-background.webp');
-        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top right;
     }
 
     #talks-section {
@@ -448,8 +506,8 @@
         background-position: top;
         background-size: 100%;
         background-repeat: no-repeat;
-        padding-left: 1%;
-        padding-right: 1%;
+        padding-left: 4%;
+        padding-right: 6%;
     }
 
     #register-form .card {
@@ -487,6 +545,7 @@
     }
 
     @media screen and (max-width: 375px) and (min-width: 250px) {
+
         .container-fluid {
             margin: 0 !important;
             padding: 0px !important;
@@ -506,6 +565,10 @@
 
         .navbar-allin {
             padding: 0 20px 0 20px !important;
+        }
+
+        .navbar-nav .nav-item {
+            width: 100% !important;
         }
 
         #edufair-title-container {
@@ -541,6 +604,7 @@
         }
 
         .badge-allin {
+            border-radius: 0 !important;
             font-size: 0.5em !important;
             white-space: normal !important;
             text-align: left !important;
@@ -549,6 +613,7 @@
         .btn-book {
             font-size: 12px !important;
         }
+
         .preedu,
         .day1talks,
         .day2talks {
@@ -580,23 +645,39 @@
         }
 
         #home {
-            background: #EBF6FC;
+            background: #FFF;
             padding-top: 18vh;
             height: auto;
         }
 
         #talks .row div {
-            padding: auto 1em;
+            padding: 0;
         }
     }
 
     @media screen and (max-width: 576px) and (min-width: 375px) {
+        .preevent::before {
+            margin-left: -10px !important;
+        }
+
+        .day1talks::before {
+            margin-left: -10px !important;
+        }
+
+        .day2talks::before {
+            margin-left: -10px !important;
+        }
+
         .navbar-brand {
             margin-right: 0 !important;
         }
 
         .navbar-brand img {
             width: 150px !important;
+        }
+
+        .navbar-nav .nav-item {
+            width: 100% !important;
         }
 
         #edufair-title-container {
@@ -648,7 +729,7 @@
         }
 
         #home-section {
-            background-color: #EBF6FC;
+            background-color: #fff;
         }
 
         .talks-header {
@@ -684,13 +765,25 @@
         }
 
         #home {
-            background: #EBF6FC;
+            background: #fff;
             padding-top: 18vh;
             height: auto;
         }
 
+        .home-maps {
+            width: 60%;
+        }
+
+        .home-title {
+            width: 37%;
+        }
+
+        .background-lp {
+            background: #fff;
+        }
+
         #talks .row div {
-            padding: auto 1em;
+            padding: 0;
         }
 
         #home h3.edufair-date {
@@ -910,8 +1003,8 @@
         }
 
         #talks-section {
-            padding-left: 6%;
-            padding-right: 10%;
+            padding-left: 4%;
+            padding-right: 6%;
         }
 
 
@@ -927,9 +1020,9 @@
     }
 
     .nav-block {
-        background: #0D2F7F;
-        padding: 5px 1em;
-        /* border-radius: 20px; */
+        background: #235788;
+        padding: 2px;
+        border-radius: 0;
     }
 
     .nav-block a {
@@ -941,11 +1034,11 @@
 <body>
     <!-- <div class="loading"></div> -->
     <?php
-if ($this->session->flashdata('success')) {
-    echo '<div class="flash-data" data-success="' . $this->session->flashdata('success') . '"></div>';
-} else if ($this->session->flashdata('error')) {
-    echo '<div class="flash-data" data-error="' . $this->session->flashdata('error') . '"></div>';
-} else if ($this->session->flashdata('warning')) {
-    echo '<div class="flash-data" data-warning="' . $this->session->flashdata('warning') . '"></div>';
-}
-?>
+    if ($this->session->flashdata('success')) {
+        echo '<div class="flash-data" data-success="' . $this->session->flashdata('success') . '"></div>';
+    } else if ($this->session->flashdata('error')) {
+        echo '<div class="flash-data" data-error="' . $this->session->flashdata('error') . '"></div>';
+    } else if ($this->session->flashdata('warning')) {
+        echo '<div class="flash-data" data-warning="' . $this->session->flashdata('warning') . '"></div>';
+    }
+    ?>

@@ -64,17 +64,16 @@
 
 <body>
     <div class="container">
-        <img src="https://edufair.all-inedu.com/assets/img/email-header.jpg" alt="https://edufair.all-inedu.com/"
+        <img src="<?=BANNER_EMAIL?>" alt="https://edufair.all-inedu.com/"
             width="100%">
 
         <br>
         <br>
         <div class="box">
-            Hello, <?=ucwords($user_name);?>!<br>
-            Are you ready for the <b> Global University Fair 2021</b> tomorrow?
+        Hello <?=ucwords($user_name);?>!<br>
+        Are you ready for the ALL-in Global University Fair 2022 tomorrow?
 
-            <p>Here are your scheduled university talks and consultations. Be prompt tomorrow and prepare your list of
-                questions for the universities. </p>
+            <p>Here’s your scheduled university talks and consultations. Don’t miss this opportunity to dig all the details to ace your application to world’s top universities! </p>
 
             <?php
                 if(!empty($topic)) {
@@ -133,11 +132,7 @@
             <?php
                 }
             ?>
-            <p>Good writing allows you to communicate your ideas clearly. This skill can be beneficial for more than
-                your school-work, it can also broaden your knowledge and increase your career opportunities! </p>
-            <p>Join <b>ALL-in Eduspace IB Writing Course</b> to improve your writing skills and help you channel your
-                creativity!</p>
-            <p>See you tomorrow! </p>
+            <p>Let’s #TakeOnYourFuture with us. See you tomorrow!</p>
 
             Best regards,<br>
             ALL-in Eduspace Team

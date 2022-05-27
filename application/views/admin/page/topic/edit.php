@@ -62,7 +62,7 @@
                                                     <input type="datetime-local" class="form-control form-control-sm"
                                                         name="topic_start_date"
                                                         value="<?=date('Y-m-d\TH:i:s', strtotime($topic['topic_start_date']));?>"
-                                                        required>
+                                                        required min="<?=TALK_DAY_1.'T00:00'?>" max="<?=TALK_DAY_2.'T00:00'?>">
                                                 </div>
                                             </div>
                                             <div class=" col-md-6">
@@ -71,7 +71,7 @@
                                                     <input type="datetime-local" class="form-control form-control-sm"
                                                         name="topic_end_date"
                                                         value="<?=date('Y-m-d\TH:i:s', strtotime($topic['topic_end_date']));?>"
-                                                        required>
+                                                        required min="<?=TALK_DAY_1.'T00:00'?>" max="<?=TALK_DAY_2.'T00:00'?>">
                                                 </div>
                                             </div>
                                         </div>

@@ -64,7 +64,7 @@
 
 <body>
     <div class="container">
-        <img src="https://edufair.all-inedu.com/assets/img/email-header.jpg" alt="https://edufair.all-inedu.com/"
+        <img src="<?=BANNER_EMAIL?>" alt="https://edufair.all-inedu.com/"
             width="100%">
 
         <br>
@@ -74,7 +74,7 @@
 
             <p>Don’t forget your appointment on this last day! <br>
                 Here is your consultation and university talks schedule
-                on July 25th:</p>
+                on July 24th:</p>
             <?php
                 if(!empty($topic)) {
             ?>

@@ -15,16 +15,15 @@ class HomeController extends CI_Controller {
 
 	public function index()
 	{
-		$data['title']      = "Edufair";
-		$topicData_day1     = $this->TopicModel->getTopicData(TALK_DAY_1); // change with edufair start date
-		$topicData_day2     = $this->TopicModel->getTopicData(TALK_DAY_2); // change iwth edufair start date
-		$data['talk_day1']  = $topicData_day1;
-		$data['talk_day2']  = $topicData_day2;
+		$data['title']     = "Edufair";
+		$data['pre_event'] = $this->TopicModel->getTopicData(PRE_EVENT);
+		$data['talk_day1'] = $this->TopicModel->getTopicData(TALK_DAY_1);  // change with edufair start date
+		$data['talk_day2'] = $this->TopicModel->getTopicData(TALK_DAY_2);  // change iwth edufair start date
 		// $data['uniData']    = $this->UniModel->getUniData();
-		$data['uniData']    = $this->UniModel->showAllUniData(1); 
-		$data['uniUpcoming']    = $this->UniModel->showAllUniData(2); 
-		$data['uniCountry'] = $this->UniModel->getUniCountry();
-		$data['bookingTopic'] = [];
+		$data['uniData']        = $this->UniModel->showAllUniData(1);
+		$data['uniUpcoming']    = $this->UniModel->showAllUniData(2);
+		$data['uniCountry']     = $this->UniModel->getUniCountry();
+		$data['bookingTopic']   = [];
 		$data['bookingConsult'] = [];
 
 		if ($this->session->has_userdata('user_id')) {
@@ -374,9 +373,13 @@ class HomeController extends CI_Controller {
 
 	public function bookingConsultation()
 	{
+		$value_of_selected_consult = $this->input->post('var_id_value');
 		$selected_consult_schedule = $this->input->post('var_id');
+		if ($selected_consult_schedule == null) {
+			$selected_consult_schedule = $value_of_selected_consult;
+		}
 		try {
-			for ($i = 0; $i < count($this->input->post('var_id')) ; $i++) {
+			for ($i = 0; $i < count($selected_consult_schedule) ; $i++) {
 				
 				$data = array(
 					'uni_dtl_id' => $selected_consult_schedule[$i],
@@ -388,9 +391,11 @@ class HomeController extends CI_Controller {
 
 				if ($this->ConsultModel->checkExistingConsultation($data) == 0) {
 					$this->ConsultModel->bookingConsult($data);
+					$code = "001";
 				} 
 			}
 			$this->ConsultModel->insertQuestion($this->session->userdata('user_id'), $this->input->post('uni_id'), $this->input->post('question'));
+			$code = "201";
 		} catch (Exception $e) {
 			echo json_encode(array(
 				"code" => "000",
@@ -399,7 +404,7 @@ class HomeController extends CI_Controller {
 		}
 
 		echo json_encode(array(
-			"code" => "001",
+			"code" => $code,
 			"value" => $selected_consult_schedule
 		));
 		
@@ -422,7 +427,11 @@ class HomeController extends CI_Controller {
 		$this->load->library('upload'); 
 		$this->upload->initialize($config);
 
-		unlink(PUBPATH . 'assets/user/uploads/'.$this->session->userdata('user_resume'));
+		if ($this->session->userdata('user_resume') != '') {
+
+			unlink(PUBPATH . 'assets/user/uploads/'.$this->session->userdata('user_resume'));
+		}
+		
 		if ( ! $this->upload->do_upload('uploaded_resume'))
 		{
 			$error = array('error' => $this->upload->display_errors());

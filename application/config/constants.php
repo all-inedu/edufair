@@ -84,13 +84,25 @@ defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
-// //* VARIABLES
+//* VARIABLES
 // defined('TALK_DAY_1') OR define('TALK_DAY_1', '2021-07-24');
 // defined('TALK_DAY_2') OR define('TALK_DAY_2', '2021-07-25');
-defined('TALK_DAY_1') OR define('TALK_DAY_1', '2022-05-17');
-defined('TALK_DAY_2') OR define('TALK_DAY_2', '2022-05-18');
+defined('PRE_EVENT') OR define('PRE_EVENT', '2022-07-16');
+defined('TALK_DAY_1') OR define('TALK_DAY_1', '2022-07-23');
+defined('TALK_DAY_2') OR define('TALK_DAY_2', '2022-07-24');
+//* validate
+defined('TALK_DAY_1_VALIDATE') OR define('TALK_DAY_1_VALIDATE', '2022-07-23T00:00');
+defined('TALK_DAY_2_VALIDATE') OR define('TALK_DAY_2_VALIDATE', '2022-07-24T23:59');
+
 defined('REMINDER_H7') OR define('REMINDER_H7', '2022-05-10');
 defined('REMINDER_H3') OR define('REMINDER_H3', '2022-05-14');
 defined('REMINDER_H1') OR define('REMINDER_H1', '2022-05-16');
 defined('REMINDER_D1') OR define('REMINDER_D1', '2022-05-17');
 defined('REMINDER_D2') OR define('REMINDER_D2', '2022-05-18');
+defined('PERSONAL_TEST_LINK') OR define('PERSONAL_TEST_LINK', '');
+defined('SUBJECT_VERIFY_EMAIL') OR define('SUBJECT_VERIFY_EMAIL', 'Verify your ALL-in Global University Fair account');
+defined('SUBJECT_WELCOME_EMAIL') OR define('SUBJECT_WELCOME_EMAIL', 'Welcome to ALL-in Global University Fair 2022');
+defined('SUBJECT_REMINDER_H7') OR define('SUBJECT_REMINDER_H7', 'Have you taken the FREE Talent & Personality Test yet?');
+defined('SUBJECT_REMINDER_H3') OR define('SUBJECT_REMINDER_H3', 'Quick! Secure your spot now!');
+defined('SUBJECT_REMINDER_H1') OR define('SUBJECT_REMINDER_H1', 'These universities are expecting you!');
+defined('BANNER_EMAIL') or define('BANNER_EMAIL', 'https://dev.edufair.all-inedu.com/assets/mail/header-email.png');

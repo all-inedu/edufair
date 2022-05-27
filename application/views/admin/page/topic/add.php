@@ -58,14 +58,14 @@
                                                 <div class="form-group">
                                                     <label>Start Date</label>
                                                     <input type="datetime-local" class="form-control form-control-sm"
-                                                        name="topic_start_date" required>
+                                                        name="topic_start_date" required min="<?=TALK_DAY_1_VALIDATE?>" max="<?=TALK_DAY_2_VALIDATE?>">
                                                 </div>
                                             </div>
                                             <div class=" col-md-6">
                                                 <div class="form-group">
                                                     <label>End Date</label>
                                                     <input type="datetime-local" class="form-control form-control-sm"
-                                                        name="topic_end_date" required>
+                                                        name="topic_end_date" required min="<?=TALK_DAY_1_VALIDATE?>" max="<?=TALK_DAY_2_VALIDATE?>">
                                                 </div>
                                             </div>
                                         </div>

@@ -54,18 +54,20 @@
 
 <body>
     <div class="container">
-        <img src="https://edufair.all-inedu.com/assets/img/email-header.jpg" alt="https://edufair.all-inedu.com/"
+        <img src="<?=BANNER_EMAIL?>" alt="https://edufair.all-inedu.com/"
             width="100%">
 
         <br>
         <br>
         <div class="box">
             <b>Hello, there!</b> <br><br>
-            You’re one step closer to starting your university research journey!<br>
-            But first, let’s verify your account by clicking the button below.
+            You’re one step further to #TakeOnYourFuture by starting your university research journey.<br>
+            But first, let’s verify your account so the university representatives can know you better!
             <br><br>
-            <a href="<?=$url;?>" class="btn">Verify</a> <br><br>
-            We’re excited to see you soon! <br><br>
+            <a href="<?=$url;?>" class="btn">Verify My Account</a> <br><br>
+            At ALL-in Global University Fair 2022, prepare yourself to meet more than 35 world’s top universities around the world and get insightful talk shows with top-notch speakers, experienced in university admissions.<br><br>
+            Got any question? Feel free to send us an email to info@all-inedu.com - we're happy to help you out.
+            See you soon! <br><br>
 
             Best regards,<br>
             ALL-in Eduspace Team

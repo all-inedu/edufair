@@ -54,26 +54,20 @@
 
 <body>
     <div class="container">
-        <img src="https://edufair.all-inedu.com/assets/img/email-header.jpg" alt="https://edufair.all-inedu.com/"
+        <img src="<?=BANNER_EMAIL?>" alt="https://edufair.all-inedu.com/"
             width="100%">
 
         <br>
         <br>
         <div class="box">
-            One week away until ALL-in Edufair 2021! <br>
-            Have you booked your university talks and private consultation
-            yet?
+            One week away until ALL-in Global University Fair 2022! <br>
+            Have you taken the FREE Talent & Personality Test yet?
 
-            <p>Pick a time slot with the universities of your choice and get accurate information from the university
-                representatives. Make sure to come prepared with a list of questions you want to ask! </p>
+            <p>PDon’t forget to also sign up for the Talk Show Session with Albert Egmont, CEO of Life Talk Asia to know the importance of knowing your talent and personality and how it affects your self-exploration journey for the university application process! </p>
 
-            <p>Want to stay updated on news about majors and admissions? Tune in to the university talks and discuss
-                topics
-                on SAT & ACT test-optional policies, updated requirements for specific majors, and many more. </p>
+            <p>So, what are you waiting for?</p>
 
-            <p>See the schedule available here:</p>
-
-            <a href="https://edufair.all-inedu.com/" class="btn">Visit our website here! </a> <br><br>
+            <a href="<?=PERSONAL_TEST_LINK?>" class="btn">Take your FREE Talent & Personality Test now </a> <br><br>
 
             <p>Book your schedule now!</p>
 
