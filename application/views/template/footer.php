@@ -102,14 +102,15 @@ $(".booking-form").each(function(e) {
 
         var select_question = $(this).find('textarea');
         var question = select_question.val();
-        if (question == null || question == "" || (typeof question == "undefined")) {
-            Swal.fire(
-                '',
-                'Please write your question.',
-                'info'
-            );
-            return;
-        }
+
+        // if (question == null || question == "" || (typeof question == "undefined")) {
+        //     Swal.fire(
+        //         '',
+        //         'Please write your question.',
+        //         'info'
+        //     );
+        //     return;
+        // }
         // return;
         swal.fire({
             icon: 'question',
@@ -166,9 +167,11 @@ $(".booking-form").each(function(e) {
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Oops...',
-                                text: 'Something went wrong! Please try again.'
+                                text: msg.error
                             });
                         }
+                        
+                        $(".modal").find('.close').click();
                     }
                 });
             }

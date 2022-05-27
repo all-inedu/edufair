@@ -375,10 +375,35 @@ class HomeController extends CI_Controller {
 	{
 		$value_of_selected_consult = $this->input->post('var_id_value');
 		$selected_consult_schedule = $this->input->post('var_id');
-		if ($selected_consult_schedule == null) {
-			$selected_consult_schedule = $value_of_selected_consult;
+		$code = "201";
+
+		if (count(array_filter($value_of_selected_consult)) > 0) {
+
+			if (($selected_consult_schedule != null) && (count($selected_consult_schedule) > 0) ) {
+				$value_of_selected_consult = array_values(array_filter($value_of_selected_consult));
+				$selected_consult_schedule = array_merge($value_of_selected_consult, $selected_consult_schedule);
+				$code = "001";
+			} else {
+				
+				$selected_consult_schedule = array_values(array_filter($value_of_selected_consult));
+				$code = "201";
+			}
+
 		}
+
+//! catatan error : kalau sudah booking 1 schedule yg di tgl 24 dan step kedua hanya ingin memasukkan question. error karena selected consult schedulenya ga ada index pertama
+
+		// if ($selected_consult_schedule == null) {
+		// 	$selected_consult_schedule = $value_of_selected_consult;
+		// }
+		// echo count(array_filter($value_of_selected_consult));exit;
+
 		try {
+			
+			// if ($selected_consult_schedule == '') {
+			// 	throw new Exception('You\'ve to choose the consultation date');
+			// } 
+
 			for ($i = 0; $i < count($selected_consult_schedule) ; $i++) {
 				
 				$data = array(
@@ -392,15 +417,19 @@ class HomeController extends CI_Controller {
 				if ($this->ConsultModel->checkExistingConsultation($data) == 0) {
 					$this->ConsultModel->bookingConsult($data);
 					$code = "001";
-				} 
+				}
 			}
-			$this->ConsultModel->insertQuestion($this->session->userdata('user_id'), $this->input->post('uni_id'), $this->input->post('question'));
-			$code = "201";
+
+			if ($this->input->post('question') != '') {
+				$this->ConsultModel->insertQuestion($this->session->userdata('user_id'), $this->input->post('uni_id'), $this->input->post('question'));
+			}
+			
 		} catch (Exception $e) {
 			echo json_encode(array(
 				"code" => "000",
 				"error" => $e->getMessage()	
 			));
+			exit;
 		}
 
 		echo json_encode(array(

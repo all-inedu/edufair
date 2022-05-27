@@ -171,16 +171,16 @@ class UserModel extends CI_Model {
 			$this->db->insert('tb_user', $data);
 			// $this->db->trans_commit();
 			// $this->db->trans_complete();
-			// $db_error = $this->db->error();
-			// if ($db_error != "") {
-			// 	throw new Exception('Database error! Error Code [' . $db_error['code'] . '] Error: ' . $db_error['message']);
-			// 	// return false; // unreachable retrun statement !!!
+			$db_error = $this->db->error();
+			if ($db_error != "") {
+				throw new Exception('Database error! Error Code [' . $db_error['code'] . '] Error: ' . $db_error['message']);
+				// return false; // unreachable retrun statement !!!
 				// return array(
 				// 	"code" => "01",
 				// 	"msg"  => "Registration Failed",
 				// 	"val"  => false
 				// 	);
-			// }
+			}
 
 			return array(
 			"code" => "001",
@@ -194,7 +194,7 @@ class UserModel extends CI_Model {
 			log_message('error', $e->getMessage());
         	return array(
 				"code" => "01",
-				"msg"  => "Registration Failed",
+				"msg"  => $e->getMessage(),
 				"val"  => false
 				);
 		}

@@ -87,30 +87,30 @@
             <!-- banner here -->
             <?php
                 if(!empty($topic)) {
-            ?>
-            <div style="margin-left:10px; font-weight:bold;">University Talks:</div>
-            <table class="table">
+                ?>
+                <div style="margin-left:10px; font-weight:bold;">University Talks:</div>
+                <table class="table">
+                    <?php
+                    $no=1;
+                    foreach($topic as $t):
+                ?>
+                    <tr>
+                        <td width="1%"><?=$no;?></td>
+                        <td>
+                            <?=$t['topic_name'];?><br>
+                            <small>
+                                <?=date("D, M dS Y,", strtotime($t['topic_start_date']));?>
+                                at
+                                <?=date("H:i a", strtotime($t['topic_start_date']));?>
+                            </small>
+                        </td>
+                    </tr>
+                    <?php
+                    $no++;
+                    endforeach;
+                ?>
+                </table>
                 <?php
-                $no=1;
-                foreach($topic as $t):
-            ?>
-                <tr>
-                    <td width="1%"><?=$no;?></td>
-                    <td>
-                        <?=$t['topic_name'];?><br>
-                        <small>
-                            <?=date("D, M dS Y,", strtotime($t['topic_start_date']));?>
-                            at
-                            <?=date("H:i a", strtotime($t['topic_start_date']));?>
-                        </small>
-                    </td>
-                </tr>
-                <?php
-                $no++;
-            endforeach;
-            ?>
-            </table>
-            <?php
                 } 
             ?>
 

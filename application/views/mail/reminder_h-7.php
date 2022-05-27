@@ -63,13 +63,11 @@
             One week away until ALL-in Global University Fair 2022! <br>
             Have you taken the FREE Talent & Personality Test yet?
 
-            <p>PDon’t forget to also sign up for the Talk Show Session with Albert Egmont, CEO of Life Talk Asia to know the importance of knowing your talent and personality and how it affects your self-exploration journey for the university application process! </p>
+            <p>Don’t forget to also sign up for the Talk Show Session with Albert Egmont, CEO of Life Talk Asia to know the importance of knowing your talent and personality and how it affects your self-exploration journey for the university application process! </p>
 
             <p>So, what are you waiting for?</p>
 
             <a href="<?=PERSONAL_TEST_LINK?>" class="btn">Take your FREE Talent & Personality Test now </a> <br><br>
-
-            <p>Book your schedule now!</p>
 
             Best regards,<br>
             ALL-in Eduspace Team

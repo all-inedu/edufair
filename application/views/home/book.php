@@ -1,43 +1,43 @@
 <style>
-.checkbok {
-    clip: rect(0, 0, 0, 0);
-    position: absolute;
-}
+    .checkbok {
+        clip: rect(0, 0, 0, 0);
+        position: absolute;
+    }
 
-.textarea-red {
-    border-radius: 0 !important;
-    border: 2px solid #dedede;
-}
+    .textarea-red {
+        border-radius: 0 !important;
+        border: 2px solid #dedede;
+    }
 
-.btn-submit-uni {
-    background: #F1D202;
-    color: #255896;
-}
+    .btn-submit-uni {
+        background: #F1D202;
+        color: #255896;
+    }
 
-.btn-submit-uni:hover {
-    color: #F1D202;
-    background: #255896;
-}
+    .btn-submit-uni:hover {
+        color: #F1D202;
+        background: #255896;
+    }
 
-.tombol {
-    width: 100% !important
-}
+    .tombol {
+        width: 100% !important
+    }
 
-.items-collection {
-    margin: 20px 0 0 0;
-}
+    .items-collection {
+        margin: 20px 0 0 0;
+    }
 
-.items-collection label.btn-default.active {
-    background-color: #007ba7;
-    color: #FFF;
-}
+    .items-collection label.btn-default.active {
+        background-color: #007ba7;
+        color: #FFF;
+    }
 
-.items-collection label.btn-default {
-    width: 90%;
-    border: 1px solid #305891;
-    margin: 5px;
-    border-radius: 17px;
-}
+    .items-collection label.btn-default {
+        width: 90%;
+        border: 1px solid #305891;
+        margin: 5px;
+        border-radius: 17px;
+    }
 
     .items-collection label.btn-default {
         width: 90%;
@@ -53,34 +53,34 @@
     text-align: justify
 } */
 
-.btn-booking-uni {
-    width: 90%;
-    border: 2px solid #dedede;
-    margin: 5px;
-    font-weight: 100 !important;
-    font-size: 1.3em;
-    border-radius: 0;
-    padding: 15px 0 20px 0;
-    color: #255896;
-}
+    .btn-booking-uni {
+        width: 90%;
+        border: 2px solid #dedede;
+        margin: 5px;
+        font-weight: 100 !important;
+        font-size: 1.3em;
+        border-radius: 0;
+        padding: 15px 0 20px 0;
+        color: #255896;
+    }
 
-.btn-booking-uni.active {
-    background: #255896;
-    color: #FFFFFF !important;
-}
+    .btn-booking-uni.active {
+        background: #255896;
+        color: #FFFFFF !important;
+    }
 
-.btn-booking-uni:hover {
-    background: #255896;
-    color: #FFFFFF !important;
-}
+    .btn-booking-uni:hover {
+        background: #255896;
+        color: #FFFFFF !important;
+    }
 
-.items-collection label .itemcontent {
-    width: 100%;
-}
+    .items-collection label .itemcontent {
+        width: 100%;
+    }
 
-.items-collection .btn-group {
-    width: 90%
-}
+    .items-collection .btn-group {
+        width: 90%
+    }
 
     .items-collection label .itemcontent {
         width: 100%;
@@ -112,27 +112,27 @@
         border-radius: 10px;
     }
 
-.btn-book-uni {
-    background: #F1D202;
-    border-radius: 0 !important;
-    letter-spacing: 0.8px;
-    color: #0D3C9C;
-    font-size: 16px;
-    font-weight: normal;
-    padding: 8px;
-    text-align: center;
-    border: 1px solid #F1D202;
-}
+    .btn-book-uni {
+        background: #F1D202;
+        border-radius: 0 !important;
+        letter-spacing: 0.8px;
+        color: #0D3C9C;
+        font-size: 16px;
+        font-weight: normal;
+        padding: 8px;
+        text-align: center;
+        border: 1px solid #F1D202;
+    }
 
-.btn-book-uni:hover {
-    background: #fff;
-    border: 1px solid #F1D202;
-}
+    .btn-book-uni:hover {
+        background: #fff;
+        border: 1px solid #F1D202;
+    }
 
-#booking {
-    height: auto;
-    padding: 2% 6%;
-}
+    #booking {
+        height: auto;
+        padding: 2% 6%;
+    }
 
     .btn-book-uni:hover {
         background: #ed912f;
@@ -157,15 +157,15 @@
         background: #ed912f;
     }
 
-.uni-book-header-desc {
-    color: #235788;
-    font-size: 1.6em;
-}
+    .uni-book-header-desc {
+        color: #235788;
+        font-size: 1.6em;
+    }
 
-.region-of-origin {
-    color: #0D2F7F;
-    font-weight: 700;
-}
+    .region-of-origin {
+        color: #0D2F7F;
+        font-weight: 700;
+    }
 
     .uni-book-header-desc {
         color: #343A40;
@@ -203,8 +203,7 @@ if (!$this->session->has_userdata('user_id')) {
 
 
 <!-- Modal -->
-<div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
+<div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog  modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -214,7 +213,7 @@ if (!$this->session->has_userdata('user_id')) {
                 </button>
             </div>
             <div class="modal-body modal-title-desc">
-            
+
             </div>
         </div>
     </div>
@@ -243,17 +242,17 @@ if (!$this->session->has_userdata('user_id')) {
                 <?php
                 foreach ($uniCountry as $key => $val) {
                 ?>
-                <div class="dropdown show d-inline">
-                    <button class="btn btn-sm mx-1 dropdown-toggle edufair-uni-region" data-toggle="dropdown">
-                        <?php echo $key; ?>
-                    </button>
-                    <!-- <div class="dropdown-menu" id="dropdown-country"> -->
-                    <!-- <a class="dropdown-item" data-country="<?php echo $key; ?>" href="#booking"><?php echo $key; ?></a> -->
-                    <?php
+                    <div class="dropdown show d-inline">
+                        <button class="btn btn-sm mx-1 dropdown-toggle edufair-uni-region" data-toggle="dropdown">
+                            <?php echo $key; ?>
+                        </button>
+                        <!-- <div class="dropdown-menu" id="dropdown-country"> -->
+                        <!-- <a class="dropdown-item" data-country="<?php echo $key; ?>" href="#booking"><?php echo $key; ?></a> -->
+                        <?php
                         if (count($val['uni_detail']) > 0) {
                         ?>
-                    <div class="dropdown-menu" id="dropdown-country">
-                        <?php
+                            <div class="dropdown-menu" id="dropdown-country">
+                                <?php
                                 foreach ($val['uni_detail'] as $row) {
                                 ?>
                                     <a class="dropdown-item" onclick="highlight('<?php echo $row['uni_id']; ?>')">
@@ -329,21 +328,20 @@ if (!$this->session->has_userdata('user_id')) {
                                     <img src="<?php echo base_url(); ?>assets/home/information-13.png" alt="">
                                 </div> -->
 
-                                <!-- <div style="border: 3px solid #cfcfcf;position: absolute;z-index: 1;right:0;padding:.5em 1.5em;font-weight: bold;margin:2em; color: #CFCFCF; letter-spacing: .2em;transform: rotate(20deg);top: 20px">FULLY BOOKED</div> -->
-                                <div style="max-width:100%;">
-                                    <img src="<?php echo base_url() . "assets/uni/banner/" . $uniInfo['uni_photo_banner']; ?>"
-                                        onerror="this.onerror=null;this.src='<?= $no_image ?>';" alt="" width="100%">
-                                </div>
+                                    <!-- <div style="border: 3px solid #cfcfcf;position: absolute;z-index: 1;right:0;padding:.5em 1.5em;font-weight: bold;margin:2em; color: #CFCFCF; letter-spacing: .2em;transform: rotate(20deg);top: 20px">FULLY BOOKED</div> -->
+                                    <div style="max-width:100%;">
+                                        <img src="<?php echo base_url() . "assets/uni/banner/" . $uniInfo['uni_photo_banner']; ?>" onerror="this.onerror=null;this.src='<?= $no_image ?>';" alt="" width="100%">
+                                    </div>
 
-                                <!-- <div class="card-body pl-4 p-1">
+                                    <!-- <div class="card-body pl-4 p-1">
                                     <h4 class="m-0 pt-2 pb-2 font-weight-bold"
                                         style="color: #3d3d3d; letter-spacing:0.8px;">
                                         <?php echo strtoupper($uniInfo['uni_name']); ?></h4> 
                                 </div> -->
-                                <div class="mt-2">
-                                    <div class="col-md-12 bg-white">
-                                        <div class="row">
-                                            <?php
+                                    <div class="mt-2">
+                                        <div class="col-md-12 bg-white">
+                                            <div class="row">
+                                                <?php
                                                 $count_unidtl = [];
                                                 foreach ($uniInfo['uni_detail'] as $dtl) {
                                                     if (($dtl['uni_dtl_id'] != "")) {
@@ -353,66 +351,54 @@ if (!$this->session->has_userdata('user_id')) {
 
                                                 //if((count($count_unidtl)>0) and ($uniInfo['uni_topic_reg'] == "REGISTERED")) { 
                                                 ?>
-                                            <?php /*} else*/ if ((count($count_unidtl) > 0) and ($uniInfo['uni_topic_reg'] != "REGISTERED")) { ?>
-                                            <div class="col-6 p-0 pr-2">
-                                                <div class="btn btn-book-uni btn-block" style="cursor: pointer"
-                                                    data-toggle="modal" data-target="#modal-<?= $uniInfo['uni_id']; ?>">
-                                                    Join Now
-                                                </div>
-                                            </div>
-                                            <div class="col-6 p-0">
-                                                <div class="desc-uni btn-outline-primary btn-block btn-tellme btn-topic"
-                                                    data-container="body" data-toggle="modal"
-                                                    data-content="<?php echo $uniInfo['uni_description']; ?>"
-                                                    data-target="#uni-story" style="cursor: pointer">
-                                                    Tell Me More
-                                                </div>
-                                            </div>
-                                            <?php } else { ?>
-                                            <div class="col-md-6 p-0">
-                                                <div class="desc-uni btn-outline-primary mb-1 btn-tellme btn-topic"
-                                                    data-container="body" data-toggle="modal"
-                                                    data-content="<?php echo $uniInfo['uni_description']; ?>"
-                                                    data-target="#uni-story" style="cursor: pointer">
-                                                    Tell Me More
-                                                </div>
-                                            </div>
-                                            <?php } ?>
+                                                <?php /*} else*/ if ((count($count_unidtl) > 0) and ($uniInfo['uni_topic_reg'] != "REGISTERED")) { ?>
+                                                    <div class="col-6 p-0 pr-2">
+                                                        <div class="btn btn-book-uni btn-block" style="cursor: pointer" data-toggle="modal" data-target="#modal-<?= $uniInfo['uni_id']; ?>">
+                                                            Join Now
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 p-0">
+                                                        <div class="desc-uni btn-outline-primary btn-block btn-tellme btn-topic" data-container="body" data-toggle="modal" data-content="<?php echo $uniInfo['uni_description']; ?>" data-target="#uni-story" style="cursor: pointer">
+                                                            Tell Me More
+                                                        </div>
+                                                    </div>
+                                                <?php } else { ?>
+                                                    <div class="col-md-6 p-0">
+                                                        <div class="desc-uni btn-outline-primary mb-1 btn-tellme btn-topic" data-container="body" data-toggle="modal" data-content="<?php echo $uniInfo['uni_description']; ?>" data-target="#uni-story" style="cursor: pointer">
+                                                            Tell Me More
+                                                        </div>
+                                                    </div>
+                                                <?php } ?>
 
-                                            <div class="modal fade" tabindex="-1" role="dialog"
-                                                id="modal-<?= $uniInfo['uni_id']; ?>">
-                                                <div class="modal-dialog modal-lg modal-dialog-centered"
-                                                    role="document">
-                                                    <div class="modal-content">
-                                                        <?php
+                                                <div class="modal fade" tabindex="-1" role="dialog" id="modal-<?= $uniInfo['uni_id']; ?>">
+                                                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <?php
                                                             if ($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
                                                             ?>
-                                                        <div class="modal-header">
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <?php
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                            <?php
                                                             }
                                                             ?>
-                                                        <div class="modal-body">
-                                                            <h5 class="modal-title title-booking-blue">Choose Your
-                                                                Schedule</h5>
-                                                            <?php
+                                                            <div class="modal-body">
+                                                                <h5 class="modal-title title-booking-blue">Choose Your
+                                                                    Schedule</h5>
+                                                                <?php
                                                                 // check if uni status fullbook is not full
                                                                 if ($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
                                                                 ?>
-                                                            <div class="container">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <form method="POST" class="booking-form"
-                                                                            action="<?php echo base_url(); ?>booking/consult">
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <div
-                                                                                        class="items-collection d-flex">
-                                                                                        <?php
+                                                                    <div class="container">
+                                                                        <div class="row">
+                                                                            <div class="col">
+                                                                                <form method="POST" class="booking-form" action="<?php echo base_url(); ?>booking/consult">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-12">
+                                                                                            <div class="items-collection d-flex">
+                                                                                                <?php
                                                                                                 $day = 1;
                                                                                                 foreach ($uniInfo['uni_detail'] as $key => $row) {
                                                                                                     $uni_dtl_id = $row['uni_dtl_id'];
@@ -431,65 +417,49 @@ if (!$this->session->has_userdata('user_id')) {
                                                                                                     $time = $interval->format('%H');
                                                                                                     $disabled = "";
                                                                                                 ?>
-                                                                                        <div class="items w-50">
-                                                                                            <div
-                                                                                                class="info-block block-info clearfix">
-                                                                                                <div data-toggle="buttons"
-                                                                                                    class="btn-group bizmoduleselect tombol">
-                                                                                                    <label
-                                                                                                        class="btn btn-booking-uni">
-                                                                                                        <div
-                                                                                                            class="itemcontent">
-                                                                                                            <!-- <input type="text" value="<?php echo $uni_dtl_id ?>"> -->
-                                                                                                            <input
-                                                                                                                class="checkbok booking-red"
-                                                                                                                type="checkbox"
-                                                                                                                name="var_id[]"
-                                                                                                                autocomplete="off"
-                                                                                                                value="<?php echo $uni_dtl_id; ?>"
-                                                                                                                <?php echo (array_search($uni_dtl_id, array_column($bookingConsult, 'uni_dtl_id')) != "") ? "checked disabled" : ""; ?>>
-                                                                                                            <!-- <span class="fa fa-calendar fa-2x"></span> -->
-                                                                                                            <div class="text-booking-uni"
-                                                                                                                style="text-align: center;padding-top: 0.5rem">
-                                                                                                                <?php echo date('d M Y H:i', strtotime($assigned_time)); ?>
+                                                                                                    <div class="items w-50">
+                                                                                                        <div class="info-block block-info clearfix">
+                                                                                                            <div data-toggle="buttons" class="btn-group bizmoduleselect tombol">
+                                                                                                                <label class="btn btn-booking-uni">
+                                                                                                                    <div class="itemcontent">
+                                                                                                                        <!-- <input type="text" value="<?php echo $uni_dtl_id ?>"> -->
+                                                                                                                        <input type="hidden" class="sel-value" name="var_id_value[]" value="<?php echo (array_search($uni_dtl_id, array_column($bookingConsult, 'uni_dtl_id')) != "") ? array_search($uni_dtl_id, array_column($bookingConsult, 'uni_dtl_id')) : null; ?>">
+                                                                                                                        <input class="checkbok booking-red" type="checkbox" name="var_id[]" autocomplete="off" value="<?php echo $uni_dtl_id; ?>" <?php echo (array_search($uni_dtl_id, array_column($bookingConsult, 'uni_dtl_id')) != "") ? "checked disabled" : ""; ?>>
+                                                                                                                        <!-- <span class="fa fa-calendar fa-2x"></span> -->
+                                                                                                                        <div class="text-booking-uni" style="text-align: center;padding-top: 0.5rem">
+                                                                                                                            <?php echo date('d M Y H:i', strtotime($assigned_time)); ?>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </label>
                                                                                                             </div>
                                                                                                         </div>
-                                                                                                    </label>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <?php
+                                                                                                    </div>
+                                                                                                <?php
                                                                                                     $day++;
                                                                                                 }
                                                                                                 ?>
+                                                                                            </div>
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
+                                                                                    <div class="form-group px-1 pt-3">
+                                                                                        <label for="exampleInputEmail1" class="text-dark mb-0">Question for
+                                                                                            the
+                                                                                            University</label>
+                                                                                        <textarea type="text" class="form-control textarea-red" aria-describedby="emailHelp" placeholder="type your questions here" name="question" rows="5"></textarea>
+                                                                                    </div>
+                                                                                    <input type="hidden" name="uni_id" value="<?= $uniInfo['uni_id']; ?>">
+                                                                                    <div class="text-right mx-1">
+                                                                                        <button type="submit" class="btn btn-submit-uni">Submit</button>
+                                                                                    </div>
+                                                                                </form>
                                                                             </div>
-                                                                            <div class="form-group px-1 pt-3">
-                                                                                <label for="exampleInputEmail1"
-                                                                                    class="text-dark mb-0">Question for
-                                                                                    the
-                                                                                    University</label>
-                                                                                <textarea type="text"
-                                                                                    class="form-control textarea-red"
-                                                                                    aria-describedby="emailHelp"
-                                                                                    placeholder="type your questions here"
-                                                                                    name="question" rows="5"></textarea>
-                                                                            </div>
-                                                                            <input type="hidden" name="uni_id"
-                                                                                value="<?= $uniInfo['uni_id']; ?>">
-                                                                            <div class="text-right mx-1">
-                                                                                <button type="submit"
-                                                                                    class="btn btn-submit-uni">Submit</button>
-                                                                            </div>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
+                                                                        </div>
 
-                                                            </div>
-                                                            <?php
+                                                                    </div>
+                                                                <?php
                                                                 }
                                                                 ?>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -498,7 +468,6 @@ if (!$this->session->has_userdata('user_id')) {
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         <?php
                             $count++;
                         }
@@ -515,6 +484,7 @@ if (!$this->session->has_userdata('user_id')) {
     </section>
 
     <script>
+
         $(".inst-unilist").each(function() {
             $(this).click(function() {
                 var uni_story = $(this).data('content');

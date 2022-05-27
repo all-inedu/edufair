@@ -128,7 +128,7 @@ body {
                                     class="form-control custom-box" />
                             </div>
                         </div>
-                        <div class="row pt-2 pb-2">
+                        <!-- <div class="row pt-2 pb-2">
                             <div class="col-lg-3">Date of Birth</div>
                             <div class="col-lg-9">
                                 <input type="date" name="user_dob"
@@ -136,7 +136,7 @@ body {
                                     class="form-control custom-box">
 
                             </div>
-                        </div>
+                        </div> -->
                         <div class="row pt-2 pb-2">
                             <div class="col-lg-3">Phone</div>
                             <div class="col-lg-9">
@@ -150,7 +150,7 @@ body {
                             <div class="col-lg-9">
                                 <input type="email" name="user_email"
                                     value="<?php echo $this->session->userdata('user_email'); ?>"
-                                    class="form-control custom-box" />
+                                    class="form-control custom-box" disabled />
                             </div>
                         </div>
                         <div class="row pt-2 pb-2">
@@ -258,14 +258,14 @@ body {
                             <div class="row">
                                 <div class="col-lg-12">
                                     <ul class="list-group list-group-flush" id="view-form">
-                                        <li class="list-group-item py-2">
+                                        <!-- <li class="list-group-item py-2">
                                             <div class="row pt-2 pb-2">
                                                 <div class="col-lg-4"><b>Date of Birth</b></div>
                                                 <div class="col-lg-8">
-                                                    <?php echo date('d M Y', strtotime($this->session->userdata('user_dob'))); ?>
+                                                    <?php echo ($this->session->userdata('user_dob') != NULL) ? date('d M Y', strtotime($this->session->userdata('user_dob'))) : '<a href="#" data-toggle="modal" data-target="#editprofile">n/a</a>' ; ?>
                                                 </div>
                                             </div>
-                                        </li>
+                                        </li> -->
                                         <li class="list-group-item py-2">
                                             <div class="row">
                                                 <div class="col-lg-4"><b>Phone</b></div>

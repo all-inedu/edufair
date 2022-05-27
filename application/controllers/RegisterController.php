@@ -94,6 +94,7 @@ class RegisterController extends CI_Controller {
 
 		$email = $this->input->post('user_email');
 		$process = $this->UserModel->insertUser($data);
+		// echo json_encode($process);exit;
 		if($process['val']) {
 			$inserted_id = $process['val'];
 

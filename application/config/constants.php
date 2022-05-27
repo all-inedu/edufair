@@ -106,3 +106,4 @@ defined('SUBJECT_REMINDER_H7') OR define('SUBJECT_REMINDER_H7', 'Have you taken 
 defined('SUBJECT_REMINDER_H3') OR define('SUBJECT_REMINDER_H3', 'Quick! Secure your spot now!');
 defined('SUBJECT_REMINDER_H1') OR define('SUBJECT_REMINDER_H1', 'These universities are expecting you!');
 defined('BANNER_EMAIL') or define('BANNER_EMAIL', 'https://dev.edufair.all-inedu.com/assets/mail/header-email.png');
+defined('FORM_FEEDBACK') or define('FORM_FEEDBACK', 'https://bit.ly/GlobalUniFair2021-feedback');
