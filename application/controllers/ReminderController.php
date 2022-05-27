@@ -61,8 +61,8 @@ class ReminderController extends CI_Controller {
             $user = $this->user->getUserData("all");
             $data = [];
             foreach($user as $u) {
-                $bookTopic = $this->topic->getBookingTopicById($u['user_id'], $tomorrow);
-                $bookConsult = $this->uni->getBookingConsultById($u['user_id'], $tomorrow);
+                $bookTopic = $this->topic->getBookingTopicById($u['user_id'], '');
+                $bookConsult = $this->uni->getBookingConsultById($u['user_id'], '');
                 if(!isset($data[$u['user_id']])) {
                     $data[$u['user_id']] = [
                         'user_name' => $u['user_fullname'],
@@ -103,8 +103,8 @@ class ReminderController extends CI_Controller {
             $user = $this->user->getUserData("all");
             $data = [];
             foreach ($user as $u) {
-                $bookTopic = $this->topic->getBookingTopicById($u['user_id'], $tomorrow);
-                $bookConsult = $this->uni->getBookingConsultById($u['user_id'], $tomorrow);
+                $bookTopic = $this->topic->getBookingTopicById($u['user_id'], '');
+                $bookConsult = $this->uni->getBookingConsultById($u['user_id'], '');
                 if(!isset($data[$u['user_id']])) {
                     $data[$u['user_id']] = [
                         'user_name' => $u['user_fullname'],

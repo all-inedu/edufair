@@ -85,7 +85,7 @@
 
     <!-- Copyright -->
     <div class="text-center p-4" id="footer-copy" style="background: #235788; color: #fff;">
-        © 2021 Copyright:
+        © 2022 Copyright:
         <a class="text-reset fw-bold" href="https://all-inedu.com">All-in Eduspace. All rights reserved.</a>
     </div>
     <!-- Copyright -->
