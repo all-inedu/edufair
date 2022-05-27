@@ -160,14 +160,7 @@ h4 {
                 <?php 
             }
             ?>
-            </div>
-        </div>
-    </div>
-        
-        <?php 
-    }
-    ?>
-    <!-- <div class="col-md-6">
+            <!-- <div class="col-md-6">
         <div class="eventpre px-md-2 precv mt-4 mb-4">
                 <div class="row px-0 pt-2">
                     <div class="talks-header" id="bannercv">
@@ -188,6 +181,14 @@ h4 {
             </div>
         </div>
     </div> -->
+            </div>
+        </div>
+    </div>
+        
+        <?php 
+    }
+    ?>
+    
     <!-- Modal -->
     <!-- <div class="modal fade" id="uni-story" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
         aria-hidden="true">
