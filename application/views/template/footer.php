@@ -136,6 +136,8 @@ $(".booking-form").each(function(e) {
                             }).then((result) => {
                                 for (i = 0; i < msg.value.length; i++) {
                                     $("input[type=checkbox][value="+msg.value[i]+"]").prop("checked", true);
+                                    $("input[type=checkbox][value="+msg.value[i]+"]").prop("disabled", true);
+                                    $(".sel-value-"+msg.value[i]).val(msg.value[i]);
                                 }
                                 select_question.val('');
                             });

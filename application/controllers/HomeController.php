@@ -391,8 +391,6 @@ class HomeController extends CI_Controller {
 
 		}
 
-//! catatan error : kalau sudah booking 1 schedule yg di tgl 24 dan step kedua hanya ingin memasukkan question. error karena selected consult schedulenya ga ada index pertama
-
 		// if ($selected_consult_schedule == null) {
 		// 	$selected_consult_schedule = $value_of_selected_consult;
 		// }
