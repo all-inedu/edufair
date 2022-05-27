@@ -1,5 +1,25 @@
 <style>
+
+.running{
+    font-size: 34px;
+}
+.bg-gambar{
+    /* url(assets/topic/CHOOSE_THE_RIGHT_MAJOR_LS1.png); */
+    background: #EA912C;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* height: 350px !important; */
+    background-position: center;
+    background-color: #EA912C;
+    width: "80%";
+    align-items: center;
+
+}
+
 .train {
+    position: absolute;
+}
+.img-box {
     position: absolute;
     width: 100%;
     margin-top: 50px;

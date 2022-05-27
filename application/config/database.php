@@ -118,15 +118,15 @@ $query_builder = TRUE;
 // 	'autoinit' => FALSE
 // );
 
-// $db['default']['hostname'] = '156.67.213.151';
-// $db['default']['username'] = 'u5332263_allin';
-// $db['default']['password'] = '8+~yq7XlNv9_';
-// $db['default']['database'] = 'u5332263_edufair_2022';
+$db['default']['hostname'] = '156.67.213.151';
+$db['default']['username'] = 'u5332263_allin';
+$db['default']['password'] = '8+~yq7XlNv9_';
+$db['default']['database'] = 'u5332263_edufair_2022';
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'u5332263_edufair';
+// $db['default']['hostname'] = 'localhost';
+// $db['default']['username'] = 'root';
+// $db['default']['password'] = '';
+// $db['default']['database'] = 'db_edufair_2022';
 
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';

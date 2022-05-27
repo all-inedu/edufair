@@ -73,7 +73,11 @@
     }
 
     #home-section {
-        background-color: #FFF;
+        /* background: url('assets/img/home/header-bg.webp'); */
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: 100% auto;
+        /* background-color: #FFFFFF; */
     }
 
     #home h1,
@@ -284,6 +288,26 @@
         color: #255896;
     }
 
+    #bannercv {
+        background-color: #F43636;
+    }
+
+    #bannercv h3 {
+        font-family: Montserrat-ExtraBold;
+        text-transform: uppercase;
+        color: #F1D202;
+    }
+
+    #bannercv h5 {
+        /* font-family: Montserrat-ExtraBold; */
+        color: #FFFFFF;
+    }
+
+    #bannercv p {
+        /* font-family: Montserrat-ExtraBold; */
+        color: #FFFFFF;
+    }
+
     .tanggal {
         color: #F43636;
         font-weight: 600;
@@ -320,7 +344,20 @@
         background: #235788;
     }
 
-
+    .btn-submitcv {
+        background: #F1D202 !important;
+        text-transform: capitalize !important;
+        color: #0D3C9C !important;
+        padding-left: 1.5rem;
+        text-align: center;
+        font-size: 1rem;
+        border: none;
+        font-weight: normal !important;
+        color: #fff;
+        width: 30%;
+        border: 1px solid #F1D202;
+        padding: 8px !important;
+    }
 
     .btn-book {
         background: #F1D202 !important;
@@ -335,6 +372,12 @@
         width: 100%;
         border: 1px solid #F1D202;
         padding: 8px !important;
+    }
+
+    
+    .btn-submitcv:hover {
+        background: #fff !important;
+        border: 1px solid #F1D202;
     }
 
     .btn-book:hover {
@@ -371,6 +414,29 @@
 
     .eventpre {
         padding: 0;
+    }
+
+
+    .precv {
+        padding-top: 2rem;
+        /* border: 3px solid #12116e; */
+        /* border-radius: .5em; */
+        position: relative;
+    }
+
+    .precv::before {
+        /* content: "PRE-EVENT"; */
+        border: 2px solid #255896;
+        /* border-radius: 1.5em; */
+        padding: .2em 1.5em;
+        top: 0;
+        z-index: 2;
+        margin-left: 10px;
+        
+        background: #fff;
+        font-size: 1.2em;
+        color: #255896;
+        font-weight: 700;
     }
 
     .preevent {
@@ -653,6 +719,10 @@
 
     @media screen and (max-width: 576px) and (min-width: 375px) {
         .preevent::before {
+            margin-left: -10px !important;
+        }
+
+        .precv::before {
             margin-left: -10px !important;
         }
 

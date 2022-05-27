@@ -37,11 +37,13 @@
     content: "Scheduled Talks";
     position: absolute;
     top: 0;
-    background: #0C2F80;
+    font-size: 21px;
+    font-weight: 700;
+    /* background: #0C2F80; */
     padding: 7px 10px;
-    color: #FFF;
-    margin-top: -1.2em;
-    left: 1.5em;
+    /* color: #FFF; */
+    /* margin-top: -1.2em; */
+    left: 1.2em;
     /* border-radius: 10px; */
 }
 
@@ -49,11 +51,13 @@
     content: "Scheduled University Consultation";
     position: absolute;
     top: 0;
-    background: #0C2F80;
+    font-size: 21px;
+    font-weight: 700;
+    /* background: #0C2F80; */
     padding: 7px 10px;
-    color: #FFF;
-    margin-top: -1.2em;
-    left: 1.5em;
+    /* color: #FFF; */
+    /* margin-top: -1.2em; */
+    left: 1.2em;
     /* border-radius: 10px; */
 }
 
@@ -351,7 +355,7 @@ body {
         </div>
 
         <div class="col-lg-8">
-            <div class="row mt-3">
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="card card-topic">
                         <div class="card-body ml-3">
