@@ -427,7 +427,7 @@ class HomeController extends CI_Controller {
 					$dataConsult = $this->ConsultModel->getExistingConsultation($data);
 					$consult_id = $dataConsult->booking_c_id;
 
-					$this->consultModel->updateBookingConsultation($consult_id);
+					$this->ConsultModel->updateBookingConsultation($consult_id);
 				}
 			}
 
