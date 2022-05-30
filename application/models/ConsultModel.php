@@ -6,7 +6,7 @@ class ConsultModel extends CI_Model {
 	function getBookingConsultData($user_id)
 	{
 		$this->db->select('uni_dtl_id');
-		$query = $this->db->get_where('tb_booking_consult', array('user_id' => $user_id));
+		$query = $this->db->get_where('tb_booking_consult', array('user_id' => $user_id, 'booking_c_status' => 1));
 		return $query->result_array();
 	}
 

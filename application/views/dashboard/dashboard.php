@@ -1,7 +1,7 @@
 <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
 <style>
 .introjs-helperLayer {
-    height: 95px !important
+    height: 75px !important
 }
 
 #register-form {
@@ -169,7 +169,7 @@ body {
                             <div class="col-lg-9">
                                 <input type="email" name="user_email"
                                     value="<?php echo $this->session->userdata('user_email'); ?>"
-                                    class="form-control custom-box" />
+                                    class="form-control custom-box" readonly />
                             </div>
                         </div>
                         <div class="row pt-2 pb-2">
