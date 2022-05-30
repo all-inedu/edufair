@@ -316,6 +316,9 @@ if (!$this->session->has_userdata('user_id')) {
                         $i = 0;
                         $count = 1;
                         foreach ($uniData as $uniInfo) {
+                            if ($uniInfo['uni_id'] == 21) {
+                                continue;
+                            }
                             $no_image = base_url() . 'assets/uni/banner/default.jpeg';
                             // print("<pre>".print_r($uniInfo, true)."</pre>");exit;
                         ?>
