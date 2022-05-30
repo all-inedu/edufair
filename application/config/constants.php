@@ -99,7 +99,7 @@ defined('REMINDER_H3') OR define('REMINDER_H3', '2022-05-14');
 defined('REMINDER_H1') OR define('REMINDER_H1', '2022-05-16');
 defined('REMINDER_D1') OR define('REMINDER_D1', '2022-05-17');
 defined('REMINDER_D2') OR define('REMINDER_D2', '2022-05-18');
-defined('PERSONAL_TEST_LINK') OR define('PERSONAL_TEST_LINK', '');
+defined('PERSONAL_TEST_LINK') OR define('PERSONAL_TEST_LINK', 'https://lifetalkasia.id/psikotest/');
 defined('SUBJECT_VERIFY_EMAIL') OR define('SUBJECT_VERIFY_EMAIL', 'Verify your ALL-in Global University Fair account');
 defined('SUBJECT_WELCOME_EMAIL') OR define('SUBJECT_WELCOME_EMAIL', 'Welcome to ALL-in Global University Fair 2022');
 defined('SUBJECT_REMINDER_H7') OR define('SUBJECT_REMINDER_H7', 'Have you taken the FREE Talent & Personality Test yet?');
