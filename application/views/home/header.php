@@ -1,3 +1,41 @@
+<style>
+.notif-card {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    width: 350px;
+    z-index: 9999;
+    background: #fff;
+    color: #225787;
+    border: 1px solid #dedede;
+    border-left: 4px solid #C72E3B;
+    border-right: 4px solid #225787;
+}
+
+.notif-cv {
+    position: relative;
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+.notif-text {
+    margin-bottom: 20px;
+}
+
+a.notif-submit {
+    background: #f0d202;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #225787;
+}
+
+.notif-submit:hover {
+    background: #225787;
+    color: #fff;
+
+}
+</style>
+
 <div id="signUp" class="modal fade">
     <div class="modal-dialog modal-login modal-dialog-centered">
         <div class="modal-content">
@@ -78,7 +116,14 @@
     </div>
 </section>
 
-
+<div class="notif-card shadow">
+    <div class="notif-cv">
+        <div class="notif-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum velit consequuntur rem
+        </div>
+        <a href="#" class="notif-submit">Submit CV</a>
+    </div>
+</div>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
