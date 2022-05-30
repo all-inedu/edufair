@@ -204,6 +204,10 @@ h4 {
             <?php
                 }
                 ?>
+
+            <?php
+            if (($this->session->userdata('user_resume') == '') && ($this->session->userdata('user_id') != '')) {
+            ?>
             <div class="col-md-5 mt-3 pt-1">
                 <div class="submit-cv">
                     <h3>WANT TO GET A TASTE OF A UC APPLICATION?</h3>
@@ -217,6 +221,9 @@ h4 {
                     </div>
                 </div>
             </div>
+            <?php
+            }
+            ?>
         </div>
     </div>
     <?php
