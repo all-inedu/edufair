@@ -590,6 +590,39 @@ $(document).ready(function() {
     
 
 });
+
+$(document).ready(function(){
+
+    show_notif();
+
+    $(".notif-card").click(function() {
+        $(this).removeClass('show-notif').addClass('hide-notif');
+    });
+
+    setInterval(function() {
+        var notif = $(".notif-card").hasClass('hide-notif');
+        // alert(notif + 'b');
+        if (notif) {
+            show_notif();
+        }
+    }, 20 * 1000); // 1 menit
+
+    setInterval(function() {
+        var notif = $(".notif-card").hasClass('show-notif');
+        // alert(notif+'a');
+        if (notif) {
+            hide_notif()
+        }
+    }, 10 * 1000); // 10 detik
+});
+
+function show_notif() {
+    $(".notif-card").removeClass('hide-notif').addClass('show-notif');
+}
+
+function hide_notif() {
+    $(".notif-card").removeClass('show-notif').addClass('hide-notif');
+}
 </script>
 
 </html>

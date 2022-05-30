@@ -21,7 +21,19 @@ marquee img {
     marquee img {
         height: 80px;
     }
+    
 }
+
+/* marquee {
+    animation: scrolling 10s linear infinite;
+}
+
+@keyframes scrolling {
+  0% { transform: translateX(0); }
+  100% { transform: translatex(-144vw); }
+} */
+
+
 </style>
 <section id="personality">
     <div class="container-fluid p-0 w-100">
@@ -32,13 +44,17 @@ marquee img {
             $props = "";
         }
         ?>
-        <div class="train">
+        <!-- <div class="train">
             <hr class="mb-5">
             <hr class="mt-5">
-        </div>
-        <marquee class="py-3" <?php echo $props; ?> class="btn-personal-test" scrollamount="20" loop="infinite"
+        </div> -->
+        <marquee class="py-3" <?php echo $props; ?> class="btn-personal-test" scrollamount="15" loop="infinite"
             onclick="setRedirectLink('personal-test')" onmouseover="this.stop();" onmouseout="this.start();">
-            <img src="<?php echo base_url(); ?>assets/img/banner.webp" alt="Global University Edufair">
+            <div class="d-inline">
+                <?php for ($i = 0; $i < 10; $i++) { ?>
+                <img src="<?php echo base_url(); ?>assets/img/banner.webp" alt="Global University Edufair">
+                <?php } ?>
+            </div>
         </marquee>
     </div>
 </section>

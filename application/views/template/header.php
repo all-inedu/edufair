@@ -380,7 +380,7 @@
     }
 
     .preevent::before {
-        content: "PRE-EVENT";
+        content: "ROAD TO EDUFAIR";
         border: 2px solid #255896;
         /* border-radius: 1.5em; */
         padding: .2em 1.5em;

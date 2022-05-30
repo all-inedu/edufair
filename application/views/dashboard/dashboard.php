@@ -1,6 +1,6 @@
 <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
 <style>
-.introjs-helperLayer { height: 95px !important}
+.introjs-helperLayer { height: 45px !important}
 #register-form {
     color: #0C2F80;
     padding: 10% 10% 10% 6%;
@@ -415,7 +415,7 @@ body {
                     </div>
                 </div>
             </div>
-            <div class="row" style="margin-top:4em">
+            <div class="row" style="margin-top:2em">
                 <div class="col-lg-12">
                     <div class="card card-consult">
                         <div class="card-body ml-3">
@@ -485,7 +485,7 @@ body {
             steps: [{
                 element: document.querySelector('.upload-cv-field'),
                 title: 'Welcome!',
-                intro: 'Before getting started, please upload your CV / resume because you can win a chance to have your CV / resume checked by our mentor.'
+                intro: 'Before getting started, please upload your CV / resume because you can win a chance to have your CV / resume checked by mentor.'
             }]
         }).start();
     <?php

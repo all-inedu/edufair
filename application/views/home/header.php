@@ -1,3 +1,52 @@
+<style>
+    .hide-notif {
+        right: -350px !important;
+    transition: 0.7s all ease-in-out;
+    }
+
+    .show-notif {
+        right: 10px !important;
+    transition: 0.7s all ease-in-out;
+    }
+
+    .notif-card {
+    position: fixed;
+    bottom: 20px;
+    right: -350px;
+    width: 350px;
+    z-index: 9999;
+    background: #fff;
+    color: #225787;
+    border: 1px solid #dedede;
+    border-left: 4px solid #C72E3B;
+    border-right: 4px solid #225787;
+    
+    transition: 0.7s all ease-in-out;
+}
+
+.notif-cv {
+    position: relative;
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+.notif-text {
+    margin-bottom: 20px;
+}
+
+a.notif-submit {
+    background: #f0d202;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #225787;
+}
+
+.notif-submit:hover {
+    background: #225787;
+    color: #fff;
+
+}
+</style>
 <div id="signUp" class="modal fade">
     <div class="modal-dialog modal-login modal-dialog-centered">
         <div class="modal-content">
@@ -77,6 +126,21 @@
         </div>
     </div>
 </section>
+
+<?php
+ if (($this->session->userdata('user_resume') == '') && ($this->session->userdata('user_id') != '')) {
+?>
+<div class="notif-card shadow">
+    <div class="notif-cv">
+        <div class="notif-text">
+            Haven't submit CV? Click the button below
+        </div>
+        <a href="<?=base_url()?>home/dashboard" class="notif-submit">Submit CV</a>
+    </div>
+</div>
+<?php
+}
+?>
 
 
 
