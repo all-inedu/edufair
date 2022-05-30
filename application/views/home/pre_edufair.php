@@ -206,7 +206,7 @@ h4 {
                 ?>
 
             <?php
-            if (($this->session->userdata('user_resume') == '')) {
+            if (($this->session->userdata('user_resume') == '') && ($this->session->userdata('user_status') != "Teacher/Consellor")) {
             ?>
             <div class="col-md-5 mt-3 pt-1">
                 <div class="submit-cv">

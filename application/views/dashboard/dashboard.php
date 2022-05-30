@@ -196,7 +196,7 @@ body {
                         <div class="row pt-2 pb-2">
                             <div class="col-lg-3">Destination</div>
                             <div class="col-lg-9">
-                                <select id="userDestination" onchange="checkValue('userDestination')" multiple required
+                                <select id="userDestination" onchange="checkValue('userDestination')" multiple <?=$this->session->userdata('user_status') == 'Teacher/Consellor' ? '' : 'required'; ?>
                                     oninvalid="validation('userDestination')">
                                     <?php
                             for($i = 0 ; $i < count($dataCountry); $i++){ 
@@ -214,7 +214,7 @@ body {
                         <div class="row pt-2">
                             <div class="col-lg-3">Major</div>
                             <div class="col-lg-9">
-                                <select id="userMajor" onchange="checkValue('userMajor')" multiple required
+                                <select id="userMajor" onchange="checkValue('userMajor')" multiple <?=$this->session->userdata('user_status') == 'Teacher/Consellor' ? '' : 'required'; ?> 
                                     oninvalid="validation('userMajor')">
                                     <option value="other">Other</option>
                                     <?php
@@ -324,12 +324,16 @@ body {
                                     </ul>
                                 </div>
                             </div>
+                            <?php
+                            if ($this->session->userdata('user_status') != "Teacher/Consellor") {
+                            ?>
                             <hr>
                             <div class="row" data-title="Hallo" data-intro="Kamu bisa upload CV kamu disini">
                                 <div class="col-md-12 text-center">
                                     <form action="<?php echo base_url(); ?>upload/resume" method="POST"
                                         enctype="multipart/form-data" id="upload-form">
                                         <!-- <label class="sr-only" for="inlineFormInputGroup">Upload your CV / Resume here</label> -->
+                                        
                                         <div class="input-group mb-2 upload-cv-field">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text file-logo"><i class="fas fa-file"></i>
@@ -337,6 +341,7 @@ body {
                                                 <div class="input-group-text file-close" hidden style="cursor:pointer">
                                                     <i class="fas fa-times" style="color: red;"></i></div>
                                             </div>
+                                            
                                             <input type="file" hidden name="uploaded_resume" id="upload-resume"
                                                 onchange="save_file(this.value)">
                                             <input type="text" readonly class="form-control upload-filename"
@@ -359,6 +364,9 @@ body {
                                     </form>
                                 </div>
                             </div>
+                            <?php
+                            }
+                            ?>
                             <hr>
                             <div class="row">
                                 <div class="col-md-12 text-center">
@@ -367,7 +375,7 @@ body {
                                     <br>
                                     <button class="btn btn-primary mt-3 mb-3 btn-consult-allin"
                                         data-userid="<?=$this->session->userdata('user_id');?>">
-                                        FREE Inital Consultation
+                                        FREE Initial Consultation
                                     </button>
                                 </div>
                             </div>
@@ -498,7 +506,7 @@ body {
     crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.js"></script>
 <script>
-<?php if ($this->session->userdata('user_resume') == ''){
+<?php if (($this->session->userdata('user_resume') == '') && ($this->session->userdata('user_status') != 'Teacher/Consellor') ){
     ?>
 introJs().setOptions({
     steps: [{

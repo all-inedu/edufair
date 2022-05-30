@@ -303,6 +303,7 @@ $(document).ready(function() {
         dataType: "json",
         url: "https://www.bigdata.crm-allinedu.com/api/countries",
         success: function(datas) {
+            console.log(datas);
             $.each(datas, function(index, data) {
                 $('#userDestination').append(
                     '<option value="' + data + '">' + data + '</option>'
@@ -354,6 +355,7 @@ $(document).ready(function() {
             });
         }
     });
+
 
 });
 
@@ -642,7 +644,29 @@ $(document).ready(function() {
                 "Whats your biggest challenge in prepping for university?"
             );
         }
+
+        // challenge
+        $.ajax({
+            type: 'post',
+            data: {
+                role : val,
+            }, 
+            dataType: "json",
+            url: "<?php echo base_url(); ?>request/getAllDataChallenge",
+            success: function(datas) {
+                
+                $('#userChallenge').find('option[value!="other"]').remove();
+                $.each(datas, function(index, data) {
+                    $('#userChallenge').append(
+                        '<option value="' + data.name + '">' + data.name +
+                        '</option>'
+                    )
+                });
+            }
+        });
     })
+
+    
 });
 
 function validation(param) {

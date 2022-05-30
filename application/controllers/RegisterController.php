@@ -314,32 +314,63 @@ class RegisterController extends CI_Controller {
 	//* New 2022
 	public function getAllDataChallenge()
 	{
-		$data = array(
-			array(
-				'name' => 'Exploring my interest & passion',
-			),
-			array(
-				'name' => 'Deciding what major & university to apply',
-			),
-			array(
-				'name' => 'Building my CV or portfolio',
-			),
-			array(
-				'name' => 'Writing university essay application',
-			),
-			array(
-				'name' => 'Preparing for standardized tests (SAT, ACT, TOEFL, IELTS, etc)',
-			),
-			array(
-				'name' => 'Improving my grades',
-			),
-			array(
-				'name' => 'Creating a unique application profile',
-			),
-			array(
-				'name' => 'Improving my writing skill',
-			)
-		);
+		$session_role = $this->input->post('role');
+		if ($session_role == "Teacher/Consellor") {
+			$data = array(
+				array(
+					'name' => 'Exploring my interest & passion',
+				),
+				array(
+					'name' => 'Deciding what major & university to apply',
+				),
+				array(
+					'name' => 'Building their CV or portfolio',
+				),
+				array(
+					'name' => 'Writing university essay application',
+				),
+				array(
+					'name' => 'Preparing for standardized tests (SAT, ACT, TOEFL, IELTS, etc)',
+				),
+				array(
+					'name' => 'Improving my grades',
+				),
+				array(
+					'name' => 'Creating a unique application profile',
+				),
+				array(
+					'name' => 'Improving my writing skill',
+				)
+			);
+		} else {
+			$data = array(
+				array(
+					'name' => 'Exploring my interest & passion',
+				),
+				array(
+					'name' => 'Deciding what major & university to apply',
+				),
+				array(
+					'name' => 'Building my CV or portfolio',
+				),
+				array(
+					'name' => 'Writing university essay application',
+				),
+				array(
+					'name' => 'Preparing for standardized tests (SAT, ACT, TOEFL, IELTS, etc)',
+				),
+				array(
+					'name' => 'Improving my grades',
+				),
+				array(
+					'name' => 'Creating a unique application profile',
+				),
+				array(
+					'name' => 'Improving my writing skill',
+				)
+			);
+		}
+		
 
 		echo json_encode($data);
 	}

@@ -65,7 +65,7 @@
             But first, let’s verify your account so the university representatives can know you better!
             <br><br>
             <a href="<?=$url;?>" class="btn">Verify My Account</a> <br><br>
-            At ALL-in Global University Fair 2022, prepare yourself to meet more than 35 world’s top universities around the world and get insightful talk shows with top-notch speakers, experienced in university admissions.<br><br>
+            At ALL-in Global University Fair 2022, prepare yourself to meet more than 40 world’s top universities around the world and get insightful talk shows with top-notch speakers, experienced in university admissions.<br><br>
             Got any question? Feel free to send us an email to info@all-inedu.com - we're happy to help you out.
             See you soon! <br><br>
 

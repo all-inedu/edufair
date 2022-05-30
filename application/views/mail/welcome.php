@@ -68,7 +68,7 @@
 
             Book your consultation, sign up for insightful talk shows, and take your FREE Talent & Personality Test here: <br><br>
 
-            <a href="https://edufair.all-inedu.com/" class="btn">Visit Global University Fair 2022 Website </a> <br><br>
+            <a href="<?=base_url();?>" class="btn">Visit Global University Fair 2022 Website </a> <br><br>
 
             Best regards,<br>
             ALL-in Eduspace Team

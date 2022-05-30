@@ -128,7 +128,7 @@ a.notif-submit {
 </section>
 
 <?php
- if (($this->session->userdata('user_resume') == '') && ($this->session->userdata('user_id') != '')) {
+ if (($this->session->userdata('user_resume') == '') && ($this->session->userdata('user_id') != '') && ($this->session->userdata('user_status') != "Teacher/Consellor")) {
 ?>
 <div class="notif-card shadow">
     <div class="notif-cv">
