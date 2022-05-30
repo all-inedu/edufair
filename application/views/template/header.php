@@ -466,7 +466,7 @@
         padding: 0px 0 50px 0
     }
 
-    #talks h5 {
+    #talks h5, #booking h5 {
         font-family: 'Apercu-Bold';
         color: #235788;
         font-size: 1.6em;

@@ -48,6 +48,7 @@ marquee img {
             <hr class="mb-5">
             <hr class="mt-5">
         </div> -->
+        <a href="<?=PERSONAL_TEST_LINK?>">
         <marquee class="py-3" <?php echo $props; ?> class="btn-personal-test" scrollamount="15" loop="infinite"
             onclick="setRedirectLink('personal-test')" onmouseover="this.stop();" onmouseout="this.start();">
             <div class="d-inline">
@@ -56,5 +57,6 @@ marquee img {
                 <?php } ?>
             </div>
         </marquee>
+        </a>
     </div>
 </section>

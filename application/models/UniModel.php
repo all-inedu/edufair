@@ -404,6 +404,7 @@ class UniModel extends CI_Model {
 	  $this->db->join('tb_uni_detail', 'tb_uni_detail.uni_dtl_id=tb_booking_consult.uni_dtl_id');
 	//   $this->db->join('tb_uni_detail', 'tb_uni_detail.uni_dtl_id=tb_uni_detail_time.uni_dtl_id');
 	  $this->db->join('tb_uni', 'tb_uni.uni_id=tb_uni_detail.uni_id');
+	  $this->db->order_by('tb_uni.uni_name asc,tb_uni_detail.uni_dtl_start_date asc',);
       return $this->db->get()->result_array();
     }
 }

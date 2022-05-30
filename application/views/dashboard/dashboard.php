@@ -47,6 +47,9 @@
     /* color: #FFF; */
     /* margin-top: -1.2em; */
     left: 1.2em;
+    margin-top: 10px;
+    width: 90%;
+    border-bottom: 1px solid #0C2F80;
     /* border-radius: 10px; */
 }
 
@@ -61,6 +64,9 @@
     /* color: #FFF; */
     /* margin-top: -1.2em; */
     left: 1.2em;
+    margin-top: 10px;
+    width: 90%;
+    border-bottom: 1px solid #0C2F80;
     /* border-radius: 10px; */
 }
 
@@ -377,7 +383,7 @@ body {
                     <div class="card card-topic">
                         <div class="card-body ml-3">
                             <?php if( (isset($dataTopic)) && (count($dataTopic) > 0) ) { ?>
-                            <div class="list-group mt-4">
+                            <div class="list-group mt-4" style="padding-top: 25px;">
                                 <?php
 	    						foreach($dataTopic as $row) {
                                     $topic_start_date = new DateTime($row->topic_start_date);
@@ -419,7 +425,7 @@ body {
 	    						?>
                             </div>
                             <?php } else { ?><br>
-                            <p>You have no university talk scheduled. Click <a
+                            <p style="margin-top: 25px;">You have no university talk scheduled. Click <a
                                     href="<?php echo base_url(); ?>?section=talks">here</a> to book.</p>
                             <?php
 								}
@@ -433,7 +439,7 @@ body {
                     <div class="card card-consult">
                         <div class="card-body ml-3">
                             <?php if( (isset($dataConsult)) && (count($dataConsult) > 0) ) { ?>
-                            <div class="list-group mt-4">
+                            <div class="list-group mt-4" style="padding-top: 25px;">
                                 <?php
 								foreach($dataConsult as $row) {
                                     $consult_date = new DateTime($row->uni_dtl_start_date);
@@ -473,8 +479,8 @@ body {
 								}
 								?>
                             </div>
-                            <?php } else {?> <br>
-                            <p>You have no consultation scheduled. Click <a
+                            <?php } else { ?> <br>
+                            <p style="margin-top: 25px;">You have no consultation scheduled. Click <a
                                     href="<?php echo base_url(); ?>?section=booking">here</a> to book.</p>
                             <?php
 							    }	?>

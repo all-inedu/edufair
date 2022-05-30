@@ -206,7 +206,7 @@ h4 {
                 ?>
 
             <?php
-            if (($this->session->userdata('user_resume') == '') && ($this->session->userdata('user_id') != '')) {
+            if (($this->session->userdata('user_resume') == '')) {
             ?>
             <div class="col-md-5 mt-3 pt-1">
                 <div class="submit-cv">
@@ -214,11 +214,28 @@ h4 {
                     <h5>Drop your application CV and attend our pre-edufair event to win a 1-on-1 profile review with
                         UC's former admission officer!</h5>
                     <p>Submit before 20 July 2022.</p>
+                    <?php
+                    if ($this->session->userdata('user_id')) {
+                    ?>
+                    <a href="<?=base_url()?>home/dashboard">
                     <div class="nav-link btn btn-sm btn-outline-primary mb-2 btn-submit-cv btn-<?= $topic_id; ?>"
                         data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>" data-param="submit-cv"
                         <?php echo $props; ?>>
                         Submit CV
                     </div>
+                    </a>
+                    <?php
+                    } else {
+                    ?>
+                    <div class="nav-link btn btn-sm btn-outline-primary mb-2 btn-submit-cv btn-<?= $topic_id; ?>"
+                        data-topicid="<?php echo $topic_id; ?>" data-topicinfo="<?php echo $arrTopic; ?>" data-param="submit-cv"
+                        <?php echo $props; ?>>
+                        Submit CV
+                    </div>
+                    <?php
+                    } 
+                    ?>
+                    
                 </div>
             </div>
             <?php

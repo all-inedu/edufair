@@ -293,7 +293,9 @@ $(".talk-button").click(function() {
 
 $(document).ready(function() {
     $(".btn-submit-cv").click(function(event) {
+        var data_param = $(this).data('param');
         $("#loginForm").prop('action', '<?= base_url(); ?>login?param=cv');
+        $("#join-link").prop('href', "<?php echo base_url(); ?>registration?param=" + data_param);
     });
 
     $(".btn-book").each(function() {

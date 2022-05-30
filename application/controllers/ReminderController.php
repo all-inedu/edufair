@@ -30,6 +30,7 @@ class ReminderController extends CI_Controller {
 
     public function reminderh7() {
         $date_reminder = REMINDER_H7; // ganti 2021-07-17
+        $date_reminder = '2022-05-30';
         $date = date("Y-m-d");
 
         if($date_reminder==$date) {
@@ -53,7 +54,7 @@ class ReminderController extends CI_Controller {
 
     public function reminderh3() {
         $date_reminder = REMINDER_H3; // ganti 2021-07-21
-        // $date_reminder = "2022-05-25";
+        $date_reminder = "2022-05-30";
         $date = date("Y-m-d");
 
         if($date_reminder==$date) {
@@ -96,6 +97,7 @@ class ReminderController extends CI_Controller {
 
     public function reminderh1() {
         $date_reminder = REMINDER_H1; // ganti 2021-07-21
+        $date_reminder = '2022-05-30';
         $date = date("Y-m-d");
 
         if($date_reminder==$date) {
@@ -137,9 +139,11 @@ class ReminderController extends CI_Controller {
 
     public function reminderd1() {
         $date_reminder = REMINDER_D1; // ganti 2021-07-21
+        $date_reminder = '2022-05-30';
         $date = date("Y-m-d");
 
         if($date_reminder==$date) {   
+            $date = '2022-07-23';
             $user = $this->user->getUserData("all");
             $data = [];
             foreach ($user as $u) {
@@ -179,9 +183,11 @@ class ReminderController extends CI_Controller {
 
     public function reminderd2() {
         $date_reminder = REMINDER_D2; // ganti 2021-07-21
+        $date_reminder = '2022-05-30';
         $date = date("Y-m-d");
 
         if($date_reminder==$date) {
+            $date = '2022-07-24';
             $user = $this->user->getUserData("all");
             $data = [];
             foreach ($user as $u) {
@@ -220,6 +226,7 @@ class ReminderController extends CI_Controller {
 
     public function thanks() {
         $date_reminder = REMINDER_D2; // ganti 2021-07-21
+        $date_reminder = '2022-05-30';
         $date = date("Y-m-d");
 
         if($date_reminder==$date) {

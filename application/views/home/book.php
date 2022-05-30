@@ -220,9 +220,20 @@ if (!$this->session->has_userdata('user_id')) {
     </div>
 </div>
 
-
 <div class="container-fluid pb-4" id="booking">
     <div class="pb-4">
+        <!-- <div class="talks-header" id="talks">
+            <div class="row px-md-1 px-2">
+                <div class="col-lg-9 col-sm-12 text-left mt-md-0 mt-3 pl-0">
+                    <h2>UNIVERSITY LIST</h2>
+                    <h5>You have a chance to book a personal consultation and join talks with
+                            the universities listed below!
+                            Book your schedule and come prepared to ask questions for the university representative about
+                            admissions.
+                        </h5>
+                </div>
+            </div>
+        </div> -->
         <div class="row pb-5">
             <div class="col-lg-8 col-sm-12 text-left px-md-3 px-0">
                 <h2>UNIVERSITY LIST</h2>
