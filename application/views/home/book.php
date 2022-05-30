@@ -118,10 +118,11 @@
         letter-spacing: 0.8px;
         color: #0D3C9C;
         font-size: 16px;
-        font-weight: normal;
+        font-family: 'Apercu-Medium';
         padding: 8px;
         text-align: center;
         border: 1px solid #F1D202;
+
     }
 
     .btn-book-uni:hover {

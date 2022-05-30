@@ -29,6 +29,22 @@
       background-color: #ff3d3d !important;
       z-index: 9999;
     } */
+
+    @font-face {
+        font-family: 'Apercu-Regular';
+        src: url('<?php echo base_url(); ?>assets/font/Apercu-Regular.otf');
+    }
+
+    @font-face {
+        font-family: 'Apercu-Medium';
+        src: url('<?php echo base_url(); ?>assets/font/Apercu-Medium.otf');
+    }
+
+    @font-face {
+        font-family: 'Apercu-Bold';
+        src: url('<?php echo base_url(); ?>assets/font/Apercu-Bold.otf');
+    }
+
     @font-face {
         font-family: 'SF-Pro-Display-Regular';
         src: url('<?php echo base_url(); ?>assets/font/SF-Pro-Display-Regular.otf');
@@ -306,7 +322,7 @@
         font-size: 1rem;
         padding: 8px;
         border: 1px solid #12116e;
-        font-weight: 700;
+        font-family: 'Apercu-Medium';
         color: #0D3C9C;
         width: 100%
     }
@@ -446,6 +462,7 @@
     }
 
     #talks h5 {
+        font-family: 'Apercu-Bold';
         color: #235788;
         font-size: 1.6em;
         text-align: justify

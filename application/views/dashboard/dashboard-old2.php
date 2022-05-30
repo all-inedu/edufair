@@ -1,9 +1,6 @@
 <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
 <style>
-.introjs-helperLayer {
-    height: 95px !important
-}
-
+.introjs-helperLayer { height: 45px !important}
 #register-form {
     color: #0C2F80;
     padding: 10% 10% 10% 6%;
@@ -84,9 +81,7 @@
 }
 
 .btn-consult-allin {
-    border: 2px solid #0C2F80;
-    background: transparent;
-    color: #0C2F80;
+    border: 2px solid #0C2F80; background: transparent; color:#0C2F80;
     transition: all .2s ease-in-out;
 }
 
@@ -249,7 +244,7 @@ body {
                         <div class="card-body">
                             <div class="row text-center">
                                 <div class="col-lg-12">
-
+                                    
                                     <img src="<?php echo base_url(); ?>assets/img/avatar-default.webp" width="100%"
                                         style="padding:0 35%">
                                 </div>
@@ -321,26 +316,18 @@ body {
                             <hr>
                             <div class="row" data-title="Hallo" data-intro="Kamu bisa upload CV kamu disini">
                                 <div class="col-md-12 text-center">
-                                    <form action="<?php echo base_url(); ?>upload/resume" method="POST"
-                                        enctype="multipart/form-data" id="upload-form">
+                                    <form action="<?php echo base_url(); ?>upload/resume" method="POST" enctype="multipart/form-data" id="upload-form">
                                         <!-- <label class="sr-only" for="inlineFormInputGroup">Upload your CV / Resume here</label> -->
                                         <div class="input-group mb-2 upload-cv-field">
                                             <div class="input-group-prepend">
-                                                <div class="input-group-text file-logo"><i class="fas fa-file"></i>
-                                                </div>
-                                                <div class="input-group-text file-close" hidden style="cursor:pointer">
-                                                    <i class="fas fa-times" style="color: red;"></i></div>
+                                                <div class="input-group-text file-logo"><i class="fas fa-file"></i></div>
+                                                <div class="input-group-text file-close" hidden style="cursor:pointer"><i class="fas fa-times" style="color: red;"></i></div>
                                             </div>
-                                            <input type="file" hidden name="uploaded_resume" id="upload-resume"
-                                                onchange="save_file(this.value)">
-                                            <input type="text" readonly class="form-control upload-filename"
-                                                value="<?=$this->session->userdata('user_resume');?>"
-                                                placeholder="Your resume">
+                                            <input type="file" hidden name="uploaded_resume" id="upload-resume" onchange="save_file(this.value)">
+                                            <input type="text" readonly class="form-control upload-filename" value="<?=$this->session->userdata('user_resume');?>" placeholder="Your resume">
                                             <div class="input-group-append">
-                                                <button onclick="browse()" class="btn btn-primary btn-browse"
-                                                    style="background:#0C2F80;" type="button">Browse</button>
-                                                <button class="btn btn-primary btn-upload" style="background:#0C2F80;"
-                                                    hidden type="submit">Upload CV</button>
+                                                <button onclick="browse()" class="btn btn-primary btn-browse" style="background:#0C2F80;" type="button">Browse</button>
+                                                <button class="btn btn-primary btn-upload" style="background:#0C2F80;" hidden type="submit">Upload CV</button>
                                             </div>
                                         </div>
                                         <!-- <input type="file" name="uploaded_resume">
@@ -492,17 +479,17 @@ body {
     crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.js"></script>
 <script>
-<?php if ($this->session->userdata('user_resume') == ''){
-    ?>
-introJs().setOptions({
-    steps: [{
-        element: document.querySelector('.upload-cv-field'),
-        title: 'Welcome!',
-        intro: 'Before getting started, please upload your CV / resume because you can win a chance to have your CV / resume checked by our mentor.'
-    }]
-}).start();
-<?php
-    }?>
+    <?php if ($this->session->userdata('user_resume') == ''){
+    ?> 
+        introJs().setOptions({
+            steps: [{
+                element: document.querySelector('.upload-cv-field'),
+                title: 'Welcome!',
+                intro: 'Before getting started, please upload your CV / resume because you can win a chance to have your CV / resume checked by mentor.'
+            }]
+        }).start();
+    <?php
+    }?> 
 
 $(document).ready(function() {
     $('#userSchoolNew').hide();

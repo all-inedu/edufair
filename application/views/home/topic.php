@@ -1,4 +1,9 @@
 <style>
+.deskripsi {
+    color: #255896;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
 
 .card-event-talk
 {

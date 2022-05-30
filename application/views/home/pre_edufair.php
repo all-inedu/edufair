@@ -18,6 +18,7 @@
 .badge-allin {
     border-radius: 0 !important;
     background: #F43636;
+    font-family: 'Apercu-Medium';
     font-weight: 200;
     scroll-margin-top: 350px;
     font-size: 14px;
@@ -42,13 +43,38 @@ h4 {
 }
 
 .submit-cv h3 {
-    font-weight: bold;
+    /* padding: 20px; */
+    background: #BF2023;
+    font-size: 20px;
+    /* color: #fff; */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
     color: #F0D201;
+}
+
+.submit-cv h5 {
+    /* padding: 20px; */
+    background: #BF2023;
+    font-size: 17px;
+    /* color: #fff; */
+    font-family: 'Apercu-Regular';
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+.submit-cv p {
+    /* padding: 20px; */
+    background: #BF2023;
+    font-size: 15px;
+    /* color: #fff; */
+    font-family: 'Apercu-Bold';
+    font-weight: 600;
+    color: #FFFFFF;
 }
 
 .btn-submit-cv {
     background: #F0D201 !important;
-    color: #fff !important;
+    color: #0D3C9C !important;
     font-weight: bold;
     display: inline;
     border: none !important;
@@ -178,7 +204,7 @@ h4 {
             <?php
                 }
                 ?>
-            <div class="col-md-6 mt-3 pt-1">
+            <div class="col-md-5 mt-3 pt-1">
                 <div class="submit-cv">
                     <h3>WANT TO GET A TASTE OF A UC APPLICATION?</h3>
                     <h5>Drop your application CV and attend our pre-edufair event to win a 1-on-1 profile review with
