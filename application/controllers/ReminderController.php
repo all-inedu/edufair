@@ -267,4 +267,47 @@ class ReminderController extends CI_Controller {
         // $this->load->view('mail/thanks');
     }
     
+
+    //* 2022 */
+    public function reminderd1pre() {
+        $date_reminder = REMINDER_D1PRE; // ganti 2021-07-21
+        $date_reminder = '2022-05-30';
+        $date = date("Y-m-d");
+
+        if($date_reminder==$date) {   
+            $date = '2022-07-16';
+            $user = $this->user->getUserData("all");
+            $data = [];
+            foreach ($user as $u) {
+                $bookTopic = $this->topic->getBookingTopicById($u['user_id'], $date);
+                // $bookConsult = $this->uni->getBookingConsultById($u['user_id'], $date);
+                if(!isset($data[$u['user_id']])) {
+                    $data[$u['user_id']] = [
+                        'user_name' => $u['user_fullname'],
+                        'user_email' => $u['user_email'],
+                        'topic' => $bookTopic,
+                    ];
+                }
+            }
+
+            foreach ($data as $d) {
+                if((!empty($d['topic'])) or (!empty($d['consult']))) {
+                    $email = $d['user_email'];
+                    
+                    $config = $this->mail_smtp->smtp();
+                    $this->load->library('mail_smtp', $config);
+                    $this->email->initialize($config);
+                    $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
+                    $this->email->to($email);
+                    // $this->email->to('hafidz.fanany@all-inedu.com');
+                    $this->email->subject('Road to Edufair');
+                    $bodyMail = $this->load->view('mail/reminder_d1_pre', $d, true);
+                    $this->email->message($bodyMail);
+                    $this->email->send();
+
+                    // $this->load->view('mail/reminder_d1', $d);
+                } 
+            }
+        }
+    }
 }
