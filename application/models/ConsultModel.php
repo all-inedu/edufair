@@ -31,6 +31,19 @@ class ConsultModel extends CI_Model {
 		$query = $this->db->get_where('tb_booking_consult', array('user_id' => $data['user_id'], 'uni_dtl_id' => $data['uni_dtl_id']));
 		return $query->num_rows();
 	}
+
+	function getExistingConsultation($data)
+	{
+		$query = $this->db->get_where('tb_booking_consult', array('user_id' => $data['user_id'], 'uni_dtl_id' => $data['uni_dtl_id']));
+		return $query->row();
+	}
+
+	function updateBookingConsultation($booking_c_id)
+	{
+		$this->db->set('booking_c_status', 1);
+		$this->db->where('booking_c_id', $booking_c_id);
+		return $this->db->update('tb_booking_consult');
+	}
 	
 	function checkConsult($id, $uniid) 
 	{

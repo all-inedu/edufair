@@ -423,6 +423,11 @@ class HomeController extends CI_Controller {
 				if ($this->ConsultModel->checkExistingConsultation($data) == 0) {
 					$this->ConsultModel->bookingConsult($data);
 					$code = "001";
+				} else {
+					$dataConsult = $this->ConsultModel->getExistingConsultation($data);
+					$consult_id = $dataConsult->booking_c_id;
+
+					$this->consultModel->updateBookingConsultation($consult_id);
 				}
 			}
 
