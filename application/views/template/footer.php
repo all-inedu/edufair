@@ -287,8 +287,9 @@ function forgotPassword() {
                     icon: 'success',
                     title: 'Please Check Your Email',
                     text: 'We already sent you an Email'
+                }).then((result) => {
+                    window.location = "<?php echo base_url(); ?>";
                 });
-                window.location = "<?php echo base_url(); ?>";
             } else {
                 Swal.fire({
                     icon: 'error',

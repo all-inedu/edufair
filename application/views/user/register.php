@@ -560,10 +560,17 @@ $(document).ready(function() {
                                 "Verification link will expired in 24 hours ",
                             icon: 'success',
                             confirmButtonColor: '#3085d6',
-                            confirmButtonText: 'Dismiss'
+                            confirmButtonText: 'OK'
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                window.location.href = "<?php echo base_url(); ?>";
+                                var url_string = window.location.href;
+                                var url = new URL(url_string);
+                                var param = url.searchParams.get('param');
+                                if (param == "personal-test") {
+                                    window.location.href = "<?=PERSONAL_TEST_LINK?>";
+                                } else {
+                                    window.location.href = "<?php echo base_url(); ?>";
+                                }
                             }
                         });
                     } else if (msg.code == "09") {

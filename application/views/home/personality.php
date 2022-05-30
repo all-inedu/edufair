@@ -48,15 +48,15 @@ marquee img {
             <hr class="mb-5">
             <hr class="mt-5">
         </div> -->
-        <a href="<?=PERSONAL_TEST_LINK?>">
+        <!-- <a href="<?=PERSONAL_TEST_LINK?>"> -->
         <marquee class="py-3" <?php echo $props; ?> class="btn-personal-test" scrollamount="15" loop="infinite"
-            onclick="setRedirectLink('personal-test')" onmouseover="this.stop();" onmouseout="this.start();">
+            onclick="setRedirectLink('personal-test')" onmouseover="this.stop();" onmouseout="this.start();" style="cursor:pointer">
             <div class="d-inline">
                 <?php for ($i = 0; $i < 10; $i++) { ?>
                 <img src="<?php echo base_url(); ?>assets/img/banner.webp" alt="Global University Edufair">
                 <?php } ?>
             </div>
         </marquee>
-        </a>
+        <!-- </a> -->
     </div>
 </section>

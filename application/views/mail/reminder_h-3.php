@@ -72,7 +72,7 @@
 
 <body>
     <div class="container">
-        <img src="<?=BANNER_EMAIL?>" alt="https://edufair.all-inedu.com/"
+        <img src="<?=BANNER_EMAIL?>" alt="<?=base_url();?>"
             width="100%">
 
         <br>
@@ -145,7 +145,7 @@
 
             <p>Load up your university prep with accurate insights and ace your admissions!</p>
 
-            <a href="https://edufair.all-inedu.com/" class="btn">Secure your spot now</a><br><br>
+            <a href="<?=base_url();?>" class="btn">Secure your spot now</a><br><br>
 
 
             Best regards,<br>

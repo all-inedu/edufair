@@ -54,7 +54,7 @@
 
 <body>
     <div class="container">
-        <img src="<?=BANNER_EMAIL?>" alt="https://edufair.all-inedu.com/"
+        <img src="<?=BANNER_EMAIL?>" alt="<?=base_url();?>"
             width="100%">
 
         <br>

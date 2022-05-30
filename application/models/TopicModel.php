@@ -174,6 +174,7 @@ class TopicModel extends CI_Model {
       if($bookingCount > 0) {
         // return "07";
         $this->db->where('topic_id', $topicId);
+        $this->db->where('user_id', $userId); //! tambahan
         $this->db->delete('tb_booking_topic');
       }
 
@@ -302,6 +303,7 @@ class TopicModel extends CI_Model {
       if($d!=""){
         $this->db->where('date(tb_topic.topic_start_date)', $d);
       }
+      // $this->db->where('tb_bookin')
       $this->db->from('tb_booking_topic');
       $this->db->join('tb_topic', 'tb_topic.topic_id=tb_booking_topic.topic_id');
       return $this->db->get()->result_array();

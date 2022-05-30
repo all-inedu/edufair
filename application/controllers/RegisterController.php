@@ -198,7 +198,8 @@ class RegisterController extends CI_Controller {
 			$param = $this->input->get('param');
 			if ($param == "personal-test") {
 				// redirect(PERSONAL_TEST_LINK);
-				header("Location: ".PERSONAL_TEST_LINK);
+				// header("Location: ".PERSONAL_TEST_LINK);
+				redirect('/');
 			} else if ($param == "submit-cv") {
 				header("Location: ".base_url().'home/dashboard');
 			} else {
