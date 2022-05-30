@@ -331,7 +331,7 @@ if (!$this->session->has_userdata('user_id')) {
                             if ($uniInfo['uni_id'] == 21) {
                                 continue;
                             }
-                            $no_image = base_url() . 'assets/uni/banner/default.jpeg';
+                            $no_image = base_url() . 'assets/uni/banner/default.jpg';
                             // print("<pre>".print_r($uniInfo, true)."</pre>");exit;
                         ?>
                             <!-- <div class="col-md-6 mb-2 d-flex align-items-stretch" -->
