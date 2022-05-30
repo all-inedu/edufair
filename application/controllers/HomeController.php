@@ -257,6 +257,7 @@ class HomeController extends CI_Controller {
 
 	public function resetPassword() // when user click reset password on her/his mail
 	{
+		$this->session->sess_destroy();
 		$token = $this->base64url_decode($this->uri->segment(3));
 		$cleanToken = $this->security->xss_clean($token);
 
