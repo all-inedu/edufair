@@ -268,7 +268,7 @@
                                     <input type="text" name="uni_id" value="<?=$uni['uni_id'];?>" hidden>
                                     <input type="text" name="uni_dtl_id" id="uni_dtl_id" hidden>
                                     <input type="datetime-local" class="form-control form-control-sm"
-                                        name="uni_dtl_start_date" id="uni_dtl_start_date" required min="<?=TALK_DAY_1.'T00:00'?>" max="<?=TALK_DAY_2.'T00:00'?>">
+                                        name="uni_dtl_start_date" id="uni_dtl_start_date" required min="<?=TALK_DAY_1_VALIDATE?>" max="<?=TALK_DAY_2_VALIDATE?>">
                                     <input type="datetime-local" name="uni_dtl_start_date_old"
                                         id="uni_dtl_start_date_old" hidden>
                                 </div>
@@ -277,7 +277,7 @@
                                 <div class="form-group">
                                     <label>End Date</label>
                                     <input type="datetime-local" class="form-control form-control-sm"
-                                        name="uni_dtl_end_date" id="uni_dtl_end_date" required min="<?=TALK_DAY_1.'T00:00'?>" max="<?=TALK_DAY_2.'T00:00'?>">
+                                        name="uni_dtl_end_date" id="uni_dtl_end_date" required min="<?=TALK_DAY_1_VALIDATE?>" max="<?=TALK_DAY_2_VALIDATE?>">
                                     <input type="datetime-local" name="uni_dtl_end_date_old" id="uni_dtl_end_date_old"
                                         hidden>
                                 </div>
