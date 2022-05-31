@@ -303,6 +303,7 @@ class TopicModel extends CI_Model {
       if($d!=""){
         $this->db->where('date(tb_topic.topic_start_date)', $d);
       }
+      $this->db->not_like('date(tb_topic.topic_start_date)', '2022-07-16');
       // $this->db->where('tb_bookin')
       $this->db->from('tb_booking_topic');
       $this->db->join('tb_topic', 'tb_topic.topic_id=tb_booking_topic.topic_id');
