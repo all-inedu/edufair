@@ -1,6 +1,6 @@
 <?php
     header("Content-type: application/vnd-ms-excel");
-	header("Content-Disposition: attachment; filename=Booking Topic Data.xlsx");
+	header("Content-Disposition: attachment; filename=Booking Topic Data.xls");
 ?>
 
 <!DOCTYPE html>
