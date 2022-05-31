@@ -60,11 +60,11 @@
 
 <body>
     <div class="container">
-        <img src="<?=BANNER_EMAIL?>" alt="<?=base_url();?>"
+        <!-- <img src="<?=BANNER_EMAIL?>" alt="<?=base_url();?>"
             width="100%">
 
         <br>
-        <br>
+        <br> -->
         <div class="box">
             Thank you for joining the ALL-in Global University Fair! How was your experience?
 
