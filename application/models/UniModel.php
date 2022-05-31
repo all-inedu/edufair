@@ -238,7 +238,7 @@ class UniModel extends CI_Model {
 	{
 		$sql = "SELECT DISTINCT(u.uni_id), u.uni_name, u.uni_country FROM tb_uni u
 				LEFT JOIN tb_uni_detail ud ON ud.uni_id = u.uni_id
-				WHERE u.uni_id != 21 
+				WHERE u.uni_id != 21 AND u.uni_id != 65 AND u.uni_id != 66
 				ORDER BY u.uni_country, u.uni_name ASC";
 		$query = $this->db->query($sql);
 		if($query->num_rows() > 0) {
