@@ -70,6 +70,9 @@ class UserModel extends CI_Model {
 			');
 		$this->db->from('tb_user');
 		if(($id!="all")) {
+			if ($id == "teacher") {
+				$id = "Teacher/Consellor";
+			}
 			$this->db->where('tb_user.user_status',$id);
 		}
 		$this->db->order_by('tb_user.user_register_date','DESC');

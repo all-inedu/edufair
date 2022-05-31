@@ -303,7 +303,7 @@ $(document).ready(function() {
         dataType: "json",
         url: "https://www.bigdata.crm-allinedu.com/api/countries",
         success: function(datas) {
-            console.log(datas);
+            // console.log(datas);
             $.each(datas, function(index, data) {
                 $('#userDestination').append(
                     '<option value="' + data + '">' + data + '</option>'
@@ -510,6 +510,8 @@ function limit() {
 }
 
 $(document).ready(function() {
+    // let register = false;
+
     $("#registerForm").submit(function(event) {
         event.preventDefault();
         var fullname = $("input[name=user_fullname]").val();
@@ -569,8 +571,12 @@ $(document).ready(function() {
                                 var url = new URL(url_string);
                                 var param = url.searchParams.get('param');
                                 if (param == "personal-test") {
-                                    window.location.href =
-                                        "<?=PERSONAL_TEST_LINK?>";
+                                    window.open(
+                                        "<?=PERSONAL_TEST_LINK?>",
+                                        '_blank'
+                                    );
+                                    // register = true;
+                                    window.location.href = "<?php echo base_url(); ?>";
                                 } else {
                                     window.location.href =
                                         "<?php echo base_url(); ?>";
@@ -658,6 +664,7 @@ $(document).ready(function() {
             success: function(datas) {
 
                 $('#userChallenge').find('option[value!="other"]').remove();
+
                 $.each(datas, function(index, data) {
                     $('#userChallenge').append(
                         '<option value="' + data.name + '">' + data.name +

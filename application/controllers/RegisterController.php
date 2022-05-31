@@ -318,7 +318,7 @@ class RegisterController extends CI_Controller {
 		if (($session_role == "Teacher/Consellor") OR ($session_role == "Parent") ) {
 			$data = array(
 				array(
-					'name' => 'Exploring my interest & passion',
+					'name' => 'Exploring their interest & passion',
 				),
 				array(
 					'name' => 'Deciding what major & university to apply',
@@ -333,13 +333,13 @@ class RegisterController extends CI_Controller {
 					'name' => 'Preparing for standardized tests (SAT, ACT, TOEFL, IELTS, etc)',
 				),
 				array(
-					'name' => 'Improving my grades',
+					'name' => 'Improving their grades',
 				),
 				array(
 					'name' => 'Creating a unique application profile',
 				),
 				array(
-					'name' => 'Improving my writing skill',
+					'name' => 'Improving their writing skill',
 				)
 			);
 		} else {
