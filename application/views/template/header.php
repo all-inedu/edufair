@@ -159,6 +159,7 @@
     }
 
     .allin-registration {
+        font-family: 'Apercu-Regular';
         margin-top: 7vh;
         padding: 2em;
         box-shadow: 5px 5px 5px 0 rgb(0, 0, 0, .1);
@@ -194,6 +195,10 @@
         position: relative
     }
 
+    #forgot-password {
+        font-family: 'Apercu-Medium';
+    }
+
     .modal-login .avatar {
         position: absolute;
         margin: 0 auto;
@@ -204,7 +209,7 @@
         height: 95px;
         border-radius: 50%;
         z-index: 9;
-        background: #60c7c1;
+        background: #235788;
         padding: 15px;
         box-shadow: 0 2px 2px rgb(0 0 0 / 10%)
     }
@@ -218,7 +223,8 @@
     .modal-login .modal-title {
         width: 100%;
         text-align: center;
-        padding-top: 1rem
+        padding-top: 1rem;
+        font-family: 'Apercu-Medium';
     }
 
     .modal-login .avatar img {
@@ -230,7 +236,8 @@
     }
 
     .modal-footer {
-        justify-content: center !important
+        justify-content: center !important;
+        font-family: 'Apercu-Medium';
     }
 
     .navbar {
@@ -239,7 +246,8 @@
 
     .navbar-light .navbar-nav .nav-link {
         color: rgba(0, 0, 0, .5);
-        padding: 0 20px
+        padding: 0 20px;
+        font-family: 'Apercu-Regular';
     }
 
     .swal2-title {
@@ -319,6 +327,10 @@
         margin-bottom: 10px;
     }
 
+    .form-login {
+        font-family: 'Apercu-Regular';
+    }
+
     .btn-tellme {
         font-weight: normal !important;
         background: #FFFFFF;
@@ -341,7 +353,24 @@
         background: #235788;
     }
 
+    .btn-back-regis {
+        background: #F1D202;
+    }
 
+    .btn-login-modal {
+        background: #235788;
+        font-family: 'Apercu-Regular';
+        padding: 5px 35px 5px 35px;
+        /* border: 1px solid #27387A; */
+        /* border-radius: 20px 0px 0px 20px; */
+        color: #fff;
+        align-items: center;
+    }
+
+    .btn-login-modal:hover {
+        background: #F0D202;
+        color: #235788;
+    }
 
     .btn-book {
         background: #F1D202 !important;
@@ -466,7 +495,8 @@
         padding: 0px 0 50px 0
     }
 
-    #talks h5, #booking h5 {
+    #talks h5,
+    #booking h5 {
         font-family: 'Apercu-Bold';
         color: #235788;
         font-size: 1.6em;
