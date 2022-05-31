@@ -1962,6 +1962,7 @@ pre code {
 }
 
 .form-control {
+  font-family: 'Apercu-Regular';
   display: block;
   width: 100%;
   height: calc(1.5em + 0.75rem + 2px);

@@ -140,13 +140,13 @@ body {
                     </div>
                     <hr>
                     <div class="form-group float-left">
-                        <a href="<?= base_url(); ?>" class="btn btn-warning"><i class="fas fa-arrow-left pr-2"> </i>
+                        <a href="<?= base_url(); ?>" class="btn btn-back-regis"><i class="fas fa-arrow-left pr-2"> </i>
                             Back
                             to
                             Home</a>
                     </div>
                     <div class="form-group float-right">
-                        <button type="button" class="btn btn-primary navigate navigate-page-2">Next <i
+                        <button type="button" class="btn btn-primary navigate navigate-page-2 btn-login-modal">Next <i
                                 class="fas fa-arrow-right pl-2"></i></button>
                     </div>
                 </div>
@@ -224,7 +224,7 @@ body {
                     </div>
                     <hr>
                     <div class="form-group">
-                        <div class="float-left"><button type="button" class="btn btn-primary navigate-page-1"><i
+                        <div class="float-left"><button type="button" class="btn btn-warning  navigate-page-1"><i
                                     class="fas fa-arrow-left pr-2"></i>
                                 Back</button></div>
                         <div class="float-right"><button type="submit"
@@ -569,9 +569,11 @@ $(document).ready(function() {
                                 var url = new URL(url_string);
                                 var param = url.searchParams.get('param');
                                 if (param == "personal-test") {
-                                    window.location.href = "<?=PERSONAL_TEST_LINK?>";
+                                    window.location.href =
+                                        "<?=PERSONAL_TEST_LINK?>";
                                 } else {
-                                    window.location.href = "<?php echo base_url(); ?>";
+                                    window.location.href =
+                                        "<?php echo base_url(); ?>";
                                 }
                             }
                         });
@@ -649,12 +651,12 @@ $(document).ready(function() {
         $.ajax({
             type: 'post',
             data: {
-                role : val,
-            }, 
+                role: val,
+            },
             dataType: "json",
             url: "<?php echo base_url(); ?>request/getAllDataChallenge",
             success: function(datas) {
-                
+
                 $('#userChallenge').find('option[value!="other"]').remove();
                 $.each(datas, function(index, data) {
                     $('#userChallenge').append(
@@ -666,7 +668,7 @@ $(document).ready(function() {
         });
     })
 
-    
+
 });
 
 function validation(param) {

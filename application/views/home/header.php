@@ -1,15 +1,15 @@
 <style>
-    .hide-notif {
-        right: -350px !important;
+.hide-notif {
+    right: -350px !important;
     transition: 0.7s all ease-in-out;
-    }
+}
 
-    .show-notif {
-        right: 10px !important;
+.show-notif {
+    right: 10px !important;
     transition: 0.7s all ease-in-out;
-    }
+}
 
-    .notif-card {
+.notif-card {
     position: fixed;
     bottom: 20px;
     right: -350px;
@@ -20,7 +20,7 @@
     border: 1px solid #dedede;
     border-left: 4px solid #C72E3B;
     border-right: 4px solid #225787;
-    
+
     transition: 0.7s all ease-in-out;
 }
 
@@ -55,13 +55,14 @@ a.notif-submit {
                     <!-- <img src="<?php echo base_url(); ?>assets/home/login/avatar.png" alt="Avatar"> -->
                     <i class="fas fa-user-lock"></i>
                 </div>
-                <h5 class="modal-title mt-3">Member Log In</h5>
+                <h5 class="modal-title mt-3">Global University Fair 2022 Attendees Log In</h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 <form id="loginForm" method="post" action="<?php echo base_url(); ?>login">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="email" placeholder="Email" required="required">
+                        <input type="text" class="form-control form-login" name="email" placeholder="Email"
+                            required="required">
                     </div>
                     <div class="form-group">
                         <div class="input-group">
@@ -76,7 +77,8 @@ a.notif-submit {
                         <a href="javascript:void(0)" id="forgot-password">Forgot Password?</a>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block login-btn btn-sm">Log In</button>
+                        <button type="submit" class="btn btn-login-modal btn-lg btn-block login-btn btn-sm">Log
+                            In</button>
                     </div>
                 </form>
             </div>
@@ -104,7 +106,7 @@ a.notif-submit {
                             placeholder="Enter Your Email Address" required="required">
                     </div>
                     <div class="form-group">
-                        <button type="button" class="btn btn-primary btn-lg btn-block fp-btn"
+                        <button type="button" class="btn btn-login-modal btn-lg btn-block fp-btn"
                             onclick="forgotPassword()">Send</button>
                     </div>
                 </form>
