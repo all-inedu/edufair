@@ -563,13 +563,16 @@ $(document).ready(function() {
             $("#userMajorNew").hide();
             $("#userMajorNew").prop('required', false);
         }
-        $("#user_major").val(val);
+
+        const str = Object.values(val).join(', ');
+        $("#user_major").val(str);
     });
     //****** set user_major to hidden input end ********//
 
     $("#userDestination").change(function() {
         var val = $(this).val();
-        $("#user_destination").val(val);
+        const str = Object.values(val).join(', ');
+        $("#user_destination").val(str);
     });
 
     //** New 2022 */
