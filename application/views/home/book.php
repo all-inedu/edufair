@@ -369,7 +369,7 @@ if (!$this->session->has_userdata('user_id')) {
                                                 <?php /*} else*/ if ((count($count_unidtl) > 0) and ($uniInfo['uni_topic_reg'] != "REGISTERED")) { ?>
                                                     <div class="col-6 p-0 pr-2">
                                                         <div class="btn btn-book-uni btn-block" style="cursor: pointer" data-toggle="modal" data-target="#modal-<?= $uniInfo['uni_id']; ?>">
-                                                            Join Now
+                                                            Book Now
                                                         </div>
                                                     </div>
                                                     <div class="col-6 p-0">
@@ -400,8 +400,7 @@ if (!$this->session->has_userdata('user_id')) {
                                                             }
                                                             ?>
                                                             <div class="modal-body">
-                                                                <h5 class="modal-title title-booking-blue">Choose Your
-                                                                    Schedule</h5>
+                                                                <h5 class="pl-3 modal-title title-booking-blue">When will you be free?</h5>
                                                                 <?php
                                                                 // check if uni status fullbook is not full
                                                                 if ($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {

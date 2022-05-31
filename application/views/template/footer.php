@@ -442,8 +442,8 @@ $(".cancel-booking-consult").each(function() {
     $(this).click(function() {
         swal.fire({
             icon: 'question',
-            title: 'Cancel this consultation?',
-            text: 'If this time slot is booked by another user, you have to choose other time slots for a reschedule.',
+            title: 'Are you sure you want to cancel this consultation?',
+            // text: 'If this time slot is booked by another user, you have to choose other time slots for a reschedule.',
             showCancelButton: true,
             focusConfirm: false,
             confirmButtonText: '<i class="fa fa-thumbs-up"></i> Yes!',

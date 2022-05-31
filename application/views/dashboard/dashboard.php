@@ -196,7 +196,7 @@ body {
                         <div class="row pt-2 pb-2">
                             <div class="col-lg-3">Destination</div>
                             <div class="col-lg-9">
-                                <select id="userDestination" onchange="checkValue('userDestination')" multiple <?=$this->session->userdata('user_status') == 'Teacher/Consellor' ? '' : 'required'; ?>
+                                <select id="userDestination" onchange="checkValue('userDestination')" multiple <?=(($this->session->userdata('user_status') == 'Teacher/Consellor') OR ($this->session->userdata('user_status') == 'Parent')) ? '' : 'required'; ?>
                                     oninvalid="validation('userDestination')">
                                     <?php
                             for($i = 0 ; $i < count($dataCountry); $i++){ 
@@ -214,7 +214,7 @@ body {
                         <div class="row pt-2">
                             <div class="col-lg-3">Major</div>
                             <div class="col-lg-9">
-                                <select id="userMajor" onchange="checkValue('userMajor')" multiple <?=$this->session->userdata('user_status') == 'Teacher/Consellor' ? '' : 'required'; ?> 
+                                <select id="userMajor" onchange="checkValue('userMajor')" multiple <?=(($this->session->userdata('user_status') == 'Teacher/Consellor') OR ($this->session->userdata('user_status') == 'Parent')) ? '' : 'required'; ?> 
                                     oninvalid="validation('userMajor')">
                                     <option value="other">Other</option>
                                     <?php
@@ -325,7 +325,7 @@ body {
                                 </div>
                             </div>
                             <?php
-                            if ($this->session->userdata('user_status') != "Teacher/Consellor") {
+                            if (($this->session->userdata('user_status') != "Teacher/Consellor") AND ($this->session->userdata('user_status') != 'Parent')) {
                             ?>
                             <hr>
                             <div class="row" data-title="Hallo" data-intro="Kamu bisa upload CV kamu disini">
@@ -506,7 +506,7 @@ body {
     crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.js"></script>
 <script>
-<?php if (($this->session->userdata('user_resume') == '') && ($this->session->userdata('user_status') != 'Teacher/Consellor') ){
+<?php if (($this->session->userdata('user_resume') == '') && ($this->session->userdata('user_status') != 'Teacher/Consellor') && ($this->session->userdata('user_status') != 'Parent') ){
     ?>
 introJs().setOptions({
     steps: [{
@@ -611,7 +611,7 @@ new SlimSelect({
 
 /* country start */
 var userCountry = "<?php echo $this->session->userdata('user_country'); ?>";
-var array_userCountry = userCountry.split(",");
+var array_userCountry = userCountry.split(", ");
 
 new SlimSelect({
     select: '#userDestination',
@@ -622,7 +622,7 @@ new SlimSelect({
 
 /* major start */
 var userMajor = "<?php echo $this->session->userdata('user_major'); ?>";
-var array_userMajor = userMajor.split(",");
+var array_userMajor = userMajor.split(", ");
 
 new SlimSelect({
     select: '#userMajor',

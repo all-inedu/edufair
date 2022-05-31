@@ -178,10 +178,11 @@ class HomeController extends CI_Controller {
 
 		// add other major into selected major start
 		$user_major = $this->input->post('user_major');
+		// echo $user_major;exit;
 		$user_major_other = $this->input->post('user_major_other');
 		if(strpos($user_major, "other") !== false) { //word found
 			$user_major = str_replace('other,', '', $user_major);
-			$user_major = $user_major.",".$user_major_other;
+			$user_major = $user_major.", ".$user_major_other;
 		}
 		// add other major into selected major end
 

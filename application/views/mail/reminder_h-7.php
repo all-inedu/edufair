@@ -67,7 +67,7 @@
 
             <p>So, what are you waiting for?</p>
 
-            <a href="<?=PERSONAL_TEST_LINK?>" class="btn">Take your FREE Talent & Personality Test now </a> <br><br>
+            <a href="<?=PERSONAL_TEST_LINK?>" class="btn">Take the Talent & Personality Test </a> <br><br>
 
             Best regards,<br>
             ALL-in Eduspace Team

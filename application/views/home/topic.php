@@ -137,7 +137,7 @@ h4 {
                                     <div class="nav-link btn btn-sm btn-outline-primary d-inline mb-1 mr-2 btn-book btn-<?= $topic_id; ?>"
                                         data-topicid="<?php echo $topic_id; ?>"
                                         data-topicinfo="<?php echo $arrTopic; ?>" <?php echo $props; ?>>
-                                        Join Now
+                                        Book Now
                                     </div>
                                     <?php
                                             }
@@ -219,7 +219,7 @@ h4 {
                                     <div class="nav-link btn btn-sm btn-outline-primary d-inline mb-1 mr-2 btn-book btn-<?= $topic_id; ?>"
                                         data-topicid="<?php echo $topic_id; ?>"
                                         data-topicinfo="<?php echo $arrTopic; ?>" <?php echo $props; ?>>
-                                        Join Now
+                                        Book Now
                                     </div>
                                     <?php
                                             }

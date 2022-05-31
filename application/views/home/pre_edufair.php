@@ -184,7 +184,7 @@ h4 {
                                     <div class="nav-link btn btn-sm btn-outline-primary d-inline mb-1 btn-book btn-<?= $topic_id; ?>"
                                         data-topicid="<?php echo $topic_id; ?>"
                                         data-topicinfo="<?php echo $arrTopic; ?>" <?php echo $props; ?>>
-                                        Join Now
+                                        Book Now
                                     </div>
                                     <?php
                                             }
@@ -206,7 +206,7 @@ h4 {
                 ?>
 
             <?php
-            if (($this->session->userdata('user_resume') == '') && ($this->session->userdata('user_status') != "Teacher/Consellor")) {
+            if (($this->session->userdata('user_resume') == '') && ($this->session->userdata('user_status') != "Teacher/Consellor") && ($this->session->userdata('user_status') != 'Parent')) {
             ?>
             <div class="col-md-5 mt-3 pt-1">
                 <div class="submit-cv">

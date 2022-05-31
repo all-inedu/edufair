@@ -315,7 +315,7 @@ class RegisterController extends CI_Controller {
 	public function getAllDataChallenge()
 	{
 		$session_role = $this->input->post('role');
-		if ($session_role == "Teacher/Consellor") {
+		if (($session_role == "Teacher/Consellor") OR ($session_role == "Parent") ) {
 			$data = array(
 				array(
 					'name' => 'Exploring my interest & passion',
