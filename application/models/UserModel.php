@@ -9,7 +9,7 @@ class UserModel extends CI_Model {
 			count(user_id) as tot
 		');
 		$this->db->from('tb_user');
-		$this->db->where('user_status', $id);
+		$this->db->like('user_status', $id);
 		return $this->db->get()->row_array();
 	}
 
