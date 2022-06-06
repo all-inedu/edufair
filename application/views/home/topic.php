@@ -109,7 +109,7 @@
                                             <?= $topic_start_date->format('M, dS Y (H:i') ?> -
                                             <?= $topic_end_date->format('H:i') ?> WIB)
                                         </p>
-                                        <h4 class="font-weight-bold text-dark"><?php echo $topic_name; ?></h4>
+                                        <h4 class="deskripsi"><?php echo $topic_name; ?></h4>
                                         <?php
                                         foreach ($row['uni_detail'] as $uniDetail) {
                                         ?>
