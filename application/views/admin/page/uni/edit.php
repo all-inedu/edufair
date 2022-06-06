@@ -6,10 +6,10 @@
 </head>
 
 <style>
-#photoPreview {
-    height: 43vh;
-    object-fit: cover;
-}
+    #photoPreview {
+        height: 43vh;
+        object-fit: cover;
+    }
 </style>
 
 <body class="sb-nav-fixed">
@@ -21,7 +21,7 @@
                 <div class="container-fluid">
                     <h1 class="mt-4">University</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item"><a href="<?=base_url('dashboard/admin/uni');?>">University List</a>
+                        <li class="breadcrumb-item"><a href="<?= base_url('dashboard/admin/uni'); ?>">University List</a>
                         </li>
                         <li class="breadcrumb-item active">Edit University</li>
                     </ol>
@@ -30,37 +30,32 @@
                             <div class="row">
                                 <div class="col-md-12 float-right">
                                     <div class="float-right ml-2">
-                                        <button class="btn btn-sm btn-outline-danger text-dark"
-                                            onclick='deleteData(<?=$uni["uni_id"];?>,"<?=$uni["uni_name"];?>")'
-                                            id='deleteData'>Delete</button>
+                                        <?php
+                                        $uni_name = str_replace("'", "\'", $uni['uni_name']);
+                                        ?>
+                                        <button class="btn btn-sm btn-outline-danger text-dark" onclick="deleteData(<?= $uni['uni_id']; ?>,'<?= $uni_name ?>')" id='deleteData'>Delete</button>
                                     </div>
                                     <div class="float-right">
-                                        <button class="btn btn-sm btn-outline-warning text-dark" onclick="editData()"
-                                            id="editData">Edit</button>
+                                        <button class="btn btn-sm btn-outline-warning text-dark" onclick="editData()" id="editData">Edit</button>
                                     </div>
                                 </div>
                             </div>
-                            <form method="post" id="addUni" class="needs-validation" novalidate
-                                enctype="multipart/form-data">
+                            <form method="post" id="addUni" class="needs-validation" novalidate enctype="multipart/form-data">
                                 <div class="row flex-wrap-reverse">
                                     <div class="col-md-5">
                                         <div class="border shadow">
-                                            <img src="<?=base_url('assets/uni/banner/'.$uni['uni_photo_banner']);?>"
-                                                alt="" width="100%" id="photoPreview">
+                                            <img src="<?= base_url('assets/uni/banner/' . $uni['uni_photo_banner']); ?>" alt="" width="100%" id="photoPreview">
                                         </div>
                                     </div>
                                     <div class="col-md-7">
                                         <div class="form-group">
                                             <label>University Name</label>
-                                            <input type="text" name="uni_id" value="<?=$uni['uni_id'];?>" hidden>
-                                            <input type="text" class="form-control form-control-sm"
-                                                placeholder="University Name" name="uni_name"
-                                                value="<?=$uni['uni_name'];?>" required>
+                                            <input type="text" name="uni_id" value="<?= $uni['uni_id']; ?>" hidden>
+                                            <input type="text" class="form-control form-control-sm" placeholder="University Name" name="uni_name" value="<?= $uni['uni_name']; ?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Country</label>
-                                            <select class="form-control form-control-sm" name="uni_country"
-                                                id="uniCountry" required>
+                                            <select class="form-control form-control-sm" name="uni_country" id="uniCountry" required>
                                                 <option value="">Select the country</option>
                                                 <option value="Asia">Asia</option>
                                                 <option value="Australia">Australia</option>
@@ -73,31 +68,26 @@
 
                                         <div class="form-group" id="uniCountryDtl">
                                             <label>Country Detail</label>
-                                            <select name="uni_detail_country" id="countryDtl"
-                                                class="form-control form-control-sm">
+                                            <select name="uni_detail_country" id="countryDtl" class="form-control form-control-sm">
                                                 <option data-placeholder="true"></option>
-                                                <option value="<?=$uni['uni_detail_country'];?>">
-                                                    <?=$uni['uni_detail_country'];?></option>
+                                                <option value="<?= $uni['uni_detail_country']; ?>">
+                                                    <?= $uni['uni_detail_country']; ?></option>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea class="form-control form-control-sm" name="uni_description"
-                                                rows="5" required><?=$uni['uni_description'];?></textarea>
+                                            <textarea class="form-control form-control-sm" name="uni_description" rows="5" required><?= $uni['uni_description']; ?></textarea>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Status</label>
                                             <select class="form-control form-control-sm" name="uni_status">
-                                                <option value="1"
-                                                    <?=$uni['uni_status'] == 1 ? ' selected="selected"' : '';?>>
+                                                <option value="1" <?= $uni['uni_status'] == 1 ? ' selected="selected"' : ''; ?>>
                                                     Active</option>
-                                                <option value="0"
-                                                    <?=$uni['uni_status'] == 0 ? ' selected="selected"' : '';?>>Inactive
+                                                <option value="0" <?= $uni['uni_status'] == 0 ? ' selected="selected"' : ''; ?>>Inactive
                                                 </option>
-                                                <option value="2"
-                                                    <?=$uni['uni_status'] == 2 ? ' selected="selected"' : '';?>>Upcoming
+                                                <option value="2" <?= $uni['uni_status'] == 2 ? ' selected="selected"' : ''; ?>>Upcoming
                                                     Session</option>
                                             </select>
                                         </div>
@@ -105,13 +95,10 @@
                                         <div class="form-group">
                                             <label>Photo Banner</label>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="imgUpload"
-                                                    onchange="readURL(this);">
+                                                <input type="file" class="custom-file-input" id="imgUpload" onchange="readURL(this);">
                                                 <input type="text" id="uniBanner" name="uni_photo_banner" hidden>
-                                                <input type="text" id="uniBanner" name="uni_photo_banner_old"
-                                                    value="<?=$uni['uni_photo_banner'];?>" hidden>
-                                                <label class="custom-file-label"
-                                                    for="imgUpload"><?=$uni['uni_photo_banner'];?></label>
+                                                <input type="text" id="uniBanner" name="uni_photo_banner_old" value="<?= $uni['uni_photo_banner']; ?>" hidden>
+                                                <label class="custom-file-label" for="imgUpload"><?= $uni['uni_photo_banner']; ?></label>
                                             </div>
                                         </div>
                                     </div>
@@ -148,19 +135,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $no=1; foreach ($uni['uni_detail'] as $dtl) { ?>
-                                    <?php if($dtl['uni_dtl_start_date']!="") { ?>
-                                    <tr>
-                                        <td class="text-center"><?=$no;?></td>
-                                        <td class="text-center pointer" style="cursor:pointer;"
-                                            onclick='editDetail(<?=$dtl["uni_dtl_id"];?>)' data-toggle="modal"
-                                            data-target="#editConsult">
-                                            <?=date('M dS Y - H:i', strtotime($dtl['uni_dtl_start_date']));?></td>
-                                        <td class="text-center">
-                                            <?=date('M dS Y - H:i', strtotime($dtl['uni_dtl_end_date']));?></td>
-                                        <!-- <td class="text-center"><?=$dtl['uni_dtl_duration'];?> <sup> Minutes</sup></td> -->
-                                        <!-- <td class="text-center"> -->
-                                            <?php
+                                    <?php $no = 1;
+                                    foreach ($uni['uni_detail'] as $dtl) { ?>
+                                        <?php if ($dtl['uni_dtl_start_date'] != "") { ?>
+                                            <tr>
+                                                <td class="text-center"><?= $no; ?></td>
+                                                <td class="text-center pointer" style="cursor:pointer;" onclick='editDetail(<?= $dtl["uni_dtl_id"]; ?>)' data-toggle="modal" data-target="#editConsult">
+                                                    <?= date('M dS Y - H:i', strtotime($dtl['uni_dtl_start_date'])); ?></td>
+                                                <td class="text-center">
+                                                    <?= date('M dS Y - H:i', strtotime($dtl['uni_dtl_end_date'])); ?></td>
+                                                <!-- <td class="text-center"><?= $dtl['uni_dtl_duration']; ?> <sup> Minutes</sup></td> -->
+                                                <!-- <td class="text-center"> -->
+                                                <?php
                                                 // $start_time = date('Y-m-d H:i', strtotime($dtl['uni_dtl_start_date']));
                                                 // $end_time = date('Y-m-d H:i', strtotime($dtl['uni_dtl_end_date']));
                                                 // $duration = $dtl['uni_dtl_duration'];
@@ -170,16 +156,15 @@
                                                 // $jumlah_sesi = $menit/$duration;
 
                                                 // echo $jumlah_sesi;
-                                            ?>
-                                        <!-- </td> -->
-                                        <td class="text-center"><?=$dtl['uni_dtl_zoom_link'];?></td>
-                                        <td class="text-center"><?=$dtl['uni_dtl_password'];?></td>
-                                        <td class="text-center pointer"><span class="uni-dtl"
-                                                onclick='deleteDetail(<?=$dtl["uni_dtl_id"];?>, "<?=date("M dS Y", strtotime($dtl["uni_dtl_start_date"]));?>", <?=$uni["uni_id"];?>)'><i
-                                                    class="fas fa-trash text-danger"></i></span></td>
-                                    </tr>
-                                    <?php } ?>
-                                    <?php $no++; } ?>
+                                                ?>
+                                                <!-- </td> -->
+                                                <td class="text-center"><?= $dtl['uni_dtl_zoom_link']; ?></td>
+                                                <td class="text-center"><?= $dtl['uni_dtl_password']; ?></td>
+                                                <td class="text-center pointer"><span class="uni-dtl" onclick='deleteDetail(<?= $dtl["uni_dtl_id"]; ?>, "<?= date("M dS Y", strtotime($dtl["uni_dtl_start_date"])); ?>", <?= $uni["uni_id"]; ?>)'><i class="fas fa-trash text-danger"></i></span></td>
+                                            </tr>
+                                        <?php } ?>
+                                    <?php $no++;
+                                    } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -195,7 +180,7 @@
             <div class="modal-content">
                 <form action="" id="addConsultForm" class="needs-validation" novalidate>
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"><?=$uni['uni_name'];?></h5>
+                        <h5 class="modal-title" id="exampleModalLabel"><?= $uni['uni_name']; ?></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -205,16 +190,14 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Start Date</label>
-                                    <input type="text" name="uni_id" value="<?=$uni['uni_id'];?>" hidden>
-                                    <input type="datetime-local" class="form-control form-control-sm"
-                                        name="uni_dtl_start_date" required min="<?=TALK_DAY_1_VALIDATE?>" max="<?=TALK_DAY_2_VALIDATE?>">
+                                    <input type="text" name="uni_id" value="<?= $uni['uni_id']; ?>" hidden>
+                                    <input type="datetime-local" class="form-control form-control-sm" name="uni_dtl_start_date" required min="<?= TALK_DAY_1_VALIDATE ?>" max="<?= TALK_DAY_2_VALIDATE ?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>End Date</label>
-                                    <input type="datetime-local" class="form-control form-control-sm"
-                                        name="uni_dtl_end_date" required min="<?=TALK_DAY_1_VALIDATE?>" max="<?=TALK_DAY_2_VALIDATE?>">
+                                    <input type="datetime-local" class="form-control form-control-sm" name="uni_dtl_end_date" required min="<?= TALK_DAY_1_VALIDATE ?>" max="<?= TALK_DAY_2_VALIDATE ?>">
                                 </div>
                             </div>
                         </div>
@@ -229,14 +212,12 @@
                         </div> -->
                         <div class="form-group">
                             <label>Zoom Link</label>
-                            <input type="text" class="form-control form-control-sm" name="uni_dtl_zoom_link"
-                                placeholder="https://www.zoom.us">
+                            <input type="text" class="form-control form-control-sm" name="uni_dtl_zoom_link" placeholder="https://www.zoom.us">
                         </div>
 
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="text" class="form-control form-control-sm" name="uni_dtl_password"
-                                placeholder="password">
+                            <input type="text" class="form-control form-control-sm" name="uni_dtl_password" placeholder="password">
                         </div>
 
                     </div>
@@ -255,7 +236,7 @@
             <div class="modal-content">
                 <form action="" id="editConsultForm" class="needs-validation" novalidate>
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"><?=$uni['uni_name'];?></h5>
+                        <h5 class="modal-title" id="exampleModalLabel"><?= $uni['uni_name']; ?></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -265,21 +246,17 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Start Date</label>
-                                    <input type="text" name="uni_id" value="<?=$uni['uni_id'];?>" hidden>
+                                    <input type="text" name="uni_id" value="<?= $uni['uni_id']; ?>" hidden>
                                     <input type="text" name="uni_dtl_id" id="uni_dtl_id" hidden>
-                                    <input type="datetime-local" class="form-control form-control-sm"
-                                        name="uni_dtl_start_date" id="uni_dtl_start_date" required min="<?=TALK_DAY_1_VALIDATE?>" max="<?=TALK_DAY_2_VALIDATE?>">
-                                    <input type="datetime-local" name="uni_dtl_start_date_old"
-                                        id="uni_dtl_start_date_old" hidden>
+                                    <input type="datetime-local" class="form-control form-control-sm" name="uni_dtl_start_date" id="uni_dtl_start_date" required min="<?= TALK_DAY_1_VALIDATE ?>" max="<?= TALK_DAY_2_VALIDATE ?>">
+                                    <input type="datetime-local" name="uni_dtl_start_date_old" id="uni_dtl_start_date_old" hidden>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>End Date</label>
-                                    <input type="datetime-local" class="form-control form-control-sm"
-                                        name="uni_dtl_end_date" id="uni_dtl_end_date" required min="<?=TALK_DAY_1_VALIDATE?>" max="<?=TALK_DAY_2_VALIDATE?>">
-                                    <input type="datetime-local" name="uni_dtl_end_date_old" id="uni_dtl_end_date_old"
-                                        hidden>
+                                    <input type="datetime-local" class="form-control form-control-sm" name="uni_dtl_end_date" id="uni_dtl_end_date" required min="<?= TALK_DAY_1_VALIDATE ?>" max="<?= TALK_DAY_2_VALIDATE ?>">
+                                    <input type="datetime-local" name="uni_dtl_end_date_old" id="uni_dtl_end_date_old" hidden>
                                 </div>
                             </div>
                         </div>
@@ -295,14 +272,12 @@
                         </div> -->
                         <div class="form-group">
                             <label>Zoom Link</label>
-                            <input type="text" class="form-control form-control-sm" name="uni_dtl_zoom_link"
-                                id="uni_dtl_zoom_link" placeholder="https://www.zoom.us">
+                            <input type="text" class="form-control form-control-sm" name="uni_dtl_zoom_link" id="uni_dtl_zoom_link" placeholder="https://www.zoom.us">
                         </div>
 
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="text" class="form-control form-control-sm" name="uni_dtl_password"
-                                id="uni_dtl_password" placeholder="password">
+                            <input type="text" class="form-control form-control-sm" name="uni_dtl_password" id="uni_dtl_password" placeholder="password">
                         </div>
 
                     </div>
@@ -320,345 +295,198 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-    function disableForm() {
-        $("#addUni input").prop("readonly", true);
-        $("#addUni select").prop("disabled", true);
-        // $("#addUni textarea").prop("disabled", true);
-        $("#imgUpload").prop("disabled", true);
-        $("#buttonSubmit").hide();
-        $('#uniCountry').val('<?=$uni["uni_country"];?>');
-        if (($('#uniCountry').val() == "Asia") || ($('#uniCountry').val() == "Europe")) {
-            $.ajax({
-                type: 'post',
-                dataType: "json",
-                url: "<?=base_url();?>/api/country/" + $('#uniCountry').val(),
-                success: function(datas) {
-                    $.each(datas, function(index, data) {
-                        $('#countryDtl').append(
-                            '<option value="' +
-                            data.name +
-                            '">' +
-                            data.name +
-                            '</option>'
-                        )
-                    });
-                }
-            });
-            $('#uniCountryDtl').show();
-            $('#countryDtl').val('<?=$uni["uni_detail_country"];?>');
-        } else {
-            $('#uniCountryDtl').hide();
-        }
-    }
-
-    $(document).ready(function() {
-        disableForm();
-    });
-
-    function editData() {
-        if ($("#addUni input").prop("readonly")) {
-            $("#editData").addClass('btn-warning text-dark');
-            $("#addUni input").prop("readonly", false);
-            $("#addUni select").prop("disabled", false);
-            // $("#addUni textarea").prop("disabled", false);
-            $("#imgUpload").prop("disabled", false);
-            $("#buttonSubmit").show();
-        } else {
-            $("#editData").removeClass('btn-warning text-dark');
+        function disableForm() {
             $("#addUni input").prop("readonly", true);
             $("#addUni select").prop("disabled", true);
-
             // $("#addUni textarea").prop("disabled", true);
             $("#imgUpload").prop("disabled", true);
             $("#buttonSubmit").hide();
-        }
-    }
-
-    function deleteData(id, data) {
-        Swal.fire({
-            title: 'Are you sure?',
-            html: "Delete this university<br><b>" + data + "</b>",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes!'
-        }).then((result) => {
-            if (result.isConfirmed) {
+            $('#uniCountry').val('<?= $uni["uni_country"]; ?>');
+            if (($('#uniCountry').val() == "Asia") || ($('#uniCountry').val() == "Europe")) {
                 $.ajax({
-                    url: "<?=base_url('dashboard/admin/uni/delete/');?>" + id,
-                    type: "POST",
-                    success: function(msg) {
-                        if (msg == "001") {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Horee!',
-                                text: 'The univeristy has been deleted.',
-                                showConfirmButton: false
-                            })
-                            setTimeout(function() {
-                                window.location.href =
-                                    "<?=base_url('dashboard/admin/uni/');?>";
-                            }, 2000)
-                        } else {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Oops...',
-                                text: 'Something went wrong! Please try again.'
-                            });
-                        }
+                    type: 'post',
+                    dataType: "json",
+                    url: "<?= base_url(); ?>/api/country/" + $('#uniCountry').val(),
+                    success: function(datas) {
+                        $.each(datas, function(index, data) {
+                            $('#countryDtl').append(
+                                '<option value="' +
+                                data.name +
+                                '">' +
+                                data.name +
+                                '</option>'
+                            )
+                        });
                     }
                 });
+                $('#uniCountryDtl').show();
+                $('#countryDtl').val('<?= $uni["uni_detail_country"]; ?>');
+            } else {
+                $('#uniCountryDtl').hide();
             }
-        })
-    }
+        }
 
-    $('#uniCountry').change(function() {
-        let country = $(this).val();
-        if ((country == "Asia") || (country == "Europe")) {
-            $('#uniCountryDtl').show();
-            $("#countryDtl").empty();
-            $.ajax({
-                type: 'post',
-                dataType: "json",
-                url: "<?=base_url();?>/api/country/" + country,
-                success: function(datas) {
-                    $.each(datas, function(index, data) {
-                        $('#countryDtl').append(
-                            '<option value="' +
-                            data.name +
-                            '">' +
-                            data.name +
-                            '</option>'
-                        )
+        $(document).ready(function() {
+            disableForm();
+        });
+
+        function editData() {
+            if ($("#addUni input").prop("readonly")) {
+                $("#editData").addClass('btn-warning text-dark');
+                $("#addUni input").prop("readonly", false);
+                $("#addUni select").prop("disabled", false);
+                // $("#addUni textarea").prop("disabled", false);
+                $("#imgUpload").prop("disabled", false);
+                $("#buttonSubmit").show();
+            } else {
+                $("#editData").removeClass('btn-warning text-dark');
+                $("#addUni input").prop("readonly", true);
+                $("#addUni select").prop("disabled", true);
+
+                // $("#addUni textarea").prop("disabled", true);
+                $("#imgUpload").prop("disabled", true);
+                $("#buttonSubmit").hide();
+            }
+        }
+
+        function deleteData(id, data) {
+            Swal.fire({
+                title: 'Are you sure?',
+                html: "Delete this university<br><b>" + data + "</b>",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: "<?= base_url('dashboard/admin/uni/delete/'); ?>" + id,
+                        type: "POST",
+                        success: function(msg) {
+                            if (msg == "001") {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Horee!',
+                                    text: 'The univeristy has been deleted.',
+                                    showConfirmButton: false
+                                })
+                                setTimeout(function() {
+                                    window.location.href =
+                                        "<?= base_url('dashboard/admin/uni/'); ?>";
+                                }, 2000)
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Something went wrong! Please try again.'
+                                });
+                            }
+                        }
                     });
                 }
-            });
-            $('#countryDtl').focus();
-            $('#countryDtl').removeClass('form-control form-control-sm');
-            new SlimSelect({
-                select: '#countryDtl',
-                allowDeselect: true,
-                placeholder: 'Select the country',
             })
-        } else {
-            $('#uniCountryDtl').hide();
-            $('#countryDtl').val('');
         }
-    });
 
-
-    function readURL(input) {
-        $('#uniBanner').val(input.files[0].name);
-        $(".custom-file-label").addClass("selected text-dark").html(input.files[0].name);
-
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#photoPreview')
-                    .attr('src', e.target.result);
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-
-    (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', function(event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
-
-    // Submit
-    $("#addUni").submit(function(event) {
-        event.preventDefault();
-        if ($("#addUni")[0].checkValidity() === false) {
-            event.stopPropagation();
-        } else {
-            Swal.showLoading();
-
-            var file_data = $('#imgUpload').prop('files')[0];
-            var form_data = new FormData($('#addUni')[0]);
-            form_data.append('upload_banner',
-                file_data); //menggunakan variable (nama form input 'file')
-
-            $.ajax({
-                url: "<?=base_url('dashboard/admin/uni/update');?>",
-                type: "POST",
-                data: form_data,
-                processData: false,
-                contentType: false,
-                success: function(msg) {
-                    if (msg > 0) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Horee!',
-                            text: 'This university has been updated.',
-                            showConfirmButton: false
-                        })
-                        setTimeout(function() {
-                            window.location.href =
-                                "<?php echo base_url('dashboard/admin/uni/edit/'); ?>" +
-                                msg;
-                        }, 2000)
-                    } else {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Something went wrong! Please try again.'
+        $('#uniCountry').change(function() {
+            let country = $(this).val();
+            if ((country == "Asia") || (country == "Europe")) {
+                $('#uniCountryDtl').show();
+                $("#countryDtl").empty();
+                $.ajax({
+                    type: 'post',
+                    dataType: "json",
+                    url: "<?= base_url(); ?>/api/country/" + country,
+                    success: function(datas) {
+                        $.each(datas, function(index, data) {
+                            $('#countryDtl').append(
+                                '<option value="' +
+                                data.name +
+                                '">' +
+                                data.name +
+                                '</option>'
+                            )
                         });
                     }
-                }
-            });
-        }
-    });
-
-    $("#addConsultForm").submit(function(event) {
-        event.preventDefault();
-        if ($("#addConsultForm")[0].checkValidity() === false) {
-            event.stopPropagation();
-        } else {
-            Swal.showLoading();
-
-            var form_data = new FormData($('#addConsultForm')[0]);
-
-            $.ajax({
-                url: "<?=base_url('dashboard/admin/uni/consult/add');?>",
-                type: "POST",
-                data: form_data,
-                processData: false,
-                contentType: false,
-                success: function(msg) {
-                    if (msg > 0) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Horee!',
-                            text: 'The consultation has been created.',
-                            showConfirmButton: false
-                        })
-                        setTimeout(function() {
-                            window.location.href =
-                                "<?php echo base_url('dashboard/admin/uni/edit/'); ?>" +
-                                msg;
-                        }, 2000)
-                    } else {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Something went wrong! Please try again.'
-                        });
-                    }
-                }
-            });
-        }
-    });
-
-    function dateTimeLocal(date) {
-        var dateTime = new Date(date);
-        dateTime.setMinutes(dateTime.getMinutes() - dateTime.getTimezoneOffset());
-        dateTime = dateTime.toISOString().slice(0, 16);
-        return dateTime
-    }
-
-    function editDetail(id) {
-        $.ajax({
-            url: "<?=base_url('dashboard/admin/uni/consult/edit/');?>" + id,
-            type: "POST",
-            dataType: 'JSON',
-            success: function(datas) {
-                var start = dateTimeLocal(datas.uni_dtl_start_date)
-                var end = dateTimeLocal(datas.uni_dtl_end_date)
-                $("#uni_dtl_id").val(datas.uni_dtl_id)
-                $("#uni_dtl_start_date").val(start)
-                $("#uni_dtl_end_date").val(end)
-                $("#uni_dtl_start_date_old").val(start)
-                $("#uni_dtl_end_date_old").val(end)
-                $("#uni_dtl_duration").val(datas.uni_dtl_duration)
-                $("#uni_dtl_duration_old").val(datas.uni_dtl_duration)
-                $("#uni_dtl_zoom_link").val(datas.uni_dtl_zoom_link)
-                $("#uni_dtl_password").val(datas.uni_dtl_password)
+                });
+                $('#countryDtl').focus();
+                $('#countryDtl').removeClass('form-control form-control-sm');
+                new SlimSelect({
+                    select: '#countryDtl',
+                    allowDeselect: true,
+                    placeholder: 'Select the country',
+                })
+            } else {
+                $('#uniCountryDtl').hide();
+                $('#countryDtl').val('');
             }
         });
-    }
 
-    $("#editConsultForm").submit(function(event) {
-        event.preventDefault();
-        if ($("#editConsultForm")[0].checkValidity() === false) {
-            event.stopPropagation();
-        } else {
-            Swal.showLoading();
 
-            var form_data = new FormData($('#editConsultForm')[0]);
+        function readURL(input) {
+            $('#uniBanner').val(input.files[0].name);
+            $(".custom-file-label").addClass("selected text-dark").html(input.files[0].name);
 
-            $.ajax({
-                url: "<?=base_url('dashboard/admin/uni/consult/update');?>",
-                type: "POST",
-                data: form_data,
-                processData: false,
-                contentType: false,
-                success: function(msg) {
-                    if (msg > 0) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Horee!',
-                            text: 'The consultation has been updated.',
-                            showConfirmButton: false
-                        })
-                        setTimeout(function() {
-                            window.location.href =
-                                "<?php echo base_url('dashboard/admin/uni/edit/'); ?>" +
-                                msg;
-                        }, 2000)
-                    } else {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Something went wrong! Please try again.'
-                        });
-                    }
-                }
-            });
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#photoPreview')
+                        .attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
         }
-    });
 
-    function deleteDetail(id, data, uniId) {
-        Swal.fire({
-            title: 'Are you sure?',
-            html: "Delete this data<br><b>" + data + "</b>",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes!'
-        }).then((result) => {
-            if (result.isConfirmed) {
+
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+
+        // Submit
+        $("#addUni").submit(function(event) {
+            event.preventDefault();
+            if ($("#addUni")[0].checkValidity() === false) {
+                event.stopPropagation();
+            } else {
+                Swal.showLoading();
+
+                var file_data = $('#imgUpload').prop('files')[0];
+                var form_data = new FormData($('#addUni')[0]);
+                form_data.append('upload_banner',
+                    file_data); //menggunakan variable (nama form input 'file')
+
                 $.ajax({
-                    url: "<?=base_url('dashboard/admin/uni/consult/delete/');?>" + id,
+                    url: "<?= base_url('dashboard/admin/uni/update'); ?>",
                     type: "POST",
+                    data: form_data,
+                    processData: false,
+                    contentType: false,
                     success: function(msg) {
-                        if (msg == "001") {
+                        if (msg > 0) {
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Horee!',
-                                text: 'The consultation has been deleted.',
+                                text: 'This university has been updated.',
                                 showConfirmButton: false
                             })
                             setTimeout(function() {
                                 window.location.href =
-                                    "<?=base_url('dashboard/admin/uni/edit/');?>" +
-                                    uniId;
+                                    "<?php echo base_url('dashboard/admin/uni/edit/'); ?>" +
+                                    msg;
                             }, 2000)
                         } else {
                             Swal.fire({
@@ -670,8 +498,155 @@
                     }
                 });
             }
-        })
-    }
+        });
+
+        $("#addConsultForm").submit(function(event) {
+            event.preventDefault();
+            if ($("#addConsultForm")[0].checkValidity() === false) {
+                event.stopPropagation();
+            } else {
+                Swal.showLoading();
+
+                var form_data = new FormData($('#addConsultForm')[0]);
+
+                $.ajax({
+                    url: "<?= base_url('dashboard/admin/uni/consult/add'); ?>",
+                    type: "POST",
+                    data: form_data,
+                    processData: false,
+                    contentType: false,
+                    success: function(msg) {
+                        if (msg > 0) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Horee!',
+                                text: 'The consultation has been created.',
+                                showConfirmButton: false
+                            })
+                            setTimeout(function() {
+                                window.location.href =
+                                    "<?php echo base_url('dashboard/admin/uni/edit/'); ?>" +
+                                    msg;
+                            }, 2000)
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong! Please try again.'
+                            });
+                        }
+                    }
+                });
+            }
+        });
+
+        function dateTimeLocal(date) {
+            var dateTime = new Date(date);
+            dateTime.setMinutes(dateTime.getMinutes() - dateTime.getTimezoneOffset());
+            dateTime = dateTime.toISOString().slice(0, 16);
+            return dateTime
+        }
+
+        function editDetail(id) {
+            $.ajax({
+                url: "<?= base_url('dashboard/admin/uni/consult/edit/'); ?>" + id,
+                type: "POST",
+                dataType: 'JSON',
+                success: function(datas) {
+                    var start = dateTimeLocal(datas.uni_dtl_start_date)
+                    var end = dateTimeLocal(datas.uni_dtl_end_date)
+                    $("#uni_dtl_id").val(datas.uni_dtl_id)
+                    $("#uni_dtl_start_date").val(start)
+                    $("#uni_dtl_end_date").val(end)
+                    $("#uni_dtl_start_date_old").val(start)
+                    $("#uni_dtl_end_date_old").val(end)
+                    $("#uni_dtl_duration").val(datas.uni_dtl_duration)
+                    $("#uni_dtl_duration_old").val(datas.uni_dtl_duration)
+                    $("#uni_dtl_zoom_link").val(datas.uni_dtl_zoom_link)
+                    $("#uni_dtl_password").val(datas.uni_dtl_password)
+                }
+            });
+        }
+
+        $("#editConsultForm").submit(function(event) {
+            event.preventDefault();
+            if ($("#editConsultForm")[0].checkValidity() === false) {
+                event.stopPropagation();
+            } else {
+                Swal.showLoading();
+
+                var form_data = new FormData($('#editConsultForm')[0]);
+
+                $.ajax({
+                    url: "<?= base_url('dashboard/admin/uni/consult/update'); ?>",
+                    type: "POST",
+                    data: form_data,
+                    processData: false,
+                    contentType: false,
+                    success: function(msg) {
+                        if (msg > 0) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Horee!',
+                                text: 'The consultation has been updated.',
+                                showConfirmButton: false
+                            })
+                            setTimeout(function() {
+                                window.location.href =
+                                    "<?php echo base_url('dashboard/admin/uni/edit/'); ?>" +
+                                    msg;
+                            }, 2000)
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong! Please try again.'
+                            });
+                        }
+                    }
+                });
+            }
+        });
+
+        function deleteDetail(id, data, uniId) {
+            Swal.fire({
+                title: 'Are you sure?',
+                html: "Delete this data<br><b>" + data + "</b>",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: "<?= base_url('dashboard/admin/uni/consult/delete/'); ?>" + id,
+                        type: "POST",
+                        success: function(msg) {
+                            if (msg == "001") {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Horee!',
+                                    text: 'The consultation has been deleted.',
+                                    showConfirmButton: false
+                                })
+                                setTimeout(function() {
+                                    window.location.href =
+                                        "<?= base_url('dashboard/admin/uni/edit/'); ?>" +
+                                        uniId;
+                                }, 2000)
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Something went wrong! Please try again.'
+                                });
+                            }
+                        }
+                    });
+                }
+            })
+        }
     </script>
 </body>
 
