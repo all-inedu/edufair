@@ -373,13 +373,13 @@ if (!$this->session->has_userdata('user_id')) {
                                                         </div>
                                                     </div>
                                                     <div class="col-6 p-0">
-                                                        <div class="desc-uni btn-outline-primary btn-block btn-tellme btn-topic" data-container="body" data-toggle="modal" data-content="<?php echo $uniInfo['uni_description']; ?>" data-target="#uni-story" style="cursor: pointer">
+                                                        <div class="desc-uni btn-outline-primary btn-block btn-tellme btn-topic" data-container="body" data-toggle="modal" data-content="<?php echo str_replace('"', "'", $uniInfo['uni_description']); ?>" data-target="#uni-story" style="cursor: pointer">
                                                             Tell Me More
                                                         </div>
                                                     </div>
                                                 <?php } else { ?>
                                                     <div class="col-md-6 p-0">
-                                                        <div class="desc-uni btn-outline-primary mb-1 btn-tellme btn-topic" data-container="body" data-toggle="modal" data-content="<?php echo $uniInfo['uni_description']; ?>" data-target="#uni-story" style="cursor: pointer">
+                                                        <div class="desc-uni btn-outline-primary mb-1 btn-tellme btn-topic" data-container="body" data-toggle="modal" data-content="<?php echo str_replace('"', "'", $uniInfo['uni_description']); ?>" data-target="#uni-story" style="cursor: pointer">
                                                             Tell Me More
                                                         </div>
                                                     </div>
