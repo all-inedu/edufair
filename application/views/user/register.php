@@ -214,7 +214,7 @@ body {
                         <label>Whats your biggest challenge in prepping for university?</label>
                         <select id="userChallenge" onchange="checkValue('userChallenge')" required
                             oninvalid="validation('userChallenge')">
-                            <option data-placeholder="true"></option>
+                            <option data-placeholder="true" value=""></option>
                             <option value="other">Other</option>
                         </select>
                         <textarea class="form-control custom-box" placeholder="Your answer" required
@@ -662,8 +662,7 @@ $(document).ready(function() {
             dataType: "json",
             url: "<?php echo base_url(); ?>request/getAllDataChallenge",
             success: function(datas) {
-
-                $('#userChallenge').find('option[value!="other"]').remove();
+                $('#userChallenge option').not('option[value="other"], option[value=""]').remove();
 
                 $.each(datas, function(index, data) {
                     $('#userChallenge').append(
