@@ -24,7 +24,8 @@
     }
 
     .items-collection {
-        margin: 20px 0 0 0;
+        /* margin: 20px 0 0 0; */
+        margin: 0 0 20px 0;
     }
 
     .items-collection label.btn-default.active {
@@ -401,6 +402,7 @@ if (!$this->session->has_userdata('user_id')) {
                                                             ?>
                                                             <div class="modal-body">
                                                                 <h5 class="pl-3 modal-title title-booking-blue">When will you be free?</h5>
+                                                                <p class="pl-3" style="color: #235788; font-size: 18px;">Set your time!</p>
                                                                 <?php
                                                                 // check if uni status fullbook is not full
                                                                 if ($uniInfo['uni_status_fullbooked'] == "NOT_FULL") {
@@ -457,10 +459,10 @@ if (!$this->session->has_userdata('user_id')) {
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group px-1 pt-3">
-                                                                                        <label for="exampleInputEmail1" class="text-dark mb-0">Question for
+                                                                                        <label for="exampleInputEmail1" class="mb-0" style="color: #235788">Question for
                                                                                             the
                                                                                             University</label>
-                                                                                        <textarea type="text" class="form-control textarea-red" aria-describedby="emailHelp" placeholder="type your questions here" name="question" rows="5"></textarea>
+                                                                                        <textarea type="text" class="form-control textarea-red" aria-describedby="emailHelp" placeholder="Drop your question(s) for the university representatives (not mandatory):" name="question" rows="5"></textarea>
                                                                                     </div>
                                                                                     <input type="hidden" name="uni_id" value="<?= $uniInfo['uni_id']; ?>">
                                                                                     <div class="text-right mx-1">
