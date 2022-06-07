@@ -367,7 +367,7 @@ if (!$this->session->has_userdata('user_id')) {
 
                                                 //if((count($count_unidtl)>0) and ($uniInfo['uni_topic_reg'] == "REGISTERED")) { 
                                                 ?>
-                                                <?php /*} else*/ if ((count($count_unidtl) > 0) and ($uniInfo['uni_topic_reg'] != "REGISTERED")) { ?>
+                                                <?php /*} else*/ if ((count($count_unidtl) > 0) /*and ($uniInfo['uni_topic_reg'] != "REGISTERED")*/) { ?>
                                                     <div class="col-6 p-0 pr-2">
                                                         <div class="btn btn-book-uni btn-block" style="cursor: pointer" data-toggle="modal" data-target="#modal-<?= $uniInfo['uni_id']; ?>">
                                                             Book Now
