@@ -512,7 +512,7 @@ introJs().setOptions({
     steps: [{
         element: document.querySelector('.upload-cv-field'),
         title: 'Welcome!',
-        intro: 'Before getting started, please upload your CV / resume because you can win a chance to have your CV / resume checked by our mentor.'
+        intro: 'Before getting started, you can upload your CV to join our University of California (UC) Mock Application to get a chance of getting 1-on-1 profile review with former UC admission officers!'
     }]
 }).start();
 <?php
