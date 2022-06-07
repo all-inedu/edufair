@@ -444,7 +444,7 @@ if (!$this->session->has_userdata('user_id')) {
                                                                                                                         <!-- <span class="fa fa-calendar fa-2x"></span> -->
                                                                                                                         <div class="text-booking-uni" style="text-align: center;padding-top: 0.5rem">
                                                                                                                             <?php echo date('d F Y', strtotime($assigned_time)); ?><br>
-                                                                                                                            <small><?php echo $start_time.' - '.$end_time;?></small>
+                                                                                                                            <small><?php echo $start_time.' - '.$end_time;?> WIB</small>
                                                                                                                         </div>
                                                                                                                     </div>
                                                                                                                 </label>
