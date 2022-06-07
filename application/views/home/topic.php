@@ -106,7 +106,7 @@
                                 <div class="row px-0 pt-2 no-gutters talk-button">
                                     <div class="col-12">
                                         <p class="m-0 tanggal">
-                                            <?= $topic_start_date->format('M, dS Y (H:i') ?> -
+                                            <?= $topic_start_date->format('F, dS Y (H:i') ?> -
                                             <?= $topic_end_date->format('H:i') ?> WIB)
                                         </p>
                                         <h4 class="deskripsi"><?php echo $topic_name; ?></h4>
