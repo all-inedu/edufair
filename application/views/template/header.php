@@ -701,6 +701,10 @@
         #talks .row div {
             padding: 0;
         }
+
+        .background-lp {
+            background: #fff;
+        }
     }
 
     @media screen and (max-width: 576px) and (min-width: 375px) {
