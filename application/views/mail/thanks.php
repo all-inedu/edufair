@@ -60,7 +60,7 @@
 
 <body>
     <div class="container">
-        <!-- <img src="<?=BANNER_EMAIL?>" alt="<?=base_url();?>"
+        <!-- <img src="<?=BANNER_EMAIL_THANKS?>" alt="<?=base_url();?>"
             width="100%">
 
         <br>
