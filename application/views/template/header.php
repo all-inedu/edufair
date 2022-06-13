@@ -27,6 +27,15 @@
     <!-- <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'> -->
     <link rel="stylesheet" href="<?= base_url('assets/css/flipTimerss.css'); ?>" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJ6F6B30K9"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XJ6F6B30K9');
+    </script>
     <style type="text/css">
     /* override styles here */
     /* .notie-container {

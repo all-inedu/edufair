@@ -79,7 +79,7 @@ class RegisterController extends CI_Controller {
 			"user_status"            => $this->input->post('user_status'),
 			"user_gender"            => $this->input->post('user_gender'),
 			"user_dob"               => $this->input->post('user_dateofbirth'),
-			"user_first_time"        => $this->input->post('user_first_time'),
+			"user_first_time"        => $this->input->post('user_first_time') == "yes" ? 1 : 0,
 			"user_grade"             => $this->input->post('user_grade'),
 			"user_school"            => $this->input->post('user_school'),
 			"user_country"           => $this->input->post('user_destination'),

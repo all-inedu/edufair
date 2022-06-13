@@ -42,6 +42,7 @@
                                             <th>Register Date</th>
                                             <th>Resume</th>
                                             <th>#</th>
+                                            <th>First Time</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -92,7 +93,17 @@
                                                 <?php }} ?>
                                             </td>
                                             <td><?=date("M dS Y",strtotime($u['user_register_date']));?></td>
-                                            <td><a target="_blank" href="<?= base_url().'assets/user/uploads/'.$u['user_resume']; ?>">View here</a></td>
+                                            <td>
+                                                <?php
+                                                if ($u['user_resume'] != null) {
+                                                ?>
+                                                <a target="_blank" href="<?= base_url().'assets/user/uploads/'.$u['user_resume']; ?>">View here</a>
+                                                <?php
+                                                } else {
+                                                    echo "-";
+                                                }
+                                                ?>
+                                            </td>
                                             <td>
                                                 <?php
                                                     if($u['token_status']==1){
@@ -102,6 +113,7 @@
                                                     }
                                                 ?>
                                             </td>
+                                            <td><?= $u['user_first_time'] == 1 ? "Yes" : "No" ?></td>
                                         </tr>
                                         <?php $no++; } ?>
                                     </tbody>
