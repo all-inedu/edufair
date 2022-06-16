@@ -13,6 +13,14 @@ marquee img {
     height: 130px;
 }
 
+
+.overflow {
+    margin-left: -80px;
+}
+.overflow.half {
+    margin-left: -30px;
+}
+
 @media screen and (max-width: 750px) and (min-width: 250px) {
     .train {
         display: none;
@@ -20,6 +28,13 @@ marquee img {
 
     marquee img {
         height: 80px;
+    }
+
+    .overflow {
+        margin-left: -50px !important;
+    }
+    .overflow.half {
+        margin-left: -20px !important;
     }
     
 }
@@ -33,12 +48,6 @@ marquee img {
   100% { transform: translatex(-144vw); }
 } */
 
-.overflow {
-    margin-left: -80px;
-}
-.overflow.half {
-    margin-left: -30px !important;
-}
 
 </style>
 <section id="personality">
@@ -60,7 +69,7 @@ marquee img {
             <div class="d-inline">
                 <img src="<?php echo base_url(); ?>assets/img/banner-full.webp" alt="Global University Edufair">
                 <?php 
-                $loop = 2;
+                $loop = 10;
                 for ($i = 0; $i < $loop; $i++) { 
                     $overflow = ($i == 0) ? '' : " half";
                     ?>
