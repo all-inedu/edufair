@@ -104,6 +104,7 @@
                                                         title="<?=$title;?>">
                                                         <td><?=$u['user_fullname'];?></td>
                                                         <td><?=$u['user_email'];?></td>
+                                                        <td><?=$u['user_phone'];?></td>
                                                         <td><?=ucfirst($u['user_status']);?></td>
                                                         <td><?=$u['user_school'];?></td>
                                                         <td><?=$u['user_grade'];?></td>

@@ -68,6 +68,7 @@
                                                         </td>
                                                         <td><?=$user['user_fullname'];?></td>
                                                         <td><?=$user['user_email'];?></td>
+                                                        <td><?=$user['user_phone'];?></td>
                                                         <td><?=ucfirst($user['user_status']);?></td>
                                                         <td><?=$user['user_school'];?></td>
                                                         <td><?=$user['user_grade'];?></td>
