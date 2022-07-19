@@ -51,7 +51,7 @@ class ReminderController extends CI_Controller {
                 $sent = $this->email->send() ? true : false;
 
                 //* save log
-			    echo $this->LogMail->insert(['inserted_id' => $u['user_id'], 'category' => 1, 'sent' => $sent]);
+			    $this->LogMail->insert(['inserted_id' => $u['user_id'], 'category' => 1, 'sent' => $sent]);
 		
             }
         }
@@ -95,7 +95,7 @@ class ReminderController extends CI_Controller {
                     $sent = $this->email->send() ? true : false;
 
                     //* save log
-			        echo $this->LogMail->insert(['inserted_id' => $d['user_id'], 'category' => 2, 'sent' => $sent]);
+			        $this->LogMail->insert(['inserted_id' => $d['user_id'], 'category' => 2, 'sent' => $sent]);
 		
                 }
             }
@@ -142,7 +142,7 @@ class ReminderController extends CI_Controller {
                     $sent = $this->email->send() ? true : false;
 
                     //* save log
-			        echo $this->LogMail->insert(['inserted_id' => $d['user_id'], 'category' => 3, 'sent' => $sent]);
+			        $this->LogMail->insert(['inserted_id' => $d['user_id'], 'category' => 3, 'sent' => $sent]);
 		
                 }
             }
@@ -188,7 +188,7 @@ class ReminderController extends CI_Controller {
                     $sent = $this->email->send() ? true : false;
 
                     //* save log
-			        echo $this->LogMail->insert(['inserted_id' => $d['user_id'], 'category' => 4, 'sent' => $sent]);
+			        $this->LogMail->insert(['inserted_id' => $d['user_id'], 'category' => 4, 'sent' => $sent]);
 		
 
                     // $this->load->view('mail/reminder_d1', $d);
@@ -236,7 +236,7 @@ class ReminderController extends CI_Controller {
                     $sent = $this->email->send() ? true : false;
 
                     //* save log
-			        echo $this->LogMail->insert(['inserted_id' => $d['user_id'], 'category' => 5, 'sent' => $sent]);
+			        $this->LogMail->insert(['inserted_id' => $d['user_id'], 'category' => 5, 'sent' => $sent]);
 
                     // $this->load->view('mail/reminder_d1', $d);
                 } 
@@ -283,7 +283,7 @@ class ReminderController extends CI_Controller {
                     $sent = $this->email->send() ? true : false;
 
                     //* save log
-			        echo $this->LogMail->insert(['inserted_id' => $d['user_id'], 'category' => 6, 'sent' => $sent]);
+			        $this->LogMail->insert(['inserted_id' => $d['user_id'], 'category' => 6, 'sent' => $sent]);
                     // $this->load->view('mail/reminder_d2', $d);
                 } 
             }
@@ -327,7 +327,7 @@ class ReminderController extends CI_Controller {
                     $sent = $this->email->send() ? true : false;
 
                     //* save log
-			        echo $this->LogMail->insert(['inserted_id' => $d['user_id'], 'category' => 7, 'sent' => $sent]);
+			        $this->LogMail->insert(['inserted_id' => $d['user_id'], 'category' => 7, 'sent' => $sent]);
 
                     // $this->load->view('mail/thanks', $d);
                 } 
