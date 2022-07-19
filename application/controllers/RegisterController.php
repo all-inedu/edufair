@@ -11,6 +11,7 @@ class RegisterController extends CI_Controller {
         $this->load->model('TopicModel');
         $this->load->model('ConsultModel');
         $this->load->model('LeadModel');
+		$this->load->model('LogMail');
         $this->load->library('mail_smtp');
     }
 
@@ -111,6 +112,8 @@ class RegisterController extends CI_Controller {
 			$data = array( "url" => base_url() . '/verify/token/' . $qstring . $add_on );
 			// send verification mail
 			if($this->sendingEmail($data, $email)) {
+				$sent = true;
+
 				// send mail success
 				$array = array(
 		          "code" => "001",
@@ -119,6 +122,7 @@ class RegisterController extends CI_Controller {
 		        );
 		        echo json_encode($array);
 			} else {
+				$sent = false;
 				//error send email verify;
 				$array = array(
 		          "code" => "08",
@@ -131,6 +135,9 @@ class RegisterController extends CI_Controller {
 		} else {
 			echo json_encode($process);
 		}
+
+		//* save log
+		$this->LogMail->insert(['inserted_id' => $inserted_id, 'category' => 0, 'sent' => $sent]);
 	}
 
 	public function resendVerificationLink()
@@ -147,6 +154,7 @@ class RegisterController extends CI_Controller {
 		$data['url'] = base_url() . '/verify/token/' . $qstring . $add_on;
 
 		if($this->sendingEmail($data, $data['user_email'])) {
+			$sent = true;
 			// send mail success
 			$array = array(
 			  "code" => "001",
@@ -155,6 +163,7 @@ class RegisterController extends CI_Controller {
 			);
 			echo json_encode($array);
 		} else {
+			$sent = false;
 			//error send email verify;
 			$array = array(
 			  "code" => "08",
@@ -163,6 +172,9 @@ class RegisterController extends CI_Controller {
 			);
 			echo json_encode($array);
 		}
+		//* save log
+		$this->LogMail->insert(['inserted_id' => $data['user_id'], 'category' => 8, 'sent' => $sent]);
+
 	}
 
 	public function getTokenVerifyEmail()
@@ -191,6 +203,7 @@ class RegisterController extends CI_Controller {
 			$this->email->subject(SUBJECT_WELCOME_EMAIL);
 			$bodyMail = $this->load->view('mail/welcome', '', true);
 			$this->email->message($bodyMail);
+			// send mail
 			$this->email->send();
 
 			//! update 2022

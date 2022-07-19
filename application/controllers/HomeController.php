@@ -10,6 +10,7 @@ class HomeController extends CI_Controller {
         $this->load->model('UniModel');
         $this->load->model('TopicModel');
         $this->load->model('ConsultModel');
+		$this->load->model('LogMail');
         $this->load->library('mail_smtp');
     }
 
@@ -253,8 +254,11 @@ class HomeController extends CI_Controller {
 			$qstring = $this->base64url_encode($token);
 			$data = array( "url" => base_url() . '/reset-password/token/' . $qstring );
 
-			echo $this->sendingEmail($data, $email);
+			$sent = $this->sendingEmail($data, $email) ? true : false;
+			//* save log
+			echo $this->LogMail->insert(['inserted_id' => $userInfo['user_id'], 'category' => 9, 'sent' => $sent]);
 		}
+
 	}
 
 	public function resetPassword() // when user click reset password on her/his mail
