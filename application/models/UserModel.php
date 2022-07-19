@@ -48,6 +48,13 @@ class UserModel extends CI_Model {
 		return $this->db->get()->result_array();
 	}
 
+	function getUserDataWithCondition($condition)
+	{
+		$this->db->from('tb_user');
+		$this->db->where('user_register_date >', $condition);
+		return $this->db->get()->result_array();
+	}
+
 	function getUserData($id)
 	{
 		$this->db->select('

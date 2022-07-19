@@ -335,6 +335,90 @@ class ReminderController extends CI_Controller {
         }    
         // $this->load->view('mail/thanks');
     }
+
+    public function reminder_d1_for_new_user()
+    {
+        $condition = date('2022-07-23 07:30:00');
+        $user = $this->user->getUserDataWithCondition($condition);
+        $data = [];
+        $date = date('Y-m-d', strtotime($condition));
+        foreach ($user as $u) {
+            $bookTopic = $this->topic->getBookingTopicById($u['user_id'], $date);
+            $bookConsult = $this->uni->getBookingConsultById($u['user_id'], $date);
+            if(!isset($data[$u['user_id']])) {
+                $data[$u['user_id']] = [
+                    'user_name' => $u['user_fullname'],
+                    'user_email' => $u['user_email'],
+                    'topic' => $bookTopic,
+                    'consult' => $bookConsult,
+                ];
+            }
+        }
+
+        foreach ($data as $d) {
+            if((!empty($d['topic'])) or (!empty($d['consult']))) {
+                $email = $d['user_email'];
+                
+                $config = $this->mail_smtp->smtp();
+                $this->load->library('mail_smtp', $config);
+                $this->email->initialize($config);
+                $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
+                $this->email->to($email);
+                // $this->email->to('hafidz.fanany@all-inedu.com');
+                $this->email->subject('Your Day 1 Agenda');
+                $bodyMail = $this->load->view('mail/reminder_d1', $d, true);
+                $this->email->message($bodyMail);
+                $sent = $this->email->send() ? true : false;
+
+                //* save log
+                $this->LogMail->insert(['inserted_id' => $d['user_id'], 'category' => 5, 'sent' => $sent]);
+
+                // $this->load->view('mail/reminder_d1', $d);
+            } 
+        }
+    }
+
+    public function reminder_d2_for_new_user()
+    {
+        $condition = date('2022-07-24 07:30:00');
+        $user = $this->user->getUserDataWithCondition($condition);
+        $data = [];
+        $date = date('Y-m-d', strtotime($condition));
+        foreach ($user as $u) {
+            $bookTopic = $this->topic->getBookingTopicById($u['user_id']);
+            $bookConsult = $this->uni->getBookingConsultById($u['user_id']);
+            if(!isset($data[$u['user_id']])) {
+                $data[$u['user_id']] = [
+                    'user_name' => $u['user_fullname'],
+                    'user_email' => $u['user_email'],
+                    'topic' => $bookTopic,
+                    'consult' => $bookConsult,
+                ];
+            }
+        }
+
+        foreach ($data as $d) {
+            if((!empty($d['topic'])) or (!empty($d['consult']))) {
+                $email = $d['user_email'];
+
+                $config = $this->mail_smtp->smtp();
+                $this->load->library('mail_smtp', $config);
+                $this->email->initialize($config);
+                $this->email->from('info@all-inedu.com', 'ALL-in Eduspace');
+                $this->email->to($email);
+                // $this->email->to('hafidz.fanany@all-inedu.com');
+                $this->email->subject('One Last Thing!');
+                $bodyMail = $this->load->view('mail/thanks', $d, true);
+                $this->email->message($bodyMail);
+                $sent = $this->email->send() ? true : false;
+
+                //* save log
+                $this->LogMail->insert(['inserted_id' => $d['user_id'], 'category' => 7, 'sent' => $sent]);
+
+                // $this->load->view('mail/thanks', $d);
+            } 
+        }
+    }
     
 
     //* 2022 */
